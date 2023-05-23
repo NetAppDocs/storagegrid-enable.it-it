@@ -1,0 +1,1477 @@
+<!DOCTYPE html>
+<html lang="it">
+  <head class="at-element-marker">
+  <title>Come utilizzare il remap delle porte</title>
+  <meta charset="utf-8">
+  <meta http-equiv="x-ua-compatible" content="ie=edge,chrome=1">
+  <meta http-equiv="language" content="en">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta property="og:title" content="Come utilizzare il remap delle porte" />
+	<meta property="og:type" content="website" />
+	<meta property="og:url" content="https://docs.netapp.com/it-it/storagegrid-enable/product-feature-guides/port-remap.html" />
+	<meta property="og:description" content="Come utilizzare il remap delle porte." />
+  <meta property="og:image" content="https://docs.netapp.com/it-it/storagegrid-enable/images/logo-tophat-social.png" />
+  <meta property="og:image:alt" content="NetApp Logo" />
+  <meta name="format-detection" content="telephone=no">
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+  <meta http-equiv="encoding" content="utf-8">
+  <meta http-equiv="nss-type" content="Product Documentation"/>
+  <meta http-equiv="nss-subtype" content="User Guide"/><meta name="description" content="Come utilizzare il remap delle porte.">
+  <meta name="keywords" content=" port remap, port redirect, port, remap, redirect"><!-- Icons -->
+  <link rel="icon" href="/it-it/storagegrid-enable/images/favicon.ico" type="image/x-icon">
+
+  <!-- RSS Feed --><!-- CSS Definitions: NetApp CSS should be defined after generic css -->
+
+  <!-- Elastic Search -->
+  <link rel="stylesheet" href="//cdn.jsdelivr.net/searchkit/0.10.0/theme.css">
+
+  <!-- Combined CSS -->
+  <link rel="stylesheet" type="text/css" href="/it-it/storagegrid-enable/css/netappdocs.css">
+
+  
+  <link rel="stylesheet" href="/it-it/storagegrid-enable/css/landing-page.css" type="text/css">
+  <link rel="stylesheet" href="/it-it/storagegrid-enable/css/tabbed-blocks.css" type="text/css">
+  <!-- Canonical url -->
+  <link rel="canonical" href="https://docs.netapp.com/it-it/storagegrid-enable/product-feature-guides/port-remap.html" />
+  <link rel="alternate" hreflang="x-default" href="https://docs.netapp.com/us-en/storagegrid-enable/product-feature-guides/port-remap.html" />
+  <link rel="alternate" hreflang="it" href="https://docs.netapp.com/it-it/storagegrid-enable/product-feature-guides/port-remap.html" />
+  <link rel="alternate" hreflang="en" href="https://docs.netapp.com/us-en/storagegrid-enable/product-feature-guides/port-remap.html" />
+  <link rel="alternate" hreflang="ja" href="https://docs.netapp.com/ja-jp/storagegrid-enable/product-feature-guides/port-remap.html" />
+  <link rel="alternate" hreflang="ko" href="https://docs.netapp.com/ko-kr/storagegrid-enable/product-feature-guides/port-remap.html" />
+  <link rel="alternate" hreflang="zh-Hans" href="https://docs.netapp.com/zh-cn/storagegrid-enable/product-feature-guides/port-remap.html" />
+  <link rel="alternate" hreflang="zh-Hant" href="https://docs.netapp.com/zh-tw/storagegrid-enable/product-feature-guides/port-remap.html" />
+  <link rel="alternate" hreflang="de" href="https://docs.netapp.com/de-de/storagegrid-enable/product-feature-guides/port-remap.html" />
+  <link rel="alternate" hreflang="es" href="https://docs.netapp.com/es-es/storagegrid-enable/product-feature-guides/port-remap.html" />
+  <link rel="alternate" hreflang="fr" href="https://docs.netapp.com/fr-fr/storagegrid-enable/product-feature-guides/port-remap.html" />
+  <!-- Top level site integrations --><script>
+    function addAdobeLaunch(adobeId) {
+      var head = document.getElementsByTagName('head')[0];
+      var adobe = document.createElement("script");
+      adobe.type = "text/plain";
+      adobe.className = "optanon-category-C0002";
+      adobe.src = "//assets.adobedtm.com/60287eadf1ee/c284da483c83/"+adobeId+".min.js";
+      head.appendChild(adobe);
+    }
+
+    function addGoogleAnalytics(gtagId) {
+      var google = document.createElement("script");
+      google.type = "text/plain";
+      google.className = "optanon-category-C0002";
+      google.src = "https://www.googletagmanager.com/gtag/js?id="+gtagId;
+      var head = document.getElementsByTagName('head')[0];
+      head.appendChild(google);
+
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', gtagId);
+    }
+
+    function addConsent(consentId) {
+      var head = document.getElementsByTagName('head')[0];
+      var onetrustConsent = document.createElement("script");
+      onetrustConsent.type = "text/javascript";
+      onetrustConsent.src = "https://cdn.cookielaw.org/consent/"+consentId+"/OtAutoBlock.js";
+      head.appendChild(onetrustConsent);
+
+      var onetrustScript = document.createElement("script");
+      onetrustScript.type = "text/javascript";
+      onetrustScript.src = "https://cdn.cookielaw.org/scripttemplates/otSDKStub.js";
+      onetrustScript.charset = "UTF-8";
+      onetrustScript.dataset.documentLanguage = "true";
+      onetrustScript.dataset.domainScript = consentId;
+      head.appendChild(onetrustScript);
+    }addConsent("72570c5c-fe30-465f-b0e0-b77f7fb4ae34");
+    addAdobeLaunch("launch-e9ff3acac59f");
+    addGoogleAnalytics("UA-81697994-3");function OptanonWrapper() { }
+  </script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-cookie/1.4.1/jquery.cookie.min.js"></script>
+
+  <!-- Used for Product Family Page Sidebar Visibility --><!-- Used to import Promise for IE. Required for SearchKit -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/bluebird/3.3.5/bluebird.min.js"></script><script src='/it-it/storagegrid-enable/js/na-search.js'></script><script src='/it-it/storagegrid-enable/js/na-pagenav.js'></script><script src='/it-it/storagegrid-enable/js/na-utility.js'></script>
+ <!--  
+  <link rel='stylesheet' href='/it-it/storagegrid-enable/css/prism.css' type='text/css'>
+  <link rel='stylesheet' href='/it-it/storagegrid-enable/css/prism-netapp.css' type='text/css'>
+ -->
+
+  <!-- <script src='/it-it/storagegrid-enable/js/na-utility.js'></script> -->
+  <script src='/it-it/storagegrid-enable/js/clouddocs.js'></script>
+  <script src='/it-it/storagegrid-enable/js/jquery.navgoco.min.js'></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+  <!-- <script src='/it-it/storagegrid-enable/js/toc.js'></script> -->
+  <!-- <script src='/it-it/storagegrid-enable/js/customscripts.js'></script> --><script>
+      $(document).ready(function() {
+          
+          var collapseOnInit = true;
+          
+
+          var navSettings = {
+              "caretHtml": '',
+              "accordion": collapseOnInit,
+              "openClass": 'active', // open
+              "save": false, // leave false or nav highlighting doesn't work right
+              "cookie": {
+                  "name": 'navgoco',
+                  "expires": false,
+                  "path": '/'
+              },
+              "slide": {
+                  "duration": 400,
+                  "easing": 'swing'
+              }
+          };
+
+          // Initialize navgoco with default options
+          $("#mysidebar").navgoco(navSettings);
+          
+
+          $("#collapseAll").click(function(e) {
+              e.preventDefault();
+              $("#mysidebar").navgoco('toggle', false);
+          });
+
+          $("#expandAll").click(function(e) {
+              e.preventDefault();
+              $("#mysidebar").navgoco('toggle', true);
+          });
+
+          $(".sidebar-nav-container").on("scroll", function() {
+            $.cookie("sidebarScroll", $(".sidebar-nav-container").scrollTop(), {
+              path    : "/it-it/storagegrid-enable"  
+            });
+          });
+          $(function() {
+            if ($.cookie("sidebarScroll")) {
+              $(".sidebar-nav-container").scrollTop($.cookie("sidebarScroll"));
+            }
+          });
+
+      });
+
+  </script>
+  <script>
+      $(document).ready(function() {
+          $("#tg-sb-link").click(function() {
+              $("#tg-sb-sidebar").toggle();
+              $("#tg-sb-content").toggleClass('col-md-9');
+              $("#tg-sb-content").toggleClass('col-md-12');
+              $("#tg-sb-icon").toggleClass('fa-toggle-on');
+              $("#tg-sb-icon").toggleClass('fa-toggle-off');
+          });
+      });
+  </script>
+  <script src='/it-it/storagegrid-enable/js/custom-dropdown.js'></script>
+  <script src='/it-it/storagegrid-enable/js/FileSaver.min.js'></script>
+  <script src='/it-it/storagegrid-enable/js/jszip-utils.min.js'></script>
+  <script src='/it-it/storagegrid-enable/js/jszip.min.js'></script>
+  <!-- <script src='/it-it/storagegrid-enable/js/pdf-ux.js'></script> -->
+</head>
+
+
+  <body class role="document" data-flavor="">
+    <div id="page" class="n-off-canvas-menu">
+      <div class="n-off-canvas-menu__menu"><!--TODO: Add offcanvas code --></div>
+      <div class="n-off-canvas-menu__content-wrap">
+        <header class="site-header" id="banner">
+  
+  <!-- Start Page Toolbar -->
+  
+  <div class="page-nav-toolbar"><div class="page-nav-contribute"><a target="_blank" href="https://github.com/NetAppDocs/storagegrid-enable.it-it/issues/new?template=new-from-page.yml&page-url=https://docs.netapp.com/it-it/storagegrid-enable/product-feature-guides/port-remap.html&page-title=Come utilizzare il remap delle porte" class="page-nav-contribute-link" role="button"><img src="/it-it/storagegrid-enable/images/discuss-sm.svg" alt="" class="github-icon" />Richiedi modifiche alla documentazione</a><a target="_blank" href="https://github.com/NetAppDocs/storagegrid-enable/blob/main/product-feature-guides/port-remap.adoc" class="page-nav-contribute-link" role="button"><img src="/it-it/storagegrid-enable/images/edit-sm.svg" alt="" class="github-icon" />Modifica questa pagina</a><a target="_blank" href="https://docs.netapp.com/us-en/contribute/" class="page-nav-contribute-link"  ><img src="/it-it/storagegrid-enable/images/article-sm.svg" alt="" class="github-icon" />Scopri come collaborare</a></div>
+    <div class="page-nav-container">
+      <nav class="page-nav-fixed">
+        <div class="page-nav-title">IN QUESTA PAGINA</div>
+        <div class="page-nav-links">
+          <ul class="page-nav-inner" id="page-menu"></ul>
+        </div>
+      </nav>
+    </div>
+  </div>
+  
+  
+  <!-- Start top_hat -->
+  <div class="n-top-hat">
+    <div class="n-container">
+      <div class="n-top-hat__cross-property-nav">
+        <ul class="n-top-hat__list">
+          <li class="n-top-hat__list-item">
+            <a href="https://www.netapp.com/products-a-z/" class="n-top-hat__link">Prodotto e soluzioni</a>
+          </li>
+          <li class="n-top-hat__list-item">
+            <a href="https://www.netapp.com/support-and-training/netapp-university/" class="n-top-hat__link">Supporto e training</a>
+          </li>
+          <li class="n-top-hat__list-item">
+            <a href="https://cloud.netapp.com" class="n-top-hat__link">Cloud Central</a>
+          </li>
+          <li class="n-top-hat__list-item">
+            <a href="https://community.netapp.com/" class="n-top-hat__link">Community</a>
+          </li>
+          <li class="n-top-hat__list-item">
+            <a href="https://blog.netapp.com/" class="n-top-hat__link">Blog</a>
+          </li>
+          <li class="n-top-hat__list-item">
+            <a href="https://customers.netapp.com/en/" class="n-top-hat__link">Testimonianze dei clienti</a>
+          </li>
+        </ul>
+      </div>
+      <div class="n-top-hat__utils">
+        <ul class="n-top-hat__list">
+          <li class="n-top-hat__list-item">
+            <a href="https://www.netapp.com/company/contact-us/" target="_self" class="n-top-hat__link" data-ntap-ui="contact-us">Contatto</a>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </div>
+  <!-- End top_hat -->
+
+  <!-- Start property bar -->
+  <style>
+    .n-property-navigation-bar__menus--desktop-experience .n-menu--mega__default-content__heading span {
+    color: #34B0FF;
+    }
+  </style>
+  <div class="n-property-bar " data-ntap-ui="sticky-nav">
+    <div class="n-property-bar__inner-wrap">
+      <div class="n-property-bar__menu-toggle">
+        <a href="#" class="n-property-bar__menu-toggle-link">
+          <span class="n-property-bar__menu-toggle-text">Menu</span>
+          <svg class="n-icon-bars n-property-bar__menu-toggle-icon" aria-labelledby="title">
+            <title>bars</title>
+            <use xlink:href="/it-it/storagegrid-enable/images/sprite.svg#bars"></use>
+          </svg>
+        </a>
+      </div>
+      <div class="n-property-bar__property-mark ">
+        <a href="https://www.netapp.com" class="n-property-bar__property-link">
+          <div class="n-property-bar__logo">
+            <svg class="n-icon-netapp-mark n-icon-netapp-mark n-property-bar__netapp-mark-icon" aria-labelledby="title">
+              <title>netapp-mark</title>
+              <use xlink:href="/it-it/storagegrid-enable/images/sprite.svg#netapp-mark"></use>
+            </svg>
+            <svg class="n-icon-netapp-logo n-property-bar__logo-svg" aria-labelledby="title">
+              <title>netapp-logo</title>
+              <use xlink:href="/it-it/storagegrid-enable/images/sprite.svg#netapp-logo"></use>
+            </svg>
+          </div>
+        </a>
+      </div>
+
+      
+      
+      
+      <div class="search-property-bar">
+        <div id="search-demo-container" class="searchbox n-property-bar__search">
+          <div id="react-search" 
+          data-search-html="/it-it/storagegrid-enable/search.html"
+          data-type="widget" 
+          data-placeholder="Esplora la documentazione"
+          data-no-results-found="Nessun risultato per {query}"
+          data-did-you-mean="Cerca {suggestion}."
+          data-no-results-found-did-you-mean="Nessun risultato per {query}. Intendi {suggestion}?"
+          data-results-found="{hitCount} risultati trovati"
+          data-error-message="Si è verificato un problema durante il recupero dei risultati. Riprova."
+          data-error-reset="Reimposta ricerca"
+          data-sk-es-pf-indexes=""
+          data-flavor=""></div>
+          <button class="n-property-bar__search-toggle-button" type="button">
+            <svg class="n-icon-search n-property-bar__search-toggle-button-icon" aria-labelledby="title">
+              <title>search</title>
+              <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="/it-it/storagegrid-enable/images/sprite.svg#search"></use>
+            </svg>
+          </button>
+        </div>
+      </div>
+      
+    </div>
+  </div>
+  <div class="n-property-bar__toolbar">
+    <!-- Start Language Selector --><div id="language-dropdown" class="custom-dropdown custom-dropdown-lang">
+      <div class="custom-dropdown-select custom-dropdown-select-lang">
+      <span class="lang-name">Italiano</span>
+          <svg class="n-globe__icon" aria-labelledby="title">
+            <title>globe</title>
+            <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="/it-it/storagegrid-enable/images/sprite.svg#globe"></use>
+          </svg>
+        </button>
+      </div>
+
+      <ul class="custom-dropdown-menu"><li>
+          <a href="https://docs.netapp.com/it-it/storagegrid-enable/product-feature-guides/port-remap.html" target="_self"><span translate="no" class="notranslate">Italiano</span></a>
+        </li><li>
+          <a href="https://docs.netapp.com/us-en/storagegrid-enable/product-feature-guides/port-remap.html" target="_self"><span translate="no" class="notranslate">English</span></a>
+        </li><li>
+          <a href="https://docs.netapp.com/ja-jp/storagegrid-enable/product-feature-guides/port-remap.html" target="_self"><span translate="no" class="notranslate">日本語</span></a>
+        </li><li>
+          <a href="https://docs.netapp.com/ko-kr/storagegrid-enable/product-feature-guides/port-remap.html" target="_self"><span translate="no" class="notranslate">한국어</span></a>
+        </li><li>
+          <a href="https://docs.netapp.com/zh-cn/storagegrid-enable/product-feature-guides/port-remap.html" target="_self"><span translate="no" class="notranslate">简体中文</span></a>
+        </li><li>
+          <a href="https://docs.netapp.com/zh-tw/storagegrid-enable/product-feature-guides/port-remap.html" target="_self"><span translate="no" class="notranslate">繁體中文</span></a>
+        </li><li>
+          <a href="https://docs.netapp.com/de-de/storagegrid-enable/product-feature-guides/port-remap.html" target="_self"><span translate="no" class="notranslate">Deutsch</span></a>
+        </li><li>
+          <a href="https://docs.netapp.com/es-es/storagegrid-enable/product-feature-guides/port-remap.html" target="_self"><span translate="no" class="notranslate">Español</span></a>
+        </li><li>
+          <a href="https://docs.netapp.com/fr-fr/storagegrid-enable/product-feature-guides/port-remap.html" target="_self"><span translate="no" class="notranslate">Français</span></a>
+        </li></ul>
+    </div>
+    <!-- End Language Selector -->
+
+    <div class="n-property-bar__cta"></div>
+  </div>
+  <!-- End property bar -->
+</header>
+
+
+        <main id="n-main-content" class="n-main-content">
+          <!-- Start Documentation Content -->
+<div class="ie-main">
+  <!-- Sidebar Column -->
+  
+  <div class="col-md-3" id="sidebar-height">
+      <button id="btn-sidebar-collapse" onclick="hideSidebar()"><img src="/it-it/storagegrid-enable/images/collapse.png" alt="Comprimi pannello di navigazione"></button>
+      <div class="sidebar-nav-container" id="mysidebardiv">
+  <ul id="mysidebar" class="nav"><li 
+      data-pdf-exists="true" 
+      data-pdf-filename="Come attivare StorageGRID"
+      data-li-level="1#" 
+      class=" "
+    ><a class="na-navbar-padding" href="/it-it/storagegrid-enable/index.html">
+        Come attivare StorageGRID
+      </a></li><li 
+      data-pdf-exists="true" 
+      data-pdf-filename="Soluzioni di terze parti validate"
+      data-li-level="1" 
+      class="subfolders "
+    ><a href="#">
+        <div class="na-navbar-padding"> Soluzioni di terze parti validate</div>
+      </a>
+      <ul style="display: none;">
+        <li 
+      data-pdf-exists="true" 
+      data-pdf-filename="Soluzioni validate di terze parti - Panoramica"
+      data-li-level="2#" 
+      class=" "
+    ><a class="na-navbar-padding" href="/it-it/storagegrid-enable/third-party/index.html">
+        Panoramica
+      </a></li><li 
+      data-pdf-exists="true" 
+      data-pdf-filename="StorageGRID 11.7"
+      data-li-level="2#" 
+      class=" "
+    ><a class="na-navbar-padding" href="/it-it/storagegrid-enable/third-party/117-3rd-party-list.html">
+        StorageGRID 11.7
+      </a></li><li 
+      data-pdf-exists="true" 
+      data-pdf-filename="StorageGRID 11.6"
+      data-li-level="2#" 
+      class=" "
+    ><a class="na-navbar-padding" href="/it-it/storagegrid-enable/third-party/116-3rd-party-list.html">
+        StorageGRID 11.6
+      </a></li><li 
+      data-pdf-exists="true" 
+      data-pdf-filename="StorageGRID 11.5"
+      data-li-level="2#" 
+      class=" "
+    ><a class="na-navbar-padding" href="/it-it/storagegrid-enable/third-party/115-3rd-party-list.html">
+        StorageGRID 11.5
+      </a></li><li 
+      data-pdf-exists="true" 
+      data-pdf-filename="StorageGRID 11.4"
+      data-li-level="2#" 
+      class=" "
+    ><a class="na-navbar-padding" href="/it-it/storagegrid-enable/third-party/114-3rd-party-list.html">
+        StorageGRID 11.4
+      </a></li><li 
+      data-pdf-exists="true" 
+      data-pdf-filename="StorageGRID 11.3"
+      data-li-level="2#" 
+      class=" "
+    ><a class="na-navbar-padding" href="/it-it/storagegrid-enable/third-party/113-3rd-party-list.html">
+        StorageGRID 11.3
+      </a></li><li 
+      data-pdf-exists="true" 
+      data-pdf-filename="StorageGRID 11.2"
+      data-li-level="2#" 
+      class=" "
+    ><a class="na-navbar-padding" href="/it-it/storagegrid-enable/third-party/112-3rd-party-list.html">
+        StorageGRID 11.2
+      </a></li></ul></li><li 
+      data-pdf-exists="true" 
+      data-pdf-filename="Guide alle funzionalità del prodotto"
+      data-li-level="1" 
+      class="subfolders "
+    ><a href="#">
+        <div class="na-navbar-padding"> Guide alle funzionalità del prodotto</div>
+      </a>
+      <ul style="display: none;">
+        <li 
+      data-pdf-exists="true" 
+      data-pdf-filename="Creazione di un pool di storage cloud per AWS o Google Cloud"
+      data-li-level="2#" 
+      class=" "
+    ><a class="na-navbar-padding" href="/it-it/storagegrid-enable/product-feature-guides/create-cloud-storage-pool-aws-google-cloud.html">
+        Creazione di un pool di storage cloud per AWS o Google Cloud
+      </a></li><li 
+      data-pdf-exists="true" 
+      data-pdf-filename="Creazione di un pool di storage cloud per lo storage Azure Blob"
+      data-li-level="2#" 
+      class=" "
+    ><a class="na-navbar-padding" href="/it-it/storagegrid-enable/product-feature-guides/create-cloud-storage-pool-azure-blob-storage.html">
+        Creazione di un pool di storage cloud per lo storage Azure Blob
+      </a></li><li 
+      data-pdf-exists="true" 
+      data-pdf-filename="Utilizza un pool di storage cloud per il backup"
+      data-li-level="2#" 
+      class=" "
+    ><a class="na-navbar-padding" href="/it-it/storagegrid-enable/product-feature-guides/use-a-cloud-storage-pool-for-backup.html">
+        Utilizza un pool di storage cloud per il backup
+      </a></li><li 
+      data-pdf-exists="true" 
+      data-pdf-filename="Configurare il servizio di integrazione della ricerca"
+      data-li-level="2#" 
+      class=" "
+    ><a class="na-navbar-padding" href="/it-it/storagegrid-enable/product-feature-guides/storagegrid-search-integration-service.html">
+        Configurare il servizio di integrazione della ricerca
+      </a></li><li 
+      data-pdf-exists="true" 
+      data-pdf-filename="Considerazioni e performance sui cloni dei nodi"
+      data-li-level="2#" 
+      class=" "
+    ><a class="na-navbar-padding" href="/it-it/storagegrid-enable/product-feature-guides/node-clone.html">
+        Considerazioni e performance sui cloni dei nodi
+      </a></li><li 
+      data-pdf-exists="true" 
+      data-pdf-filename="Come utilizzare il remap delle porte"
+      data-li-level="2#" 
+      class="  active "
+    ><a class="na-navbar-padding" href="/it-it/storagegrid-enable/product-feature-guides/port-remap.html">
+        Come utilizzare il remap delle porte
+      </a></li></ul></li><li 
+      data-pdf-exists="true" 
+      data-pdf-filename="Guide agli strumenti e alle applicazioni"
+      data-li-level="1" 
+      class="subfolders "
+    ><a href="#">
+        <div class="na-navbar-padding"> Guide agli strumenti e alle applicazioni</div>
+      </a>
+      <ul style="display: none;">
+        <li 
+      data-pdf-exists="true" 
+      data-pdf-filename="Utilizzare il connettore S3A di Cloudera Hadoop"
+      data-li-level="2#" 
+      class=" "
+    ><a class="na-navbar-padding" href="/it-it/storagegrid-enable/tools-apps-guides/use-cloudera-hadoop-s3a-connector.html">
+        Utilizzare il connettore S3A di Cloudera Hadoop
+      </a></li><li 
+      data-pdf-exists="true" 
+      data-pdf-filename="Utilizzare S3cmd per testare e dimostrare l'accesso S3"
+      data-li-level="2#" 
+      class=" "
+    ><a class="na-navbar-padding" href="/it-it/storagegrid-enable/tools-apps-guides/use-S3cmd-test-demonstrate-S3-access.html">
+        Utilizzare S3cmd per testare e dimostrare l'accesso S3
+      </a></li><li 
+      data-pdf-exists="true" 
+      data-pdf-filename="Creare un database Vertica Eon Mode con storage comune"
+      data-li-level="2#" 
+      class=" "
+    ><a class="na-navbar-padding" href="/it-it/storagegrid-enable/tools-apps-guides/vertica-eon-mode-database-using-netapp-storageGRID.html">
+        Creare un database Vertica Eon Mode con storage comune
+      </a></li><li 
+      data-pdf-exists="true" 
+      data-pdf-filename="Utilizza Elasticsearch, Logstash e Kibana per l'analisi dei log"
+      data-li-level="2#" 
+      class=" "
+    ><a class="na-navbar-padding" href="/it-it/storagegrid-enable/tools-apps-guides/elk-instructions.html">
+        Utilizza Elasticsearch, Logstash e Kibana per l'analisi dei log
+      </a></li><li 
+      data-pdf-exists="true" 
+      data-pdf-filename="Utilizza Prometheus e Grafana per estendere la conservazione delle metriche"
+      data-li-level="2#" 
+      class=" "
+    ><a class="na-navbar-padding" href="/it-it/storagegrid-enable/tools-apps-guides/federate-prometheus.html">
+        Utilizza Prometheus e Grafana per estendere la conservazione delle metriche
+      </a></li><li 
+      data-pdf-exists="true" 
+      data-pdf-filename="Configurare Datadog per raccogliere le metriche e i trap snmp di StorageGRID"
+      data-li-level="2#" 
+      class=" "
+    ><a class="na-navbar-padding" href="/it-it/storagegrid-enable/tools-apps-guides/use-datadog-snmp.html">
+        Configurare Datadog per raccogliere le metriche e i trap snmp di StorageGRID
+      </a></li><li 
+      data-pdf-exists="true" 
+      data-pdf-filename="Utilizzare rclone per migrare, INSERIRE ed ELIMINARE oggetti su StorageGRID"
+      data-li-level="2#" 
+      class=" "
+    ><a class="na-navbar-padding" href="/it-it/storagegrid-enable/tools-apps-guides/use-rclone-migrate-delete.html">
+        Utilizzare rclone per migrare, INSERIRE ed ELIMINARE oggetti su StorageGRID
+      </a></li></ul></li><li 
+      data-pdf-exists="true" 
+      data-pdf-filename="Procedure ed esempi di API"
+      data-li-level="1" 
+      class="subfolders "
+    ><a href="#">
+        <div class="na-navbar-padding"> Procedure ed esempi di API</div>
+      </a>
+      <ul style="display: none;">
+        <li 
+      data-pdf-exists="true" 
+      data-pdf-filename="Testare e dimostrare la crittografia S3"
+      data-li-level="2#" 
+      class=" "
+    ><a class="na-navbar-padding" href="/it-it/storagegrid-enable/examples/test-demonstrate-S3-encryption.html">
+        Testare e dimostrare la crittografia S3
+      </a></li><li 
+      data-pdf-exists="true" 
+      data-pdf-filename="Testare e dimostrare il blocco a oggetti S3"
+      data-li-level="2#" 
+      class=" "
+    ><a class="na-navbar-padding" href="/it-it/storagegrid-enable/examples/test-demonstrate-S3-object-lock.html">
+        Testare e dimostrare il blocco a oggetti S3
+      </a></li><li 
+      data-pdf-exists="true" 
+      data-pdf-filename="Esempi di bucket e Criteri di gruppo"
+      data-li-level="2#" 
+      class=" "
+    ><a class="na-navbar-padding" href="/it-it/storagegrid-enable/examples/bucket-policy-examples.html">
+        Esempi di bucket e Criteri di gruppo
+      </a></li></ul></li><li 
+      data-pdf-exists="true" 
+      data-pdf-filename="Post del blog"
+      data-li-level="1#" 
+      class=" "
+    ><a class="na-navbar-padding" href="/it-it/storagegrid-enable/blogs.html">
+        Post del blog
+      </a></li><li 
+      data-pdf-exists="true" 
+      data-pdf-filename="Documentazione StorageGRID"
+      data-li-level="1#" 
+      class=" "
+    ><a class="na-navbar-padding" href="/it-it/storagegrid-enable/storagegrid-documentation.html">
+        Documentazione StorageGRID
+      </a></li></ul>
+</div>
+<script>
+  window.onscroll = () => {
+    const value = -40 - (document.body.scrollHeight - (window.innerHeight + document.scrollingElement.scrollTop));
+    
+    document.getElementById("sidebar-height").style.bottom = Math.max(0,value) + "px";
+};
+</script>
+<!-- this highlights the active parent class in the navgoco sidebar. this is critical so that the parent expands when you're viewing a page. This must appear below the sidebar code above. Otherwise, if placed inside customscripts.js, the script runs before the sidebar code runs and the class never gets inserted.-->
+<script>$("li.active").parents('li').toggleClass("active");</script>
+<script>$("#mysidebar li.active").parents('ul').css("display","block");</script>
+
+
+  </div>
+  
+
+  <div class="ie-content-pane n-doc__component-detail-content n-doc__component-detail-content--show-code">
+    <!-- Begin of page container --><article class="page-content" id="main">
+      <div class="ie-utility">
+  <button id="btn-sidebar-expand" onclick="showSidebar()"><img src="/it-it/storagegrid-enable/images/expand.png" alt="Espandi pannello di navigazione"></button>
+  <div class="ie-menu">
+    <div class="n-breadcrumb">
+      <ul class="n-breadcrumb__list">
+        <li class="n-breadcrumb__list-item">
+          <a href="https://docs.netapp.com">docs.netapp.com</a>
+        </li>
+        
+
+        
+
+        <li class="n-breadcrumb__list-item">
+          <a href="/it-it/storagegrid-enable/">How&nbsp;to&nbsp;enable&nbsp;StorageGRID&nbsp;in&nbsp;your&nbsp;environment</a>
+        </li>
+
+      </ul>
+    </div>
+    <div style="clear: both"></div><!-- Main needs to have height -->
+  </div>
+</div>
+
+      <div class="ie-nmt-disclaimer">
+  <span>
+    <div class="ie-nmt-disclaimer-container">
+      <div class="ie-nmt-disclaimer-icon">
+        <svg class="luci-icon" aria-hidden="true">
+          <use xlink:href="/it-it/storagegrid-enable/images/sprite.svg#circle-info">
+        </svg>
+      </div>
+      <div class="ie-nmt-disclaimer-content">
+        <span> La versione in lingua italiana fornita proviene da una traduzione automatica. Per eventuali incoerenze, fare riferimento alla versione in lingua inglese. </span>
+      </div>
+      <div style="clear:both;"></div>
+    </div>
+  </span>
+</div><div class="n-doc__component-detail-heading-wrap">
+  <h1 class="n-doc__component-detail-heading">Come utilizzare il remap delle porte</h1>
+</div>
+
+
+<p class="page-details">
+  
+    
+    <time datetime="2023-05-23 21:41:43 +0000">05/23/2023</time>
+    
+  
+
+<span>Collaboratori
+</span>
+
+
+</p>
+
+<div id="preamble">
+<div class="sectionbody">
+<div class="paragraph">
+<p><em>Aron Klein</em></p>
+</div>
+<div class="paragraph lead">
+<p>Potrebbe essere necessario rimappare una porta in entrata o in uscita per diversi motivi. È possibile passare dal servizio di bilanciamento del carico CLB legacy all&#8217;endpoint corrente di bilanciamento del carico del servizio nginx e mantenere la stessa porta per ridurre l&#8217;impatto sui client, utilizzare la porta 443 per il client S3 su una rete client con nodo di amministrazione o per le restrizioni del firewall.</p>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="migrare-i-client-s3-da-clb-a-nginx-con-il-remap-della-porta">Migrare i client S3 da CLB a NGINX con il remap della porta</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>Nelle release precedenti a StorageGRID 11.3, il servizio bilanciamento del carico incluso nei nodi gateway è il bilanciamento del carico di connessione (CLB). In StorageGRID 11.3, NetApp introduce il servizio NGINX come soluzione integrata ricca di funzionalità per il bilanciamento del carico del traffico HTTP. Poiché il servizio CLB rimane disponibile nella release corrente di StorageGRID, non è possibile riutilizzare la porta 8082 nella nuova configurazione dell&#8217;endpoint del bilanciamento del carico. Per risolvere questo problema, la porta in entrata 8082 viene rimappata a 10443. In questo modo, tutte le richieste HTTPS inviate alla porta 8082 del gateway vengono reindirizzate alla porta 10443, ignorando il servizio CLB e connettendosi invece al servizio NGINX. Sebbene le seguenti istruzioni siano per VMware, la funzionalità PORT_REMAP esiste per tutti i metodi di installazione ed è possibile utilizzare un processo simile per le implementazioni e le appliance bare metal.</p>
+</div>
+<div class="sect2">
+<h3 id="implementazione-di-vmware-virtual-machine-gateway-node">Implementazione di VMware Virtual Machine Gateway Node</h3>
+<div class="paragraph">
+<p>I seguenti passaggi riguardano un&#8217;implementazione StorageGRID in cui il nodo gateway o i nodi vengono implementati in VMware vSphere 7 come macchine virtuali utilizzando il formato di virtualizzazione aperta (OVF) di StorageGRID. Il processo comporta la rimozione distruttiva della macchina virtuale e la ridistribuzione della macchina virtuale con lo stesso nome e configurazione. Prima di accendere la macchina virtuale, modificare la proprietà vApp per rimappare la porta, quindi accendere la macchina virtuale e seguire il processo di ripristino del nodo.</p>
+</div>
+<div class="sect3">
+<h4 id="prerequisiti">Prerequisiti</h4>
+<div class="ulist">
+<ul>
+<li>
+<p>Si utilizza StorageGRID 11.3 o versione successiva</p>
+</li>
+<li>
+<p>È stato scaricato e si dispone dell&#8217;accesso ai file di installazione della versione di StorageGRID installata.</p>
+</li>
+<li>
+<p>Si dispone di un account vCenter con autorizzazioni per accendere/spegnere le macchine virtuali, modificare le impostazioni delle macchine virtuali e delle applicazioni, rimuovere le macchine virtuali da vCenter e implementare le macchine virtuali tramite OVF.</p>
+</li>
+<li>
+<p>È stato creato un endpoint per il bilanciamento del carico</p>
+<div class="ulist">
+<ul>
+<li>
+<p>La porta è configurata sulla porta di reindirizzamento desiderata</p>
+</li>
+<li>
+<p>Il certificato SSL dell&#8217;endpoint è uguale a quello installato per il servizio CLB nel certificato server di configurazione/certificati server/servizio API di archiviazione oggetti o il client è in grado di accettare una modifica del certificato.</p>
+</li>
+</ul>
+</div>
+</li>
+</ul>
+</div>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<img src="/us-en/storagegrid-enable/images/note.svg" alt="Nota">
+</td>
+<td class="content">
+<div class="literalblock">
+<div class="content">
+<pre>If your existing certificate is self-signed, you cannot reuse it in the new endpoint. You must generate a new self-signed certificate when creating the endpoint and configure the clients to accept the new certificate.</pre>
+</div>
+</div>
+</td>
+</tr>
+</table>
+</div>
+</div>
+<div class="sect3">
+<h4 id="distruggere-il-primo-nodo-gateway">Distruggere il primo nodo gateway</h4>
+<div class="paragraph">
+<p>Per distruggere il primo nodo gateway, attenersi alla seguente procedura:</p>
+</div>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>Scegliere il nodo gateway con cui iniziare se la griglia contiene più di uno.</p>
+</li>
+<li>
+<p>Rimuovere gli IP dei nodi da tutte le entità round robin DNS o dai pool di bilanciamento del carico, se applicabile.</p>
+</li>
+<li>
+<p>Attendere la scadenza del TTL (Time-to-Live) e delle sessioni aperte.</p>
+</li>
+<li>
+<p>Spegnere il nodo VM.</p>
+</li>
+<li>
+<p>Rimuovere il nodo VM dal disco.</p>
+</li>
+</ol>
+</div>
+</div>
+<div class="sect3">
+<h4 id="implementare-il-nodo-gateway-sostitutivo">Implementare il nodo gateway sostitutivo</h4>
+<div class="paragraph">
+<p>Per implementare il nodo gateway sostitutivo, attenersi alla seguente procedura:</p>
+</div>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>Implementare la nuova macchina virtuale da OVF, selezionando i file .ovf, .mf e .vmdk dal pacchetto di installazione scaricato dal sito di supporto:</p>
+<div class="ulist">
+<ul>
+<li>
+<p>vsphere-gateway.mf</p>
+</li>
+<li>
+<p>vsphere-gateway.ovf</p>
+</li>
+<li>
+<p>NetApp-SG-11.4.0-20200721.1338.d3969b3.vmdk</p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p>Una volta implementata la macchina virtuale, selezionarla dall&#8217;elenco delle macchine virtuali e selezionare la scheda Configura opzioni vApp.</p>
+<div class="paragraph">
+<p><span class="image"><img src="port-remap/vapp_options.png" alt="Scheda delle opzioni di vApp"></span></p>
+</div>
+</li>
+<li>
+<p>Scorrere fino alla sezione Proprietà e selezionare LA proprietà PORT_REMAP_INBOUND</p>
+<div class="paragraph">
+<p><span class="image"><img src="port-remap/remap_inbound.png" alt="rimappare la porta in entrata"></span></p>
+</div>
+</li>
+<li>
+<p>Scorrere fino all&#8217;inizio dell&#8217;elenco Proprietà e fare clic su Modifica</p>
+<div class="paragraph">
+<p><span class="image"><img src="port-remap/edit_button.png" alt="pulsante edit (modifica)"></span></p>
+</div>
+</li>
+<li>
+<p>Selezionare la scheda tipo, verificare che la casella di controllo configurabile dall&#8217;utente sia selezionata, quindi fare clic su Salva.</p>
+<div class="paragraph">
+<p><span class="image"><img src="port-remap/type_tab.png" alt="scheda tipo"></span></p>
+</div>
+</li>
+<li>
+<p>Nella parte superiore dell&#8217;elenco Proprietà, con la proprietà "PORT_REMAP_INBOUND" ancora selezionata, fare clic su Imposta valore.</p>
+<div class="paragraph">
+<p><span class="image"><img src="port-remap/edit_button.png" alt="pulsante set value (imposta valore)"></span></p>
+</div>
+</li>
+<li>
+<p>Nel campo Property Value (valore proprietà), inserire la rete (griglia, amministratore o client), il TCP, la porta originale (8082) e la nuova porta (10443) con "/" tra ciascun valore, come illustrato di seguito.</p>
+<div class="paragraph">
+<p><span class="image"><img src="port-remap/value.png" alt="valore della proprietà"></span></p>
+</div>
+</li>
+<li>
+<p>Se si utilizzano più reti, utilizzare una virgola (,) per separare le stringhe di rete, ad esempio Grid/tcp/8082/10443,admin/tcp/8082/10443,client/tcp/8082/10443</p>
+</li>
+</ol>
+</div>
+</div>
+<div class="sect3">
+<h4 id="ripristinare-il-nodo-gateway">Ripristinare il nodo gateway</h4>
+<div class="paragraph">
+<p>Per ripristinare il nodo gateway, attenersi alla seguente procedura:</p>
+</div>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>Accedere alla sezione manutenzione/Ripristino dell&#8217;interfaccia utente di Grid Management.</p>
+<div class="paragraph">
+<p><span class="image"><img src="port-remap/maint_menu.png" alt="menu di manutenzione"></span></p>
+</div>
+</li>
+<li>
+<p>Accendere il nodo VM e attendere che venga visualizzato nella sezione Maintenance/Recovery Pending Nodes dell&#8217;interfaccia utente Grid Management.</p>
+<div class="paragraph">
+<p><span class="image"><img src="port-remap/recover_pend.png" alt="ripristino in sospeso"></span></p>
+</div>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<img src="/us-en/storagegrid-enable/images/note.svg" alt="Nota">
+</td>
+<td class="content">
+<div class="literalblock">
+<div class="content">
+<pre>For information and directions for node recovery, see the https://docs.netapp.com/sgws-114/topic/com.netapp.doc.sg-maint/GUID-7E22B1B9-4169-4800-8727-75F25FC0FFB1.html[Recovery and Maintenance guide]</pre>
+</div>
+</div>
+</td>
+</tr>
+</table>
+</div>
+</li>
+<li>
+<p>Una volta ripristinato il nodo, l&#8217;IP può essere incluso in tutte le entità round robin DNS o nei pool di bilanciamento del carico, se applicabile.</p>
+<div class="paragraph">
+<p>A questo punto, tutte le sessioni HTTPS sulla porta 8082 vanno alla porta 10443</p>
+</div>
+</li>
+</ol>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="rimappare-la-porta-443-per-laccesso-al-client-s3-su-un-nodo-admin">Rimappare la porta 443 per l&#8217;accesso al client S3 su un nodo Admin</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>La configurazione predefinita nel sistema StorageGRID per un nodo admin o un gruppo ha contenente un nodo Admin prevede che le porte 443 e 80 siano riservate alle interfacce utente di gestione e di gestione del tenant e non possano essere utilizzate per gli endpoint di bilanciamento del carico. La soluzione consiste nell&#8217;utilizzare la funzione di remap delle porte e reindirizzare la porta in entrata 443 a una nuova porta che verrà configurata come endpoint del bilanciamento del carico. Una volta completato il traffico del client S3, sarà possibile utilizzare la porta 443, l&#8217;interfaccia utente di gestione della griglia sarà accessibile solo tramite la porta 8443 e l&#8217;interfaccia utente di gestione del tenant sarà accessibile solo sulla porta 9443. La funzione di remap port può essere configurata solo al momento dell&#8217;installazione del nodo. Per implementare un remap di porta di un nodo attivo nella griglia, è necessario ripristinarlo allo stato preinstallato. Si tratta di una procedura distruttiva che include un ripristino del nodo una volta apportata la modifica alla configurazione.</p>
+</div>
+<div class="sect2">
+<h3 id="log-e-database-di-backup">Log e database di backup</h3>
+<div class="paragraph">
+<p>I nodi di amministrazione contengono registri di audit, metriche prometheus e informazioni storiche su attributi, allarmi e avvisi. Avere più nodi di amministrazione significa avere più copie di questi dati. Se non si dispone di più nodi di amministrazione nella griglia, assicurarsi di conservare questi dati per il ripristino dopo che il nodo è stato ripristinato al termine di questo processo. Se si dispone di un altro nodo admin nella griglia, è possibile copiare i dati da tale nodo durante il processo di ripristino. Se non si dispone di un altro nodo admin nella griglia, è possibile seguire queste istruzioni per copiare i dati prima di distruggere il nodo.</p>
+</div>
+<div class="sect3">
+<h4 id="copia-dei-registri-di-audit">Copia dei registri di audit</h4>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>Accedere al nodo di amministrazione:</p>
+<div class="olist loweralpha">
+<ol class="loweralpha" type="a">
+<li>
+<p>Immettere il seguente comando: <code>ssh admin@<em>grid_node_IP</em></code></p>
+</li>
+<li>
+<p>Immettere la password elencata in <code>Passwords.txt</code> file.</p>
+</li>
+<li>
+<p>Immettere il seguente comando per passare a root: <code>su -</code></p>
+</li>
+<li>
+<p>Immettere la password elencata in <code>Passwords.txt</code> file.</p>
+</li>
+<li>
+<p>Aggiungere la chiave privata SSH all&#8217;agente SSH. Inserire: <code>ssh-add</code></p>
+</li>
+<li>
+<p>Inserire la password di accesso SSH elencata in <code>Passwords.txt</code> file.</p>
+<div class="literalblock">
+<div class="content">
+<pre>When you are logged in as root, the prompt changes from `$` to `#`.</pre>
+</div>
+</div>
+</li>
+</ol>
+</div>
+</li>
+<li>
+<p>Creare la directory per copiare tutti i file di log di audit in una posizione temporanea su un nodo griglia separato. Utilizzare <em>storage_node_01</em>:</p>
+<div class="olist loweralpha">
+<ol class="loweralpha" type="a">
+<li>
+<p><code>ssh admin@<em>storage_node_01_IP</em></code></p>
+</li>
+<li>
+<p><code>mkdir -p /var/local/tmp/saved-audit-logs</code></p>
+</li>
+</ol>
+</div>
+</li>
+<li>
+<p>Tornare al nodo admin, arrestare il servizio AMS per impedire la creazione di un nuovo file di log: <code>service ams stop</code></p>
+</li>
+<li>
+<p>Rinominare il file audit.log in modo che non sovrascriva il file esistente quando lo si copia nel nodo di amministrazione recuperato.</p>
+<div class="olist loweralpha">
+<ol class="loweralpha" type="a">
+<li>
+<p>Rinominare il file audit.log con un nome di file univoco numerato, ad esempio yyyy-mm-dd.txt.1. Ad esempio, è possibile rinominare il file di log di audit in 2015-10-25.txt.1</p>
+<div class="listingblock">
+<div class="content">
+<pre class="highlight"><code class="language-console" data-lang="console">cd /var/local/audit/export
+ls -l
+mv audit.log 2015-10-25.txt.1</code></pre>
+</div>
+</div>
+</li>
+</ol>
+</div>
+</li>
+<li>
+<p>Riavviare il servizio AMS: <code>service ams start</code></p>
+</li>
+<li>
+<p>Copia tutti i file di log di audit: <code>scp * admin@<em>storage_node_01_IP</em>:/var/local/tmp/saved-audit-logs</code></p>
+</li>
+</ol>
+</div>
+</div>
+<div class="sect3">
+<h4 id="copia-dei-dati-prometheus">Copia dei dati Prometheus</h4>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<img src="/us-en/storagegrid-enable/images/note.svg" alt="Nota">
+</td>
+<td class="content">
+La copia del database Prometheus potrebbe richiedere un&#8217;ora o più. Alcune funzionalità di Grid Manager non saranno disponibili mentre i servizi vengono arrestati sul nodo di amministrazione.
+</td>
+</tr>
+</table>
+</div>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>Creare la directory per copiare i dati prometheus in una posizione temporanea su un nodo griglia separato, ancora una volta utilizzeremo <em>storage_node_01</em>:</p>
+<div class="olist loweralpha">
+<ol class="loweralpha" type="a">
+<li>
+<p>Accedere al nodo di storage:</p>
+<div class="olist lowerroman">
+<ol class="lowerroman" type="i">
+<li>
+<p>Immettere il seguente comando: <code>ssh admin@<em>storage_node_01_IP</em></code></p>
+</li>
+<li>
+<p>Immettere la password elencata in <code>Passwords.txt</code> file.</p>
+</li>
+<li>
+<p>mkdir -p /var/local/tmp/prometheus`</p>
+</li>
+</ol>
+</div>
+</li>
+</ol>
+</div>
+</li>
+<li>
+<p>Accedere al nodo di amministrazione:</p>
+<div class="olist loweralpha">
+<ol class="loweralpha" type="a">
+<li>
+<p>Immettere il seguente comando: <code>ssh admin@<em>admin_node_IP</em></code></p>
+</li>
+<li>
+<p>Immettere la password elencata in <code>Passwords.txt</code> file.</p>
+</li>
+<li>
+<p>Immettere il seguente comando per passare a root: <code>su -</code></p>
+</li>
+<li>
+<p>Immettere la password elencata in <code>Passwords.txt</code> file.</p>
+</li>
+<li>
+<p>Aggiungere la chiave privata SSH all&#8217;agente SSH. Inserire: <code>ssh-add</code></p>
+</li>
+<li>
+<p>Inserire la password di accesso SSH elencata in <code>Passwords.txt</code> file.</p>
+<div class="literalblock">
+<div class="content">
+<pre>When you are logged in as root, the prompt changes from `$` to `#`.</pre>
+</div>
+</div>
+</li>
+</ol>
+</div>
+</li>
+<li>
+<p>Dal nodo di amministrazione, arrestare il servizio Prometheus: <code>service prometheus stop</code></p>
+<div class="olist loweralpha">
+<ol class="loweralpha" type="a">
+<li>
+<p>Copiare il database Prometheus dal nodo di amministrazione di origine al nodo di storage percorso di backup nodo: <code>/rsync -azh --stats "/var/local/mysql_ibdata/prometheus/data" "<em>storage_node_01_IP</em>:/var/local/tmp/prometheus/"</code></p>
+</li>
+</ol>
+</div>
+</li>
+<li>
+<p>Riavviare il servizio Prometheus sul nodo di amministrazione di origine.<code>service prometheus start</code></p>
+</li>
+</ol>
+</div>
+</div>
+<div class="sect3">
+<h4 id="backup-delle-informazioni-cronologiche">Backup delle informazioni cronologiche</h4>
+<div class="paragraph">
+<p>Le informazioni storiche sono memorizzate in un database mysql. Per eseguire il dump di una copia del database, sono necessari l&#8217;utente e la password di NetApp. Se si dispone di un altro nodo admin nella griglia, questo passaggio non è necessario e il database può essere clonato da un nodo admin rimanente durante il processo di recovery.</p>
+</div>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>Accedere al nodo di amministrazione:</p>
+<div class="olist loweralpha">
+<ol class="loweralpha" type="a">
+<li>
+<p>Immettere il seguente comando: <code>ssh admin@<em>admin_node_IP</em></code></p>
+</li>
+<li>
+<p>Immettere la password elencata in <code>Passwords.txt</code> file.</p>
+</li>
+<li>
+<p>Immettere il seguente comando per passare a root: <code>su -</code></p>
+</li>
+<li>
+<p>Immettere la password elencata in <code>Passwords.txt</code> file.</p>
+</li>
+<li>
+<p>Aggiungere la chiave privata SSH all&#8217;agente SSH. Inserire: <code>ssh-add</code></p>
+</li>
+<li>
+<p>Inserire la password di accesso SSH elencata in <code>Passwords.txt</code> file.</p>
+<div class="literalblock">
+<div class="content">
+<pre>When you are logged in as root, the prompt changes from `$` to `#`.</pre>
+</div>
+</div>
+</li>
+</ol>
+</div>
+</li>
+<li>
+<p>Arrestare i servizi StorageGRID sul nodo di amministrazione e avviare ntp e mysql</p>
+<div class="olist loweralpha">
+<ol class="loweralpha" type="a">
+<li>
+<p>Arrestare tutti i servizi: <code>service servermanager stop</code></p>
+</li>
+<li>
+<p>riavviare il servizio ntp: <code>service ntp start</code>..riavviare il servizio mysql: <code>service mysql start</code></p>
+</li>
+</ol>
+</div>
+</li>
+<li>
+<p>Dump del database mi in /var/local/tmp</p>
+<div class="olist loweralpha">
+<ol class="loweralpha" type="a">
+<li>
+<p>immettere il seguente comando: <code>mysqldump –u <em>username</em> –p <em>password</em> mi &gt; /var/local/tmp/mysql-mi.sql</code></p>
+</li>
+</ol>
+</div>
+</li>
+<li>
+<p>Copiare il file dump mysql in un nodo alternativo, verrà utilizzato <em>storage_node_01:
+<code>scp /var/local/tmp/mysql-mi.sql _storage_node_01_IP</em>:/var/local/tmp/mysql-mi.sql</code></p>
+<div class="olist loweralpha">
+<ol class="loweralpha" type="a">
+<li>
+<p>Se non si richiede più l&#8217;accesso senza password ad altri server, rimuovere la chiave privata dall&#8217;agente SSH. Inserire: <code>ssh-add -D</code></p>
+</li>
+</ol>
+</div>
+</li>
+</ol>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="ricostruire-il-nodo-admin">Ricostruire il nodo Admin</h3>
+<div class="paragraph">
+<p>Ora che si dispone di una copia di backup di tutti i dati e i registri desiderati su un altro nodo admin nella griglia o memorizzati in una posizione temporanea, è il momento di ripristinare l&#8217;appliance in modo da poter configurare il rimap della porta.</p>
+</div>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>La reimpostazione di un&#8217;appliance riporta l&#8217;appliance allo stato preinstallato, dove conserva solo il nome host, gli IP e le configurazioni di rete. Tutti i dati andranno persi, motivo per cui ci siamo assicurati di avere un backup di tutte le informazioni importanti.</p>
+<div class="olist loweralpha">
+<ol class="loweralpha" type="a">
+<li>
+<p>immettere il seguente comando: <code>sgareinstall</code></p>
+<div class="listingblock">
+<div class="content">
+<pre class="highlight"><code class="language-console" data-lang="console">root@sg100-01:~ # sgareinstall
+WARNING: All StorageGRID Webscale services on this node will be shut down.
+WARNING: Data stored on this node may be lost.
+WARNING: You will have to reinstall StorageGRID Webscale to this node.
+
+After running this command and waiting a few minutes for the node to reboot,
+browse to one of the following URLs to reinstall StorageGRID Webscale on
+this node:
+
+    https://10.193.174.192:8443
+    https://10.193.204.192:8443
+    https://169.254.0.1:8443
+
+Are you sure you want to continue (y/n)? y
+Renaming SG installation flag file.
+Initiating a reboot to trigger the StorageGRID Webscale appliance installation wizard.</code></pre>
+</div>
+</div>
+</li>
+</ol>
+</div>
+</li>
+<li>
+<p>Dopo un certo periodo di tempo, l&#8217;appliance si riavvierà e sarà possibile accedere all&#8217;interfaccia utente PGE del nodo.</p>
+</li>
+<li>
+<p>Accedere alla scheda Configure Networking (Configura rete)</p>
+<div class="paragraph">
+<p><span class="image"><img src="port-remap/remap_link.png" alt="Selezionare le porte di rimapping"></span></p>
+</div>
+</li>
+<li>
+<p>Selezionare la rete, il protocollo, la direzione e le porte desiderate, quindi fare clic sul pulsante Add Rule (Aggiungi regola).</p>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<img src="/us-en/storagegrid-enable/images/note.svg" alt="Nota">
+</td>
+<td class="content">
+Il rimappamento della porta in entrata 443 sulla rete GRID interromperà l&#8217;installazione e le procedure di espansione. Si sconsiglia di rimappare la porta 443 sulla rete GRID.
+</td>
+</tr>
+</table>
+</div>
+<div class="paragraph">
+<p><span class="image"><img src="port-remap/app_remap.png" alt="aggiungere il remap delle porte alle reti"></span></p>
+</div>
+</li>
+<li>
+<p>Una volta aggiunti i rimap di porta desiderati, è possibile tornare alla scheda home e fare clic sul pulsante Start Installation (Avvia installazione).</p>
+</li>
+</ol>
+</div>
+<div class="paragraph">
+<p>A questo punto, è possibile seguire le procedure di ripristino del nodo Admin in <a href="https://docs.netapp.com/us-en/storagegrid-116/maintain/recovering-from-admin-node-failures.html">"documentazione del prodotto"</a></p>
+</div>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="ripristinare-database-e-registri">Ripristinare database e registri</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>Una volta ripristinato il nodo admin, è possibile ripristinare le metriche, i registri e le informazioni storiche. Se si dispone di un altro nodo admin nella griglia, seguire la <a href="https://docs.netapp.com/us-en/storagegrid-116/maintain/recovering-from-admin-node-failures.html">"documentazione del prodotto"</a> utilizzando gli script <em>prometheus-clone-db.sh</em> e <em>mi-clone-db.sh</em>. Se si tratta dell&#8217;unico nodo admin e si è scelto di eseguire il backup di questi dati, attenersi alla procedura riportata di seguito per ripristinare le informazioni.</p>
+</div>
+<div class="sect2">
+<h3 id="copia-dei-log-di-audit">Copia dei log di audit</h3>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>Accedere al nodo di amministrazione:</p>
+<div class="olist loweralpha">
+<ol class="loweralpha" type="a">
+<li>
+<p>Immettere il seguente comando: <code>ssh admin@<em>grid_node_IP</em></code></p>
+</li>
+<li>
+<p>Immettere la password elencata in <code>Passwords.txt</code> file.</p>
+</li>
+<li>
+<p>Immettere il seguente comando per passare a root: <code>su -</code></p>
+</li>
+<li>
+<p>Immettere la password elencata in <code>Passwords.txt</code> file.</p>
+</li>
+<li>
+<p>Aggiungere la chiave privata SSH all&#8217;agente SSH. Inserire: <code>ssh-add</code></p>
+</li>
+<li>
+<p>Inserire la password di accesso SSH elencata in <code>Passwords.txt</code> file.</p>
+<div class="literalblock">
+<div class="content">
+<pre>When you are logged in as root, the prompt changes from `$` to `#`.</pre>
+</div>
+</div>
+</li>
+</ol>
+</div>
+</li>
+<li>
+<p>Copiare i file di log di controllo conservati nel nodo di amministrazione recuperato: <code>scp admin@<em>grid_node_IP</em>:/var/local/tmp/saved-audit-logs/YYYY* .</code></p>
+</li>
+<li>
+<p>Per motivi di sicurezza, eliminare i registri di controllo dal nodo Grid guasto dopo aver verificato che siano stati copiati correttamente nel nodo Admin ripristinato.</p>
+</li>
+<li>
+<p>Aggiornare le impostazioni di utente e gruppo dei file di log di controllo sul nodo di amministrazione recuperato: <code>chown ams-user:bycast *</code></p>
+</li>
+</ol>
+</div>
+<div class="paragraph">
+<p>È inoltre necessario ripristinare qualsiasi accesso client preesistente alla condivisione di controllo. Per ulteriori informazioni, consultare le istruzioni per l&#8217;amministrazione di StorageGRID.</p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="ripristinare-le-metriche-prometheus">Ripristinare le metriche Prometheus</h3>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<img src="/us-en/storagegrid-enable/images/note.svg" alt="Nota">
+</td>
+<td class="content">
+La copia del database Prometheus potrebbe richiedere un&#8217;ora o più. Alcune funzionalità di Grid Manager non saranno disponibili mentre i servizi vengono arrestati sul nodo di amministrazione.
+</td>
+</tr>
+</table>
+</div>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>Accedere al nodo di amministrazione:</p>
+<div class="olist loweralpha">
+<ol class="loweralpha" type="a">
+<li>
+<p>Immettere il seguente comando: <code>ssh admin@<em>grid_node_IP</em></code></p>
+</li>
+<li>
+<p>Immettere la password elencata in <code>Passwords.txt</code> file.</p>
+</li>
+<li>
+<p>Immettere il seguente comando per passare a root: <code>su -</code></p>
+</li>
+<li>
+<p>Immettere la password elencata in <code>Passwords.txt</code> file.</p>
+</li>
+<li>
+<p>Aggiungere la chiave privata SSH all&#8217;agente SSH. Inserire: <code>ssh-add</code></p>
+</li>
+<li>
+<p>Inserire la password di accesso SSH elencata in <code>Passwords.txt</code> file.</p>
+<div class="literalblock">
+<div class="content">
+<pre>When you are logged in as root, the prompt changes from `$` to `#`.</pre>
+</div>
+</div>
+</li>
+</ol>
+</div>
+</li>
+<li>
+<p>Dal nodo di amministrazione, arrestare il servizio Prometheus: <code>service prometheus stop</code></p>
+<div class="olist loweralpha">
+<ol class="loweralpha" type="a">
+<li>
+<p>Copiare il database Prometheus dalla posizione di backup temporaneo al nodo admin: <code>/rsync -azh --stats "<em>backup_node</em>:/var/local/tmp/prometheus/" "/var/local/mysql_ibdata/prometheus/"</code></p>
+</li>
+<li>
+<p>verificare che i dati siano nel percorso corretto e che siano completi <code>ls /var/local/mysql_ibdata/prometheus/data/</code></p>
+</li>
+</ol>
+</div>
+</li>
+<li>
+<p>Riavviare il servizio Prometheus sul nodo di amministrazione di origine.<code>service prometheus start</code></p>
+</li>
+</ol>
+</div>
+</div>
+<div class="sect2">
+<h3 id="ripristinare-le-informazioni-cronologiche">Ripristinare le informazioni cronologiche</h3>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>Accedere al nodo di amministrazione:</p>
+<div class="olist loweralpha">
+<ol class="loweralpha" type="a">
+<li>
+<p>Immettere il seguente comando: <code>ssh admin@<em>grid_node_IP</em></code></p>
+</li>
+<li>
+<p>Immettere la password elencata in <code>Passwords.txt</code> file.</p>
+</li>
+<li>
+<p>Immettere il seguente comando per passare a root: <code>su -</code></p>
+</li>
+<li>
+<p>Immettere la password elencata in <code>Passwords.txt</code> file.</p>
+</li>
+<li>
+<p>Aggiungere la chiave privata SSH all&#8217;agente SSH. Inserire: <code>ssh-add</code></p>
+</li>
+<li>
+<p>Inserire la password di accesso SSH elencata in <code>Passwords.txt</code> file.</p>
+<div class="literalblock">
+<div class="content">
+<pre>When you are logged in as root, the prompt changes from `$` to `#`.</pre>
+</div>
+</div>
+</li>
+</ol>
+</div>
+</li>
+<li>
+<p>Copiare il file dump mysql dal nodo alternativo: <code>scp grid_node_IP_:/var/local/tmp/mysql-mi.sql /var/local/tmp/mysql-mi.sql</code></p>
+</li>
+<li>
+<p>Arrestare i servizi StorageGRID sul nodo di amministrazione e avviare ntp e mysql</p>
+<div class="olist loweralpha">
+<ol class="loweralpha" type="a">
+<li>
+<p>Arrestare tutti i servizi: <code>service servermanager stop</code></p>
+</li>
+<li>
+<p>riavviare il servizio ntp: <code>service ntp start</code>..riavviare il servizio mysql: <code>service mysql start</code></p>
+</li>
+</ol>
+</div>
+</li>
+<li>
+<p>Rilasciare il database mi e creare un nuovo database vuoto: <code>mysql -u <em>username</em> -p <em>password</em> -A mi -e "drop database mi; create database mi;"</code></p>
+</li>
+<li>
+<p>ripristinare il database mysql dal dump del database: <code>mysql -u <em>username</em> -p <em>password</em> -A mi &lt; /var/local/tmp/mysql-mi.sql</code></p>
+</li>
+<li>
+<p>Riavviare tutti gli altri servizi <code>service servermanager start</code></p>
+</li>
+</ol>
+</div>
+</div>
+</div>
+</div>
+
+    </article>
+    <!-- Page Container -->
+  </div>
+
+  <div style="clear: both"></div><!-- Main needs to have height --></div>
+
+        </main>
+
+        <footer class="n-footer">
+  <div class="n-footer__bottom">
+    <div class="n-container">
+      <div class="n-footer__bottom-left">
+        <div class="n-footer__copyright">
+          <ul class="n-footer__copyright-list">
+            <li class="n-footer__copyright-link">
+              <a href="https://www.netapp.com/company/legal/copyright/">© 2023 NetApp, Inc.</a>
+            </li>
+            <li class="n-footer__copyright-link">
+              <a href="https://www.netapp.com/company/legal/terms-of-use/">Condizioni per l'utilizzo</a>
+            </li>
+            <li class="n-footer__copyright-link">
+              <a href="https://www.netapp.com/company/legal/privacy-policy/">Direttiva sulla privacy</a>
+            </li>
+            <li class="n-footer__copyright-link">
+              <a href="https://www.netapp.com/company/legal/cookie-policy/">Direttiva sui Cookie</a>
+            </li>
+            <li class="n-footer__copyright-link">
+              <a class="ot-sdk-show-settings">Impostazioni cookie</a>
+            </li>
+          </ul>
+        </div>
+      </div>
+      <div class="n-footer__bottom-right">
+        <div class="n-footer__copyright">
+          <ul class="n-footer__copyright-list">
+            <li class="n-footer__copyright-link">
+              <a target="_self" href="javascript:netapp_mailto()">Invia feedback su questa pagina</a>
+            </li>
+          </ul>
+        </div>
+        <div class="n-footer__social-links">
+          <ul class="n-footer__social-link-list">
+            <li class="n-footer__social-link-list-item">
+              <a class="n-footer__social-link" data-ntap-social="follow-blog" href="https://blog.netapp.com"
+                target="_blank" title="blog" alt="blog">
+                <span class="n-footer__social-link-text">blog</span>
+                <svg class="n-icon-blog n-footer__social-link-icon" aria-labelledby="title">
+                  <title>blog@</title>
+                  <use xmlns:xlink="http://www.w3.org/1999/xlink"
+                    xlink:href="/it-it/storagegrid-enable/images/sprite.svg#blog"></use>
+                </svg>
+              </a>
+            </li>
+            <li class="n-footer__social-link-list-item">
+              <a class="n-footer__social-link" data-ntap-social="follow-community" href="https://community.netapp.com/"
+                target="_blank" title="community" alt="community">
+                <span class="n-footer__social-link-text">community</span>
+                <svg class="n-icon-community n-footer__social-link-icon" aria-labelledby="title">
+                  <title>community@</title>
+                  <use xmlns:xlink="http://www.w3.org/1999/xlink"
+                    xlink:href="/it-it/storagegrid-enable/images/sprite.svg#comments"></use>
+                </svg>
+              </a>
+            </li>
+            <li class="n-footer__social-link-list-item">
+              <a class="n-footer__social-link" data-ntap-social="follow-twitter" href="https://twitter.com/netapp"
+                target="_blank" title="twitter" alt="twitter">
+                <span class="n-footer__social-link-text">twitter</span>
+                <svg class="n-icon-twitter n-footer__social-link-icon" aria-labelledby="title">
+                  <title>twitter@</title>
+                  <use xmlns:xlink="http://www.w3.org/1999/xlink"
+                    xlink:href="/it-it/storagegrid-enable/images/sprite.svg#twitter"></use>
+                </svg>
+              </a>
+            </li>
+            <li class="n-footer__social-link-list-item">
+              <a class="n-footer__social-link" data-ntap-social="follow-facebook" href="https://www.facebook.com/NetApp"
+                target="_blank" title="facebook" alt="facebook">
+                <span class="n-footer__social-link-text">facebook</span>
+                <svg class="n-icon-facebook n-footer__social-link-icon" aria-labelledby="title">
+                  <title>facebook@</title>
+                  <use xmlns:xlink="http://www.w3.org/1999/xlink"
+                    xlink:href="/it-it/storagegrid-enable/images/sprite.svg#facebook"></use>
+                </svg>
+              </a>
+            </li>
+            <li class="n-footer__social-link-list-item">
+              <a class="n-footer__social-link" data-ntap-social="follow-linkedin"
+                href="https://www.linkedin.com/company/netapp" target="_blank" title="linkedin" alt="linkedin">
+                <span class="n-footer__social-link-text">linkedin</span>
+                <svg class="n-icon-linkedin n-footer__social-link-icon" aria-labelledby="title">
+                  <title>linkedin@</title>
+                  <use xmlns:xlink="http://www.w3.org/1999/xlink"
+                    xlink:href="/it-it/storagegrid-enable/images/sprite.svg#linkedin"></use>
+                </svg>
+              </a>
+            </li>
+            <li class="n-footer__social-link-list-item">
+              <a class="n-footer__social-link" data-ntap-social="follow-youtube"
+                href="https://www.youtube.com/user/NetAppTV" target="_blank" title="youtube" alt="youtube">
+                <span class="n-footer__social-link-text">youtube</span>
+                <svg class="n-icon-youtube n-footer__social-link-icon" aria-labelledby="title">
+                  <title>youtube@</title>
+                  <use xmlns:xlink="http://www.w3.org/1999/xlink"
+                    xlink:href="/it-it/storagegrid-enable/images/sprite.svg#youtube"></use>
+                </svg>
+              </a>
+            </li>
+            <li class="n-footer__social-link-list-item">
+              <a class="n-footer__social-link" data-ntap-social="follow-slideshare"
+                href="https://www.slideshare.net/NetApp" target="_blank" title="slideshare" alt="slideshare">
+                <span class="n-footer__social-link-text">slideshare</span>
+                <svg class="n-icon-slideshare n-footer__social-link-icon" aria-labelledby="title">
+                  <title>slideshare@</title>
+                  <use xmlns:xlink="http://www.w3.org/1999/xlink"
+                    xlink:href="/it-it/storagegrid-enable/images/sprite.svg#slideshare"></use>
+                </svg>
+              </a>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+</footer>
+
+      </div><!-- Elasticsearch JS -->
+      <script type="text/javascript" src='/it-it/storagegrid-enable/js/bundle.js'></script>
+
+      <!-- Syntax Highlighting -->
+      <script type="text/javascript" src='/it-it/storagegrid-enable/js/prism.js'></script>
+      <script type="text/javascript" src='/it-it/storagegrid-enable/js/prism-curl.js'></script>
+    </div>
+    <script>
+      document.body.offsetWidth=1903;
+      cookieLaw = {}
+      cookieLaw.euCountry = "US";
+      cookieLaw.invoke = function(){return false;}
+    </script>
+    <script src='/it-it/storagegrid-enable/js/tabbed-blocks.js'></script>
+    <script src='/it-it/storagegrid-enable/js/sidebar.js'></script>
+  </body></html>

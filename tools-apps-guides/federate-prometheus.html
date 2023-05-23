@@ -1,0 +1,1344 @@
+<!DOCTYPE html>
+<html lang="it">
+  <head class="at-element-marker">
+  <title>Utilizza Prometheus e Grafana per estendere la conservazione delle metriche</title>
+  <meta charset="utf-8">
+  <meta http-equiv="x-ua-compatible" content="ie=edge,chrome=1">
+  <meta http-equiv="language" content="en">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta property="og:title" content="Utilizza Prometheus e Grafana per estendere la conservazione delle metriche" />
+	<meta property="og:type" content="website" />
+	<meta property="og:url" content="https://docs.netapp.com/it-it/storagegrid-enable/tools-apps-guides/federate-prometheus.html" />
+	<meta property="og:description" content="Questo report tecnico fornisce istruzioni dettagliate per la configurazione di NetApp StorageGRID 11.6 con servizi esterni Prometheus e Grafana." />
+  <meta property="og:image" content="https://docs.netapp.com/it-it/storagegrid-enable/images/logo-tophat-social.png" />
+  <meta property="og:image:alt" content="NetApp Logo" />
+  <meta name="format-detection" content="telephone=no">
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+  <meta http-equiv="encoding" content="utf-8">
+  <meta http-equiv="nss-type" content="Product Documentation"/>
+  <meta http-equiv="nss-subtype" content="User Guide"/><meta name="description" content="Questo report tecnico fornisce istruzioni dettagliate per la configurazione di NetApp StorageGRID 11.6 con servizi esterni Prometheus e Grafana.">
+  <meta name="keywords" content=" prometheus, on-premises, grafana, metrics"><!-- Icons -->
+  <link rel="icon" href="/it-it/storagegrid-enable/images/favicon.ico" type="image/x-icon">
+
+  <!-- RSS Feed --><!-- CSS Definitions: NetApp CSS should be defined after generic css -->
+
+  <!-- Elastic Search -->
+  <link rel="stylesheet" href="//cdn.jsdelivr.net/searchkit/0.10.0/theme.css">
+
+  <!-- Combined CSS -->
+  <link rel="stylesheet" type="text/css" href="/it-it/storagegrid-enable/css/netappdocs.css">
+
+  
+  <link rel="stylesheet" href="/it-it/storagegrid-enable/css/landing-page.css" type="text/css">
+  <link rel="stylesheet" href="/it-it/storagegrid-enable/css/tabbed-blocks.css" type="text/css">
+  <!-- Canonical url -->
+  <link rel="canonical" href="https://docs.netapp.com/it-it/storagegrid-enable/tools-apps-guides/federate-prometheus.html" />
+  <link rel="alternate" hreflang="x-default" href="https://docs.netapp.com/us-en/storagegrid-enable/tools-apps-guides/federate-prometheus.html" />
+  <link rel="alternate" hreflang="it" href="https://docs.netapp.com/it-it/storagegrid-enable/tools-apps-guides/federate-prometheus.html" />
+  <link rel="alternate" hreflang="en" href="https://docs.netapp.com/us-en/storagegrid-enable/tools-apps-guides/federate-prometheus.html" />
+  <link rel="alternate" hreflang="ja" href="https://docs.netapp.com/ja-jp/storagegrid-enable/tools-apps-guides/federate-prometheus.html" />
+  <link rel="alternate" hreflang="ko" href="https://docs.netapp.com/ko-kr/storagegrid-enable/tools-apps-guides/federate-prometheus.html" />
+  <link rel="alternate" hreflang="zh-Hans" href="https://docs.netapp.com/zh-cn/storagegrid-enable/tools-apps-guides/federate-prometheus.html" />
+  <link rel="alternate" hreflang="zh-Hant" href="https://docs.netapp.com/zh-tw/storagegrid-enable/tools-apps-guides/federate-prometheus.html" />
+  <link rel="alternate" hreflang="de" href="https://docs.netapp.com/de-de/storagegrid-enable/tools-apps-guides/federate-prometheus.html" />
+  <link rel="alternate" hreflang="es" href="https://docs.netapp.com/es-es/storagegrid-enable/tools-apps-guides/federate-prometheus.html" />
+  <link rel="alternate" hreflang="fr" href="https://docs.netapp.com/fr-fr/storagegrid-enable/tools-apps-guides/federate-prometheus.html" />
+  <!-- Top level site integrations --><script>
+    function addAdobeLaunch(adobeId) {
+      var head = document.getElementsByTagName('head')[0];
+      var adobe = document.createElement("script");
+      adobe.type = "text/plain";
+      adobe.className = "optanon-category-C0002";
+      adobe.src = "//assets.adobedtm.com/60287eadf1ee/c284da483c83/"+adobeId+".min.js";
+      head.appendChild(adobe);
+    }
+
+    function addGoogleAnalytics(gtagId) {
+      var google = document.createElement("script");
+      google.type = "text/plain";
+      google.className = "optanon-category-C0002";
+      google.src = "https://www.googletagmanager.com/gtag/js?id="+gtagId;
+      var head = document.getElementsByTagName('head')[0];
+      head.appendChild(google);
+
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', gtagId);
+    }
+
+    function addConsent(consentId) {
+      var head = document.getElementsByTagName('head')[0];
+      var onetrustConsent = document.createElement("script");
+      onetrustConsent.type = "text/javascript";
+      onetrustConsent.src = "https://cdn.cookielaw.org/consent/"+consentId+"/OtAutoBlock.js";
+      head.appendChild(onetrustConsent);
+
+      var onetrustScript = document.createElement("script");
+      onetrustScript.type = "text/javascript";
+      onetrustScript.src = "https://cdn.cookielaw.org/scripttemplates/otSDKStub.js";
+      onetrustScript.charset = "UTF-8";
+      onetrustScript.dataset.documentLanguage = "true";
+      onetrustScript.dataset.domainScript = consentId;
+      head.appendChild(onetrustScript);
+    }addConsent("72570c5c-fe30-465f-b0e0-b77f7fb4ae34");
+    addAdobeLaunch("launch-e9ff3acac59f");
+    addGoogleAnalytics("UA-81697994-3");function OptanonWrapper() { }
+  </script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-cookie/1.4.1/jquery.cookie.min.js"></script>
+
+  <!-- Used for Product Family Page Sidebar Visibility --><!-- Used to import Promise for IE. Required for SearchKit -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/bluebird/3.3.5/bluebird.min.js"></script><script src='/it-it/storagegrid-enable/js/na-search.js'></script><script src='/it-it/storagegrid-enable/js/na-pagenav.js'></script><script src='/it-it/storagegrid-enable/js/na-utility.js'></script>
+ <!--  
+  <link rel='stylesheet' href='/it-it/storagegrid-enable/css/prism.css' type='text/css'>
+  <link rel='stylesheet' href='/it-it/storagegrid-enable/css/prism-netapp.css' type='text/css'>
+ -->
+
+  <!-- <script src='/it-it/storagegrid-enable/js/na-utility.js'></script> -->
+  <script src='/it-it/storagegrid-enable/js/clouddocs.js'></script>
+  <script src='/it-it/storagegrid-enable/js/jquery.navgoco.min.js'></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+  <!-- <script src='/it-it/storagegrid-enable/js/toc.js'></script> -->
+  <!-- <script src='/it-it/storagegrid-enable/js/customscripts.js'></script> --><script>
+      $(document).ready(function() {
+          
+          var collapseOnInit = true;
+          
+
+          var navSettings = {
+              "caretHtml": '',
+              "accordion": collapseOnInit,
+              "openClass": 'active', // open
+              "save": false, // leave false or nav highlighting doesn't work right
+              "cookie": {
+                  "name": 'navgoco',
+                  "expires": false,
+                  "path": '/'
+              },
+              "slide": {
+                  "duration": 400,
+                  "easing": 'swing'
+              }
+          };
+
+          // Initialize navgoco with default options
+          $("#mysidebar").navgoco(navSettings);
+          
+
+          $("#collapseAll").click(function(e) {
+              e.preventDefault();
+              $("#mysidebar").navgoco('toggle', false);
+          });
+
+          $("#expandAll").click(function(e) {
+              e.preventDefault();
+              $("#mysidebar").navgoco('toggle', true);
+          });
+
+          $(".sidebar-nav-container").on("scroll", function() {
+            $.cookie("sidebarScroll", $(".sidebar-nav-container").scrollTop(), {
+              path    : "/it-it/storagegrid-enable"  
+            });
+          });
+          $(function() {
+            if ($.cookie("sidebarScroll")) {
+              $(".sidebar-nav-container").scrollTop($.cookie("sidebarScroll"));
+            }
+          });
+
+      });
+
+  </script>
+  <script>
+      $(document).ready(function() {
+          $("#tg-sb-link").click(function() {
+              $("#tg-sb-sidebar").toggle();
+              $("#tg-sb-content").toggleClass('col-md-9');
+              $("#tg-sb-content").toggleClass('col-md-12');
+              $("#tg-sb-icon").toggleClass('fa-toggle-on');
+              $("#tg-sb-icon").toggleClass('fa-toggle-off');
+          });
+      });
+  </script>
+  <script src='/it-it/storagegrid-enable/js/custom-dropdown.js'></script>
+  <script src='/it-it/storagegrid-enable/js/FileSaver.min.js'></script>
+  <script src='/it-it/storagegrid-enable/js/jszip-utils.min.js'></script>
+  <script src='/it-it/storagegrid-enable/js/jszip.min.js'></script>
+  <!-- <script src='/it-it/storagegrid-enable/js/pdf-ux.js'></script> -->
+</head>
+
+
+  <body class role="document" data-flavor="">
+    <div id="page" class="n-off-canvas-menu">
+      <div class="n-off-canvas-menu__menu"><!--TODO: Add offcanvas code --></div>
+      <div class="n-off-canvas-menu__content-wrap">
+        <header class="site-header" id="banner">
+  
+  <!-- Start Page Toolbar -->
+  
+  <div class="page-nav-toolbar"><div class="page-nav-contribute"><a target="_blank" href="https://github.com/NetAppDocs/storagegrid-enable.it-it/issues/new?template=new-from-page.yml&page-url=https://docs.netapp.com/it-it/storagegrid-enable/tools-apps-guides/federate-prometheus.html&page-title=Utilizza Prometheus e Grafana per estendere la conservazione delle metriche" class="page-nav-contribute-link" role="button"><img src="/it-it/storagegrid-enable/images/discuss-sm.svg" alt="" class="github-icon" />Richiedi modifiche alla documentazione</a><a target="_blank" href="https://github.com/NetAppDocs/storagegrid-enable/blob/main/tools-apps-guides/federate-prometheus.adoc" class="page-nav-contribute-link" role="button"><img src="/it-it/storagegrid-enable/images/edit-sm.svg" alt="" class="github-icon" />Modifica questa pagina</a><a target="_blank" href="https://docs.netapp.com/us-en/contribute/" class="page-nav-contribute-link"  ><img src="/it-it/storagegrid-enable/images/article-sm.svg" alt="" class="github-icon" />Scopri come collaborare</a></div>
+    <div class="page-nav-container">
+      <nav class="page-nav-fixed">
+        <div class="page-nav-title">IN QUESTA PAGINA</div>
+        <div class="page-nav-links">
+          <ul class="page-nav-inner" id="page-menu"></ul>
+        </div>
+      </nav>
+    </div>
+  </div>
+  
+  
+  <!-- Start top_hat -->
+  <div class="n-top-hat">
+    <div class="n-container">
+      <div class="n-top-hat__cross-property-nav">
+        <ul class="n-top-hat__list">
+          <li class="n-top-hat__list-item">
+            <a href="https://www.netapp.com/products-a-z/" class="n-top-hat__link">Prodotto e soluzioni</a>
+          </li>
+          <li class="n-top-hat__list-item">
+            <a href="https://www.netapp.com/support-and-training/netapp-university/" class="n-top-hat__link">Supporto e training</a>
+          </li>
+          <li class="n-top-hat__list-item">
+            <a href="https://cloud.netapp.com" class="n-top-hat__link">Cloud Central</a>
+          </li>
+          <li class="n-top-hat__list-item">
+            <a href="https://community.netapp.com/" class="n-top-hat__link">Community</a>
+          </li>
+          <li class="n-top-hat__list-item">
+            <a href="https://blog.netapp.com/" class="n-top-hat__link">Blog</a>
+          </li>
+          <li class="n-top-hat__list-item">
+            <a href="https://customers.netapp.com/en/" class="n-top-hat__link">Testimonianze dei clienti</a>
+          </li>
+        </ul>
+      </div>
+      <div class="n-top-hat__utils">
+        <ul class="n-top-hat__list">
+          <li class="n-top-hat__list-item">
+            <a href="https://www.netapp.com/company/contact-us/" target="_self" class="n-top-hat__link" data-ntap-ui="contact-us">Contatto</a>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </div>
+  <!-- End top_hat -->
+
+  <!-- Start property bar -->
+  <style>
+    .n-property-navigation-bar__menus--desktop-experience .n-menu--mega__default-content__heading span {
+    color: #34B0FF;
+    }
+  </style>
+  <div class="n-property-bar " data-ntap-ui="sticky-nav">
+    <div class="n-property-bar__inner-wrap">
+      <div class="n-property-bar__menu-toggle">
+        <a href="#" class="n-property-bar__menu-toggle-link">
+          <span class="n-property-bar__menu-toggle-text">Menu</span>
+          <svg class="n-icon-bars n-property-bar__menu-toggle-icon" aria-labelledby="title">
+            <title>bars</title>
+            <use xlink:href="/it-it/storagegrid-enable/images/sprite.svg#bars"></use>
+          </svg>
+        </a>
+      </div>
+      <div class="n-property-bar__property-mark ">
+        <a href="https://www.netapp.com" class="n-property-bar__property-link">
+          <div class="n-property-bar__logo">
+            <svg class="n-icon-netapp-mark n-icon-netapp-mark n-property-bar__netapp-mark-icon" aria-labelledby="title">
+              <title>netapp-mark</title>
+              <use xlink:href="/it-it/storagegrid-enable/images/sprite.svg#netapp-mark"></use>
+            </svg>
+            <svg class="n-icon-netapp-logo n-property-bar__logo-svg" aria-labelledby="title">
+              <title>netapp-logo</title>
+              <use xlink:href="/it-it/storagegrid-enable/images/sprite.svg#netapp-logo"></use>
+            </svg>
+          </div>
+        </a>
+      </div>
+
+      
+      
+      
+      <div class="search-property-bar">
+        <div id="search-demo-container" class="searchbox n-property-bar__search">
+          <div id="react-search" 
+          data-search-html="/it-it/storagegrid-enable/search.html"
+          data-type="widget" 
+          data-placeholder="Esplora la documentazione"
+          data-no-results-found="Nessun risultato per {query}"
+          data-did-you-mean="Cerca {suggestion}."
+          data-no-results-found-did-you-mean="Nessun risultato per {query}. Intendi {suggestion}?"
+          data-results-found="{hitCount} risultati trovati"
+          data-error-message="Si è verificato un problema durante il recupero dei risultati. Riprova."
+          data-error-reset="Reimposta ricerca"
+          data-sk-es-pf-indexes=""
+          data-flavor=""></div>
+          <button class="n-property-bar__search-toggle-button" type="button">
+            <svg class="n-icon-search n-property-bar__search-toggle-button-icon" aria-labelledby="title">
+              <title>search</title>
+              <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="/it-it/storagegrid-enable/images/sprite.svg#search"></use>
+            </svg>
+          </button>
+        </div>
+      </div>
+      
+    </div>
+  </div>
+  <div class="n-property-bar__toolbar">
+    <!-- Start Language Selector --><div id="language-dropdown" class="custom-dropdown custom-dropdown-lang">
+      <div class="custom-dropdown-select custom-dropdown-select-lang">
+      <span class="lang-name">Italiano</span>
+          <svg class="n-globe__icon" aria-labelledby="title">
+            <title>globe</title>
+            <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="/it-it/storagegrid-enable/images/sprite.svg#globe"></use>
+          </svg>
+        </button>
+      </div>
+
+      <ul class="custom-dropdown-menu"><li>
+          <a href="https://docs.netapp.com/it-it/storagegrid-enable/tools-apps-guides/federate-prometheus.html" target="_self"><span translate="no" class="notranslate">Italiano</span></a>
+        </li><li>
+          <a href="https://docs.netapp.com/us-en/storagegrid-enable/tools-apps-guides/federate-prometheus.html" target="_self"><span translate="no" class="notranslate">English</span></a>
+        </li><li>
+          <a href="https://docs.netapp.com/ja-jp/storagegrid-enable/tools-apps-guides/federate-prometheus.html" target="_self"><span translate="no" class="notranslate">日本語</span></a>
+        </li><li>
+          <a href="https://docs.netapp.com/ko-kr/storagegrid-enable/tools-apps-guides/federate-prometheus.html" target="_self"><span translate="no" class="notranslate">한국어</span></a>
+        </li><li>
+          <a href="https://docs.netapp.com/zh-cn/storagegrid-enable/tools-apps-guides/federate-prometheus.html" target="_self"><span translate="no" class="notranslate">简体中文</span></a>
+        </li><li>
+          <a href="https://docs.netapp.com/zh-tw/storagegrid-enable/tools-apps-guides/federate-prometheus.html" target="_self"><span translate="no" class="notranslate">繁體中文</span></a>
+        </li><li>
+          <a href="https://docs.netapp.com/de-de/storagegrid-enable/tools-apps-guides/federate-prometheus.html" target="_self"><span translate="no" class="notranslate">Deutsch</span></a>
+        </li><li>
+          <a href="https://docs.netapp.com/es-es/storagegrid-enable/tools-apps-guides/federate-prometheus.html" target="_self"><span translate="no" class="notranslate">Español</span></a>
+        </li><li>
+          <a href="https://docs.netapp.com/fr-fr/storagegrid-enable/tools-apps-guides/federate-prometheus.html" target="_self"><span translate="no" class="notranslate">Français</span></a>
+        </li></ul>
+    </div>
+    <!-- End Language Selector -->
+
+    <div class="n-property-bar__cta"></div>
+  </div>
+  <!-- End property bar -->
+</header>
+
+
+        <main id="n-main-content" class="n-main-content">
+          <!-- Start Documentation Content -->
+<div class="ie-main">
+  <!-- Sidebar Column -->
+  
+  <div class="col-md-3" id="sidebar-height">
+      <button id="btn-sidebar-collapse" onclick="hideSidebar()"><img src="/it-it/storagegrid-enable/images/collapse.png" alt="Comprimi pannello di navigazione"></button>
+      <div class="sidebar-nav-container" id="mysidebardiv">
+  <ul id="mysidebar" class="nav"><li 
+      data-pdf-exists="true" 
+      data-pdf-filename="Come attivare StorageGRID"
+      data-li-level="1#" 
+      class=" "
+    ><a class="na-navbar-padding" href="/it-it/storagegrid-enable/index.html">
+        Come attivare StorageGRID
+      </a></li><li 
+      data-pdf-exists="true" 
+      data-pdf-filename="Soluzioni di terze parti validate"
+      data-li-level="1" 
+      class="subfolders "
+    ><a href="#">
+        <div class="na-navbar-padding"> Soluzioni di terze parti validate</div>
+      </a>
+      <ul style="display: none;">
+        <li 
+      data-pdf-exists="true" 
+      data-pdf-filename="Soluzioni validate di terze parti - Panoramica"
+      data-li-level="2#" 
+      class=" "
+    ><a class="na-navbar-padding" href="/it-it/storagegrid-enable/third-party/index.html">
+        Panoramica
+      </a></li><li 
+      data-pdf-exists="true" 
+      data-pdf-filename="StorageGRID 11.7"
+      data-li-level="2#" 
+      class=" "
+    ><a class="na-navbar-padding" href="/it-it/storagegrid-enable/third-party/117-3rd-party-list.html">
+        StorageGRID 11.7
+      </a></li><li 
+      data-pdf-exists="true" 
+      data-pdf-filename="StorageGRID 11.6"
+      data-li-level="2#" 
+      class=" "
+    ><a class="na-navbar-padding" href="/it-it/storagegrid-enable/third-party/116-3rd-party-list.html">
+        StorageGRID 11.6
+      </a></li><li 
+      data-pdf-exists="true" 
+      data-pdf-filename="StorageGRID 11.5"
+      data-li-level="2#" 
+      class=" "
+    ><a class="na-navbar-padding" href="/it-it/storagegrid-enable/third-party/115-3rd-party-list.html">
+        StorageGRID 11.5
+      </a></li><li 
+      data-pdf-exists="true" 
+      data-pdf-filename="StorageGRID 11.4"
+      data-li-level="2#" 
+      class=" "
+    ><a class="na-navbar-padding" href="/it-it/storagegrid-enable/third-party/114-3rd-party-list.html">
+        StorageGRID 11.4
+      </a></li><li 
+      data-pdf-exists="true" 
+      data-pdf-filename="StorageGRID 11.3"
+      data-li-level="2#" 
+      class=" "
+    ><a class="na-navbar-padding" href="/it-it/storagegrid-enable/third-party/113-3rd-party-list.html">
+        StorageGRID 11.3
+      </a></li><li 
+      data-pdf-exists="true" 
+      data-pdf-filename="StorageGRID 11.2"
+      data-li-level="2#" 
+      class=" "
+    ><a class="na-navbar-padding" href="/it-it/storagegrid-enable/third-party/112-3rd-party-list.html">
+        StorageGRID 11.2
+      </a></li></ul></li><li 
+      data-pdf-exists="true" 
+      data-pdf-filename="Guide alle funzionalità del prodotto"
+      data-li-level="1" 
+      class="subfolders "
+    ><a href="#">
+        <div class="na-navbar-padding"> Guide alle funzionalità del prodotto</div>
+      </a>
+      <ul style="display: none;">
+        <li 
+      data-pdf-exists="true" 
+      data-pdf-filename="Creazione di un pool di storage cloud per AWS o Google Cloud"
+      data-li-level="2#" 
+      class=" "
+    ><a class="na-navbar-padding" href="/it-it/storagegrid-enable/product-feature-guides/create-cloud-storage-pool-aws-google-cloud.html">
+        Creazione di un pool di storage cloud per AWS o Google Cloud
+      </a></li><li 
+      data-pdf-exists="true" 
+      data-pdf-filename="Creazione di un pool di storage cloud per lo storage Azure Blob"
+      data-li-level="2#" 
+      class=" "
+    ><a class="na-navbar-padding" href="/it-it/storagegrid-enable/product-feature-guides/create-cloud-storage-pool-azure-blob-storage.html">
+        Creazione di un pool di storage cloud per lo storage Azure Blob
+      </a></li><li 
+      data-pdf-exists="true" 
+      data-pdf-filename="Utilizza un pool di storage cloud per il backup"
+      data-li-level="2#" 
+      class=" "
+    ><a class="na-navbar-padding" href="/it-it/storagegrid-enable/product-feature-guides/use-a-cloud-storage-pool-for-backup.html">
+        Utilizza un pool di storage cloud per il backup
+      </a></li><li 
+      data-pdf-exists="true" 
+      data-pdf-filename="Configurare il servizio di integrazione della ricerca"
+      data-li-level="2#" 
+      class=" "
+    ><a class="na-navbar-padding" href="/it-it/storagegrid-enable/product-feature-guides/storagegrid-search-integration-service.html">
+        Configurare il servizio di integrazione della ricerca
+      </a></li><li 
+      data-pdf-exists="true" 
+      data-pdf-filename="Considerazioni e performance sui cloni dei nodi"
+      data-li-level="2#" 
+      class=" "
+    ><a class="na-navbar-padding" href="/it-it/storagegrid-enable/product-feature-guides/node-clone.html">
+        Considerazioni e performance sui cloni dei nodi
+      </a></li><li 
+      data-pdf-exists="true" 
+      data-pdf-filename="Come utilizzare il remap delle porte"
+      data-li-level="2#" 
+      class=" "
+    ><a class="na-navbar-padding" href="/it-it/storagegrid-enable/product-feature-guides/port-remap.html">
+        Come utilizzare il remap delle porte
+      </a></li></ul></li><li 
+      data-pdf-exists="true" 
+      data-pdf-filename="Guide agli strumenti e alle applicazioni"
+      data-li-level="1" 
+      class="subfolders "
+    ><a href="#">
+        <div class="na-navbar-padding"> Guide agli strumenti e alle applicazioni</div>
+      </a>
+      <ul style="display: none;">
+        <li 
+      data-pdf-exists="true" 
+      data-pdf-filename="Utilizzare il connettore S3A di Cloudera Hadoop"
+      data-li-level="2#" 
+      class=" "
+    ><a class="na-navbar-padding" href="/it-it/storagegrid-enable/tools-apps-guides/use-cloudera-hadoop-s3a-connector.html">
+        Utilizzare il connettore S3A di Cloudera Hadoop
+      </a></li><li 
+      data-pdf-exists="true" 
+      data-pdf-filename="Utilizzare S3cmd per testare e dimostrare l'accesso S3"
+      data-li-level="2#" 
+      class=" "
+    ><a class="na-navbar-padding" href="/it-it/storagegrid-enable/tools-apps-guides/use-S3cmd-test-demonstrate-S3-access.html">
+        Utilizzare S3cmd per testare e dimostrare l'accesso S3
+      </a></li><li 
+      data-pdf-exists="true" 
+      data-pdf-filename="Creare un database Vertica Eon Mode con storage comune"
+      data-li-level="2#" 
+      class=" "
+    ><a class="na-navbar-padding" href="/it-it/storagegrid-enable/tools-apps-guides/vertica-eon-mode-database-using-netapp-storageGRID.html">
+        Creare un database Vertica Eon Mode con storage comune
+      </a></li><li 
+      data-pdf-exists="true" 
+      data-pdf-filename="Utilizza Elasticsearch, Logstash e Kibana per l'analisi dei log"
+      data-li-level="2#" 
+      class=" "
+    ><a class="na-navbar-padding" href="/it-it/storagegrid-enable/tools-apps-guides/elk-instructions.html">
+        Utilizza Elasticsearch, Logstash e Kibana per l'analisi dei log
+      </a></li><li 
+      data-pdf-exists="true" 
+      data-pdf-filename="Utilizza Prometheus e Grafana per estendere la conservazione delle metriche"
+      data-li-level="2#" 
+      class="  active "
+    ><a class="na-navbar-padding" href="/it-it/storagegrid-enable/tools-apps-guides/federate-prometheus.html">
+        Utilizza Prometheus e Grafana per estendere la conservazione delle metriche
+      </a></li><li 
+      data-pdf-exists="true" 
+      data-pdf-filename="Configurare Datadog per raccogliere le metriche e i trap snmp di StorageGRID"
+      data-li-level="2#" 
+      class=" "
+    ><a class="na-navbar-padding" href="/it-it/storagegrid-enable/tools-apps-guides/use-datadog-snmp.html">
+        Configurare Datadog per raccogliere le metriche e i trap snmp di StorageGRID
+      </a></li><li 
+      data-pdf-exists="true" 
+      data-pdf-filename="Utilizzare rclone per migrare, INSERIRE ed ELIMINARE oggetti su StorageGRID"
+      data-li-level="2#" 
+      class=" "
+    ><a class="na-navbar-padding" href="/it-it/storagegrid-enable/tools-apps-guides/use-rclone-migrate-delete.html">
+        Utilizzare rclone per migrare, INSERIRE ed ELIMINARE oggetti su StorageGRID
+      </a></li></ul></li><li 
+      data-pdf-exists="true" 
+      data-pdf-filename="Procedure ed esempi di API"
+      data-li-level="1" 
+      class="subfolders "
+    ><a href="#">
+        <div class="na-navbar-padding"> Procedure ed esempi di API</div>
+      </a>
+      <ul style="display: none;">
+        <li 
+      data-pdf-exists="true" 
+      data-pdf-filename="Testare e dimostrare la crittografia S3"
+      data-li-level="2#" 
+      class=" "
+    ><a class="na-navbar-padding" href="/it-it/storagegrid-enable/examples/test-demonstrate-S3-encryption.html">
+        Testare e dimostrare la crittografia S3
+      </a></li><li 
+      data-pdf-exists="true" 
+      data-pdf-filename="Testare e dimostrare il blocco a oggetti S3"
+      data-li-level="2#" 
+      class=" "
+    ><a class="na-navbar-padding" href="/it-it/storagegrid-enable/examples/test-demonstrate-S3-object-lock.html">
+        Testare e dimostrare il blocco a oggetti S3
+      </a></li><li 
+      data-pdf-exists="true" 
+      data-pdf-filename="Esempi di bucket e Criteri di gruppo"
+      data-li-level="2#" 
+      class=" "
+    ><a class="na-navbar-padding" href="/it-it/storagegrid-enable/examples/bucket-policy-examples.html">
+        Esempi di bucket e Criteri di gruppo
+      </a></li></ul></li><li 
+      data-pdf-exists="true" 
+      data-pdf-filename="Post del blog"
+      data-li-level="1#" 
+      class=" "
+    ><a class="na-navbar-padding" href="/it-it/storagegrid-enable/blogs.html">
+        Post del blog
+      </a></li><li 
+      data-pdf-exists="true" 
+      data-pdf-filename="Documentazione StorageGRID"
+      data-li-level="1#" 
+      class=" "
+    ><a class="na-navbar-padding" href="/it-it/storagegrid-enable/storagegrid-documentation.html">
+        Documentazione StorageGRID
+      </a></li></ul>
+</div>
+<script>
+  window.onscroll = () => {
+    const value = -40 - (document.body.scrollHeight - (window.innerHeight + document.scrollingElement.scrollTop));
+    
+    document.getElementById("sidebar-height").style.bottom = Math.max(0,value) + "px";
+};
+</script>
+<!-- this highlights the active parent class in the navgoco sidebar. this is critical so that the parent expands when you're viewing a page. This must appear below the sidebar code above. Otherwise, if placed inside customscripts.js, the script runs before the sidebar code runs and the class never gets inserted.-->
+<script>$("li.active").parents('li').toggleClass("active");</script>
+<script>$("#mysidebar li.active").parents('ul').css("display","block");</script>
+
+
+  </div>
+  
+
+  <div class="ie-content-pane n-doc__component-detail-content n-doc__component-detail-content--show-code">
+    <!-- Begin of page container --><article class="page-content" id="main">
+      <div class="ie-utility">
+  <button id="btn-sidebar-expand" onclick="showSidebar()"><img src="/it-it/storagegrid-enable/images/expand.png" alt="Espandi pannello di navigazione"></button>
+  <div class="ie-menu">
+    <div class="n-breadcrumb">
+      <ul class="n-breadcrumb__list">
+        <li class="n-breadcrumb__list-item">
+          <a href="https://docs.netapp.com">docs.netapp.com</a>
+        </li>
+        
+
+        
+
+        <li class="n-breadcrumb__list-item">
+          <a href="/it-it/storagegrid-enable/">How&nbsp;to&nbsp;enable&nbsp;StorageGRID&nbsp;in&nbsp;your&nbsp;environment</a>
+        </li>
+
+      </ul>
+    </div>
+    <div style="clear: both"></div><!-- Main needs to have height -->
+  </div>
+</div>
+
+      <div class="ie-nmt-disclaimer">
+  <span>
+    <div class="ie-nmt-disclaimer-container">
+      <div class="ie-nmt-disclaimer-icon">
+        <svg class="luci-icon" aria-hidden="true">
+          <use xlink:href="/it-it/storagegrid-enable/images/sprite.svg#circle-info">
+        </svg>
+      </div>
+      <div class="ie-nmt-disclaimer-content">
+        <span> La versione in lingua italiana fornita proviene da una traduzione automatica. Per eventuali incoerenze, fare riferimento alla versione in lingua inglese. </span>
+      </div>
+      <div style="clear:both;"></div>
+    </div>
+  </span>
+</div><div class="n-doc__component-detail-heading-wrap">
+  <h1 class="n-doc__component-detail-heading">Utilizza Prometheus e Grafana per estendere la conservazione delle metriche</h1>
+</div>
+
+
+<p class="page-details">
+  
+    
+    <time datetime="2023-05-23 21:41:43 +0000">05/23/2023</time>
+    
+  
+
+<span>Collaboratori
+</span>
+
+
+</p>
+
+<div id="preamble">
+<div class="sectionbody">
+<div class="paragraph">
+<p><em>Aron Klein</em></p>
+</div>
+<div class="paragraph lead">
+<p>Questo report tecnico fornisce istruzioni dettagliate per la configurazione di NetApp StorageGRID 11.6 con servizi esterni Prometheus e Grafana.</p>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="introduzione">Introduzione</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>StorageGRID memorizza le metriche utilizzando Prometheus e fornisce visualizzazioni di queste metriche attraverso dashboard Grafana integrate. È possibile accedere in modo sicuro alle metriche Prometheus da StorageGRID configurando i certificati di accesso client e abilitando l&#8217;accesso prometheus per il client specificato. Oggi, la conservazione di questi dati metrici è limitata dalla capacità di storage del nodo di amministrazione. Per ottenere una durata maggiore e la possibilità di creare visualizzazioni personalizzate di queste metriche, implementeremo un nuovo server Prometheus e Grafana, configureremo il nostro nuovo server per scartare le metriche dall&#8217;istanza StorageGRID e costruiremo una dashboard con le metriche che sono importanti per noi. È possibile ottenere ulteriori informazioni sulle metriche Prometheus raccolte in <a href="https://docs.netapp.com/us-en/storagegrid-116/monitor/commonly-used-prometheus-metrics.html" target="_blank" rel="noopener">"Documentazione StorageGRID"</a>.</p>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="federare-prometheus">Federare Prometheus</h2>
+<div class="sectionbody">
+<div class="sect2">
+<h3 id="dettagli-del-laboratorio">Dettagli del laboratorio</h3>
+<div class="paragraph">
+<p>Ai fini di questo esempio, userò tutte le macchine virtuali per i nodi StorageGRID 11.6 e un server Debian 11. L&#8217;interfaccia di gestione di StorageGRID è configurata con un certificato CA pubblicamente attendibile. Questo esempio non riguarda l&#8217;installazione e la configurazione del sistema StorageGRID o dell&#8217;installazione di Debian linux. Puoi utilizzare qualsiasi versione di Linux supportata da Prometheus e Grafana. Prometheus e Grafana possono essere installati come container docker, build from source o binari pre-compilati. In questo esempio installerò entrambi i binari Prometheus e Grafana direttamente sullo stesso server Debian. Scaricare e seguire le istruzioni di installazione di base da <a href="https://prometheus.io" class="bare">https://prometheus.io</a> e. <a href="https://grafana.com/grafana/" class="bare">https://grafana.com/grafana/</a> rispettivamente.</p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="configurare-storagegrid-per-laccesso-al-client-prometheus">Configurare StorageGRID per l&#8217;accesso al client Prometheus</h3>
+<div class="paragraph">
+<p>Per ottenere l&#8217;accesso alle metriche StorageGRID Stored prometheus, è necessario generare o caricare un certificato client con chiave privata e abilitare l&#8217;autorizzazione per il client. L&#8217;interfaccia di gestione StorageGRID deve disporre di un certificato SSL. Il certificato deve essere attendibile dal server prometheus da una CA attendibile o manualmente se autofirmato. Per ulteriori informazioni, visitare il <a href="https://docs.netapp.com/us-en/storagegrid-116/admin/configuring-administrator-client-certificates.html">"Documentazione StorageGRID"</a>.</p>
+</div>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>Nell&#8217;interfaccia di gestione di StorageGRID, selezionare "CONFIGURATION" (CONFIGURAZIONE) in basso a sinistra e nella seconda colonna sotto "Security" (sicurezza) fare clic su Certificates (certificati).</p>
+</li>
+<li>
+<p>Nella pagina certificati, selezionare la scheda "Client" e fare clic sul pulsante "Aggiungi".</p>
+</li>
+<li>
+<p>Specificare un nome per il client a cui verrà concesso l&#8217;accesso e utilizzare questo certificato. Fare clic sulla casella sotto "permessi", davanti a "Consenti Prometheus" e fare clic sul pulsante continua.</p>
+<div class="imageblock">
+<div class="content">
+<img src="../media/prometheus/cert_name.png" alt="nome del certificato">
+</div>
+</div>
+</li>
+<li>
+<p>Se si dispone di un certificato firmato dalla CA, è possibile selezionare il pulsante di opzione "carica certificato", ma in questo caso StorageGRID genererà il certificato client selezionando il pulsante di opzione "genera certificato". Vengono visualizzati i campi obbligatori da compilare. Inserire l&#8217;FQDN per il server client, l&#8217;IP del server, l&#8217;oggetto e i giorni validi. Quindi fare clic sul pulsante "generate" (genera).</p>
+<div class="imageblock">
+<div class="content">
+<img src="../media/prometheus/cert_detail.png" alt="dettagli del certificato">
+</div>
+</div>
+</li>
+</ol>
+</div>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<img src="/us-en/storagegrid-enable/images/note.svg" alt="Nota">
+</td>
+<td class="content">
+<div class="literalblock">
+<div class="content">
+<pre>Be mindful of the certificate days valid entry as you will need to renew this certificate in both StorageGRID and the Prometheus server before it expires to maintain uninterrupted collection.</pre>
+</div>
+</div>
+</td>
+</tr>
+</table>
+</div>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>Scaricare il file pem del certificato e il file pem della chiave privata.</p>
+<div class="imageblock">
+<div class="content">
+<img src="../media/prometheus/cert_download.png" alt="download del certificato">
+</div>
+</div>
+</li>
+</ol>
+</div>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<img src="/us-en/storagegrid-enable/images/note.svg" alt="Nota">
+</td>
+<td class="content">
+<div class="literalblock">
+<div class="content">
+<pre>This is the only time you can download the private key, so make sure you do not skip this step.</pre>
+</div>
+</div>
+</td>
+</tr>
+</table>
+</div>
+</div>
+<div class="sect2">
+<h3 id="preparare-il-server-linux-per-linstallazione-di-prometheus">Preparare il server Linux per l&#8217;installazione di Prometheus</h3>
+<div class="paragraph">
+<p>Prima di installare Prometheus, desidero preparare il mio ambiente con un utente Prometheus, la struttura di directory e configurare la capacità per la posizione di storage delle metriche.</p>
+</div>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>Creare l&#8217;utente Prometheus.</p>
+<div class="listingblock">
+<div class="content">
+<pre class="highlight"><code class="language-console" data-lang="console">sudo useradd -M -r -s /bin/false Prometheus</code></pre>
+</div>
+</div>
+</li>
+<li>
+<p>Creare le directory per Prometheus, certificato client e dati di metriche.</p>
+<div class="listingblock">
+<div class="content">
+<pre class="highlight"><code class="language-console" data-lang="console">sudo mkdir /etc/Prometheus /etc/Prometheus/cert /var/lib/Prometheus</code></pre>
+</div>
+</div>
+</li>
+<li>
+<p>Ho formattato il disco che sto usando per la conservazione delle metriche con un filesystem ext4.</p>
+<div class="listingblock">
+<div class="content">
+<pre>mkfs -t ext4 /dev/sdb</pre>
+</div>
+</div>
+</li>
+<li>
+<p>Ho quindi montato il file system nella directory Prometheus metrics.</p>
+<div class="listingblock">
+<div class="content">
+<pre>sudo mount -t auto /dev/sdb /var/lib/prometheus/</pre>
+</div>
+</div>
+</li>
+<li>
+<p>Ottenere l&#8217;uuid del disco utilizzato per i dati delle metriche.</p>
+<div class="listingblock">
+<div class="content">
+<pre>sudo ls -al /dev/disk/by-uuid/
+   lrwxrwxrwx 1 root root   9 Aug 18 17:02 9af2c5a3-bfc2-4ec1-85d9-ebab850bb4a1 -&gt; ../../sdb</pre>
+</div>
+</div>
+</li>
+<li>
+<p>Aggiungere una voce in /etc/fstab/ rendere il mount persistente durante i riavvii usando l&#8217;uuid di /dev/sdb.</p>
+<div class="listingblock">
+<div class="content">
+<pre>/etc/fstab
+UUID=9af2c5a3-bfc2-4ec1-85d9-ebab850bb4a1 /var/lib/prometheus	ext4	defaults	0	0</pre>
+</div>
+</div>
+</li>
+</ol>
+</div>
+</div>
+<div class="sect2">
+<h3 id="installare-e-configurare-prometheus">Installare e configurare Prometheus</h3>
+<div class="paragraph">
+<p>Ora che il server è pronto, posso iniziare l&#8217;installazione di Prometheus e configurare il servizio.</p>
+</div>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>Estrarre il pacchetto di installazione di Prometheus</p>
+<div class="listingblock">
+<div class="content">
+<pre class="highlight"><code class="language-console" data-lang="console">tar xzf prometheus-2.38.0.linux-amd64.tar.gz</code></pre>
+</div>
+</div>
+</li>
+<li>
+<p>Copiare i file binari in /usr/local/bin e modificare la proprietà dell&#8217;utente prometheus creato in precedenza</p>
+<div class="listingblock">
+<div class="content">
+<pre class="highlight"><code class="language-console" data-lang="console">sudo cp prometheus-2.38.0.linux-amd64/{prometheus,promtool} /usr/local/bin
+sudo chown prometheus:prometheus /usr/local/bin/{prometheus,promtool}</code></pre>
+</div>
+</div>
+</li>
+<li>
+<p>Copiare le console e le librerie in /etc/prometheus</p>
+<div class="listingblock">
+<div class="content">
+<pre class="highlight"><code class="language-console" data-lang="console">sudo cp -r prometheus-2.38.0.linux-amd64/{consoles,console_libraries} /etc/prometheus/</code></pre>
+</div>
+</div>
+</li>
+<li>
+<p>Copiare i file PEM del certificato client e della chiave privata scaricati in precedenza da StorageGRID in /etc/prometheus/certs</p>
+</li>
+<li>
+<p>Creare il file yaml di configurazione prometheus</p>
+<div class="listingblock">
+<div class="content">
+<pre class="highlight"><code class="language-console" data-lang="console">sudo nano /etc/prometheus/prometheus.yml</code></pre>
+</div>
+</div>
+</li>
+<li>
+<p>Inserire la seguente configurazione. Il nome del lavoro può essere qualsiasi cosa si desideri. Modificare "-targets: ['']" in FQDN del nodo admin e, se i nomi dei file dei certificati e delle chiavi private sono modificati, aggiornare la sezione tls_config in modo che corrisponda. quindi salvare il file. Se l&#8217;interfaccia di gestione della griglia utilizza un certificato autofirmato, scaricare il certificato e posizionarlo con il certificato client con un nome univoco, quindi nella sezione tls_config aggiungere ca_file: /Etc/prometheus/cert/UIcert.pem</p>
+<div class="olist loweralpha">
+<ol class="loweralpha" type="a">
+<li>
+<p>In questo esempio, vengono raccolte tutte le metriche che iniziano con alertmanager, cassandra, Node e StorageGRID. Per ulteriori informazioni sulle metriche Prometheus, consultare la <a href="https://docs.netapp.com/us-en/storagegrid-116/monitor/commonly-used-prometheus-metrics.html" target="_blank" rel="noopener">"Documentazione StorageGRID"</a>.</p>
+<div class="listingblock">
+<div class="content">
+<pre class="highlight"><code class="language-yaml" data-lang="yaml"># my global config
+global:
+  scrape_interval: 60s # Set the scrape interval to every 15 seconds. Default is every 1 minute.
+
+scrape_configs:
+  - job_name: 'StorageGRID'
+    honor_labels: true
+    scheme: https
+    metrics_path: /federate
+    scrape_interval: 60s
+    scrape_timeout: 30s
+    tls_config:
+      cert_file: /etc/prometheus/cert/certificate.pem
+      key_file: /etc/prometheus/cert/private_key.pem
+    params:
+      match[]:
+        - '{__name__=~"alertmanager_.*|cassandra_.*|node_.*|storagegrid_.*"}'
+    static_configs:
+    - targets: ['sgdemo-rtp.netapp.com:9091']</code></pre>
+</div>
+</div>
+</li>
+</ol>
+</div>
+</li>
+</ol>
+</div>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<img src="/us-en/storagegrid-enable/images/note.svg" alt="Nota">
+</td>
+<td class="content">
+<div class="paragraph">
+<p>Se l&#8217;interfaccia di gestione della griglia utilizza un certificato autofirmato, scaricare il certificato e posizionarlo con il certificato client con un nome univoco. Nella sezione tls_config aggiungere il certificato sopra le righe del certificato client e della chiave privata</p>
+</div>
+<div class="literalblock">
+<div class="content">
+<pre>        ca_file: /etc/prometheus/cert/UIcert.pem</pre>
+</div>
+</div>
+</td>
+</tr>
+</table>
+</div>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>Modificare la proprietà di tutti i file e le directory in /etc/prometheus e /var/lib/prometheus nell&#8217;utente prometheus</p>
+<div class="listingblock">
+<div class="content">
+<pre class="highlight"><code class="language-console" data-lang="console">sudo chown -R prometheus:prometheus /etc/prometheus/
+sudo chown -R prometheus:prometheus /var/lib/prometheus/</code></pre>
+</div>
+</div>
+</li>
+<li>
+<p>Creare un file di servizio prometheus in /etc/systemd/system</p>
+<div class="listingblock">
+<div class="content">
+<pre class="highlight"><code class="language-console" data-lang="console">sudo nano /etc/systemd/system/prometheus.service</code></pre>
+</div>
+</div>
+</li>
+<li>
+<p>Inserire le seguenti righe, annotare il n.--storage.tsdb.retention.time=1y n. che imposta la conservazione dei dati metrici su 1 anno. In alternativa, è possibile utilizzare n.--storage.tsdb.retention.size=n. 300GiB per basare la conservazione sui limiti di storage. Questa è l&#8217;unica posizione in cui impostare la conservazione delle metriche.</p>
+<div class="listingblock">
+<div class="content">
+<pre class="highlight"><code class="language-console" data-lang="console">[Unit]
+Description=Prometheus Time Series Collection and Processing Server
+Wants=network-online.target
+After=network-online.target
+
+[Service]
+User=prometheus
+Group=prometheus
+Type=simple
+ExecStart=/usr/local/bin/prometheus \
+        --config.file /etc/prometheus/prometheus.yml \
+        --storage.tsdb.path /var/lib/prometheus/ \
+        --storage.tsdb.retention.time=1y \
+        --web.console.templates=/etc/prometheus/consoles \
+        --web.console.libraries=/etc/prometheus/console_libraries
+
+[Install]
+WantedBy=multi-user.target</code></pre>
+</div>
+</div>
+</li>
+<li>
+<p>Ricaricare il servizio systemd per registrare il nuovo servizio prometheus. quindi avviare e attivare il servizio prometheus.</p>
+<div class="listingblock">
+<div class="content">
+<pre class="highlight"><code class="language-console" data-lang="console">sudo systemctl daemon-reload
+sudo systemctl start prometheus
+sudo systemctl enable prometheus</code></pre>
+</div>
+</div>
+</li>
+<li>
+<p>Verificare che il servizio sia in funzione correttamente</p>
+<div class="listingblock">
+<div class="content">
+<pre class="highlight"><code class="language-console" data-lang="console">sudo systemctl status prometheus</code></pre>
+</div>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre>● prometheus.service - Prometheus Time Series Collection and Processing Server
+     Loaded: loaded (/etc/systemd/system/prometheus.service; enabled; vendor preset: enabled)
+     Active: active (running) since Mon 2022-08-22 15:14:24 EDT; 2s ago
+   Main PID: 6498 (prometheus)
+      Tasks: 13 (limit: 28818)
+     Memory: 107.7M
+        CPU: 1.143s
+     CGroup: /system.slice/prometheus.service
+             └─6498 /usr/local/bin/prometheus --config.file /etc/prometheus/prometheus.yml --storage.tsdb.path /var/lib/prometheus/ --web.console.templates=/etc/prometheus/consoles --web.con&gt;
+
+Aug 22 15:14:24 aj-deb-prom01 prometheus[6498]: ts=2022-08-22T19:14:24.510Z caller=head.go:544 level=info component=tsdb msg="Replaying WAL, this may take a while"
+Aug 22 15:14:24 aj-deb-prom01 prometheus[6498]: ts=2022-08-22T19:14:24.816Z caller=head.go:615 level=info component=tsdb msg="WAL segment loaded" segment=0 maxSegment=1
+Aug 22 15:14:24 aj-deb-prom01 prometheus[6498]: ts=2022-08-22T19:14:24.816Z caller=head.go:615 level=info component=tsdb msg="WAL segment loaded" segment=1 maxSegment=1
+Aug 22 15:14:24 aj-deb-prom01 prometheus[6498]: ts=2022-08-22T19:14:24.816Z caller=head.go:621 level=info component=tsdb msg="WAL replay completed" checkpoint_replay_duration=55.57µs wal_rep&gt;
+Aug 22 15:14:24 aj-deb-prom01 prometheus[6498]: ts=2022-08-22T19:14:24.831Z caller=main.go:997 level=info fs_type=EXT4_SUPER_MAGIC
+Aug 22 15:14:24 aj-deb-prom01 prometheus[6498]: ts=2022-08-22T19:14:24.831Z caller=main.go:1000 level=info msg="TSDB started"
+Aug 22 15:14:24 aj-deb-prom01 prometheus[6498]: ts=2022-08-22T19:14:24.831Z caller=main.go:1181 level=info msg="Loading configuration file" filename=/etc/prometheus/prometheus.yml
+Aug 22 15:14:24 aj-deb-prom01 prometheus[6498]: ts=2022-08-22T19:14:24.832Z caller=main.go:1218 level=info msg="Completed loading of configuration file" filename=/etc/prometheus/prometheus.y&gt;
+Aug 22 15:14:24 aj-deb-prom01 prometheus[6498]: ts=2022-08-22T19:14:24.832Z caller=main.go:961 level=info msg="Server is ready to receive web requests."
+Aug 22 15:14:24 aj-deb-prom01 prometheus[6498]: ts=2022-08-22T19:14:24.832Z caller=manager.go:941 level=info component="rule manager" msg="Starting rule manager..."</pre>
+</div>
+</div>
+</li>
+<li>
+<p>A questo punto, dovresti essere in grado di accedere all&#8217;interfaccia utente del tuo server prometheus <a href="http://Prometheus-server:9090" class="bare">http://Prometheus-server:9090</a> E consultare l&#8217;interfaccia utente</p>
+<div class="imageblock">
+<div class="content">
+<img src="../media/prometheus/prometheus_ui.png" alt="Pagina dell&#8217;interfaccia utente prometheus">
+</div>
+</div>
+</li>
+<li>
+<p>Sotto "Stato", è possibile visualizzare lo stato dell&#8217;endpoint StorageGRID configurato in prometheus.yml</p>
+<div class="imageblock">
+<div class="content">
+<img src="../media/prometheus/prometheus_targets.png" alt="menu prometheus status (stato prometheus)">
+</div>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="../media/prometheus/prometheus_target_status.png" alt="pagina degli obiettivi prometheus">
+</div>
+</div>
+</li>
+<li>
+<p>Nella pagina Graph (grafico), è possibile eseguire una query di test e verificare che i dati siano stati scartati correttamente. Ad esempio, immettere "storagegrid_node_cpu_Utilization_percent" nella barra delle query e fare clic sul pulsante Execute.</p>
+<div class="imageblock">
+<div class="content">
+<img src="../media/prometheus/prometheus_execute.png" alt="query prometheus eseguita">
+</div>
+</div>
+</li>
+</ol>
+</div>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="installare-e-configurare-grafana">Installare e configurare Grafana</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>Ora che prometheus è installato e funzionante, possiamo passare all&#8217;installazione di Grafana e alla configurazione di una dashboard</p>
+</div>
+<div class="sect2">
+<h3 id="installazione-di-grafana">Installazione di Grafana</h3>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>Installare l&#8217;ultima edizione Enterprise di Grafana</p>
+<div class="listingblock">
+<div class="content">
+<pre class="highlight"><code class="language-console" data-lang="console">sudo apt-get install -y apt-transport-https
+sudo apt-get install -y software-properties-common wget
+sudo wget -q -O /usr/share/keyrings/grafana.key https://packages.grafana.com/gpg.key</code></pre>
+</div>
+</div>
+</li>
+<li>
+<p>Aggiungi questo repository per le release stabili:</p>
+<div class="listingblock">
+<div class="content">
+<pre class="highlight"><code class="language-console" data-lang="console">echo "deb [signed-by=/usr/share/keyrings/grafana.key] https://packages.grafana.com/enterprise/deb stable main" | sudo tee -a /etc/apt/sources.list.d/grafana.list</code></pre>
+</div>
+</div>
+</li>
+<li>
+<p>Dopo aver aggiunto il repository.</p>
+<div class="listingblock">
+<div class="content">
+<pre class="highlight"><code class="language-console" data-lang="console">sudo apt-get update
+sudo apt-get install grafana-enterprise</code></pre>
+</div>
+</div>
+</li>
+<li>
+<p>Ricaricare il servizio systemd per registrare il nuovo servizio Grafana. Quindi avviare e attivare il servizio Grafana.</p>
+<div class="listingblock">
+<div class="content">
+<pre class="highlight"><code class="language-console" data-lang="console">sudo systemctl daemon-reload
+sudo systemctl start grafana-server
+sudo systemctl enable grafana-server.service</code></pre>
+</div>
+</div>
+</li>
+<li>
+<p>Grafana è ora installato e in esecuzione. Quando si apre un browser per HTTP://Prometheus-server:3000 viene visualizzata la pagina di accesso Grafana.</p>
+</li>
+<li>
+<p>Le credenziali di accesso predefinite sono admin/admin ed è necessario impostare una nuova password come richiesto.</p>
+</li>
+</ol>
+</div>
+</div>
+<div class="sect2">
+<h3 id="creare-una-dashboard-grafana-per-storagegrid">Creare una dashboard Grafana per StorageGRID</h3>
+<div class="paragraph">
+<p>Con Grafana e Prometheus installati e in esecuzione, ora è il momento di collegare i due elementi creando un&#8217;origine dati e creando una dashboard</p>
+</div>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>Nel riquadro di sinistra, espandere "Configuration" (Configurazione) e selezionare "Data Sources" (origini dati), quindi fare clic sul pulsante "Add Data Source" (Aggiungi origine dati)</p>
+</li>
+<li>
+<p>Prometheus sarà una delle principali fonti di dati tra cui scegliere. In caso contrario, utilizzare la barra di ricerca per individuare "Prometheus"</p>
+</li>
+<li>
+<p>Configurare l&#8217;origine Prometheus immettendo l&#8217;URL dell&#8217;istanza prometheus e l&#8217;intervallo di scrape in modo che corrisponda all&#8217;intervallo Prometheus. Ho anche disattivato la sezione degli avvisi perché non ho configurato il gestore degli avvisi su prometheus.</p>
+<div class="imageblock">
+<div class="content">
+<img src="../media/prometheus/grafana_prometheus_conf.png" alt="configurazione grafana prometheus">
+</div>
+</div>
+</li>
+<li>
+<p>Una volta inserite le impostazioni desiderate, scorrere verso il basso e fare clic su "Save &amp; test" (Salva e verifica).</p>
+</li>
+<li>
+<p>Una volta completato il test di configurazione, fare clic sul pulsante Esplora.</p>
+<div class="olist loweralpha">
+<ol class="loweralpha" type="a">
+<li>
+<p>Nella finestra Esplora puoi utilizzare la stessa metrica che abbiamo testato Prometheus con "storagegrid_node_cpu_Utilization_percent" e fare clic sul pulsante "Esegui query"</p>
+<div class="imageblock">
+<div class="content">
+<img src="../media/prometheus/grafana_source_explore.png" alt="grafana prometheus metric explore">
+</div>
+</div>
+</li>
+</ol>
+</div>
+</li>
+<li>
+<p>Ora che abbiamo configurato l&#8217;origine dati, possiamo creare una dashboard.</p>
+<div class="olist loweralpha">
+<ol class="loweralpha" type="a">
+<li>
+<p>Nel riquadro di sinistra, espandere "Dashboard" e selezionare "+ new Dashboard"</p>
+</li>
+<li>
+<p>Seleziona "Aggiungi un nuovo pannello"</p>
+</li>
+<li>
+<p>Configurare il nuovo pannello selezionando una metrica, di nuovo userò "storagegrid_node_cpu_Utilization_Percent", inserire un titolo per il pannello, espandere "Opzioni" in basso e per la modifica della legenda su custom e inserire "{{instance}}" per definire i nomi dei nodi", e nel pannello di destra in "Opzioni standard" impostare "unità" su "varie/percentuali(0-100)". Quindi fare clic su "Apply" (Applica) per salvare il pannello nella dashboard.</p>
+<div class="imageblock">
+<div class="content">
+<img src="../media/prometheus/grafana_panel_conf.png" alt="configurare il pannello grafana">
+</div>
+</div>
+</li>
+</ol>
+</div>
+</li>
+<li>
+<p>Potremmo continuare a costruire la nostra dashboard in questo modo per ogni metrica che vogliamo, ma fortunatamente StorageGRID dispone già di dashboard con pannelli che possiamo copiare nelle nostre dashboard personalizzate.</p>
+<div class="olist loweralpha">
+<ol class="loweralpha" type="a">
+<li>
+<p>Dal riquadro sinistro dell&#8217;interfaccia di gestione StorageGRID, selezionare "supporto", quindi fare clic su "metriche" nella parte inferiore della colonna "Strumenti".</p>
+</li>
+<li>
+<p>All&#8217;interno delle metriche, selezionerò il link "Grid" nella parte superiore della colonna centrale.</p>
+<div class="imageblock">
+<div class="content">
+<img src="../media/prometheus/storagegrid_metrics.png" alt="Metriche StorageGRID">
+</div>
+</div>
+</li>
+<li>
+<p>Dalla dashboard della griglia, selezionare il pannello "Storage used - Object Metadata" (Storage utilizzato - metadati oggetto). Fare clic sulla piccola freccia verso il basso e sulla fine del titolo del pannello per visualizzare un menu a discesa. Da questo menu selezionare "Inspect" (ispezione) e "Panel JSON" (pannello JSON).</p>
+<div class="imageblock">
+<div class="content">
+<img src="../media/prometheus/storagegrid_dashboard_insp.png" alt="Dashboard di StorageGRID">
+</div>
+</div>
+</li>
+<li>
+<p>Copiare il codice JSON e chiudere la finestra.</p>
+<div class="imageblock">
+<div class="content">
+<img src="../media/prometheus/storagegrid_panel_inspect.png" alt="StorageGRID JSON">
+</div>
+</div>
+</li>
+<li>
+<p>Nella nuova dashboard, fare clic sull&#8217;icona per aggiungere un nuovo pannello.</p>
+<div class="imageblock">
+<div class="content">
+<img src="../media/prometheus/grafana_add_panel.png" alt="pannello grafana add">
+</div>
+</div>
+</li>
+<li>
+<p>Applicare il nuovo pannello senza apportare modifiche</p>
+</li>
+<li>
+<p>Proprio come per il pannello StorageGRID, controllare il JSON. Rimuovere tutto il codice JSON e sostituirlo con il codice copiato dal pannello StorageGRID.</p>
+<div class="imageblock">
+<div class="content">
+<img src="../media/prometheus/grafana_panel_inspect.png" alt="pannello di ispezione grafana">
+</div>
+</div>
+</li>
+<li>
+<p>Modificare il nuovo pannello e sul lato destro viene visualizzato un messaggio di migrazione con il pulsante "Migrate" (migrazione). Fare clic sul pulsante, quindi sul pulsante "Apply" (Applica).</p>
+<div class="imageblock">
+<div class="content">
+<img src="../media/prometheus/grafana_panel_edit_menu.png" alt="menu del pannello di modifica grafana">
+</div>
+</div>
+</li>
+</ol>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="../media/prometheus/grafana_panel_edit.png" alt="pannello di modifica grafana">
+</div>
+</div>
+</li>
+<li>
+<p>Una volta che tutti i pannelli sono in posizione e configurati come si desidera. Salvare la dashboard facendo clic sull&#8217;icona del disco in alto a destra e assegnando un nome alla dashboard.</p>
+</li>
+</ol>
+</div>
+</div>
+<div class="sect2">
+<h3 id="conclusione">Conclusione</h3>
+<div class="paragraph">
+<p>Ora disponiamo di un server Prometheus con capacità di storage e conservazione dei dati personalizzabili. Con questo possiamo continuare a costruire le nostre dashboard con le metriche più rilevanti per le nostre operazioni. È possibile ottenere ulteriori informazioni sulle metriche Prometheus raccolte in <a href="https://docs.netapp.com/us-en/storagegrid-116/monitor/commonly-used-prometheus-metrics.html" target="_blank" rel="noopener">"Documentazione StorageGRID"</a>.</p>
+</div>
+</div>
+</div>
+</div>
+
+    </article>
+    <!-- Page Container -->
+  </div>
+
+  <div style="clear: both"></div><!-- Main needs to have height --></div>
+
+        </main>
+
+        <footer class="n-footer">
+  <div class="n-footer__bottom">
+    <div class="n-container">
+      <div class="n-footer__bottom-left">
+        <div class="n-footer__copyright">
+          <ul class="n-footer__copyright-list">
+            <li class="n-footer__copyright-link">
+              <a href="https://www.netapp.com/company/legal/copyright/">© 2023 NetApp, Inc.</a>
+            </li>
+            <li class="n-footer__copyright-link">
+              <a href="https://www.netapp.com/company/legal/terms-of-use/">Condizioni per l'utilizzo</a>
+            </li>
+            <li class="n-footer__copyright-link">
+              <a href="https://www.netapp.com/company/legal/privacy-policy/">Direttiva sulla privacy</a>
+            </li>
+            <li class="n-footer__copyright-link">
+              <a href="https://www.netapp.com/company/legal/cookie-policy/">Direttiva sui Cookie</a>
+            </li>
+            <li class="n-footer__copyright-link">
+              <a class="ot-sdk-show-settings">Impostazioni cookie</a>
+            </li>
+          </ul>
+        </div>
+      </div>
+      <div class="n-footer__bottom-right">
+        <div class="n-footer__copyright">
+          <ul class="n-footer__copyright-list">
+            <li class="n-footer__copyright-link">
+              <a target="_self" href="javascript:netapp_mailto()">Invia feedback su questa pagina</a>
+            </li>
+          </ul>
+        </div>
+        <div class="n-footer__social-links">
+          <ul class="n-footer__social-link-list">
+            <li class="n-footer__social-link-list-item">
+              <a class="n-footer__social-link" data-ntap-social="follow-blog" href="https://blog.netapp.com"
+                target="_blank" title="blog" alt="blog">
+                <span class="n-footer__social-link-text">blog</span>
+                <svg class="n-icon-blog n-footer__social-link-icon" aria-labelledby="title">
+                  <title>blog@</title>
+                  <use xmlns:xlink="http://www.w3.org/1999/xlink"
+                    xlink:href="/it-it/storagegrid-enable/images/sprite.svg#blog"></use>
+                </svg>
+              </a>
+            </li>
+            <li class="n-footer__social-link-list-item">
+              <a class="n-footer__social-link" data-ntap-social="follow-community" href="https://community.netapp.com/"
+                target="_blank" title="community" alt="community">
+                <span class="n-footer__social-link-text">community</span>
+                <svg class="n-icon-community n-footer__social-link-icon" aria-labelledby="title">
+                  <title>community@</title>
+                  <use xmlns:xlink="http://www.w3.org/1999/xlink"
+                    xlink:href="/it-it/storagegrid-enable/images/sprite.svg#comments"></use>
+                </svg>
+              </a>
+            </li>
+            <li class="n-footer__social-link-list-item">
+              <a class="n-footer__social-link" data-ntap-social="follow-twitter" href="https://twitter.com/netapp"
+                target="_blank" title="twitter" alt="twitter">
+                <span class="n-footer__social-link-text">twitter</span>
+                <svg class="n-icon-twitter n-footer__social-link-icon" aria-labelledby="title">
+                  <title>twitter@</title>
+                  <use xmlns:xlink="http://www.w3.org/1999/xlink"
+                    xlink:href="/it-it/storagegrid-enable/images/sprite.svg#twitter"></use>
+                </svg>
+              </a>
+            </li>
+            <li class="n-footer__social-link-list-item">
+              <a class="n-footer__social-link" data-ntap-social="follow-facebook" href="https://www.facebook.com/NetApp"
+                target="_blank" title="facebook" alt="facebook">
+                <span class="n-footer__social-link-text">facebook</span>
+                <svg class="n-icon-facebook n-footer__social-link-icon" aria-labelledby="title">
+                  <title>facebook@</title>
+                  <use xmlns:xlink="http://www.w3.org/1999/xlink"
+                    xlink:href="/it-it/storagegrid-enable/images/sprite.svg#facebook"></use>
+                </svg>
+              </a>
+            </li>
+            <li class="n-footer__social-link-list-item">
+              <a class="n-footer__social-link" data-ntap-social="follow-linkedin"
+                href="https://www.linkedin.com/company/netapp" target="_blank" title="linkedin" alt="linkedin">
+                <span class="n-footer__social-link-text">linkedin</span>
+                <svg class="n-icon-linkedin n-footer__social-link-icon" aria-labelledby="title">
+                  <title>linkedin@</title>
+                  <use xmlns:xlink="http://www.w3.org/1999/xlink"
+                    xlink:href="/it-it/storagegrid-enable/images/sprite.svg#linkedin"></use>
+                </svg>
+              </a>
+            </li>
+            <li class="n-footer__social-link-list-item">
+              <a class="n-footer__social-link" data-ntap-social="follow-youtube"
+                href="https://www.youtube.com/user/NetAppTV" target="_blank" title="youtube" alt="youtube">
+                <span class="n-footer__social-link-text">youtube</span>
+                <svg class="n-icon-youtube n-footer__social-link-icon" aria-labelledby="title">
+                  <title>youtube@</title>
+                  <use xmlns:xlink="http://www.w3.org/1999/xlink"
+                    xlink:href="/it-it/storagegrid-enable/images/sprite.svg#youtube"></use>
+                </svg>
+              </a>
+            </li>
+            <li class="n-footer__social-link-list-item">
+              <a class="n-footer__social-link" data-ntap-social="follow-slideshare"
+                href="https://www.slideshare.net/NetApp" target="_blank" title="slideshare" alt="slideshare">
+                <span class="n-footer__social-link-text">slideshare</span>
+                <svg class="n-icon-slideshare n-footer__social-link-icon" aria-labelledby="title">
+                  <title>slideshare@</title>
+                  <use xmlns:xlink="http://www.w3.org/1999/xlink"
+                    xlink:href="/it-it/storagegrid-enable/images/sprite.svg#slideshare"></use>
+                </svg>
+              </a>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+</footer>
+
+      </div><!-- Elasticsearch JS -->
+      <script type="text/javascript" src='/it-it/storagegrid-enable/js/bundle.js'></script>
+
+      <!-- Syntax Highlighting -->
+      <script type="text/javascript" src='/it-it/storagegrid-enable/js/prism.js'></script>
+      <script type="text/javascript" src='/it-it/storagegrid-enable/js/prism-curl.js'></script>
+    </div>
+    <script>
+      document.body.offsetWidth=1903;
+      cookieLaw = {}
+      cookieLaw.euCountry = "US";
+      cookieLaw.invoke = function(){return false;}
+    </script>
+    <script src='/it-it/storagegrid-enable/js/tabbed-blocks.js'></script>
+    <script src='/it-it/storagegrid-enable/js/sidebar.js'></script>
+  </body></html>
