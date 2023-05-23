@@ -1,0 +1,18 @@
+---
+section: tools-apps-guides
+title: Guide agli strumenti e alle applicazioni
+entries:
+- title: Utilizzare il connettore S3A di Cloudera Hadoop
+  url: "/tools-apps-guides/use-cloudera-hadoop-s3a-connector.html"
+- title: Utilizzare S3cmd per testare e dimostrare l'accesso S3
+  url: "/tools-apps-guides/use-S3cmd-test-demonstrate-S3-access.html"
+- title: Creare un database Vertica Eon Mode con storage comune
+  url: "/tools-apps-guides/vertica-eon-mode-database-using-netapp-storageGRID.html"
+- title: Utilizza Elasticsearch, Logstash e Kibana per l'analisi dei log
+  url: "/tools-apps-guides/elk-instructions.html"
+- title: Utilizza Prometheus e Grafana per estendere la conservazione delle metriche
+  url: "/tools-apps-guides/federate-prometheus.html"
+- title: Configurare Datadog per raccogliere le metriche e i trap snmp di StorageGRID
+  url: "/tools-apps-guides/use-datadog-snmp.html"
+- title: Utilizzare rclone per migrare, INSERIRE ed ELIMINARE oggetti su StorageGRID
+  url: "/tools-apps-guides/use-rclone-migrate-delete.html"

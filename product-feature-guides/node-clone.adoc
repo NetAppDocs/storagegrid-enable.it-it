@@ -1,0 +1,511 @@
+---
+permalink: product-feature-guides/node-clone.html 
+sidebar: sidebar 
+keywords: node clone, clone, clone performance, performance 
+summary: Performance dei cloni dei nodi e Best practice. 
+---
+= Clone del nodo
+:allow-uri-read: 
+
+
+_Aron Klein_
+
+[role="lead"]
+Considerazioni e performance sui cloni dei nodi.
+
+
+
+== Considerazioni sui cloni dei nodi
+
+Il clone del nodo può essere un metodo più rapido per sostituire i nodi appliance esistenti per un aggiornamento tecnico, aumentare la capacità o aumentare le performance del sistema StorageGRID. Il clone del nodo può essere utile anche per la conversione alla crittografia del nodo con un KMS o per la modifica di un nodo di storage da DDP8 a DDP16.
+
+* La capacità utilizzata del nodo di origine non è rilevante per il tempo richiesto per il completamento del processo di clonazione. Il clone del nodo è una copia completa del nodo che include spazio libero nel nodo.
+* Le appliance di origine e di destinazione devono essere della stessa versione PGE
+* Il nodo di destinazione deve avere sempre una capacità maggiore rispetto all'origine
++
+** Assicurarsi che il nuovo dispositivo di destinazione abbia un disco di dimensioni maggiori rispetto a quello di origine
+** Se il dispositivo di destinazione dispone di unità delle stesse dimensioni ed è configurato per il DDP8, è possibile configurare la destinazione per il DDP16. Se l'origine è già configurata per DDP16, non sarà possibile clonare il nodo.
+** Quando si passa dalle appliance SG5660 o SG5760 alle appliance SG6060, tenere presente che le unità SG5x60 dispongono di 60 dischi di capacità, mentre le unità SG6060 ne hanno solo 58.
+
+
+* Il processo di clonazione del nodo richiede che il nodo di origine sia offline nella griglia per tutta la durata del processo di clonazione. Se un nodo aggiuntivo passa offline durante questo periodo di tempo, i servizi client potrebbero risentire.
+* Un nodo di storage può essere offline solo per 15 giorni. Se la stima del processo di cloning è prossima a 15 giorni o supera i 15 giorni, utilizzare le procedure di espansione e decommissionamento.
+* Per un sistema SG6060 con shelf di espansione, è necessario aggiungere il tempo necessario per la dimensione corretta del disco shelf al tempo di utilizzo dell'appliance di base per ottenere la durata completa del clone.
+
+
+
+
+== Stime delle performance dei cloni dei nodi
+
+Le seguenti tabelle contengono stime calcolate per la durata del clone del nodo. Le condizioni variano, pertanto, le voci in *BOLD* potrebbero rischiare di superare il limite di 15 giorni per un nodo inattivo.
+
+
+
+=== DDP8
+
+
+
+==== SG5612 -> qualsiasi
+
+[cols="2a,1a,1a,1a,1a,1a,1a"]
+|===
+| Velocità dell'interfaccia di rete | Dimensioni dell'unità 4 TB | Dimensioni disco 8 TB | Dimensioni disco 10 TB | 12 TB di capacità dell'unità | Dimensioni dell'unità 16 TB | Dimensioni dell'unità 18 TB 
+
+
+ a| 
+10 GB
+ a| 
+1 giorno
+ a| 
+2 giorni
+ a| 
+2.5 giorni
+ a| 
+3 giorni
+ a| 
+4 giorni
+ a| 
+4.5 giorni
+
+
+
+ a| 
+25 GB
+ a| 
+1 giorno
+ a| 
+2 giorni
+ a| 
+2.5 giorni
+ a| 
+3 giorni
+ a| 
+4 giorni
+ a| 
+4.5 giorni
+
+|===
+
+
+==== SG5712 -> qualsiasi
+
+[cols="2a,1a,1a,1a,1a,1a,1a"]
+|===
+| Velocità dell'interfaccia di rete | Dimensioni dell'unità 4 TB | Dimensioni disco 8 TB | Dimensioni disco 10 TB | 12 TB di capacità dell'unità | Dimensioni dell'unità 16 TB | Dimensioni dell'unità 18 TB 
+
+
+ a| 
+10 GB
+ a| 
+1 giorno
+ a| 
+2 giorni
+ a| 
+2.5 giorni
+ a| 
+3 giorni
+ a| 
+4 giorni
+ a| 
+4.5 giorni
+
+
+
+ a| 
+25 GB
+ a| 
+1 giorno
+ a| 
+2 giorni
+ a| 
+2.5 giorni
+ a| 
+3 giorni
+ a| 
+4 giorni
+ a| 
+4.5 giorni
+
+|===
+
+
+==== SG5660 -> SG5760
+
+[cols="2a,1a,1a,1a,1a,1a,1a"]
+|===
+| Velocità dell'interfaccia di rete | Dimensioni dell'unità 4 TB | Dimensioni disco 8 TB | Dimensioni disco 10 TB | 12 TB di capacità dell'unità | Dimensioni dell'unità 16 TB | Dimensioni dell'unità 18 TB 
+
+
+ a| 
+10 GB
+ a| 
+3 giorni
+ a| 
+6 giorni
+ a| 
+7 giorni
+ a| 
+8.5 giorni
+ a| 
+11.5 giorni
+ a| 
+*13 giorni*
+
+
+
+ a| 
+25 GB
+ a| 
+3 giorni
+ a| 
+6 giorni
+ a| 
+7 giorni
+ a| 
+8.5 giorni
+ a| 
+11.5 giorni
+ a| 
+*13 giorni*
+
+|===
+
+
+==== SG5660 -> SG6060
+
+[cols="2a,1a,1a,1a,1a,1a,1a"]
+|===
+| Velocità dell'interfaccia di rete | Dimensioni dell'unità 4 TB | Dimensioni disco 8 TB | Dimensioni disco 10 TB | 12 TB di capacità dell'unità | Dimensioni dell'unità 16 TB | Dimensioni dell'unità 18 TB 
+
+
+ a| 
+10 GB
+ a| 
+2.5 giorni
+ a| 
+4.5 giorni
+ a| 
+5.5 giorni
+ a| 
+6.5 giorni
+ a| 
+9 giorni
+ a| 
+10 giorni
+
+
+
+ a| 
+25 GB
+ a| 
+2 giorni
+ a| 
+4 giorni
+ a| 
+5 giorni
+ a| 
+6 giorni
+ a| 
+8 giorni
+ a| 
+9 giorni
+
+|===
+
+
+==== SG5760 -> SG5760
+
+[cols="2a,1a,1a,1a,1a,1a,1a"]
+|===
+| Velocità dell'interfaccia di rete | Dimensioni dell'unità 4 TB | Dimensioni disco 8 TB | Dimensioni disco 10 TB | 12 TB di capacità dell'unità | Dimensioni dell'unità 16 TB | Dimensioni dell'unità 18 TB 
+
+
+ a| 
+10 GB
+ a| 
+3 giorni
+ a| 
+6 giorni
+ a| 
+7 giorni
+ a| 
+8.5 giorni
+ a| 
+11.5 giorni
+ a| 
+*13 giorni*
+
+
+
+ a| 
+25 GB
+ a| 
+3 giorni
+ a| 
+6 giorni
+ a| 
+7 giorni
+ a| 
+8.5 giorni
+ a| 
+11.5 giorni
+ a| 
+*13 giorni*
+
+|===
+
+
+==== SG5760 -> SG6060
+
+[cols="2a,1a,1a,1a,1a,1a,1a"]
+|===
+| Velocità dell'interfaccia di rete | Dimensioni dell'unità 4 TB | Dimensioni disco 8 TB | Dimensioni disco 10 TB | 12 TB di capacità dell'unità | Dimensioni dell'unità 16 TB | Dimensioni dell'unità 18 TB 
+
+
+ a| 
+10 GB
+ a| 
+2.5 giorni
+ a| 
+4.5 giorni
+ a| 
+5.5 giorni
+ a| 
+6.5 giorni
+ a| 
+9 giorni
+ a| 
+10 giorni
+
+
+
+ a| 
+25 GB
+ a| 
+1.5 giorni
+ a| 
+3 giorni
+ a| 
+3.5 giorni
+ a| 
+4.5 giorni
+ a| 
+6 giorni
+ a| 
+6.5 giorni
+
+|===
+
+
+==== SG6060 -> SG6060
+
+[cols="2a,1a,1a,1a,1a,1a,1a"]
+|===
+| Velocità dell'interfaccia di rete | Dimensioni dell'unità 4 TB | Dimensioni disco 8 TB | Dimensioni disco 10 TB | 12 TB di capacità dell'unità | Dimensioni dell'unità 16 TB | Dimensioni dell'unità 18 TB 
+
+
+ a| 
+10 GB
+ a| 
+2.5 giorni
+ a| 
+4.5 giorni
+ a| 
+5.5 giorni
+ a| 
+6.5 giorni
+ a| 
+8.5 giorni
+ a| 
+9.5 giorni
+
+
+
+ a| 
+25 GB
+ a| 
+1.5 giorni
+ a| 
+3 giorni
+ a| 
+3.5 giorni
+ a| 
+4 giorni
+ a| 
+5.5 giorni
+ a| 
+6 giorni
+
+|===
+
+
+=== DDP16
+
+
+
+==== SG5760 -> SG5760
+
+[cols="2a,1a,1a,1a,1a,1a,1a"]
+|===
+| Velocità dell'interfaccia di rete | Dimensioni dell'unità 4 TB | Dimensioni disco 8 TB | Dimensioni disco 10 TB | 12 TB di capacità dell'unità | Dimensioni dell'unità 16 TB | Dimensioni dell'unità 18 TB 
+
+
+ a| 
+10 GB
+ a| 
+3.5 giorni
+ a| 
+6.5 giorni
+ a| 
+8 giorni
+ a| 
+9.5 giorni
+ a| 
+12.5 giorni
+ a| 
+*14 giorni*
+
+
+
+ a| 
+25 GB
+ a| 
+3.5 giorni
+ a| 
+6.5 giorni
+ a| 
+8 giorni
+ a| 
+9.5 giorni
+ a| 
+12.5 giorni
+ a| 
+*14 giorni*
+
+|===
+
+
+==== SG5760 -> SG6060
+
+[cols="2a,1a,1a,1a,1a,1a,1a"]
+|===
+| Velocità dell'interfaccia di rete | Dimensioni dell'unità 4 TB | Dimensioni disco 8 TB | Dimensioni disco 10 TB | 12 TB di capacità dell'unità | Dimensioni dell'unità 16 TB | Dimensioni dell'unità 18 TB 
+
+
+ a| 
+10 GB
+ a| 
+2.5 giorni
+ a| 
+5 giorni
+ a| 
+6 giorni
+ a| 
+7.5 giorni
+ a| 
+10 giorni
+ a| 
+11 giorni
+
+
+
+ a| 
+25 GB
+ a| 
+2 giorni
+ a| 
+3.5 giorni
+ a| 
+4 giorni
+ a| 
+5 giorni
+ a| 
+6.5 giorni
+ a| 
+7 giorni
+
+|===
+
+
+==== SG6060 -> SG6060
+
+[cols="2a,1a,1a,1a,1a,1a,1a"]
+|===
+| Velocità dell'interfaccia di rete | Dimensioni dell'unità 4 TB | Dimensioni disco 8 TB | Dimensioni disco 10 TB | 12 TB di capacità dell'unità | Dimensioni dell'unità 16 TB | Dimensioni dell'unità 18 TB 
+
+
+ a| 
+10 GB
+ a| 
+3.5 giorni
+ a| 
+5 giorni
+ a| 
+6 giorni
+ a| 
+7 giorni
+ a| 
+9.5 giorni
+ a| 
+10.5 giorni
+
+
+
+ a| 
+25 GB
+ a| 
+2 giorni
+ a| 
+3 giorni
+ a| 
+4 giorni
+ a| 
+4.5 giorni
+ a| 
+6 giorni
+ a| 
+7 giorni
+
+|===
+
+
+==== Shelf di espansione (aggiungere a SG6060 per ogni shelf sull'appliance di origine)
+
+[cols="2a,1a,1a,1a,1a,1a,1a"]
+|===
+| Velocità dell'interfaccia di rete | Dimensioni dell'unità 4 TB | Dimensioni disco 8 TB | Dimensioni disco 10 TB | 12 TB di capacità dell'unità | Dimensioni dell'unità 16 TB | Dimensioni dell'unità 18 TB 
+
+
+ a| 
+10 GB
+ a| 
+3.5 giorni
+ a| 
+5 giorni
+ a| 
+6 giorni
+ a| 
+7 giorni
+ a| 
+9.5 giorni
+ a| 
+10.5 giorni
+
+
+
+ a| 
+25 GB
+ a| 
+2 giorni
+ a| 
+3 giorni
+ a| 
+4 giorni
+ a| 
+4.5 giorni
+ a| 
+6 giorni
+ a| 
+7 giorni
+
+|===
