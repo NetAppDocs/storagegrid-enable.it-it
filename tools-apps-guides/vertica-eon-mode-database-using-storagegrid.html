@@ -8,7 +8,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta property="og:title" content="Database in modalità Vertica Eon che utilizza NetApp StorageGRID come storage comune" />
 	<meta property="og:type" content="website" />
-	<meta property="og:url" content="https://docs.netapp.com/it-it/storagegrid-enable/tools-apps-guides/vertica-eon-mode-database-using-netapp-storageGRID.html" />
+	<meta property="og:url" content="https://docs.netapp.com/it-it/storagegrid-enable/tools-apps-guides/vertica-eon-mode-database-using-storagegrid.html" />
 	<meta property="og:description" content="Questa guida descrive la procedura per creare un database Vertica Eon Mode con storage comune su NetApp StorageGRID." />
   <meta property="og:image" content="https://docs.netapp.com/it-it/storagegrid-enable/images/logo-tophat-social.png" />
   <meta property="og:image:alt" content="NetApp Logo" />
@@ -32,18 +32,18 @@
   <link rel="stylesheet" href="/it-it/storagegrid-enable/css/landing-page.css" type="text/css">
   <link rel="stylesheet" href="/it-it/storagegrid-enable/css/tabbed-blocks.css" type="text/css">
   <!-- Canonical url -->
-  <link rel="canonical" href="https://docs.netapp.com/it-it/storagegrid-enable/tools-apps-guides/vertica-eon-mode-database-using-netapp-storageGRID.html" />
-  <link rel="alternate" hreflang="x-default" href="https://docs.netapp.com/us-en/storagegrid-enable/tools-apps-guides/vertica-eon-mode-database-using-netapp-storageGRID.html" />
-  <link rel="alternate" hreflang="it" href="https://docs.netapp.com/it-it/storagegrid-enable/tools-apps-guides/vertica-eon-mode-database-using-netapp-storageGRID.html" />
-  <link rel="alternate" hreflang="en" href="https://docs.netapp.com/us-en/storagegrid-enable/tools-apps-guides/vertica-eon-mode-database-using-netapp-storageGRID.html" />
-  <link rel="alternate" hreflang="ja" href="https://docs.netapp.com/ja-jp/storagegrid-enable/tools-apps-guides/vertica-eon-mode-database-using-netapp-storageGRID.html" />
-  <link rel="alternate" hreflang="ko" href="https://docs.netapp.com/ko-kr/storagegrid-enable/tools-apps-guides/vertica-eon-mode-database-using-netapp-storageGRID.html" />
-  <link rel="alternate" hreflang="zh-Hans" href="https://docs.netapp.com/zh-cn/storagegrid-enable/tools-apps-guides/vertica-eon-mode-database-using-netapp-storageGRID.html" />
-  <link rel="alternate" hreflang="zh-Hant" href="https://docs.netapp.com/zh-tw/storagegrid-enable/tools-apps-guides/vertica-eon-mode-database-using-netapp-storageGRID.html" />
-  <link rel="alternate" hreflang="de" href="https://docs.netapp.com/de-de/storagegrid-enable/tools-apps-guides/vertica-eon-mode-database-using-netapp-storageGRID.html" />
-  <link rel="alternate" hreflang="es" href="https://docs.netapp.com/es-es/storagegrid-enable/tools-apps-guides/vertica-eon-mode-database-using-netapp-storageGRID.html" />
-  <link rel="alternate" hreflang="fr" href="https://docs.netapp.com/fr-fr/storagegrid-enable/tools-apps-guides/vertica-eon-mode-database-using-netapp-storageGRID.html" />
-  <!-- Top level site integrations --><script>
+  <link rel="canonical" href="https://docs.netapp.com/it-it/storagegrid-enable/tools-apps-guides/vertica-eon-mode-database-using-storagegrid.html" />
+  <link rel="alternate" hreflang="x-default" href="https://docs.netapp.com/us-en/storagegrid-enable/tools-apps-guides/vertica-eon-mode-database-using-storagegrid.html" />
+  <link rel="alternate" hreflang="it" href="https://docs.netapp.com/it-it/storagegrid-enable/tools-apps-guides/vertica-eon-mode-database-using-storagegrid.html" />
+  <link rel="alternate" hreflang="en" href="https://docs.netapp.com/us-en/storagegrid-enable/tools-apps-guides/vertica-eon-mode-database-using-storagegrid.html" />
+  <link rel="alternate" hreflang="ja" href="https://docs.netapp.com/ja-jp/storagegrid-enable/tools-apps-guides/vertica-eon-mode-database-using-storagegrid.html" />
+  <link rel="alternate" hreflang="ko" href="https://docs.netapp.com/ko-kr/storagegrid-enable/tools-apps-guides/vertica-eon-mode-database-using-storagegrid.html" />
+  <link rel="alternate" hreflang="zh-Hans" href="https://docs.netapp.com/zh-cn/storagegrid-enable/tools-apps-guides/vertica-eon-mode-database-using-storagegrid.html" />
+  <link rel="alternate" hreflang="zh-Hant" href="https://docs.netapp.com/zh-tw/storagegrid-enable/tools-apps-guides/vertica-eon-mode-database-using-storagegrid.html" />
+  <link rel="alternate" hreflang="de" href="https://docs.netapp.com/de-de/storagegrid-enable/tools-apps-guides/vertica-eon-mode-database-using-storagegrid.html" />
+  <link rel="alternate" hreflang="es" href="https://docs.netapp.com/es-es/storagegrid-enable/tools-apps-guides/vertica-eon-mode-database-using-storagegrid.html" />
+  <link rel="alternate" hreflang="fr" href="https://docs.netapp.com/fr-fr/storagegrid-enable/tools-apps-guides/vertica-eon-mode-database-using-storagegrid.html" />
+  <link rel='stylesheet' href='/it-it/storagegrid-enable/css/na-feature.css' type='text/css'><!-- Top level site integrations --><script>
     function addAdobeLaunch(adobeId) {
       var head = document.getElementsByTagName('head')[0];
       var adobe = document.createElement("script");
@@ -177,7 +177,7 @@
   
   <!-- Start Page Toolbar -->
   
-  <div class="page-nav-toolbar"><div class="page-nav-contribute"><a target="_blank" href="https://github.com/NetAppDocs/storagegrid-enable.it-it/issues/new?template=new-from-page.yml&page-url=https://docs.netapp.com/it-it/storagegrid-enable/tools-apps-guides/vertica-eon-mode-database-using-netapp-storageGRID.html&page-title=Database in modalità Vertica Eon che utilizza NetApp StorageGRID come storage comune" class="page-nav-contribute-link" role="button"><img src="/it-it/storagegrid-enable/images/discuss-sm.svg" alt="" class="github-icon" />Richiedi modifiche alla documentazione</a><a target="_blank" href="https://github.com/NetAppDocs/storagegrid-enable/blob/main/tools-apps-guides/vertica-eon-mode-database-using-netapp.adoc" class="page-nav-contribute-link" role="button"><img src="/it-it/storagegrid-enable/images/edit-sm.svg" alt="" class="github-icon" />Modifica questa pagina</a><a target="_blank" href="https://docs.netapp.com/us-en/contribute/" class="page-nav-contribute-link"  ><img src="/it-it/storagegrid-enable/images/article-sm.svg" alt="" class="github-icon" />Scopri come collaborare</a></div>
+  <div class="page-nav-toolbar"><div class="page-nav-contribute"><a target="_blank" href="https://github.com/NetAppDocs/storagegrid-enable.it-it/issues/new?template=new-from-page.yml&page-url=https://docs.netapp.com/it-it/storagegrid-enable/tools-apps-guides/vertica-eon-mode-database-using-storagegrid.html&page-title=Database in modalità Vertica Eon che utilizza NetApp StorageGRID come storage comune" class="page-nav-contribute-link" role="button"><img src="/it-it/storagegrid-enable/images/discuss-sm.svg" alt="" class="github-icon" />Richiedi modifiche alla documentazione</a><a target="_blank" href="https://github.com/NetAppDocs/storagegrid-enable/blob/main/tools-apps-guides/vertica-eon-mode-database-using-storagegrid.adoc" class="page-nav-contribute-link" role="button"><img src="/it-it/storagegrid-enable/images/edit-sm.svg" alt="" class="github-icon" />Modifica questa pagina</a><a target="_blank" href="https://docs.netapp.com/us-en/contribute/" class="page-nav-contribute-link"  ><img src="/it-it/storagegrid-enable/images/article-sm.svg" alt="" class="github-icon" />Scopri come collaborare</a></div>
     <div class="page-nav-container">
       <nav class="page-nav-fixed">
         <div class="page-nav-title">IN QUESTA PAGINA</div>
@@ -297,23 +297,23 @@
       </div>
 
       <ul class="custom-dropdown-menu"><li>
-          <a href="https://docs.netapp.com/it-it/storagegrid-enable/tools-apps-guides/vertica-eon-mode-database-using-netapp-storageGRID.html" target="_self"><span translate="no" class="notranslate">Italiano</span></a>
+          <a href="https://docs.netapp.com/it-it/storagegrid-enable/tools-apps-guides/vertica-eon-mode-database-using-storagegrid.html" target="_self"><span translate="no" class="notranslate">Italiano</span></a>
         </li><li>
-          <a href="https://docs.netapp.com/us-en/storagegrid-enable/tools-apps-guides/vertica-eon-mode-database-using-netapp-storageGRID.html" target="_self"><span translate="no" class="notranslate">English</span></a>
+          <a href="https://docs.netapp.com/us-en/storagegrid-enable/tools-apps-guides/vertica-eon-mode-database-using-storagegrid.html" target="_self"><span translate="no" class="notranslate">English</span></a>
         </li><li>
-          <a href="https://docs.netapp.com/ja-jp/storagegrid-enable/tools-apps-guides/vertica-eon-mode-database-using-netapp-storageGRID.html" target="_self"><span translate="no" class="notranslate">日本語</span></a>
+          <a href="https://docs.netapp.com/ja-jp/storagegrid-enable/tools-apps-guides/vertica-eon-mode-database-using-storagegrid.html" target="_self"><span translate="no" class="notranslate">日本語</span></a>
         </li><li>
-          <a href="https://docs.netapp.com/ko-kr/storagegrid-enable/tools-apps-guides/vertica-eon-mode-database-using-netapp-storageGRID.html" target="_self"><span translate="no" class="notranslate">한국어</span></a>
+          <a href="https://docs.netapp.com/ko-kr/storagegrid-enable/tools-apps-guides/vertica-eon-mode-database-using-storagegrid.html" target="_self"><span translate="no" class="notranslate">한국어</span></a>
         </li><li>
-          <a href="https://docs.netapp.com/zh-cn/storagegrid-enable/tools-apps-guides/vertica-eon-mode-database-using-netapp-storageGRID.html" target="_self"><span translate="no" class="notranslate">简体中文</span></a>
+          <a href="https://docs.netapp.com/zh-cn/storagegrid-enable/tools-apps-guides/vertica-eon-mode-database-using-storagegrid.html" target="_self"><span translate="no" class="notranslate">简体中文</span></a>
         </li><li>
-          <a href="https://docs.netapp.com/zh-tw/storagegrid-enable/tools-apps-guides/vertica-eon-mode-database-using-netapp-storageGRID.html" target="_self"><span translate="no" class="notranslate">繁體中文</span></a>
+          <a href="https://docs.netapp.com/zh-tw/storagegrid-enable/tools-apps-guides/vertica-eon-mode-database-using-storagegrid.html" target="_self"><span translate="no" class="notranslate">繁體中文</span></a>
         </li><li>
-          <a href="https://docs.netapp.com/de-de/storagegrid-enable/tools-apps-guides/vertica-eon-mode-database-using-netapp-storageGRID.html" target="_self"><span translate="no" class="notranslate">Deutsch</span></a>
+          <a href="https://docs.netapp.com/de-de/storagegrid-enable/tools-apps-guides/vertica-eon-mode-database-using-storagegrid.html" target="_self"><span translate="no" class="notranslate">Deutsch</span></a>
         </li><li>
-          <a href="https://docs.netapp.com/es-es/storagegrid-enable/tools-apps-guides/vertica-eon-mode-database-using-netapp-storageGRID.html" target="_self"><span translate="no" class="notranslate">Español</span></a>
+          <a href="https://docs.netapp.com/es-es/storagegrid-enable/tools-apps-guides/vertica-eon-mode-database-using-storagegrid.html" target="_self"><span translate="no" class="notranslate">Español</span></a>
         </li><li>
-          <a href="https://docs.netapp.com/fr-fr/storagegrid-enable/tools-apps-guides/vertica-eon-mode-database-using-netapp-storageGRID.html" target="_self"><span translate="no" class="notranslate">Français</span></a>
+          <a href="https://docs.netapp.com/fr-fr/storagegrid-enable/tools-apps-guides/vertica-eon-mode-database-using-storagegrid.html" target="_self"><span translate="no" class="notranslate">Français</span></a>
         </li></ul>
     </div>
     <!-- End Language Selector -->
@@ -331,7 +331,199 @@
   
   <div class="col-md-3" id="sidebar-height">
       <button id="btn-sidebar-collapse" onclick="hideSidebar()"><img src="/it-it/storagegrid-enable/images/collapse.png" alt="Comprimi pannello di navigazione"></button>
-      <div class="sidebar-nav-container" id="mysidebardiv">
+      <div class="n-pdf-header">
+  <a id="toggleButtonPdf" class="n-pdf-button" type="button">
+    <img src="/it-it/storagegrid-enable/images/pdf.png" alt="" width="16" height="16"/>PDF disponibili<span>
+    </span>
+  </a>
+</div>
+<div class="n-pdf-body-container">
+  <ul id="toggleContainerPdf" class="n-pdf-body" style="display:none;"><li class="pdf-ux-container">
+        
+        
+        
+        <a target="_blank" href="/it-it/storagegrid-enable/pdfs/fullsite-sidebar/Come_abilitare_StorageGRID_nel_tuo_ambiente.pdf" >
+          <img src="/it-it/storagegrid-enable/images/pdf.png" alt="" width="16" height="16"/>PDF del sito di questa documentazione</a>
+
+
+
+    
+      <ul class="subfolders" style="display:none;">
+        <li class="pdf-ux-container">
+          
+          
+          
+          <a target="_blank" 
+            
+              href="/it-it/storagegrid-enable/pdfs/sidebar/Soluzioni_di_terze_parti_validate.pdf" 
+            
+          >
+            <img src="/it-it/storagegrid-enable/images/pdf.png" alt="" width="16" height="16"/>
+            Soluzioni di terze parti validate
+          </a>
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+        </li>
+      </ul>
+    
+
+  
+
+
+
+    
+      <ul class="subfolders" style="display:none;">
+        <li class="pdf-ux-container">
+          
+          
+          
+          <a target="_blank" 
+            
+              href="/it-it/storagegrid-enable/pdfs/sidebar/Guide_alle_funzionalità_del_prodotto.pdf" 
+            
+          >
+            <img src="/it-it/storagegrid-enable/images/pdf.png" alt="" width="16" height="16"/>
+            Guide alle funzionalità del prodotto
+          </a>
+          
+
+
+
+
+
+
+
+
+
+
+
+
+        </li>
+      </ul>
+    
+
+  
+
+
+
+    
+      <ul class="subfolders" style="display:none;">
+        <li class="pdf-ux-container">
+          
+          
+          
+          <a target="_blank" 
+            
+              href="/it-it/storagegrid-enable/pdfs/sidebar/Guide_agli_strumenti_e_alle_applicazioni.pdf" 
+            
+          >
+            <img src="/it-it/storagegrid-enable/images/pdf.png" alt="" width="16" height="16"/>
+            Guide agli strumenti e alle applicazioni
+          </a>
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+        </li>
+      </ul>
+    
+
+  
+
+
+
+    
+      <ul class="subfolders" style="display:none;">
+        <li class="pdf-ux-container">
+          
+          
+          
+          <a target="_blank" 
+            
+              href="/it-it/storagegrid-enable/pdfs/sidebar/Procedure_ed_esempi_di_API.pdf" 
+            
+          >
+            <img src="/it-it/storagegrid-enable/images/pdf.png" alt="" width="16" height="16"/>
+            Procedure ed esempi di API
+          </a>
+          
+
+
+
+
+
+
+        </li>
+      </ul>
+    
+
+  
+
+
+
+
+
+</li></ul>
+  <div class="zip-pdf-link-container" style="display: none;">   
+    <a href="#" id="zipPdf">
+      <img src="/it-it/storagegrid-enable/images/pdf-zip.png" alt="" width="16" height="16"/>
+      <pre>Raccolta di documenti PDF separati<span class="zip-size"></span></pre>
+    </a><div id="zip-link-popup" class="hide">
+    <div class="inner-modal">
+        <div class="downloading-progress">
+            <div class="spinner"></div>
+            <h1>Creating your file...</h1>
+            <div>This may take a few minutes. Thanks for your patience.</div>
+            <button class="cancel-download-btn" type="button">Cancel</button>
+        </div>
+        <div class="download-complete hide">
+            <div class="done-icon">
+                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><path d="M20.285 2l-11.285 11.567-5.286-5.011-3.714 3.716 9 8.728 15-15.285z"/></svg>
+            </div>
+            <div>Your file is ready</div>
+            <button class="cancel-download-btn" type="button">OK</button>
+        </div>
+    </div>
+</div>
+<script>
+    $(".cancel-download-btn").click(function(){
+        $("#zip-link-popup").addClass("hide");
+        $("#zip-link-popup .downloading-progress").removeClass("hide");
+        $("#zip-link-popup .download-complete").addClass("hide");
+    });
+</script></div>
+</div>
+<script>
+  $("#toggleContainerPdf li.active:last-child").parents('ul.subfolders').toggle('display');
+  $("#toggleButtonPdf").click(function () {
+    $("#toggleContainerPdf").toggle('display');
+    $(".n-pdf-body-container .zip-pdf-link-container").toggle('display');
+  });
+</script><div class="sidebar-nav-container" id="mysidebardiv">
   <ul id="mysidebar" class="nav"><li 
       data-pdf-exists="true" 
       data-pdf-filename="Come attivare StorageGRID"
@@ -475,7 +667,7 @@
       data-pdf-exists="true" 
       data-pdf-filename="Creare un database Vertica Eon Mode con storage comune"
       data-li-level="2#" 
-      class="  active "
+      class=" "
     ><a class="na-navbar-padding" href="/it-it/storagegrid-enable/tools-apps-guides/vertica-eon-mode-database-using-netapp-storageGRID.html">
         Creare un database Vertica Eon Mode con storage comune
       </a></li><li 
@@ -613,7 +805,7 @@
 <p class="page-details">
   
     
-    <time datetime="2023-05-23 21:41:43 +0000">05/23/2023</time>
+    <time datetime="2023-06-08 18:02:10 +0000">06/08/2023</time>
     
   
 

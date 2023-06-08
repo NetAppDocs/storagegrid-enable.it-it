@@ -43,7 +43,7 @@
   <link rel="alternate" hreflang="de" href="https://docs.netapp.com/de-de/storagegrid-enable/search.html" />
   <link rel="alternate" hreflang="es" href="https://docs.netapp.com/es-es/storagegrid-enable/search.html" />
   <link rel="alternate" hreflang="fr" href="https://docs.netapp.com/fr-fr/storagegrid-enable/search.html" />
-  <!-- Top level site integrations --><script>
+  <link rel='stylesheet' href='/it-it/storagegrid-enable/css/na-feature.css' type='text/css'><!-- Top level site integrations --><script>
     function addAdobeLaunch(adobeId) {
       var head = document.getElementsByTagName('head')[0];
       var adobe = document.createElement("script");
@@ -292,7 +292,199 @@
   
   <div class="col-md-3" id="sidebar-height">
       <button id="btn-sidebar-collapse" onclick="hideSidebar()"><img src="/it-it/storagegrid-enable/images/collapse.png" alt="Comprimi pannello di navigazione"></button>
-      <div class="sidebar-nav-container" id="mysidebardiv">
+      <div class="n-pdf-header">
+  <a id="toggleButtonPdf" class="n-pdf-button" type="button">
+    <img src="/it-it/storagegrid-enable/images/pdf.png" alt="" width="16" height="16"/>PDF disponibili<span>
+    </span>
+  </a>
+</div>
+<div class="n-pdf-body-container">
+  <ul id="toggleContainerPdf" class="n-pdf-body" style="display:none;"><li class="pdf-ux-container">
+        
+        
+        
+        <a target="_blank" href="/it-it/storagegrid-enable/pdfs/fullsite-sidebar/Come_abilitare_StorageGRID_nel_tuo_ambiente.pdf" >
+          <img src="/it-it/storagegrid-enable/images/pdf.png" alt="" width="16" height="16"/>PDF del sito di questa documentazione</a>
+
+
+
+    
+      <ul class="subfolders" style="display:none;">
+        <li class="pdf-ux-container">
+          
+          
+          
+          <a target="_blank" 
+            
+              href="/it-it/storagegrid-enable/pdfs/sidebar/Soluzioni_di_terze_parti_validate.pdf" 
+            
+          >
+            <img src="/it-it/storagegrid-enable/images/pdf.png" alt="" width="16" height="16"/>
+            Soluzioni di terze parti validate
+          </a>
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+        </li>
+      </ul>
+    
+
+  
+
+
+
+    
+      <ul class="subfolders" style="display:none;">
+        <li class="pdf-ux-container">
+          
+          
+          
+          <a target="_blank" 
+            
+              href="/it-it/storagegrid-enable/pdfs/sidebar/Guide_alle_funzionalità_del_prodotto.pdf" 
+            
+          >
+            <img src="/it-it/storagegrid-enable/images/pdf.png" alt="" width="16" height="16"/>
+            Guide alle funzionalità del prodotto
+          </a>
+          
+
+
+
+
+
+
+
+
+
+
+
+
+        </li>
+      </ul>
+    
+
+  
+
+
+
+    
+      <ul class="subfolders" style="display:none;">
+        <li class="pdf-ux-container">
+          
+          
+          
+          <a target="_blank" 
+            
+              href="/it-it/storagegrid-enable/pdfs/sidebar/Guide_agli_strumenti_e_alle_applicazioni.pdf" 
+            
+          >
+            <img src="/it-it/storagegrid-enable/images/pdf.png" alt="" width="16" height="16"/>
+            Guide agli strumenti e alle applicazioni
+          </a>
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+        </li>
+      </ul>
+    
+
+  
+
+
+
+    
+      <ul class="subfolders" style="display:none;">
+        <li class="pdf-ux-container">
+          
+          
+          
+          <a target="_blank" 
+            
+              href="/it-it/storagegrid-enable/pdfs/sidebar/Procedure_ed_esempi_di_API.pdf" 
+            
+          >
+            <img src="/it-it/storagegrid-enable/images/pdf.png" alt="" width="16" height="16"/>
+            Procedure ed esempi di API
+          </a>
+          
+
+
+
+
+
+
+        </li>
+      </ul>
+    
+
+  
+
+
+
+
+
+</li></ul>
+  <div class="zip-pdf-link-container" style="display: none;">   
+    <a href="#" id="zipPdf">
+      <img src="/it-it/storagegrid-enable/images/pdf-zip.png" alt="" width="16" height="16"/>
+      <pre>Raccolta di documenti PDF separati<span class="zip-size"></span></pre>
+    </a><div id="zip-link-popup" class="hide">
+    <div class="inner-modal">
+        <div class="downloading-progress">
+            <div class="spinner"></div>
+            <h1>Creating your file...</h1>
+            <div>This may take a few minutes. Thanks for your patience.</div>
+            <button class="cancel-download-btn" type="button">Cancel</button>
+        </div>
+        <div class="download-complete hide">
+            <div class="done-icon">
+                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><path d="M20.285 2l-11.285 11.567-5.286-5.011-3.714 3.716 9 8.728 15-15.285z"/></svg>
+            </div>
+            <div>Your file is ready</div>
+            <button class="cancel-download-btn" type="button">OK</button>
+        </div>
+    </div>
+</div>
+<script>
+    $(".cancel-download-btn").click(function(){
+        $("#zip-link-popup").addClass("hide");
+        $("#zip-link-popup .downloading-progress").removeClass("hide");
+        $("#zip-link-popup .download-complete").addClass("hide");
+    });
+</script></div>
+</div>
+<script>
+  $("#toggleContainerPdf li.active:last-child").parents('ul.subfolders').toggle('display');
+  $("#toggleButtonPdf").click(function () {
+    $("#toggleContainerPdf").toggle('display');
+    $(".n-pdf-body-container .zip-pdf-link-container").toggle('display');
+  });
+</script><div class="sidebar-nav-container" id="mysidebardiv">
   <ul id="mysidebar" class="nav"><li 
       data-pdf-exists="true" 
       data-pdf-filename="Come attivare StorageGRID"
