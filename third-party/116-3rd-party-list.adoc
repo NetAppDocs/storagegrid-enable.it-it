@@ -19,6 +19,7 @@ Queste soluzioni sono state testate in collaborazione con i rispettivi partner.
 
 * Actifio
 * Apache Kafka
+* Bridgestor
 * Cantemo
 * Citrix Content Collaboration
 * CommVault 11
@@ -79,4 +80,29 @@ Queste soluzioni sono state testate in collaborazione con i rispettivi partner.
 * Veeeam 11
 * Veritas Enterprise Vault 14.2.2
 * Veritas NetBackup 10.1.1 e versioni successive
+
+
+
+
+== Soluzioni di terze parti supportate su StorageGRID
+
+Queste soluzioni sono state testate.
+
+* Archiviware
+* Comunicazioni Axis
+* Congruità360
+* DataFrameworks
+* Piattaforma EcoDigital DIVA
+* Encoding.com
+* Archivio di oggetti Fujifilm
+* Archivio GE Centricity Enterprise
+* Hyland Acuo
+* IBM Aspera
+* Sistemi Milestone
+* OnSSI
+* Motore Reach
+* SilverTrak
+* SoftNAS
+* QStar
+* Velasea
 

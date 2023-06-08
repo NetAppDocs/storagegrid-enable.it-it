@@ -18,6 +18,7 @@ Le seguenti soluzioni di terze parti sono state validate per l'utilizzo con Stor
 Queste soluzioni sono state testate in collaborazione con i rispettivi partner.
 
 * Actifio
+* Bridgestor
 * Cantemo
 * Citrix Content Collaboration
 * CommVault 11
@@ -45,4 +46,29 @@ Queste soluzioni sono state testate in collaborazione con i rispettivi partner.
 * Veritas Enterprise Vault 12
 * Veritas NetBackup 8.0
 * Visoline
+
+
+
+
+== Soluzioni di terze parti supportate su StorageGRID
+
+Queste soluzioni sono state testate.
+
+* Archiviware
+* Comunicazioni Axis
+* Congruità360
+* DataFrameworks
+* Piattaforma EcoDigital DIVA
+* Encoding.com
+* Archivio di oggetti Fujifilm
+* Archivio GE Centricity Enterprise
+* Hyland Acuo
+* IBM Aspera
+* Sistemi Milestone
+* OnSSI
+* Motore Reach
+* SilverTrak
+* SoftNAS
+* QStar
+* Velasea
 
