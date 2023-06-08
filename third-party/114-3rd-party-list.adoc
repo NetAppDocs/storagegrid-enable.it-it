@@ -24,6 +24,7 @@ Queste soluzioni sono state testate in collaborazione con i rispettivi partner.
 * CommVault 11
 * Portale Ctera 6
 * Dal
+* Datadobi
 * Storage di Data Dynamics X
 * DefendX
 * Interica
