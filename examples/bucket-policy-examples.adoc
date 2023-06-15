@@ -19,7 +19,7 @@ Di seguito sono riportati alcuni esempi di policy bucket e di policy di gruppo (
 
 === Accesso bucket stile home directory
 
-Questo criterio consente solo agli utenti di accedere agli oggetti nel bucket denominato user Username.
+Questo criterio di gruppo consente solo agli utenti di accedere agli oggetti nel bucket denominato username.
 
 [source, json]
 ----
@@ -49,7 +49,7 @@ Questo criterio consente solo agli utenti di accedere agli oggetti nel bucket de
 
 === Negare la creazione del bucket di blocco degli oggetti
 
-Questo criterio limiterà gli utenti a creare un bucket con il blocco degli oggetti attivato nel bucket.
+Questo criterio di gruppo limiterà gli utenti a creare un bucket con il blocco degli oggetti attivato nel bucket.
 
 [NOTE]
 ====
@@ -74,6 +74,91 @@ Questo criterio non viene applicato nell'interfaccia utente di StorageGRID, ma v
             "Resource": "arn:aws:s3:::*"
         }
     ]
+}
+----
+
+
+=== Limite di conservazione del blocco degli oggetti
+
+Questa policy di bucket limiterà la durata della conservazione del blocco oggetto a 10 giorni o meno
+
+[source, json]
+----
+{
+ "Version":"2012-10-17",
+ "Id":"CustSetRetentionLimits",
+ "Statement": [
+   {
+    "Sid":"CustSetRetentionPeriod",
+    "Effect":"Deny",
+    "Principal":"*",
+    "Action": [
+      "s3:PutObjectRetention"
+    ],
+    "Resource":"arn:aws:s3:::testlock-01/*",
+    "Condition": {
+      "NumericGreaterThan": {
+        "s3:object-lock-remaining-retention-days":"10"
+      }
+    }
+   }
+  ]
+}
+----
+
+
+=== Impedire agli utenti di eliminare gli oggetti in base all'ID versione
+
+Questo criterio di gruppo limita l'eliminazione degli oggetti con versione in base all'ID versione
+
+[source, json]
+----
+{
+    "Statement": [
+        {
+            "Action": [
+                "s3:DeleteObjectVersion"
+            ],
+            "Effect": "Deny",
+            "Resource": "arn:aws:s3:::*"
+        },
+        {
+            "Action": "s3:*",
+            "Effect": "Allow",
+            "Resource": "arn:aws:s3:::*"
+        }
+    ]
+}
+----
+Questo criterio bucket limiterà un utente (identificato dall'ID utente "56622399308951294926") a eliminare gli oggetti con versione in base all'ID versione
+
+[source, json]
+----
+{
+  "Statement": [
+    {
+      "Action": [
+        "s3:DeleteObjectVersion"
+      ],
+      "Effect": "Deny",
+      "Resource": "arn:aws:s3:::verdeny/*",
+      "Principal": {
+        "AWS": [
+          "56622399308951294926"
+        ]
+      }
+    },
+    {
+      "Action": "s3:*",
+      "Effect": "Allow",
+      "Resource": "arn:aws:s3:::verdeny/*",
+      "Principal": {
+        "AWS": [
+          "56622399308951294926"
+        ]
+      }
+    }
+  ]
 }
 ----
 
