@@ -60,7 +60,7 @@ Queste soluzioni sono state testate in collaborazione con i rispettivi partner.
 * Smartstore Splunk
 * Lo storage diventa semplice
 * Verniciare Enterprise 6.0.4
-* Veeeam 11
+* Veeeam 12
 * Veritas Enterprise Vault 14
 * Veritas NetBackup 8.0
 * Verticale 10.x
@@ -78,7 +78,7 @@ Queste soluzioni sono state testate in collaborazione con i rispettivi partner.
 * CommVault 11 Feature Release 26
 * IBM FileNet
 * Documento OpenText 21.4
-* Veeeam 11
+* Veeeam 12
 * Veritas Enterprise Vault 14.2.2
 * Veritas NetBackup 10.1.1 e versioni successive
 
