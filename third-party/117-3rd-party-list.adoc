@@ -59,6 +59,7 @@ Queste soluzioni sono state testate in collaborazione con i rispettivi partner.
 * s3a
 * Signiant
 * Fiocco di neve
+* Ghiacciaio on-premise di Spectra Logic
 * Smartstore Splunk
 * Lo storage diventa semplice
 * Trino
