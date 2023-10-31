@@ -7,7 +7,7 @@ entries:
 - title: Utilizzare S3cmd per testare e dimostrare l'accesso S3
   url: "/tools-apps-guides/use-S3cmd-test-demonstrate-S3-access.html"
 - title: Creare un database Vertica Eon Mode con storage comune
-  url: "/tools-apps-guides/vertica-eon-mode-database-using-netapp-storageGRID.html"
+  url: "/tools-apps-guides/vertica-eon-mode-database-using-storagegrid.html"
 - title: Utilizza Elasticsearch, Logstash e Kibana per l'analisi dei log
   url: "/tools-apps-guides/elk-instructions.html"
 - title: Utilizza Prometheus e Grafana per estendere la conservazione delle metriche
