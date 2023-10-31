@@ -16,3 +16,5 @@ entries:
   url: "/tools-apps-guides/use-datadog-snmp.html"
 - title: Utilizzare rclone per migrare, INSERIRE ed ELIMINARE oggetti su StorageGRID
   url: "/tools-apps-guides/use-rclone-migrate-delete.html"
+- title: Utilizza Veeam Backup and Replication con StorageGRID
+  url: "/tools-apps-guides/veeam-br.html"
