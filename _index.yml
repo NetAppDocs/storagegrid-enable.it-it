@@ -55,6 +55,8 @@ indexpage:
       url: "/tools-apps-guides/use-rclone-migrate-delete.html"
     - title: Utilizza Veeam Backup and Replication con StorageGRID
       url: "/tools-apps-guides/veeam-br.html"
+    - title: Configurare Dremio con StorageGRID
+      url: "/tools-apps-guides/configure-Dremio-StorageGRID.html"
   - title: Procedure ed esempi di API
     links:
     - title: Testare e dimostrare la crittografia S3
