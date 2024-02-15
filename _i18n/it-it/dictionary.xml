@@ -1280,4 +1280,14 @@ Se si utilizza un certificato CA autofirmato per questo endpoint S3, seguire la 
   <block id="9792e23419583666b178605decaec552" category="list-text">Gitlab</block>
   <block id="d2f2caed07026483a659ddedff29363a" category="section-title">Limitare un gruppo a una singola sottodirectory (prefisso) con accesso in sola lettura</block>
   <block id="12e569a2475c87038546154b45eafa4f" category="paragraph">Questo criterio consente ai membri del gruppo di accedere in sola lettura a una sottodirectory (prefisso) all'interno di un bucket. Il nome del bucket è "studio" e la sottodirectory è "study01".</block>
+  <block id="d40d489ee06ec7f85fb2d17fd332ec2c" category="list-text">Punto di montaggio AWS</block>
+  <block id="dab38c58c86e39075df5ca86464b6e59" category="summary">Soluzioni di terze parti validate per StorageGRID 11,8</block>
+  <block id="43c9d447791c3e84501a3b86b522a4c1" category="doc">Soluzioni validate di terze parti StorageGRID 11,8</block>
+  <block id="80880f7955cf3e0bbe904bbb677a357b" category="paragraph">Le seguenti soluzioni di terze parti sono state convalidate per l'utilizzo con StorageGRID 11,8. +
+Se la soluzione che stai cercando non è presente nell'elenco, contatta il tuo rappresentante commerciale NetApp.</block>
+  <block id="9283e244bcd98f1bdd350c1b4f2da148" category="inline-link">Appliance StorageGRID</block>
+  <block id="eff26b146dbf07b93a3af4954ea77c6d" category="list-text"><block ref="eff26b146dbf07b93a3af4954ea77c6d" category="inline-link-rx"></block></block>
+  <block id="0c116dd1f4daf14c460a0c77a9e0e674" category="inline-link">StorageGRID 11,8</block>
+  <block id="6a9dbde708e64ed0ece8a4d0b0dc1d32" category="list-text"><block ref="6a9dbde708e64ed0ece8a4d0b0dc1d32" category="inline-link-rx"></block></block>
+  <block id="fca3b43498fce810dfcc0f52e38e42a6" category="list-text"><block ref="fca3b43498fce810dfcc0f52e38e42a6" category="inline-link-rx"></block></block>
 </blocks>

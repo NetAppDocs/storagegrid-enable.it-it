@@ -5,6 +5,8 @@ entries:
 - title: Panoramica
   pdf-filename: Soluzioni validate di terze parti - Panoramica
   url: "/third-party/index.html"
+- title: StorageGRID 11,8
+  url: "/third-party/118-3rd-party-list.html"
 - title: StorageGRID 11.7
   url: "/third-party/117-3rd-party-list.html"
 - title: StorageGRID 11.6
