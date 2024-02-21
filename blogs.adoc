@@ -5,6 +5,7 @@ keywords: storagegrid, blogs
 summary: Puoi trovare alcuni blog di NetApp StorageGRID qui. 
 ---
 = Blog di NetApp StorageGRID
+:hardbreaks:
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

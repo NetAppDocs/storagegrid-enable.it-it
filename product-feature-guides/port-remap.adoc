@@ -5,10 +5,11 @@ keywords: port remap, port redirect, port, remap, redirect
 summary: Come utilizzare il remap delle porte. 
 ---
 = Come utilizzare il remap delle porte
+:hardbreaks:
 :allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
 
-
-_Aron Klein_
 
 [role="lead"]
 Potrebbe essere necessario rimappare una porta in entrata o in uscita per diversi motivi. È possibile passare dal servizio di bilanciamento del carico CLB legacy all'endpoint corrente di bilanciamento del carico del servizio nginx e mantenere la stessa porta per ridurre l'impatto sui client, utilizzare la porta 443 per il client S3 su una rete client con nodo di amministrazione o per le restrizioni del firewall.
@@ -72,27 +73,27 @@ Per implementare il nodo gateway sostitutivo, attenersi alla seguente procedura:
 
 . Una volta implementata la macchina virtuale, selezionarla dall'elenco delle macchine virtuali e selezionare la scheda Configura opzioni vApp.
 +
-image:port-remap/vapp_options.png["Scheda delle opzioni di vApp"]
+image::port-remap/vapp_options.png[Scheda delle opzioni di vApp]
 
 . Scorrere fino alla sezione Proprietà e selezionare LA proprietà PORT_REMAP_INBOUND
 +
-image:port-remap/remap_inbound.png["rimappare la porta in entrata"]
+image::port-remap/remap_inbound.png[rimappare la porta in entrata]
 
 . Scorrere fino all'inizio dell'elenco Proprietà e fare clic su Modifica
 +
-image:port-remap/edit_button.png["pulsante edit (modifica)"]
+image::port-remap/edit_button.png[pulsante edit (modifica)]
 
 . Selezionare la scheda tipo, verificare che la casella di controllo configurabile dall'utente sia selezionata, quindi fare clic su Salva.
 +
-image:port-remap/type_tab.png["scheda tipo"]
+image::port-remap/type_tab.png[scheda tipo]
 
 . Nella parte superiore dell'elenco Proprietà, con la proprietà "PORT_REMAP_INBOUND" ancora selezionata, fare clic su Imposta valore.
 +
-image:port-remap/edit_button.png["pulsante set value (imposta valore)"]
+image::port-remap/edit_button.png[pulsante set value (imposta valore)]
 
 . Nel campo Property Value (valore proprietà), inserire la rete (griglia, amministratore o client), il TCP, la porta originale (8082) e la nuova porta (10443) con "/" tra ciascun valore, come illustrato di seguito.
 +
-image:port-remap/value.png["valore della proprietà"]
+image::port-remap/value.png[valore della proprietà]
 
 . Se si utilizzano più reti, utilizzare una virgola (,) per separare le stringhe di rete, ad esempio Grid/tcp/8082/10443,admin/tcp/8082/10443,client/tcp/8082/10443
 
@@ -105,11 +106,11 @@ Per ripristinare il nodo gateway, attenersi alla seguente procedura:
 
 . Accedere alla sezione manutenzione/Ripristino dell'interfaccia utente di Grid Management.
 +
-image:port-remap/maint_menu.png["menu di manutenzione"]
+image::port-remap/maint_menu.png[menu di manutenzione]
 
 . Accendere il nodo VM e attendere che venga visualizzato nella sezione Maintenance/Recovery Pending Nodes dell'interfaccia utente Grid Management.
 +
-image:port-remap/recover_pend.png["ripristino in sospeso"]
+image::port-remap/recover_pend.png[ripristino in sospeso]
 
 +
 [NOTE]
@@ -283,7 +284,7 @@ Initiating a reboot to trigger the StorageGRID Webscale appliance installation w
 . Dopo un certo periodo di tempo, l'appliance si riavvierà e sarà possibile accedere all'interfaccia utente PGE del nodo.
 . Accedere alla scheda Configure Networking (Configura rete)
 +
-image:port-remap/remap_link.png["Selezionare le porte di rimapping"]
+image::port-remap/remap_link.png[Selezionare le porte di rimapping]
 
 . Selezionare la rete, il protocollo, la direzione e le porte desiderate, quindi fare clic sul pulsante Add Rule (Aggiungi regola).
 +
@@ -291,7 +292,7 @@ image:port-remap/remap_link.png["Selezionare le porte di rimapping"]
 NOTE: Il rimappamento della porta in entrata 443 sulla rete GRID interromperà l'installazione e le procedure di espansione. Si sconsiglia di rimappare la porta 443 sulla rete GRID.
 
 +
-image:port-remap/app_remap.png["aggiungere il remap delle porte alle reti"]
+image::port-remap/app_remap.png[aggiungere il remap delle porte alle reti]
 
 . Una volta aggiunti i rimap di porta desiderati, è possibile tornare alla scheda home e fare clic sul pulsante Start Installation (Avvia installazione).
 
@@ -382,3 +383,5 @@ NOTE: La copia del database Prometheus potrebbe richiedere un'ora o più. Alcune
 . ripristinare il database mysql dal dump del database: `mysql -u _username_ -p _password_ -A mi < /var/local/tmp/mysql-mi.sql`
 . Riavviare tutti gli altri servizi `service servermanager start`
 
+
+_Di Aron Klein_

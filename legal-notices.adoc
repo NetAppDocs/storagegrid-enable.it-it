@@ -5,6 +5,7 @@ keywords:
 summary:  
 ---
 = Note legali
+:hardbreaks:
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

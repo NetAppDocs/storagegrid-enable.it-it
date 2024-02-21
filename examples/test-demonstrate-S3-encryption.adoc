@@ -5,10 +5,11 @@ keywords: cli, aws, S3, encryption, SSE, SSE-C, SSE-S3, api
 summary: 'StorageGRID e l"API S3 offrono diversi modi per crittografare i dati inattivi.' 
 ---
 = Testare e dimostrare le opzioni di crittografia S3 su StorageGRID
+:hardbreaks:
 :allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
 
-
-_Aron Klein_
 
 [role="lead"]
 StorageGRID e l'API S3 offrono diversi modi per crittografare i dati inattivi. Per ulteriori informazioni, vedere https://docs.netapp.com/us-en/storagegrid-116/admin/reviewing-storagegrid-encryption-methods.html["Esaminare i metodi di crittografia StorageGRID"^].
@@ -185,3 +186,5 @@ aws s3api head-object --bucket <bucket> --key <file> --endpoint-url https://s3.e
 aws s3api get-object --bucket <bucket>  --key <file> <file> --endpoint-url https://s3.example.com
 ----
 
+
+_Di Aron Klein_

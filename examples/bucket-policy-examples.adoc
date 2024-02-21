@@ -5,7 +5,10 @@ keywords: iam, bucket policy, group policy, policy
 summary: 'Di seguito sono riportati alcuni esempi di policy bucket e di policy di gruppo (policy IAM).' 
 ---
 = Esempio di policy di bucket e di gruppo (IAM)
+:hardbreaks:
 :allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
 
 
 [role="lead"]

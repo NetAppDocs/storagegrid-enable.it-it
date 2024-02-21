@@ -5,6 +5,7 @@ keywords: storagegrid, 11.8, 11.7, 11.6, 11.5, 11.4, 11.3, 11.2
 summary: La documentazione completa per ciascuna release di NetApp StorageGRID è disponibile qui. 
 ---
 = Documentazione di NetApp StorageGRID
+:hardbreaks:
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

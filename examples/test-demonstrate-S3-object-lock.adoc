@@ -5,10 +5,11 @@ keywords: cli, aws, S3, object lock, compliance, worm, api
 summary: 'Object Lock fornisce un modello WORM per impedire l"eliminazione o la sovrascrittura degli oggetti. L"implementazione StorageGRID del blocco degli oggetti viene valutata da Cohasset per soddisfare i requisiti normativi, supportare la modalità di conservazione legale e di conformità per la conservazione degli oggetti e le policy di conservazione predefinite dei bucket.' 
 ---
 = Testare e dimostrare il blocco di oggetti S3 su StorageGRID
+:hardbreaks:
 :allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
 
-
-_Aron Klein_
 
 [role="lead"]
 Object Lock fornisce un modello WORM per impedire l'eliminazione o la sovrascrittura degli oggetti. L'implementazione StorageGRID del blocco degli oggetti viene valutata da Cohasset per soddisfare i requisiti normativi, supportare la modalità di conservazione legale e di conformità per la conservazione degli oggetti e le policy di conservazione predefinite dei bucket.
@@ -220,3 +221,5 @@ aws s3api delete-object  --bucket <bucket> --key <file> --version-id "<VersionId
 An error occurred (AccessDenied) when calling the DeleteObject operation: Access Denied
 ----
 
+
+_Di Aron Klein_

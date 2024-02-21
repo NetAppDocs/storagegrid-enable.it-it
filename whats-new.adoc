@@ -5,6 +5,7 @@ keywords: whats new, third-party applications, storagegrid, Guides, cookbooks
 summary: Di seguito sono riportate le modifiche recenti apportate a questo sito. 
 ---
 = Novità
+:hardbreaks:
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
