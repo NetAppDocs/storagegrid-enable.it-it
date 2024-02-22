@@ -8,7 +8,7 @@ summary: Questa guida si concentra sulla configurazione di NetApp StorageGRID e,
 :hardbreaks:
 :allow-uri-read: 
 :icons: font
-:imagesdir: ../media/veeam-bp/
+:imagesdir: ../media/
 
 
 [role="lead"]
@@ -115,25 +115,25 @@ StorageGRID supporta la replica e l'erasure coding per la protezione a livello d
 
 Assicurarsi che blocco oggetti sia attivato sul sistema StorageGRID se è necessaria l'immutabilità. Individuare l'opzione nell'interfaccia utente di gestione in Configurazione/blocco oggetti S3.
 
-image::obj_lock_en.png[Blocco oggetti larghi griglia attivato]
+image::veeam-bp/obj_lock_en.png[Blocco oggetti larghi griglia attivato]
 
 Quando si crea il bucket, selezionare "Enable S3 Object Lock" (attiva blocco oggetti 3D) se questo bucket deve essere utilizzato per i backup di immutabilità. In questo modo si attiva automaticamente la versione bucket. Lasciare disattivata la conservazione predefinita poiché Veeam imposterà esplicitamente la conservazione degli oggetti. Versioning e blocco oggetto S3 non devono essere selezionati se Veeam non sta creando backup immutabili.
 
-image::obj_lock_bucket.png[Attiva blocco oggetti nel bucket]
+image::veeam-bp/obj_lock_bucket.png[Attiva blocco oggetti nel bucket]
 
 Una volta creato il bucket, andare alla pagina dei dettagli del bucket creato. Selezionare il livello di coerenza.
 
-image::bucket_consist_1.png[Opzioni benna]
+image::veeam-bp/bucket_consist_1.png[Opzioni benna]
 
 Veeam richiede una forte coerenza per i bucket S3. Quindi, per implementazioni multi-sito con Veeam che accede ai dati da posizioni multiple, seleziona "strong-Global". Se Veeam effettua backup e ripristini solo su un singolo sito, dovrebbe essere impostato su "strong-site". Salvare le modifiche.
 
-image::bucket_consist_2.png[Consistenza della benna]
+image::veeam-bp/bucket_consist_2.png[Consistenza della benna]
 
 StorageGRID fornisce un servizio di bilanciamento del carico integrato in ogni nodo amministrativo e nodo di gateway dedicato. Uno dei numerosi vantaggi dell'utilizzo di questo bilanciamento del carico è la possibilità di configurare i criteri di classificazione del traffico (QoS). Sebbene vengano utilizzati principalmente per limitare l'impatto di un'applicazione su altri carichi di lavoro dei client o per assegnare priorità a un carico di lavoro rispetto ad altri, forniscono anche un bonus di raccolta di metriche aggiuntive per agevolare il monitoraggio.
 
 Nella scheda di configurazione, selezionare "Traffic Classification" (classificazione traffico) e creare una nuova policy. Assegnare un nome alla regola e selezionare il bucket o il tenant come tipo. Immettere i nomi dei bucket o locatario. Se la QoS è necessaria, impostare un limite, ma per la maggior parte delle implementazioni, è sufficiente aggiungere i vantaggi di monitoraggio che questo fornisce, quindi non impostare un limite.
 
-image::tc_policy.png[Crea criterio TC]
+image::veeam-bp/tc_policy.png[Crea criterio TC]
 
 
 
@@ -141,15 +141,15 @@ image::tc_policy.png[Crea criterio TC]
 
 A seconda del modello e della quantità di appliance StorageGRID, potrebbe essere necessario selezionare e configurare un limite al numero di operazioni simultanee nel bucket.
 
-image::veeam_concur_limit.png[Limite attività concorrente Veeam]
+image::veeam-bp/veeam_concur_limit.png[Limite attività concorrente Veeam]
 
 Seguite la documentazione Veeam sulla configurazione del lavoro di backup nella console Veeam per avviare la procedura guidata. Dopo aver aggiunto le VM, selezionare il repository SOBR.
 
-image::veeam_1.png[Processo di backup]
+image::veeam-bp/veeam_1.png[Processo di backup]
 
 Fare clic su Impostazioni avanzate e modificare le impostazioni di ottimizzazione dell'archiviazione a 4 MB o più. Compressione e deduplica devono essere abilitate. Modificare le impostazioni guest in base ai requisiti e configurare la pianificazione del processo di backup.
 
-image::veeam_blk_sz.png[Schermata della descrizione di un computer generata automaticamente,320,375]
+image::veeam-bp/veeam_blk_sz.png[Schermata della descrizione di un computer generata automaticamente,320,375]
 
 
 
@@ -160,25 +160,25 @@ Per avere un quadro completo delle prestazioni congiunte di Veeam e StorageGRID,
 StorageGRID fornisce utili grafici per monitorare il funzionamento del sistema nella pagina metriche della scheda supporto. I dashboard principali da esaminare saranno S3 Overview, ILM e Traffic Classification Policy, se è stato creato un criterio. Nel dashboard Panoramica di S3 sono disponibili informazioni su velocità operative, latenze e risposte delle richieste di S3.
 
 Osservando le velocità S3 e le richieste attive è possibile visualizzare la quantità di carico gestita da ciascun nodo e il numero complessivo di richieste in base al tipo.
-Immagine::S3_over_rates.png[Panoramica tassi S3]
+Immagine::veeam-bp/S3_over_rates.png[tassi di panoramica S3]
 
 Il grafico durata media mostra il tempo medio impiegato da ciascun nodo per ciascun tipo di richiesta. Questa è la latenza media della richiesta e potrebbe essere un buon indicatore che potrebbe essere necessaria una regolazione aggiuntiva o che il sistema StorageGRID può assumere più carico.
 
-image::s3_over_duration.png[S3 durata della panoramica]
+image::veeam-bp/s3_over_duration.png[S3 durata della panoramica]
 
 Nel grafico Total Completed Requests (Richieste totali completate), è possibile visualizzare le richieste per tipo e codici di risposta. Se si visualizzano risposte diverse da 200 (OK) per le risposte, questo potrebbe indicare un problema come il sistema StorageGRID sta caricando pesantemente inviando 503 risposte (rallentando) e potrebbe essere necessario un ulteriore tuning, o è arrivato il momento di espandere il sistema per il carico aumentato.
 
-image::s3_over_requests.png[S3 Richieste di panoramica]
+image::veeam-bp/s3_over_requests.png[S3 Richieste di panoramica]
 
 Nel dashboard ILM è possibile monitorare le prestazioni di eliminazione del sistema StorageGRID. StorageGRID utilizza una combinazione di eliminazioni sincrone e asincrone su ciascun nodo per provare e ottimizzare le performance complessive per tutte le richieste.
 
-image::ilm_delete.png[Eliminazione ILM]
+image::veeam-bp/ilm_delete.png[Eliminazione ILM]
 
 Con una Traffic Classification Policy, possiamo visualizzare le metriche sul carico bilanciatore richiesta throughput, tassi, durata, così come le dimensioni oggetto che Veeam sta inviando e ricevendo.
 
-image::tc_1.png[Criteri di classificazione del traffico]
+image::veeam-bp/tc_1.png[Criteri di classificazione del traffico]
 
-image::tc_2.png[Criteri di classificazione del traffico]
+image::veeam-bp/tc_2.png[Criteri di classificazione del traffico]
 
 
 

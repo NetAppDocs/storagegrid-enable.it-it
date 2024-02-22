@@ -8,7 +8,7 @@ summary: Questa guida descrive la procedura per creare un database Vertica Eon M
 :hardbreaks:
 :allow-uri-read: 
 :icons: font
-:imagesdir: ../media/vertica-eon/
+:imagesdir: ../media/
 
 
 [role="lead"]
@@ -34,7 +34,7 @@ La modalità EON separa le risorse di calcolo dal livello di storage comune del 
 
 La modalità EON memorizza i dati in un archivio di oggetti condiviso chiamato storage comune, un bucket S3, ospitato on-premise o su Amazon S3.
 
-image::sg-vertica-eon-mode-cluster-with-communal-storage.png[Cluster Vertica Eon Mode con storage comune]
+image::vertica-eon/sg-vertica-eon-mode-cluster-with-communal-storage.png[Cluster Vertica Eon Mode con storage comune]
 
 
 
