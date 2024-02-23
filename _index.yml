@@ -1,7 +1,14 @@
 ---
 indexpage:
+  title: Come abilitare StorageGRID nel tuo ambiente
+  summary: NetApp StorageGRID è una suite di storage a oggetti software-defined che
+    supporta un'ampia gamma di casi di utilizzo in ambienti multi-cloud pubblici,
+    privati e ibridi. StorageGRID utilizza innovazioni leader del settore come la
+    gestione automatica del ciclo di vita per memorizzare, proteggere, proteggere
+    e conservare i dati non strutturati per un utilizzo multi-scopo su lunghi periodi
+    di tempo.
   lead: NetApp StorageGRID è una suite di storage a oggetti software-defined che supporta
-    un'ampia gamma di casi di utilizzo in ambienti multicloud pubblici, privati e
+    un'ampia gamma di casi di utilizzo in ambienti multi-cloud pubblici, privati e
     ibridi. StorageGRID offre il supporto nativo per l'API Amazon S3 e offre innovazioni
     leader del settore come la gestione automatica del ciclo di vita per memorizzare,
     proteggere, proteggere e conservare i dati non strutturati in modo conveniente
