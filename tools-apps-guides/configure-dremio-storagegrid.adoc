@@ -43,7 +43,7 @@ https://docs.dremio.com/current/sonar/data-sources/object/s3/["Connessione ad Am
 Se si utilizza un certificato CA autofirmato per questo endpoint S3, seguire la procedura della guida Dremio per aggiungere questo certificato CA a <JAVA_HOME>/jre/lib/Security + del server Dremio
 *Esempio di screenshot*
 +
-image::dremio/dremio-add-source-general.png[Nuova sorgente - Generale]
+image:dremio/dremio-add-source-general.png["Nuova sorgente - Generale"]
 
 . Fare clic su "Opzioni avanzate" e selezionare "attiva modalità di compatibilità"
 . In Proprietà di connessione, fare clic su + Aggiungi proprietà e aggiungere queste S3A proprietà.
@@ -78,14 +78,14 @@ _<un valore maggiore di 100>_
 *Esempio di screenshot*
 
 +
-image::dremio/dremio-add-source-advanced.png[Nuova origine - Opzioni avanzate]
+image:dremio/dremio-add-source-advanced.png["Nuova origine - Opzioni avanzate"]
 
 . Configurare altre opzioni Dremio in base ai requisiti dell'organizzazione o delle applicazioni.
 . Fare clic sul pulsante Salva per creare questa nuova origine dati.
 . Una volta aggiunta correttamente l'origine dati StorageGRID, viene visualizzato un elenco di bucket sul pannello di sinistra. +
 *Esempio di screenshot*
 +
-image::dremio/dremio-source-added.png[Nuova origine dati aggiunta]
+image:dremio/dremio-source-added.png["Nuova origine dati aggiunta"]
 
 
 

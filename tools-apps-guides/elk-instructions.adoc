@@ -48,11 +48,11 @@ match => {"message" => '<%{POSINT:syslog_pri}>%{SYSLOGBASE} %{GREEDYDATA:msg-det
 ----
 *Esempio di Logstash 7.17*
 
-image::elk-config/logstash-7.17.fields-sample.png[Esempio di Logstash 7.17]
+image:elk-config/logstash-7.17.fields-sample.png["Esempio di Logstash 7.17"]
 
 *Esempio di Logstash 8.23*
 
-image::elk-config/logstash-8.x.fields-sample.png[Esempio di Logstash 8.23]
+image:elk-config/logstash-8.x.fields-sample.png["Esempio di Logstash 8.23"]
 
 *Fasi*
 
@@ -99,13 +99,13 @@ GET /_cat/indices/*?v=true&s=index
 . Dalla GUI di Kibana, creare un modello di indice (ELK 7.x) o una vista dati (ELK 8.x).
 . Dalla GUI di Kibana, inserire "oggetti memorizzati" nella casella di ricerca situata in alto al centro. + nella pagina Saved Objects (oggetti salvati), selezionare Import (Importa). In Opzioni di importazione, selezionare "Richiedi azione in caso di conflitto"
 +
-image::elk-config/kibana-import-options.png[Opzioni di importazione Kibana]
+image:elk-config/kibana-import-options.png["Opzioni di importazione Kibana"]
 
 +
 Importa elk <version>-query-chart-sample.ndjson. + quando viene richiesto di risolvere il conflitto, selezionare il modello di indice o la vista dati creata al punto 8.
 
 +
-image::elk-config/kibana-import-conflict.png[Conflitto di Kibana]
+image:elk-config/kibana-import-conflict.png["Conflitto di Kibana"]
 
 +
 Vengono importati i seguenti oggetti Kibana: + *Query* + * audit-msg-s3rq-orlm + * bycast log s3 messaggi correlati + * loglevel warning o superiore + * failed Security event + *Chart* + * s3 requests count based on bycast.log + * HTTP status code + * audit msg breakdown by type + * Average s3 Response Time + *Dashboard* + * S3 dashboard di richiesta utilizzando i grafici sopra riportati.

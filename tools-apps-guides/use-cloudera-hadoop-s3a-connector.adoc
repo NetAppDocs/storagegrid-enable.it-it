@@ -141,11 +141,11 @@ fs.s3a.path.style.access
 *Esempio di screenshot*
 
 +
-image::hadoop-s3a/hadoop-s3a-configuration.png[Configurazione S3A]
+image:hadoop-s3a/hadoop-s3a-configuration.png["Configurazione S3A"]
 
 . Fare clic sul pulsante Save Changes (Salva modifiche). Selezionare l'icona di configurazione obsoleta dalla barra dei menu di HDFS, selezionare Restart stale Services (Riavvia servizi obsoleti) nella pagina successiva e selezionare Restart Now (Riavvia ora).
 +
-image::hadoop-s3a/hadoop-restart-stale-service-icon.png[Icona di riavvio del servizio obsoleta per Hadoop]
+image:hadoop-s3a/hadoop-restart-stale-service-icon.png["Icona di riavvio del servizio obsoleta per Hadoop"]
 
 
 
