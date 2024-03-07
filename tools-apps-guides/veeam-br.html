@@ -1,0 +1,1568 @@
+<!DOCTYPE html>
+<html lang="it">
+  <head class="at-element-marker">
+  <title>Best practice di StorageGRID per l'implementazione con Veeam Backup and Replication</title>
+  <meta charset="utf-8">
+  <meta http-equiv="x-ua-compatible" content="ie=edge,chrome=1">
+  <meta http-equiv="language" content="en">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta property="og:title" content="Best practice di StorageGRID per l'implementazione con Veeam Backup and Replication" />
+	<meta property="og:type" content="website" />
+	<meta property="og:url" content="https://docs.netapp.com/it-it/storagegrid-enable/tools-apps-guides/veeam-br.html" />
+	<meta property="og:description" content="Questa guida si concentra sulla configurazione di NetApp StorageGRID e, in parte, su Veeam Backup and Replication. Questo documento è stato scritto per gli a..." />
+  <meta property="og:image" content="https://docs.netapp.com/it-it/storagegrid-enable/images/logo-tophat-social.png" />
+  <meta property="og:image:alt" content="NetApp Logo" />
+  <meta name="format-detection" content="telephone=no">
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+  <meta http-equiv="encoding" content="utf-8">
+  <meta http-equiv="nss-type" content="Product Documentation"/>
+  <meta http-equiv="nss-subtype" content="User Guide"/><meta name="description" content="Questa guida si concentra sulla configurazione di NetApp StorageGRID e, in parte, su Veeam Backup and Replication. Questo documento è stato scritto per gli a...">
+  <meta name="keywords" content=" veeam,backup,veeam12,veeam11,"><!-- Icons -->
+  <link rel="icon" href="/it-it/storagegrid-enable/images/favicon.ico" type="image/x-icon">
+
+  <!-- RSS Feed --><!-- CSS Definitions: NetApp CSS should be defined after generic css -->
+
+
+  <!-- Combined CSS -->
+  <link rel="stylesheet" type="text/css" href="/it-it/storagegrid-enable/css/ie-netappdocs.css">
+
+  
+  <link rel="stylesheet" href="/it-it/storagegrid-enable/css/ie-landing-page.css" type="text/css">
+  <link rel="stylesheet" href="/it-it/storagegrid-enable/css/ie-tabbed-blocks.css" type="text/css">
+  <!-- Canonical url -->
+  <link rel="canonical" href="https://docs.netapp.com/it-it/storagegrid-enable/tools-apps-guides/veeam-br.html" />
+  <link rel="alternate" hreflang="x-default" href="https://docs.netapp.com/us-en/storagegrid-enable/tools-apps-guides/veeam-br.html" />
+  <link rel="alternate" hreflang="it" href="https://docs.netapp.com/it-it/storagegrid-enable/tools-apps-guides/veeam-br.html" />
+  <link rel="alternate" hreflang="en" href="https://docs.netapp.com/us-en/storagegrid-enable/tools-apps-guides/veeam-br.html" />
+  <link rel="alternate" hreflang="ja" href="https://docs.netapp.com/ja-jp/storagegrid-enable/tools-apps-guides/veeam-br.html" />
+  <link rel="alternate" hreflang="ko" href="https://docs.netapp.com/ko-kr/storagegrid-enable/tools-apps-guides/veeam-br.html" />
+  <link rel="alternate" hreflang="zh-Hans" href="https://docs.netapp.com/zh-cn/storagegrid-enable/tools-apps-guides/veeam-br.html" />
+  <link rel="alternate" hreflang="zh-Hant" href="https://docs.netapp.com/zh-tw/storagegrid-enable/tools-apps-guides/veeam-br.html" />
+  <link rel="alternate" hreflang="de" href="https://docs.netapp.com/de-de/storagegrid-enable/tools-apps-guides/veeam-br.html" />
+  <link rel="alternate" hreflang="es" href="https://docs.netapp.com/es-es/storagegrid-enable/tools-apps-guides/veeam-br.html" />
+  <link rel="alternate" hreflang="fr" href="https://docs.netapp.com/fr-fr/storagegrid-enable/tools-apps-guides/veeam-br.html" />
+  <!-- Top level site integrations -->
+<script type="text/javascript" src="https://cdn.cookielaw.org/consent/72570c5c-fe30-465f-b0e0-b77f7fb4ae34/OtAutoBlock.js"></script>
+    <script type="text/javascript" src="https://cdn.cookielaw.org/scripttemplates/otSDKStub.js" charset="UTF-8" data-document-language="true" data-domain-script="72570c5c-fe30-465f-b0e0-b77f7fb4ae34"></script>
+    <script type="text/javascript">function OptanonWrapper() { }</script>
+    <script type="text/plain" class="optanon-category-C0002" src="https://assets.adobedtm.com/60287eadf1ee/c284da483c83/launch-e9ff3acac59f.min.js"></script>
+    <script class="optanon-category-C0001">(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+        new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+        j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.setAttributeNode(d.createAttribute('data-ot-ignore'));j.setAttribute('class','optanon-category-C0001');j.async=true;
+        j.src='https://www.googletagmanager.com/gtm.js?id='+i+dl+'';f.parentNode.insertBefore(j,f);
+        })(window,document,'script','dataLayer','GTM-MD73T9M');</script>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
+  
+  <script>
+    $(document).ready(function() {
+      const MASTHEAD_OFFSET = 65;
+      const SECTIONS = $("main h2, main h3");
+      // PAGE NAV - Init
+      if (SECTIONS.length == 0) {
+        // remove if there is no elements
+        /*
+        $("#ie-right-navbar").remove();
+        $("#ie-right-navbar-collapse").remove();
+        */
+      } else {
+        $(".page-nav-title").css('display', 'block');
+        for (var i = 0; i < SECTIONS.length; i++) {
+          var sectionId = $(SECTIONS[i]).attr('id');
+          var sectionName = $(SECTIONS[i]).text();
+          var subClass = $(SECTIONS[i]).is("h3") ? ' page-nav__sublink' : '';
+          $("#page-menu").append('<li class="page-nav-item"><a href="#' + sectionId + '" class="page-nav__link' + subClass + '">' + sectionName + '</a></li>');
+        }
+      }
+    });
+  </script>
+  
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-cookie/1.4.1/jquery.cookie.min.js"></script>
+
+  <!-- Used for Product Family Page Sidebar Visibility --><!-- Used to import Promise for IE. Required for SearchKit -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/bluebird/3.3.5/bluebird.min.js"></script><script src='/it-it/storagegrid-enable/js/na-search.js'></script><script src='/it-it/storagegrid-enable/js/ie-clouddocs.js'></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script><script>
+    /*
+      $(document).ready(function() {
+          $("#tg-sb-link").click(function() {
+              $("#tg-sb-sidebar").toggle();
+              $("#tg-sb-content").toggleClass('col-md-9');
+              $("#tg-sb-content").toggleClass('col-md-12');
+              $("#tg-sb-icon").toggleClass('fa-toggle-on');
+              $("#tg-sb-icon").toggleClass('fa-toggle-off');
+          });
+      });
+      */
+  </script>
+  <script src='/it-it/storagegrid-enable/js/custom-dropdown.js'></script>
+  <script src='/it-it/storagegrid-enable/js/FileSaver.min.js'></script>
+  <script src='/it-it/storagegrid-enable/js/jszip-utils.min.js'></script>
+  <script src='/it-it/storagegrid-enable/js/jszip.min.js'></script><script src='/it-it/storagegrid-enable/js/ie-pdf-ux.js'></script></head>
+
+
+  <body class role="document" data-flavor="">
+    <div class="skip-to-main">
+      <a href="#main" >Skip to main content</a>
+    </div><noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-MD73T9M"
+      height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript><div id="page" class="">
+      <div id="ie-phone-menu" class=""></div>
+      <div id="ie-content-wrap" class="">
+        <nav id="ie-new-header">
+    <ul>
+        <li id="ie-phone-menu-button">
+            <a href="#">
+                <image id="" src="/it-it/storagegrid-enable/images/hamburger.svg" alt="menu" />
+            </a>
+        </li>
+
+        <li>
+            <a href="https://www.netapp.com/it">
+                <image id="ie-header-logo" src="/it-it/storagegrid-enable/images/netapp_logo.svg" alt="netapp" />
+            </a>
+        </li>
+        <li id="ie-header-docs">
+            <a href="https://www.netapp.com/it/support-and-training/documentation/">Documenti</a>
+        </li>
+
+        <!-- Empty container to push header left with or without lang selector -->
+        <li id="empty-container" style="margin-left: auto">
+        </li>
+        <!-- Start Language Selector --><li id="ie-language-dropdown">
+            <div id="language-dropdown" class="custom-dropdown custom-dropdown-lang">
+                <div class="custom-dropdown-select custom-dropdown-select-lang">
+                    <img src="/it-it/storagegrid-enable/images/language_white_24dp.svg" class="n-globe__icon" />
+                    <span class="lang-name">Italiano</span>
+                    <img src="/it-it/storagegrid-enable/images/dropdown-arrow.svg" alt="" class="custom-icon chevrondown header invisible" />
+                    <img src="/it-it/storagegrid-enable/images/dropdown-arrow.svg" alt="" class="custom-icon chevronup header" />
+                    </button>
+                </div>
+
+                <ul class="custom-dropdown-menu"><li>
+                        <a href="https://docs.netapp.com/it-it/storagegrid-enable/tools-apps-guides/veeam-br.html"
+                            target="_self"><span translate="no" class="notranslate">Italiano</span></a>
+                    </li><li>
+                        <a href="https://docs.netapp.com/us-en/storagegrid-enable/tools-apps-guides/veeam-br.html"
+                            target="_self"><span translate="no" class="notranslate">English</span></a>
+                    </li><li>
+                        <a href="https://docs.netapp.com/ja-jp/storagegrid-enable/tools-apps-guides/veeam-br.html"
+                            target="_self"><span translate="no" class="notranslate">日本語</span></a>
+                    </li><li>
+                        <a href="https://docs.netapp.com/ko-kr/storagegrid-enable/tools-apps-guides/veeam-br.html"
+                            target="_self"><span translate="no" class="notranslate">한국어</span></a>
+                    </li><li>
+                        <a href="https://docs.netapp.com/zh-cn/storagegrid-enable/tools-apps-guides/veeam-br.html"
+                            target="_self"><span translate="no" class="notranslate">简体中文</span></a>
+                    </li><li>
+                        <a href="https://docs.netapp.com/zh-tw/storagegrid-enable/tools-apps-guides/veeam-br.html"
+                            target="_self"><span translate="no" class="notranslate">繁體中文</span></a>
+                    </li><li>
+                        <a href="https://docs.netapp.com/de-de/storagegrid-enable/tools-apps-guides/veeam-br.html"
+                            target="_self"><span translate="no" class="notranslate">Deutsch</span></a>
+                    </li><li>
+                        <a href="https://docs.netapp.com/es-es/storagegrid-enable/tools-apps-guides/veeam-br.html"
+                            target="_self"><span translate="no" class="notranslate">Español</span></a>
+                    </li><li>
+                        <a href="https://docs.netapp.com/fr-fr/storagegrid-enable/tools-apps-guides/veeam-br.html"
+                            target="_self"><span translate="no" class="notranslate">Français</span></a>
+                    </li></ul>
+            </div>
+            </li>
+        <!-- End Language Selector -->
+
+
+        <li id="ie-allnetapp">
+            <div id="allnetapp-dropdown" class="custom-dropdown custom-dropdown-allnetapp">
+                <div class="custom-dropdown-select custom-dropdown-select-allnetapp">
+                    <img src="/it-it/storagegrid-enable/images/apps_white_24dp.svg" alt="" class="allnetapp-icon" />
+                    <span class="allnetapp-name">Tutto NetApp</span>
+                    <img src="/it-it/storagegrid-enable/images/dropdown-arrow.svg" alt="" class="custom-icon chevrondown header invisible" />
+                    <img src="/it-it/storagegrid-enable/images/dropdown-arrow.svg" alt="" class="custom-icon chevronup header" />
+                    </button>
+                </div>
+
+                <ul class="custom-dropdown-menu allnetapp-dropdown">
+                    <li>
+                        <a href="https://bluexp.netapp.com/"
+                            target="_self"><span translate="no" class="notranslate">BlueXP</span></a>
+                    </li>
+                    <li>
+                        <a href="https://mysupport.netapp.com/site/"
+                            target="_self"><span translate="no" class="notranslate">Supporto</span></a>
+                    </li>
+                    <li>
+                        <a href="https://kb.netapp.com/"
+                            target="_self"><span translate="no" class="notranslate">Knowledge Base</span></a>
+                    </li>
+                    <li>
+                        <a href="https://www.netapp.com/it/support-and-training/netapp-learning-services/"
+                            target="_self"><span translate="no" class="notranslate">Training</span></a>
+                    </li>
+                </ul>
+            </div>
+
+        </li>
+
+    </ul>
+</nav>
+
+        <main id="n-main-content" class="n-main-content">
+          <!-- Start Documentation Content -->
+<div class="ie-main">
+
+<div id="ie-new-sidebar-collapse" style="display: none">
+    <img id="sidebar-expand" class="ie-searchbox-icon" src="/it-it/storagegrid-enable/images/double_arrow.svg" alt="" />
+</div>
+<div id="ie-new-sidebar">
+    <div id="ie-product-identity-lockup">
+        <div id="sidebar-collapse" class="">
+            <img src="/it-it/storagegrid-enable/images/double_arrow.svg" alt="" />
+        </div>
+        <div id="ie-breadcrumb" class="">
+  <ul class="ie-breadcrumb">
+    <li class="">
+      <a href="https://docs.netapp.com">Tutti i documenti</a>
+    </li>
+    
+    
+
+    
+  </ul>
+  
+  <div class="ie-product-name" >
+    <!--<a href="/it-it/storagegrid-enable/">-->
+      How to enable StorageGRID in your environment
+    <!--</a>-->
+  </div>
+</div>
+
+            
+
+        
+        
+
+<div id="ie-searchbox" class="ie-searchbox-sidebar ">
+    <img class="ie-searchbox-icon" src="/it-it/storagegrid-enable/images/loupe.svg" alt=""/>
+    <div id="react-search" 
+        data-search-html="/it-it/storagegrid-enable/search.html" 
+        data-type="widget"
+        data-placeholder="Esplora la documentazione"
+        data-no-results-found="Nessun risultato per {query}"
+        data-did-you-mean="Cerca {suggestion}."
+        data-no-results-found-did-you-mean="Nessun risultato per {query}. Intendi {suggestion}?"
+        data-results-found="{hitCount} risultati trovati"
+        data-error-message="Si è verificato un errore. Riprova."
+        data-error-reset="Reimposta ricerca"
+        data-sk-es-pf-indexes="" 
+        data-flavor="">
+    </div>
+</div>
+        
+    </div>
+    <div id="ie-new-toc"><script>
+  let sidebarAccordion = true;
+
+  /* specific css rules for Mac */
+  if(navigator.platform.match('Mac') !== null) {
+    document.body.setAttribute('class', 'OSX');
+  }
+
+</script>
+
+<div id="ie-sidebar-container">
+  <ul id="ie-sidebar-list" ><li 
+      data-pdf-exists="true" 
+      data-pdf-filename="Come attivare StorageGRID"
+      data-li-level="1#" 
+      class="   "
+      dale-page-url="/tools-apps-guides/veeam-br.html" 
+      dale-entry-url="/index.html" 
+    ><a class="ie-sidebar-menuitem-1 " href="/it-it/storagegrid-enable/index.html">
+        Come attivare StorageGRID
+      </a></li><li 
+      data-pdf-exists="true" 
+      data-pdf-filename="Soluzioni di terze parti validate"
+      data-li-level="1" 
+      class=" sidebar-folder    "
+      dale-page-url="/tools-apps-guides/veeam-br.html" 
+      dale-entry-url="" 
+    ><a class="ie-sidebar-menuitem-1  ie-sidebar-button " href="#">
+        <img class="ie-sidebar-icon ie-sidebar-button open" src="/it-it/storagegrid-enable/images/link_expand.svg" alt="" />
+        <img class="ie-sidebar-icon ie-sidebar-button close" src="/it-it/storagegrid-enable/images/link_collapse.svg" alt="" />
+        <!--<div class="" style="display: inline;"> Soluzioni di terze parti validate</div>-->
+         Soluzioni di terze parti validate
+      </a>
+      <ul class="">
+        <li 
+      data-pdf-exists="true" 
+      data-pdf-filename="Soluzioni validate di terze parti - Panoramica"
+      data-li-level="2#" 
+      class="   "
+      dale-page-url="/tools-apps-guides/veeam-br.html" 
+      dale-entry-url="/third-party/index.html" 
+    ><a class="ie-sidebar-menuitem-2 " href="/it-it/storagegrid-enable/third-party/index.html">
+        Panoramica
+      </a></li><li 
+      data-pdf-exists="true" 
+      data-pdf-filename="StorageGRID 11,8"
+      data-li-level="2#" 
+      class="   "
+      dale-page-url="/tools-apps-guides/veeam-br.html" 
+      dale-entry-url="/third-party/118-3rd-party-list.html" 
+    ><a class="ie-sidebar-menuitem-2 " href="/it-it/storagegrid-enable/third-party/118-3rd-party-list.html">
+        StorageGRID 11,8
+      </a></li><li 
+      data-pdf-exists="true" 
+      data-pdf-filename="StorageGRID 11.7"
+      data-li-level="2#" 
+      class="   "
+      dale-page-url="/tools-apps-guides/veeam-br.html" 
+      dale-entry-url="/third-party/117-3rd-party-list.html" 
+    ><a class="ie-sidebar-menuitem-2 " href="/it-it/storagegrid-enable/third-party/117-3rd-party-list.html">
+        StorageGRID 11.7
+      </a></li><li 
+      data-pdf-exists="true" 
+      data-pdf-filename="StorageGRID 11.6"
+      data-li-level="2#" 
+      class="   "
+      dale-page-url="/tools-apps-guides/veeam-br.html" 
+      dale-entry-url="/third-party/116-3rd-party-list.html" 
+    ><a class="ie-sidebar-menuitem-2 " href="/it-it/storagegrid-enable/third-party/116-3rd-party-list.html">
+        StorageGRID 11.6
+      </a></li><li 
+      data-pdf-exists="true" 
+      data-pdf-filename="StorageGRID 11.5"
+      data-li-level="2#" 
+      class="   "
+      dale-page-url="/tools-apps-guides/veeam-br.html" 
+      dale-entry-url="/third-party/115-3rd-party-list.html" 
+    ><a class="ie-sidebar-menuitem-2 " href="/it-it/storagegrid-enable/third-party/115-3rd-party-list.html">
+        StorageGRID 11.5
+      </a></li><li 
+      data-pdf-exists="true" 
+      data-pdf-filename="StorageGRID 11.4"
+      data-li-level="2#" 
+      class="   "
+      dale-page-url="/tools-apps-guides/veeam-br.html" 
+      dale-entry-url="/third-party/114-3rd-party-list.html" 
+    ><a class="ie-sidebar-menuitem-2 " href="/it-it/storagegrid-enable/third-party/114-3rd-party-list.html">
+        StorageGRID 11.4
+      </a></li><li 
+      data-pdf-exists="true" 
+      data-pdf-filename="StorageGRID 11.3"
+      data-li-level="2#" 
+      class="   "
+      dale-page-url="/tools-apps-guides/veeam-br.html" 
+      dale-entry-url="/third-party/113-3rd-party-list.html" 
+    ><a class="ie-sidebar-menuitem-2 " href="/it-it/storagegrid-enable/third-party/113-3rd-party-list.html">
+        StorageGRID 11.3
+      </a></li><li 
+      data-pdf-exists="true" 
+      data-pdf-filename="StorageGRID 11.2"
+      data-li-level="2#" 
+      class="   "
+      dale-page-url="/tools-apps-guides/veeam-br.html" 
+      dale-entry-url="/third-party/112-3rd-party-list.html" 
+    ><a class="ie-sidebar-menuitem-2 " href="/it-it/storagegrid-enable/third-party/112-3rd-party-list.html">
+        StorageGRID 11.2
+      </a></li></ul></li><li 
+      data-pdf-exists="true" 
+      data-pdf-filename="Guide alle funzionalità del prodotto"
+      data-li-level="1" 
+      class=" sidebar-folder    "
+      dale-page-url="/tools-apps-guides/veeam-br.html" 
+      dale-entry-url="" 
+    ><a class="ie-sidebar-menuitem-1  ie-sidebar-button " href="#">
+        <img class="ie-sidebar-icon ie-sidebar-button open" src="/it-it/storagegrid-enable/images/link_expand.svg" alt="" />
+        <img class="ie-sidebar-icon ie-sidebar-button close" src="/it-it/storagegrid-enable/images/link_collapse.svg" alt="" />
+        <!--<div class="" style="display: inline;"> Guide alle funzionalità del prodotto</div>-->
+         Guide alle funzionalità del prodotto
+      </a>
+      <ul class="">
+        <li 
+      data-pdf-exists="true" 
+      data-pdf-filename="Creazione di un pool di storage cloud per AWS o Google Cloud"
+      data-li-level="2#" 
+      class="   "
+      dale-page-url="/tools-apps-guides/veeam-br.html" 
+      dale-entry-url="/product-feature-guides/create-cloud-storage-pool-aws-google-cloud.html" 
+    ><a class="ie-sidebar-menuitem-2 " href="/it-it/storagegrid-enable/product-feature-guides/create-cloud-storage-pool-aws-google-cloud.html">
+        Creazione di un pool di storage cloud per AWS o Google Cloud
+      </a></li><li 
+      data-pdf-exists="true" 
+      data-pdf-filename="Creazione di un pool di storage cloud per lo storage Azure Blob"
+      data-li-level="2#" 
+      class="   "
+      dale-page-url="/tools-apps-guides/veeam-br.html" 
+      dale-entry-url="/product-feature-guides/create-cloud-storage-pool-azure-blob-storage.html" 
+    ><a class="ie-sidebar-menuitem-2 " href="/it-it/storagegrid-enable/product-feature-guides/create-cloud-storage-pool-azure-blob-storage.html">
+        Creazione di un pool di storage cloud per lo storage Azure Blob
+      </a></li><li 
+      data-pdf-exists="true" 
+      data-pdf-filename="Utilizza un pool di storage cloud per il backup"
+      data-li-level="2#" 
+      class="   "
+      dale-page-url="/tools-apps-guides/veeam-br.html" 
+      dale-entry-url="/product-feature-guides/use-a-cloud-storage-pool-for-backup.html" 
+    ><a class="ie-sidebar-menuitem-2 " href="/it-it/storagegrid-enable/product-feature-guides/use-a-cloud-storage-pool-for-backup.html">
+        Utilizza un pool di storage cloud per il backup
+      </a></li><li 
+      data-pdf-exists="true" 
+      data-pdf-filename="Configurare il servizio di integrazione della ricerca"
+      data-li-level="2#" 
+      class="   "
+      dale-page-url="/tools-apps-guides/veeam-br.html" 
+      dale-entry-url="/product-feature-guides/storagegrid-search-integration-service.html" 
+    ><a class="ie-sidebar-menuitem-2 " href="/it-it/storagegrid-enable/product-feature-guides/storagegrid-search-integration-service.html">
+        Configurare il servizio di integrazione della ricerca
+      </a></li><li 
+      data-pdf-exists="true" 
+      data-pdf-filename="Considerazioni e performance sui cloni dei nodi"
+      data-li-level="2#" 
+      class="   "
+      dale-page-url="/tools-apps-guides/veeam-br.html" 
+      dale-entry-url="/product-feature-guides/node-clone.html" 
+    ><a class="ie-sidebar-menuitem-2 " href="/it-it/storagegrid-enable/product-feature-guides/node-clone.html">
+        Considerazioni e performance sui cloni dei nodi
+      </a></li><li 
+      data-pdf-exists="true" 
+      data-pdf-filename="Come utilizzare il remap delle porte"
+      data-li-level="2#" 
+      class="   "
+      dale-page-url="/tools-apps-guides/veeam-br.html" 
+      dale-entry-url="/product-feature-guides/port-remap.html" 
+    ><a class="ie-sidebar-menuitem-2 " href="/it-it/storagegrid-enable/product-feature-guides/port-remap.html">
+        Come utilizzare il remap delle porte
+      </a></li></ul></li><li 
+      data-pdf-exists="true" 
+      data-pdf-filename="Guide agli strumenti e alle applicazioni"
+      data-li-level="1" 
+      class=" sidebar-folder    "
+      dale-page-url="/tools-apps-guides/veeam-br.html" 
+      dale-entry-url="" 
+    ><a class="ie-sidebar-menuitem-1  ie-sidebar-button " href="#">
+        <img class="ie-sidebar-icon ie-sidebar-button open" src="/it-it/storagegrid-enable/images/link_expand.svg" alt="" />
+        <img class="ie-sidebar-icon ie-sidebar-button close" src="/it-it/storagegrid-enable/images/link_collapse.svg" alt="" />
+        <!--<div class="" style="display: inline;"> Guide agli strumenti e alle applicazioni</div>-->
+         Guide agli strumenti e alle applicazioni
+      </a>
+      <ul class="">
+        <li 
+      data-pdf-exists="true" 
+      data-pdf-filename="Utilizzare il connettore S3A di Cloudera Hadoop"
+      data-li-level="2#" 
+      class="   "
+      dale-page-url="/tools-apps-guides/veeam-br.html" 
+      dale-entry-url="/tools-apps-guides/use-cloudera-hadoop-s3a-connector.html" 
+    ><a class="ie-sidebar-menuitem-2 " href="/it-it/storagegrid-enable/tools-apps-guides/use-cloudera-hadoop-s3a-connector.html">
+        Utilizzare il connettore S3A di Cloudera Hadoop
+      </a></li><li 
+      data-pdf-exists="true" 
+      data-pdf-filename="Utilizzare S3cmd per testare e dimostrare l'accesso S3"
+      data-li-level="2#" 
+      class="   "
+      dale-page-url="/tools-apps-guides/veeam-br.html" 
+      dale-entry-url="/tools-apps-guides/use-S3cmd-test-demonstrate-S3-access.html" 
+    ><a class="ie-sidebar-menuitem-2 " href="/it-it/storagegrid-enable/tools-apps-guides/use-S3cmd-test-demonstrate-S3-access.html">
+        Utilizzare S3cmd per testare e dimostrare l'accesso S3
+      </a></li><li 
+      data-pdf-exists="true" 
+      data-pdf-filename="Creare un database Vertica Eon Mode con storage comune"
+      data-li-level="2#" 
+      class="   "
+      dale-page-url="/tools-apps-guides/veeam-br.html" 
+      dale-entry-url="/tools-apps-guides/vertica-eon-mode-database-using-storagegrid.html" 
+    ><a class="ie-sidebar-menuitem-2 " href="/it-it/storagegrid-enable/tools-apps-guides/vertica-eon-mode-database-using-storagegrid.html">
+        Creare un database Vertica Eon Mode con storage comune
+      </a></li><li 
+      data-pdf-exists="true" 
+      data-pdf-filename="Utilizza Elasticsearch, Logstash e Kibana per l'analisi dei log"
+      data-li-level="2#" 
+      class="   "
+      dale-page-url="/tools-apps-guides/veeam-br.html" 
+      dale-entry-url="/tools-apps-guides/elk-instructions.html" 
+    ><a class="ie-sidebar-menuitem-2 " href="/it-it/storagegrid-enable/tools-apps-guides/elk-instructions.html">
+        Utilizza Elasticsearch, Logstash e Kibana per l'analisi dei log
+      </a></li><li 
+      data-pdf-exists="true" 
+      data-pdf-filename="Utilizza Prometheus e Grafana per estendere la conservazione delle metriche"
+      data-li-level="2#" 
+      class="   "
+      dale-page-url="/tools-apps-guides/veeam-br.html" 
+      dale-entry-url="/tools-apps-guides/federate-prometheus.html" 
+    ><a class="ie-sidebar-menuitem-2 " href="/it-it/storagegrid-enable/tools-apps-guides/federate-prometheus.html">
+        Utilizza Prometheus e Grafana per estendere la conservazione delle metriche
+      </a></li><li 
+      data-pdf-exists="true" 
+      data-pdf-filename="Configurare Datadog per raccogliere le metriche e i trap snmp di StorageGRID"
+      data-li-level="2#" 
+      class="   "
+      dale-page-url="/tools-apps-guides/veeam-br.html" 
+      dale-entry-url="/tools-apps-guides/use-datadog-snmp.html" 
+    ><a class="ie-sidebar-menuitem-2 " href="/it-it/storagegrid-enable/tools-apps-guides/use-datadog-snmp.html">
+        Configurare Datadog per raccogliere le metriche e i trap snmp di StorageGRID
+      </a></li><li 
+      data-pdf-exists="true" 
+      data-pdf-filename="Utilizzare rclone per migrare, INSERIRE ed ELIMINARE oggetti su StorageGRID"
+      data-li-level="2#" 
+      class="   "
+      dale-page-url="/tools-apps-guides/veeam-br.html" 
+      dale-entry-url="/tools-apps-guides/use-rclone-migrate-delete.html" 
+    ><a class="ie-sidebar-menuitem-2 " href="/it-it/storagegrid-enable/tools-apps-guides/use-rclone-migrate-delete.html">
+        Utilizzare rclone per migrare, INSERIRE ed ELIMINARE oggetti su StorageGRID
+      </a></li><li 
+      data-pdf-exists="true" 
+      data-pdf-filename="Utilizza Veeam Backup and Replication con StorageGRID"
+      data-li-level="2#" 
+      class="  ie-sidebar-selected    "
+      dale-page-url="/tools-apps-guides/veeam-br.html" 
+      dale-entry-url="/tools-apps-guides/veeam-br.html" 
+    ><a class="ie-sidebar-menuitem-2 " href="/it-it/storagegrid-enable/tools-apps-guides/veeam-br.html">
+        Utilizza Veeam Backup and Replication con StorageGRID
+      </a></li><li 
+      data-pdf-exists="true" 
+      data-pdf-filename="Configurare Dremio con StorageGRID"
+      data-li-level="2#" 
+      class="   "
+      dale-page-url="/tools-apps-guides/veeam-br.html" 
+      dale-entry-url="/tools-apps-guides/configure-dremio-storagegrid.html" 
+    ><a class="ie-sidebar-menuitem-2 " href="/it-it/storagegrid-enable/tools-apps-guides/configure-dremio-storagegrid.html">
+        Configurare Dremio con StorageGRID
+      </a></li></ul></li><li 
+      data-pdf-exists="true" 
+      data-pdf-filename="Procedure ed esempi di API"
+      data-li-level="1" 
+      class=" sidebar-folder    "
+      dale-page-url="/tools-apps-guides/veeam-br.html" 
+      dale-entry-url="" 
+    ><a class="ie-sidebar-menuitem-1  ie-sidebar-button " href="#">
+        <img class="ie-sidebar-icon ie-sidebar-button open" src="/it-it/storagegrid-enable/images/link_expand.svg" alt="" />
+        <img class="ie-sidebar-icon ie-sidebar-button close" src="/it-it/storagegrid-enable/images/link_collapse.svg" alt="" />
+        <!--<div class="" style="display: inline;"> Procedure ed esempi di API</div>-->
+         Procedure ed esempi di API
+      </a>
+      <ul class="">
+        <li 
+      data-pdf-exists="true" 
+      data-pdf-filename="Testare e dimostrare la crittografia S3"
+      data-li-level="2#" 
+      class="   "
+      dale-page-url="/tools-apps-guides/veeam-br.html" 
+      dale-entry-url="/examples/test-demonstrate-S3-encryption.html" 
+    ><a class="ie-sidebar-menuitem-2 " href="/it-it/storagegrid-enable/examples/test-demonstrate-S3-encryption.html">
+        Testare e dimostrare la crittografia S3
+      </a></li><li 
+      data-pdf-exists="true" 
+      data-pdf-filename="Testare e dimostrare il blocco a oggetti S3"
+      data-li-level="2#" 
+      class="   "
+      dale-page-url="/tools-apps-guides/veeam-br.html" 
+      dale-entry-url="/examples/test-demonstrate-S3-object-lock.html" 
+    ><a class="ie-sidebar-menuitem-2 " href="/it-it/storagegrid-enable/examples/test-demonstrate-S3-object-lock.html">
+        Testare e dimostrare il blocco a oggetti S3
+      </a></li><li 
+      data-pdf-exists="true" 
+      data-pdf-filename="Esempi di bucket e Criteri di gruppo"
+      data-li-level="2#" 
+      class="   "
+      dale-page-url="/tools-apps-guides/veeam-br.html" 
+      dale-entry-url="/examples/bucket-policy-examples.html" 
+    ><a class="ie-sidebar-menuitem-2 " href="/it-it/storagegrid-enable/examples/bucket-policy-examples.html">
+        Esempi di bucket e Criteri di gruppo
+      </a></li></ul></li><li 
+      data-pdf-exists="true" 
+      data-pdf-filename="Post del blog"
+      data-li-level="1#" 
+      class="   "
+      dale-page-url="/tools-apps-guides/veeam-br.html" 
+      dale-entry-url="/blogs.html" 
+    ><a class="ie-sidebar-menuitem-1 " href="/it-it/storagegrid-enable/blogs.html">
+        Post del blog
+      </a></li><li 
+      data-pdf-exists="true" 
+      data-pdf-filename="Documentazione StorageGRID"
+      data-li-level="1#" 
+      class="   "
+      dale-page-url="/tools-apps-guides/veeam-br.html" 
+      dale-entry-url="/storagegrid-documentation.html" 
+    ><a class="ie-sidebar-menuitem-1 " href="/it-it/storagegrid-enable/storagegrid-documentation.html">
+        Documentazione StorageGRID
+      </a></li><li 
+      data-pdf-exists="true" 
+      data-pdf-filename="Note legali"
+      data-li-level="1#" 
+      class="   "
+      dale-page-url="/tools-apps-guides/veeam-br.html" 
+      dale-entry-url="/legal-notices.html" 
+    ><a class="ie-sidebar-menuitem-1 " href="/it-it/storagegrid-enable/legal-notices.html">
+        Note legali
+      </a></li></ul>
+</div>
+<script>
+
+  $(".ie-sidebar-button").click(function (e) {
+    e.preventDefault();
+    e.stopPropagation();
+
+    expandedLI = $('li.ie-sidebar-expand')
+
+    const li = $(this).closest("li");
+
+    const parentsLI = $(li).parents('li');
+
+    expandedLI.map(element => {
+      if (sidebarAccordion && !li.hasClass('ie-sidebar-expand') && jQuery.inArray(expandedLI[element], parentsLI) == -1) {
+        $(expandedLI[element]).toggleClass('ie-sidebar-expand');
+        $(expandedLI[element]).children("ul").animate({ height: 'toggle' }, 400, function () {
+          $(li).children("ul").toggleClass('ie-sidebar-open');
+
+        })
+      }
+
+    })
+
+    $(li).toggleClass('ie-sidebar-expand');
+    $(li).children("ul").animate({ height: 'toggle' }, 400, function () {
+      $(li).children("ul").toggleClass('ie-sidebar-open');
+    })
+  });
+
+
+  
+    $("li.ie-sidebar-selected").parents('ul').toggleClass("ie-sidebar-open");
+    $("li.ie-sidebar-selected").toggleClass("ie-sidebar-expand")
+    $("ul.ie-sidebar-open").parent().toggleClass("ie-sidebar-expand");
+    $("li.ie-sidebar-selected").children('ul').toggleClass("ie-sidebar-open")
+  
+  
+</script>
+    </div>
+</div>
+<script>
+
+    
+    let sidebarScrollTopPosition = 0;
+    $("#ie-new-toc").on("scroll", function () {
+        if (sidebarScrollTopPosition == 0) {
+            $.cookie("sidebarScroll", $("#ie-new-toc").scrollTop(), {
+                path: "/it-it/storagegrid-enable"
+            });
+        }
+
+        if ($("#ie-new-toc").scrollTop() > 0) {
+            $('#ie-product-identity-lockup').addClass('ie-addShadow');
+        } else {
+            $('#ie-product-identity-lockup').removeClass('ie-addShadow');
+        }
+    });
+
+    $(function () {
+        if ($.cookie("sidebarScroll")) {
+            $("#ie-new-toc").scrollTop($.cookie("sidebarScroll"));
+        }
+    });
+
+    function setSidebarBottom() {
+        const footerGap = PXinViewport($(".n-footer"));
+        document.getElementById("ie-new-sidebar").style.bottom = Math.max(0, footerGap) + "px";
+    }
+
+    window.onscroll = () => {
+        setSidebarBottom();
+    };
+
+    $("#sidebar-collapse").click(function (e) {
+        const sidebarWidth = $("#ie-new-sidebar").width() - $("#ie-new-sidebar-collapse").width();
+        e.preventDefault();
+        const width = $(".ie-content-pane").width();
+        const marginLeft = parseInt($(".ie-content-pane").css('marginLeft'));
+
+        if ($.cookie("sidebarScroll")) {
+            sidebarScrollTopPosition = $.cookie("sidebarScroll");
+        }
+
+        $("#ie-new-sidebar").animate({ width: 'toggle' }, 350, function () {
+            $("#ie-new-sidebar-collapse").show();
+            $("#ie-new-sidebar").removeClass("open")
+            $("#ie-new-sidebar").addClass("close")
+            $("#ie-new-sidebar").removeAttr("style")
+        });
+        $(".ie-content-pane").animate({ width: (width + sidebarWidth), marginLeft: (marginLeft - sidebarWidth) }, 350, function () {
+            resizeContent()
+        })
+
+    });
+    $("#sidebar-expand").click(function (e) {
+        const sidebarWidth = $("#ie-new-sidebar").width() - $("#ie-new-sidebar-collapse").width();
+        e.preventDefault();
+        const width = $(".ie-content-pane").width();
+        const marginLeft = parseInt($(".ie-content-pane").css('marginLeft'));
+
+        $("#ie-new-sidebar").animate({ width: 'toggle' }, 250, function () {
+            $('#ie-new-sidebar').css('display', 'flex');
+            $("#ie-new-sidebar-collapse").hide();
+            $("#ie-new-sidebar").removeClass("close")
+            $("#ie-new-sidebar").addClass("open")
+            setSidebarBottom();
+
+            if (sidebarScrollTopPosition != 0) {
+                $.cookie("sidebarScroll", sidebarScrollTopPosition, {
+                    path: "/it-it/storagegrid-enable"
+                })
+                $("#ie-new-toc").scrollTop(sidebarScrollTopPosition);
+                sidebarScrollTopPosition = 0;
+            }
+        });
+        $(".ie-content-pane").animate({ width: (width - sidebarWidth), 'marginLeft': (marginLeft + sidebarWidth) }, 250, function () {
+            resizeContent()
+        })
+    });
+    function resizeContent() {
+        const sidebarWidth = $("#ie-new-sidebar").width() - $("#ie-new-sidebar-collapse").width();
+        const rightNavbarVisible =  $("#ie-right-navbar").css('display') && $("#ie-right-navbar").css('display') != 'none';
+        const sidebarVisible = $("#ie-new-sidebar").css('display') != 'none';
+        const rightNavbarWidth = $("#ie-right-navbar").width();
+        const rightNavbarCollapseWidth = $("#ie-right-navbar-collapse").width();
+        const rightNavbarCollapseVisible = $("#ie-right-navbar-collapse").css('display') && $("#ie-right-navbar-collapse").css('display') != 'none';
+        
+        if (rightNavbarVisible && sidebarVisible) {
+            $(".ie-content-pane").width(`calc(100% - ${sidebarWidth + rightNavbarWidth}px)`)
+            $(".ie-content-pane").css('marginLeft', `${sidebarWidth}px`)
+        } else if (sidebarVisible) {
+            $(".ie-content-pane").css('marginLeft', `${sidebarWidth}px`)
+            if (rightNavbarCollapseVisible) {
+                $(".ie-content-pane").width(`calc(100% - ${sidebarWidth + rightNavbarCollapseWidth}px)`)
+            } else {
+                $(".ie-content-pane").width(`calc(100% - ${$("#ie-new-sidebar").width()}px)`)
+            }
+
+        } else if (rightNavbarVisible) {
+            $(".ie-content-pane").css('marginLeft', `${$("#ie-new-sidebar-collapse").width()}px`)
+            $(".ie-content-pane").width(`calc(100% - ${rightNavbarWidth}px)`)
+        } else {
+            $(".ie-content-pane").css('marginLeft', `${$("#ie-new-sidebar-collapse").width()}px`)
+            if (rightNavbarCollapseVisible) {
+                $(".ie-content-pane").width(`calc(100% - ${rightNavbarCollapseWidth}px)`);
+            } else {
+                $(".ie-content-pane").width(`calc(100% - ${$("#ie-new-sidebar-collapse").width()}px) `);
+            }
+            
+        }
+    }
+    $(window).on("resize load", function () {
+        setSidebarBottom();
+        resizeContent()
+    });
+
+
+</script>
+
+<div class="ie-content-pane ie-component-detail-content ie-component-detail-content--show-code">
+    <!-- Begin of page container --><article class="page-content" id="main">
+      <!-- include utility.html -->
+      <div class="ie-info-disclaimer">
+    <span>
+      <div class="ie-info-disclaimer-container">
+        <div class="ie-info-disclaimer-icon">
+          <img src="/it-it/storagegrid-enable/images/notification-icons.svg" class="luci-icon" alt="" />
+        </div>
+        <div class="ie-info-disclaimer-content">
+          <span> La versione in lingua italiana fornita proviene da una traduzione automatica. Per eventuali incoerenze, fare riferimento alla versione in lingua inglese. </span>
+        </div>
+        <div style="clear:both;"></div>
+      </div>
+    </span>
+  </div><div class="ie-component-detail-heading-wrap">
+  <h1 class="ie-component-detail-heading">Best practice di StorageGRID per l'implementazione con Veeam Backup and Replication</h1>
+</div>
+
+<div id="ie-byline">
+  
+<div class="page-details">
+    
+        
+            <time datetime="2024-03-07 04:56:26 +0000">03/07/2024</time>
+        
+    
+    
+        <span>Collaboratori
+        </span>
+    
+    
+</div>
+<div class="page-controls">
+    <div id="contribute-dropdown" class="custom-dropdown custom-dropdown-contrib" >
+        <div class="custom-dropdown-select custom-dropdown-select-contrib">
+        <span class="contrib-name"><img src="/it-it/storagegrid-enable/images/discuss-sm.svg" alt="" class="github-icon" />Suggerisci modifiche</span>
+        <img src="/it-it/storagegrid-enable/images/dropdown-arrow.svg" alt="" class="custom-icon chevrondown invisible" />
+        <img src="/it-it/storagegrid-enable/images/dropdown-arrow.svg" alt="" class="custom-icon chevronup" />
+        </div>
+        <ul class="custom-dropdown-menu suggested-changes-dropdown"><li>
+                <a target="_blank" href="https://github.com/NetAppDocs/storagegrid-enable.it-it/issues/new?template=new-from-page.yml&page-url=https://docs.netapp.com/it-it/storagegrid-enable/tools-apps-guides/veeam-br.html&page-title=Best practice di StorageGRID per l'implementazione con Veeam Backup and Replication" class="page-nav-contribute-link" role="button">Richiedi modifiche alla documentazione</a>
+            </li><li> 
+                <a target="_blank" href="https://github.com/NetAppDocs/storagegrid-enable/blob/main/tools-apps-guides/veeam-br.adoc" class="page-nav-contribute-link" role="button">Modifica questa pagina</a>
+            </li><li><a target="_blank" href="https://docs.netapp.com/us-en/contribute/" class="page-nav-contribute-link"  >Scopri come collaborare</a></li>
+        </ul>
+    </div>
+    <div id="pdf-control-container">
+        <div class="n-pdf-header">
+            <a id="toggleButtonPdf" class="n-pdf-button" type="button">
+                <img class="adobe-icon" src="/it-it/storagegrid-enable/images/pdf-icon.png" alt="" width="16" height="16"/>PDF<img src="/it-it/storagegrid-enable/images/dropdown-arrow.svg" class="custom-icon" alt="" />
+            </a>
+        </div>
+        <div class="n-pdf-body-container">
+            <ul id="toggleContainerPdf" class="n-pdf-body" style="display:none;"><li class="pdf-ux-container">
+                    
+                    
+                    
+                    <a target="_blank" class="pdf-download-link" href="/it-it/storagegrid-enable/pdfs/fullsite-sidebar/Come_abilitare_StorageGRID_nel_tuo_ambiente.pdf" >
+                    <img src="/it-it/storagegrid-enable/images/pdf-icon.png" alt="" width="16" height="16"/>PDF del sito di questa documentazione</a>
+
+
+
+    
+      <ul class="subfolders" style="display:none;">
+        <li class="pdf-ux-container">
+          
+          
+          
+          <a target="_blank" class="pdf-download-link"
+            
+              href="/it-it/storagegrid-enable/pdfs/sidebar/Soluzioni_di_terze_parti_validate.pdf" 
+            
+          >
+            <img src="/it-it/storagegrid-enable/images/pdf-icon.png" alt="" width="16" height="16"/>
+            Soluzioni di terze parti validate
+          </a>
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+        </li>
+      </ul>
+    
+
+  
+
+
+
+    
+      <ul class="subfolders" style="display:none;">
+        <li class="pdf-ux-container">
+          
+          
+          
+          <a target="_blank" class="pdf-download-link"
+            
+              href="/it-it/storagegrid-enable/pdfs/sidebar/Guide_alle_funzionalità_del_prodotto.pdf" 
+            
+          >
+            <img src="/it-it/storagegrid-enable/images/pdf-icon.png" alt="" width="16" height="16"/>
+            Guide alle funzionalità del prodotto
+          </a>
+          
+
+
+
+
+
+
+
+
+
+
+
+
+        </li>
+      </ul>
+    
+
+  
+
+
+
+    
+      <ul class="subfolders" style="display:none;">
+        <li class="pdf-ux-container">
+          
+          
+          
+          <a target="_blank" class="pdf-download-link"
+            
+              href="/it-it/storagegrid-enable/pdfs/sidebar/Guide_agli_strumenti_e_alle_applicazioni.pdf" 
+            
+          >
+            <img src="/it-it/storagegrid-enable/images/pdf-icon.png" alt="" width="16" height="16"/>
+            Guide agli strumenti e alle applicazioni
+          </a>
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    <ul class="subfolders" id="pdf-remove" style="display:none;"><li class="active"></li></ul>
+  
+
+
+
+
+        </li>
+      </ul>
+    
+
+  
+
+
+
+    
+      <ul class="subfolders" style="display:none;">
+        <li class="pdf-ux-container">
+          
+          
+          
+          <a target="_blank" class="pdf-download-link"
+            
+              href="/it-it/storagegrid-enable/pdfs/sidebar/Procedure_ed_esempi_di_API.pdf" 
+            
+          >
+            <img src="/it-it/storagegrid-enable/images/pdf-icon.png" alt="" width="16" height="16"/>
+            Procedure ed esempi di API
+          </a>
+          
+
+
+
+
+
+
+        </li>
+      </ul>
+    
+
+  
+
+
+
+
+
+
+
+</li></ul>
+            <div class="zip-pdf-link-container" style="display: none;">   
+                <a href="#" id="zipPdf">
+                <img src="/it-it/storagegrid-enable/images/pdf-zip.png" alt="" width="16" height="16"/>
+                <pre>Raccolta di documenti PDF separati<span class="zip-size"></span></pre>
+                </a><div id="zip-link-popup" class="hide">
+    <div class="inner-modal">
+        <div class="downloading-progress">
+            <div class="spinner"></div>
+            <h1>Creating your file...</h1>
+            <div>This may take a few minutes. Thanks for your patience.</div>
+            <button class="cancel-download-btn" type="button">Cancel</button>
+        </div>
+        <div class="download-complete hide">
+            <div class="done-icon">
+                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><path d="M20.285 2l-11.285 11.567-5.286-5.011-3.714 3.716 9 8.728 15-15.285z"/></svg>
+            </div>
+            <div>Your file is ready</div>
+            <button class="cancel-download-btn" type="button">OK</button>
+        </div>
+    </div>
+</div>
+<script>
+    $(".cancel-download-btn").click(function(){
+        $("#zip-link-popup").addClass("hide");
+        $("#zip-link-popup .downloading-progress").removeClass("hide");
+        $("#zip-link-popup .download-complete").addClass("hide");
+    });
+</script></div>
+        </div>
+    </div>        
+<script>
+$("#toggleContainerPdf li.active:last-child").parents('ul.subfolders').toggle('display');
+$("#toggleButtonPdf").on('click', function(e){ 
+    e.stopPropagation();
+    $("#toggleContainerPdf").toggle('display');
+    $(".n-pdf-body-container .zip-pdf-link-container").toggle('display');
+});
+
+//hide is by clicking outside pdfcontainer
+$(document).on('click', function (e) {
+    if ($('#toggleContainerPdf').is(':visible') && !$('.n-pdf-body-container').is(e.target) && !$('.n-pdf-body-container').has(e.target).length)  {
+        
+        $("#toggleContainerPdf").toggle('display');
+        $(".n-pdf-body-container .zip-pdf-link-container").toggle('display');
+        $("#toggleButtonPdf").removeClass("active");
+    }
+});
+</script>
+<script>
+    function getPdfLocation() {
+        const pdfLocation = window.scrollX + document.querySelector('#pdf-control-container').getBoundingClientRect().left
+        if (pdfLocation < 450) {
+            $(".n-pdf-body-container").addClass("block")
+        } else {
+            $(".n-pdf-body-container").removeClass("block")
+        }
+    
+    }
+    $( window ).on( "resize", function() {
+        getPdfLocation()
+} );
+</script>
+<script>
+    const pdfButtonWidth =  $(".n-pdf-header").width();
+    const pdfMenuWidth = $(".n-pdf-body-container").width();
+    $(".n-pdf-body-container").css('margin-left', `calc(${pdfButtonWidth - pdfMenuWidth}px)`);
+</script>
+</div>
+
+    
+
+</div>
+
+
+
+
+<div class="content-to-index">
+<div id="preamble">
+<div class="sectionbody">
+<div class="paragraph lead">
+<p>Questa guida si concentra sulla configurazione di NetApp StorageGRID e, in parte, su Veeam Backup and Replication. Questo documento è stato scritto per gli amministratori di storage e rete che hanno familiarità con i sistemi Linux e hanno il compito di mantenere o implementare un sistema NetApp StorageGRID in combinazione con Veeam Backup and Replication.</p>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="panoramica">Panoramica</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>Gli amministratori dello storage cercano di gestire la crescita dei propri dati con soluzioni che soddisfino la disponibilità, gli obiettivi di recovery rapido, scalino per soddisfare le loro esigenze e automatizzino la policy per la conservazione dei dati a lungo termine. Queste soluzioni devono anche fornire protezione da perdite o attacchi dannosi. Insieme, Veeam e NetApp hanno avviato una partnership per creare una soluzione di data Protection che combina Veeam Backup &amp; Recovery con NetApp StorageGRID per lo storage a oggetti on-premise.</p>
+</div>
+<div class="paragraph">
+<p>Veeam e NetApp StorageGRID offrono una soluzione facile da utilizzare che lavorano insieme per contribuire a soddisfare le richieste di una rapida crescita dei dati e di maggiori normative in tutto il mondo. Lo storage a oggetti basato sul cloud è celebre per la sua resilienza, la sua capacità di scalare, le efficienze operative e i costi che lo rendono la scelta naturale come destinazione dei backup. Questo documento fornirà linee guida e consigli per la configurazione della soluzione Veeam Backup e del sistema StorageGRID.</p>
+</div>
+<div class="paragraph">
+<p>Il workload a oggetti di Veeam crea un elevato numero di operazioni simultanee di PUT, DELETE ed LIST di piccoli oggetti. L'attivazione dell'immutabilità aumenta il numero di richieste all'archivio oggetti per l'impostazione della conservazione e dell'elenco delle versioni. Il processo di un processo di backup include la scrittura degli oggetti per la modifica giornaliera, quindi, una volta completate le nuove scritture, il processo eliminerà tutti gli oggetti in base al criterio di conservazione del backup. La pianificazione dei processi di backup si sovrappone quasi sempre. Questa sovrapposizione risulterà in un'ampia parte della finestra di backup che consiste in un carico di lavoro PUT/DELETE di 50/50 KB sull'archivio di oggetti. Rettificare in Veeam il numero di operazioni simultanee con l'impostazione dello slot di attività, aumentando la dimensione dell'oggetto aumentando la dimensione del blocco di lavoro di backup, riducendo il numero di oggetti nelle richieste di eliminazione multioggetto, inoltre, la scelta della finestra temporale massima per il completamento dei lavori ottimizzerà la soluzione in termini di prestazioni e costi.</p>
+</div>
+<div class="paragraph">
+<p>Assicurarsi di leggere la documentazione del prodotto per <a href="https://www.veeam.com/documentation-guides-datasheets.html?productId=8&amp;version=product%3A8%2F221" target="_blank" rel="noopener">"Backup e replica di Veeam"</a> e. <a href="https://docs.netapp.com/us-en/storagegrid-117/" target="_blank" rel="noopener">"StorageGRID"</a> prima di iniziare. Veeam offre calcolatori per comprendere il dimensionamento dell'infrastruttura Veeam e i requisiti di capacità da utilizzare prima del dimensionamento della soluzione StorageGRID. Verifica sempre le configurazioni validate di Veeam-NetApp nel sito web del Veeam Ready Program per <a href="https://www.veeam.com/alliance-partner-technical-programs.html?alliancePartner=netapp1&amp;page=1" target="_blank" rel="noopener">"Veeam Ready Object, immutabilità degli oggetti e Repository"</a>.</p>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="configurazione-veeam">Configurazione Veeam</h2>
+<div class="sectionbody">
+<div class="sect2">
+<h3 id="versione-consigliata">Versione consigliata</h3>
+<div class="paragraph">
+<p>Si consiglia sempre di rimanere aggiornati e di applicare gli aggiornamenti rapidi più recenti per il sistema Veeam Backup &amp; Replication 12. Al momento consigliamo almeno di installare la patch Veeam P20230718.</p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="s3-configurazione-del-repository">S3 Configurazione del repository</h3>
+<div class="paragraph">
+<p>Un repository di backup scale-out (SOBR) è il Tier di capacità dello storage a oggetti S3. Il Tier di capacità è un'estensione del repository primario che offre periodi di conservazione dei dati più lunghi e una soluzione di storage a costi inferiori. Veeam offre la possibilità di fornire immutabilità tramite l'API S3 Object Lock. Veeam 12 può utilizzare bucket multipli in un repository scale-out. StorageGRID non ha un limite per il numero di oggetti o la capacità in un singolo bucket. L'utilizzo di bucket multipli può migliorare le performance durante il backup di set di dati molto grandi, dove i dati di backup possono raggiungere la scalabilità di petabyte in oggetti.</p>
+</div>
+<div class="paragraph">
+<p>In base al dimensionamento della soluzione e ai requisiti specifici, potrebbe essere necessario limitare le attività simultanee. Le impostazioni predefinite specificano uno slot di attività del repository per ogni core della CPU e per ogni slot di attività un limite di 64 slot di attività simultanei. Ad esempio, se il server dispone di 2 core CPU, per l'archivio oggetti verrà utilizzato un totale di 128 thread simultanei. Questo include PUT, GET e Batch Delete. Si consiglia di selezionare un limite conservativo agli slot di attività da utilizzare per iniziare e regolare questo valore una volta che i backup Veeam hanno raggiunto lo stato stabile dei nuovi backup e dei dati di backup in scadenza. Collabora con l'account team di NetApp per dimensionare il sistema StorageGRID in modo appropriato e soddisfare le finestre temporali e le performance desiderate. Per fornire la soluzione ottimale, potrebbe essere necessario regolare il numero di slot di attività e il limite di attività per slot.</p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="configurazione-del-processo-di-backup">Configurazione del processo di backup</h3>
+<div class="paragraph">
+<p>I job di backup Veeam possono essere configurati con diverse opzioni di dimensione del blocco che devono essere prese in considerazione con attenzione. Le dimensioni predefinite del blocco sono di 1MB KB e, grazie all'efficienza dello storage, Veeam offre funzionalità di compressione e deduplica crea dimensioni degli oggetti di circa 500KB KB per il backup completo iniziale e oggetti 100-200kB per i job incrementali. Possiamo aumentare enormemente le performance e ridurre i requisiti per l'archivio di oggetti scegliendo una dimensione maggiore dei blocchi di backup. Sebbene le dimensioni maggiori dei blocchi apportino notevoli miglioramenti nelle performance dell'archivio di oggetti, si presenta al costo di potenzialmente aumentare i requisiti di capacità dello storage primario grazie alle ridotte performance di efficienza dello storage. Si consiglia di configurare i processi di backup con una dimensione blocco di 4MB KB che crea circa 2MB oggetti per i backup completi e dimensioni oggetto di 700kB-1MB KB per i backup incrementali. I clienti possono prendere in considerazione anche la configurazione dei lavori di backup utilizzando blocchi di 8 MB, che possono essere abilitati con l'assistenza del supporto Veeam.</p>
+</div>
+<div class="paragraph">
+<p>L'implementazione di backup immutabili utilizza S3 Object Lock nell'archivio oggetti. L'opzione immutabilità genera un numero maggiore di richieste all'archivio oggetti per l'elenco e la conservazione degli aggiornamenti sugli oggetti.</p>
+</div>
+<div class="paragraph">
+<p>Alla scadenza delle trattenute di backup, i lavori di backup elaboreranno l'eliminazione degli oggetti. Veeam invia le richieste di eliminazione all'archivio oggetti nelle richieste di eliminazione di più oggetti di 1000 oggetti per richiesta. Per le soluzioni di piccole dimensioni, potrebbe essere necessario regolarle per ridurre il numero di oggetti per richiesta. La riduzione di questo valore avrà il vantaggio di distribuire in modo più uniforme le richieste di eliminazione tra i nodi nel sistema StorageGRID. Si consiglia di utilizzare i valori nella tabella seguente come punto di partenza per configurare il limite di eliminazione di più oggetti. Moltiplicare il valore nella tabella per il numero di nodi per il tipo di appliance scelto per ottenere il valore per l'impostazione in Veeam. Se questo valore è uguale o superiore a 1000 non è necessario regolare il valore predefinito. Se questo valore deve essere modificato, si prega di collaborare con il supporto di Veeam per apportare la modifica.</p>
+</div>
+<table class="tableblock frame-all grid-all stretch">
+<colgroup>
+<col style="width: 50%;">
+<col style="width: 50%;">
+</colgroup>
+<thead>
+<tr>
+<th class="tableblock halign-left valign-top">Modello di appliance</th>
+<th class="tableblock halign-left valign-top">S3MultiObjectDeleteLimit per nodo</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">SG5712</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">34</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">SG5760</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">75</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">SG6060</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">200</p></td>
+</tr>
+</tbody>
+</table>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<img src="/us-en/storagegrid-enable/images/note.svg" alt="Nota">
+</td>
+<td class="content">
+<div class="paragraph">
+<p>Contatta il tuo account team NetApp per ottenere la configurazione consigliata in base alle tue esigenze specifiche. Le raccomandazioni sulle impostazioni di configurazione di Veeam includono:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>Dimensione blocco processo di backup = 4MB</p>
+</li>
+<li>
+<p>Limite slot attività SOBR= 2-16</p>
+</li>
+<li>
+<p>Limite eliminazione oggetti multipli = 34-1000</p>
+</li>
+</ul>
+</div>
+</td>
+</tr>
+</table>
+</div>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="configurazione-storagegrid">Configurazione StorageGRID</h2>
+<div class="sectionbody">
+<div class="sect2">
+<h3 id="versione-consigliata-2">Versione consigliata</h3>
+<div class="paragraph">
+<p>NetApp StorageGRID 11,6 o 11,7 con la correzione rapida più recente sono le versioni consigliate per le implementazioni Veeam. Nel StorageGRID 11.6.0.11 e 11.7.0.4 sono state introdotte molte funzionalità di ottimizzazione che saranno vantaggiose per i workload Veeam. Si consiglia di restare sempre aggiornati e di applicare gli aggiornamenti rapidi più recenti per il sistema StorageGRID in uso.</p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="bilanciamento-del-carico-e-configurazione-dellendpoint-s3">Bilanciamento del carico e configurazione dell'endpoint S3</h3>
+<div class="paragraph">
+<p>Veeam richiede che l'endpoint sia connesso solo tramite HTTPS. Una connessione non crittografata non è supportata da Veeam. Il certificato SSL può essere un certificato autofirmato, un'autorità di certificazione privata attendibile o un'autorità di certificazione pubblica attendibile. Per garantire un accesso continuo al repository S3, si consiglia di utilizzare almeno due bilanciatori del carico in una configurazione ha. I bilanciatori del carico possono essere un servizio di bilanciamento del carico integrato fornito da StorageGRID situato in ogni nodo amministrativo e nodo gateway o soluzione di terze parti come F5, Kemp, HAproxy, Loadbalanacer.org, ecc. L'utilizzo di un bilanciatore del carico StorageGRID fornirà la possibilità di impostare classificatori di traffico (regole QoS) che possono dare priorità al workload Veeam, o limitare Veeam a non influire sui carichi di lavoro a priorità più alta sul sistema StorageGRID.</p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="bucket-s3">Bucket S3</h3>
+<div class="paragraph">
+<p>StorageGRID è un sistema storage multi-tenant sicuro. Si consiglia di creare un tenant dedicato per il workload Veeam. È possibile assegnare facoltativamente una quota di archiviazione. Come Best practice, è possibile utilizzare "utilizzare la propria origine identità". Proteggere l'utente di gestione root del tenant con una password appropriata. Veeam Backup 12 richiede una forte coerenza per i bucket S3. StorageGRID offre diverse opzioni di coerenza configurate a livello di bucket. Per le implementazioni multi-sito con Veeam che accede ai dati da posizioni multiple, seleziona "strong-Global". Se Veeam effettua backup e ripristini solo su un singolo sito, dovrebbe essere impostato su "strong-site". Per ulteriori informazioni sui livelli di coerenza della benna, consultare la <a href="https://docs.netapp.com/us-en/storagegrid-117/s3/consistency-controls.html">"documentazione"</a>. Per utilizzare StorageGRID per i backup di Veeam Immutability, S3 Object Lock deve essere abilitato a livello globale e configurato nel bucket durante la creazione del bucket.</p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="gestione-del-ciclo-di-vita">Gestione del ciclo di vita</h3>
+<div class="paragraph">
+<p>StorageGRID supporta la replica e l'erasure coding per la protezione a livello di oggetto in siti e nodi StorageGRID. L'erasure coding richiede almeno una dimensione dell'oggetto di 200kB KB. Le dimensioni predefinite dei blocchi per Veeam di 1MB producono dimensioni degli oggetti che possono spesso essere inferiori a questa dimensione minima consigliata di 200kB KB dopo le efficienze di storage di Veeam. Per le performance della soluzione, non è consigliabile utilizzare un profilo di erasure coding su più siti, a meno che la connettività tra i siti non sia sufficiente per non aggiungere latenza o limitare la larghezza di banda del sistema StorageGRID. In un sistema StorageGRID multisito, la regola ILM può essere configurata per memorizzare una singola copia in ciascun sito. Per garantire la massima durata, è possibile configurare una regola per memorizzare una copia con erasure coding in ogni sito. L'utilizzo di due copie locali nei server Veeam Backup è l'implementazione più consigliata per questo workload.</p>
+</div>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="punti-chiave-di-implementazione">Punti chiave di implementazione</h2>
+<div class="sectionbody">
+<div class="sect2">
+<h3 id="storagegrid">StorageGRID</h3>
+<div class="paragraph">
+<p>Assicurarsi che blocco oggetti sia attivato sul sistema StorageGRID se è necessaria l'immutabilità. Individuare l'opzione nell'interfaccia utente di gestione in Configurazione/blocco oggetti S3.</p>
+</div>
+<div class="paragraph">
+<p><span class="image"><img src="../media/veeam-bp/obj_lock_en.png" alt="Blocco oggetti larghi griglia attivato"></span></p>
+</div>
+<div class="paragraph">
+<p>Quando si crea il bucket, selezionare "Enable S3 Object Lock" (attiva blocco oggetti 3D) se questo bucket deve essere utilizzato per i backup di immutabilità. In questo modo si attiva automaticamente la versione bucket. Lasciare disattivata la conservazione predefinita poiché Veeam imposterà esplicitamente la conservazione degli oggetti. Versioning e blocco oggetto S3 non devono essere selezionati se Veeam non sta creando backup immutabili.</p>
+</div>
+<div class="paragraph">
+<p><span class="image"><img src="../media/veeam-bp/obj_lock_bucket.png" alt="Attiva blocco oggetti nel bucket"></span></p>
+</div>
+<div class="paragraph">
+<p>Una volta creato il bucket, andare alla pagina dei dettagli del bucket creato. Selezionare il livello di coerenza.</p>
+</div>
+<div class="paragraph">
+<p><span class="image"><img src="../media/veeam-bp/bucket_consist_1.png" alt="Opzioni benna"></span></p>
+</div>
+<div class="paragraph">
+<p>Veeam richiede una forte coerenza per i bucket S3. Quindi, per implementazioni multi-sito con Veeam che accede ai dati da posizioni multiple, seleziona "strong-Global". Se Veeam effettua backup e ripristini solo su un singolo sito, dovrebbe essere impostato su "strong-site". Salvare le modifiche.</p>
+</div>
+<div class="paragraph">
+<p><span class="image"><img src="../media/veeam-bp/bucket_consist_2.png" alt="Consistenza della benna"></span></p>
+</div>
+<div class="paragraph">
+<p>StorageGRID fornisce un servizio di bilanciamento del carico integrato in ogni nodo amministrativo e nodo di gateway dedicato. Uno dei numerosi vantaggi dell'utilizzo di questo bilanciamento del carico è la possibilità di configurare i criteri di classificazione del traffico (QoS). Sebbene vengano utilizzati principalmente per limitare l'impatto di un'applicazione su altri carichi di lavoro dei client o per assegnare priorità a un carico di lavoro rispetto ad altri, forniscono anche un bonus di raccolta di metriche aggiuntive per agevolare il monitoraggio.</p>
+</div>
+<div class="paragraph">
+<p>Nella scheda di configurazione, selezionare "Traffic Classification" (classificazione traffico) e creare una nuova policy. Assegnare un nome alla regola e selezionare il bucket o il tenant come tipo. Immettere i nomi dei bucket o locatario. Se la QoS è necessaria, impostare un limite, ma per la maggior parte delle implementazioni, è sufficiente aggiungere i vantaggi di monitoraggio che questo fornisce, quindi non impostare un limite.</p>
+</div>
+<div class="paragraph">
+<p><span class="image"><img src="../media/veeam-bp/tc_policy.png" alt="Crea criterio TC"></span></p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="veeam">Veeam</h3>
+<div class="paragraph">
+<p>A seconda del modello e della quantità di appliance StorageGRID, potrebbe essere necessario selezionare e configurare un limite al numero di operazioni simultanee nel bucket.</p>
+</div>
+<div class="paragraph">
+<p><span class="image"><img src="../media/veeam-bp/veeam_concur_limit.png" alt="Limite attività concorrente Veeam"></span></p>
+</div>
+<div class="paragraph">
+<p>Seguite la documentazione Veeam sulla configurazione del lavoro di backup nella console Veeam per avviare la procedura guidata. Dopo aver aggiunto le VM, selezionare il repository SOBR.</p>
+</div>
+<div class="paragraph">
+<p><span class="image"><img src="../media/veeam-bp/veeam_1.png" alt="Processo di backup"></span></p>
+</div>
+<div class="paragraph">
+<p>Fare clic su Impostazioni avanzate e modificare le impostazioni di ottimizzazione dell'archiviazione a 4 MB o più. Compressione e deduplica devono essere abilitate. Modificare le impostazioni guest in base ai requisiti e configurare la pianificazione del processo di backup.</p>
+</div>
+<div class="paragraph">
+<p><span class="image"><img src="../media/veeam-bp/veeam_blk_sz.png" alt="Schermata di un computer Descrizione generata automaticamente,width=320,height=375"></span></p>
+</div>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="monitoraggio-di-storagegrid">Monitoraggio di StorageGRID</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>Per avere un quadro completo delle prestazioni congiunte di Veeam e StorageGRID, devi attendere la scadenza del tempo di conservazione dei primi backup. Fino a questo punto il workload Veeam è costituito principalmente da operazioni PUT e non si sono verificati eliminazioni. Una volta che i dati di backup stanno per scadere e le operazioni di pulizia sono in corso, è ora possibile vedere l'utilizzo completo e coerente nell'archivio oggetti e regolare le impostazioni in Veeam, se necessario.</p>
+</div>
+<div class="paragraph">
+<p>StorageGRID fornisce utili grafici per monitorare il funzionamento del sistema nella pagina metriche della scheda supporto. I dashboard principali da esaminare saranno S3 Overview, ILM e Traffic Classification Policy, se è stato creato un criterio. Nel dashboard Panoramica di S3 sono disponibili informazioni su velocità operative, latenze e risposte delle richieste di S3.</p>
+</div>
+<div class="paragraph">
+<p>Osservando le velocità S3 e le richieste attive è possibile visualizzare la quantità di carico gestita da ciascun nodo e il numero complessivo di richieste in base al tipo.<br>
+<span class="image"><img src="../media/veeam-bp/s3_over_rates.png" alt="S3 Panoramica Tariffe"></span></p>
+</div>
+<div class="paragraph">
+<p>Il grafico durata media mostra il tempo medio impiegato da ciascun nodo per ciascun tipo di richiesta. Questa è la latenza media della richiesta e potrebbe essere un buon indicatore che potrebbe essere necessaria una regolazione aggiuntiva o che il sistema StorageGRID può assumere più carico.</p>
+</div>
+<div class="paragraph">
+<p><span class="image"><img src="../media/veeam-bp/s3_over_duration.png" alt="S3 durata della panoramica"></span></p>
+</div>
+<div class="paragraph">
+<p>Nel grafico Total Completed Requests (Richieste totali completate), è possibile visualizzare le richieste per tipo e codici di risposta. Se si visualizzano risposte diverse da 200 (OK) per le risposte, questo potrebbe indicare un problema come il sistema StorageGRID sta caricando pesantemente inviando 503 risposte (rallentando) e potrebbe essere necessario un ulteriore tuning, o è arrivato il momento di espandere il sistema per il carico aumentato.</p>
+</div>
+<div class="paragraph">
+<p><span class="image"><img src="../media/veeam-bp/s3_over_requests.png" alt="S3 Richieste di panoramica"></span></p>
+</div>
+<div class="paragraph">
+<p>Nel dashboard ILM è possibile monitorare le prestazioni di eliminazione del sistema StorageGRID. StorageGRID utilizza una combinazione di eliminazioni sincrone e asincrone su ciascun nodo per provare e ottimizzare le performance complessive per tutte le richieste.</p>
+</div>
+<div class="paragraph">
+<p><span class="image"><img src="../media/veeam-bp/ilm_delete.png" alt="Eliminazione ILM"></span></p>
+</div>
+<div class="paragraph">
+<p>Con una Traffic Classification Policy, possiamo visualizzare le metriche sul carico bilanciatore richiesta throughput, tassi, durata, così come le dimensioni oggetto che Veeam sta inviando e ricevendo.</p>
+</div>
+<div class="paragraph">
+<p><span class="image"><img src="../media/veeam-bp/tc_1.png" alt="Criteri di classificazione del traffico"></span></p>
+</div>
+<div class="paragraph">
+<p><span class="image"><img src="../media/veeam-bp/tc_2.png" alt="Criteri di classificazione del traffico"></span></p>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="dove-trovare-ulteriori-informazioni">Dove trovare ulteriori informazioni</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>Per ulteriori informazioni sulle informazioni descritte in questo documento, consultare i seguenti documenti e/o siti Web:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><a href="https://docs.netapp.com/us-en/storagegrid-117/" target="_blank" rel="noopener">"Documentazione del prodotto NetApp StorageGRID 11,7"</a></p>
+</li>
+<li>
+<p><a href="https://www.veeam.com/documentation-guides-datasheets.html?productId=8&amp;version=product%3A8%2F221" target="_blank" rel="noopener">"Backup e replica di Veeam"</a></p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p><em>Di Oliver Haensel e Aron Klein</em></p>
+</div>
+</div>
+</div>
+</div>
+
+
+
+
+    </article>
+    <!-- Page Container -->
+  </div>
+
+  
+  <!-- Start Page Toolbar -->
+<div id="ie-right-navbar-collapse" class="close">
+  <img id="navbar-expand" class="ie-searchbox-icon" src="/it-it/storagegrid-enable/images/double_arrow.svg" alt="" />
+</div>
+<div id="ie-right-navbar" class="open">
+  <div id="right-navbar-collapse">
+    <img src="/it-it/storagegrid-enable/images/double_arrow.svg" alt="" />
+  </div>
+  <div class="page-nav-container">
+    <nav class="page-nav-fixed">
+      <div class="page-nav-title">In questa pagina</div>
+      <div class="page-nav-links">
+        <ul class="page-nav-inner" id="page-menu"></ul>
+      </div>
+    </nav>
+  </div>
+</div>
+
+
+<script>
+  resizeContent();
+  function setRightBarHeight() {
+    var h = 0;
+
+    // header 1
+    h += PXinViewport($('.n-footer'));
+    h += PXinViewport($('#ie-new-header'));
+
+    if ($('#ie-right-navbar').length) {
+      $('#ie-right-navbar').css({ height: `calc(100vh - ${h}px)` });
+    }
+    if ($('.page-nav-links').length) {
+      h += 98;
+      $('.page-nav-links').css({ height: `calc(100vh - ${h}px)` });
+    }
+  }
+
+  $(document).ready(function () {
+    // PAGE NAV - Click
+    const MASTHEAD_OFFSET = 65;
+    const SECTIONS = $("main h2, main h3");
+    let calculateActiveSection = false;
+    setTimeout(() => {
+      calculateActiveSection = true;
+    }, 100)
+
+    $(".page-nav__link").click(function (event) {
+      calculateActiveSection = false;
+      $(".page-nav__link").removeClass('page-nav__link--active');
+      var target = $(event.target);
+      target.addClass('page-nav__link--active');
+      location.hash = event.target.hash;
+      setTimeout(() => {
+        calculateActiveSection = true;
+      }, 100)
+
+    });
+
+    // PAGE NAV - Scroll
+    $(window).on('resize scroll', function () {
+      if (calculateActiveSection) {
+        var activeSection = getActiveSection(SECTIONS, MASTHEAD_OFFSET);
+        if (activeSection) {
+          var activeHref = $(activeSection).attr('id');
+          $(".page-nav__link").removeClass('page-nav__link--active');
+          $("#page-menu a[href=#" + activeHref + "]").addClass('page-nav__link--active');
+          if (location.hash != "#" + activeHref) {
+            if (history.replaceState) {
+              history.replaceState(null, null, "#" + activeHref);
+            }
+          }
+        }
+      }
+    });
+
+    $(".n-pdf-button").click(function () {
+      $(this).toggleClass("active");
+    });
+
+    $.fn.isVisibleAndInViewport = function () {
+      var elementTop = $(this).offset().top;
+      var elementBottom = elementTop + $(this).outerHeight();
+
+      var viewportTop = $(window).scrollTop();
+      var viewportBottom = viewportTop + $(window).height();
+
+      return elementBottom > viewportTop && elementTop < viewportBottom && $(this).is(":visible");
+    };
+
+
+    $(window).on('resize scroll', function () {
+      setRightBarHeight();
+    });
+
+    $(window).trigger('resize');
+
+
+  });
+
+  $("#right-navbar-collapse").click(function (e) {
+    const rightNavbarWidth = $("#ie-right-navbar").width() - $("#ie-right-navbar-collapse").width();
+    e.preventDefault();
+    const width = $(".ie-content-pane").width();
+
+    $("#ie-right-navbar").animate({ width: 'toggle' }, 350, function () {
+      $("#ie-right-navbar-collapse").removeClass("close")
+      $("#ie-right-navbar-collapse").addClass("open")
+      $("#ie-right-navbar").removeClass("open")
+      $("#ie-right-navbar").addClass("close")
+    });
+    $(".ie-content-pane").animate({ width: (width + rightNavbarWidth) }, 350, function () {
+      resizeContent()
+      setSidebarBottom();
+    })
+
+  });
+  $("#navbar-expand").click(function (e) {
+    const rightNavbarWidth = $("#ie-right-navbar").width() - $("#ie-right-navbar-collapse").width();
+    e.preventDefault();
+    const width = $(".ie-content-pane").width();
+    $("#ie-right-navbar").animate({ width: 'toggle' }, 250, function () {
+      $("#ie-right-navbar-collapse").removeClass("open")
+      $("#ie-right-navbar-collapse").addClass("close")
+      $("#ie-right-navbar").removeClass("close")
+      $("#ie-right-navbar").addClass("open")
+      setRightBarHeight();
+      setSidebarBottom();
+    });
+    $(".ie-content-pane").animate({ width: (width - rightNavbarWidth) }, 250, function () {
+      resizeContent()
+    })
+  });
+
+  function navbarResize() {
+    const rightNavbarResized = $("#ie-right-navbar-collapse").hasClass('resized');
+    if (window.innerWidth < 1024) {
+      $("#ie-right-navbar").removeClass("open")
+      $("#ie-right-navbar").addClass("close")
+      $("#ie-right-navbar").removeAttr("style")
+      $("#ie-right-navbar-collapse").removeClass("close")
+      $("#ie-right-navbar-collapse").addClass("open")
+      $("#ie-right-navbar-collapse").addClass("resized")
+    } else {
+      if (rightNavbarResized) {
+        $('#ie-right-navbar').removeClass('close');
+        $('#ie-right-navbar').addClass('open');
+        $("#ie-right-navbar-collapse").removeClass("resized")
+        $("#ie-right-navbar-collapse").removeClass("open")
+        $("#ie-right-navbar-collapse").addClass("close")
+      }
+    }
+    resizeContent()
+  }
+  navbarResize();
+  $(window).on('resize load', function () {
+    navbarResize()
+  });
+
+  function getActiveSection(sections, offset) {
+    var scrollPosition = $(window).scrollTop() + offset + 5;
+    var activeSection;
+    for (var i = 0; i < sections.length; i++) {
+      var el = $(sections[i]);
+      var activePosition = el.offset().top;
+      if (activePosition > scrollPosition) {
+        break;
+      }
+
+      activeSection = sections[i];
+    }
+
+    return activeSection;
+  }
+
+  $("a[href*=#]:not([href=#])").click(function () {
+    setTimeout(() => {
+      $(window).trigger('scroll');
+    }, 105)
+  })
+
+  const hashOnLoad = location.href.split("#")[1];
+  setTimeout(function () {
+    if (hashOnLoad) {
+      $(".page-nav__link").removeClass('page-nav__link--active');
+      $("#page-menu a[href=#" + hashOnLoad + "]").addClass('page-nav__link--active');
+    }
+  }, 100)
+
+</script>
+
+
+  <div style="clear: both"></div><!-- Main needs to have height --></div>
+
+        </main>
+
+        <footer class="n-footer">
+  <div class="n-footer__bottom">
+    <div class="n-container">
+        <div class="n-footer__left">
+          <li class="n-footer__copyright-link">
+                    <a href="https://www.netapp.com/company/legal/copyright/">© 2024 NetApp, Inc.</a>
+          </li>
+        </div>
+        <div class="n-footer__center">
+          <ul class="n-footer__copyright-list">
+            <li class="n-footer__copyright-link">
+              <a href="https://www.netapp.com/company/legal/terms-of-use/">Condizioni per l'utilizzo</a>
+            </li>
+            <li class="n-footer__copyright-link">
+              <a href="https://www.netapp.com/company/legal/privacy-policy/">Direttiva sulla privacy</a>
+            </li>
+            <li class="n-footer__copyright-link">
+              <a href="https://www.netapp.com/company/legal/cookie-policy/">Direttiva sui cookie</a>
+            </li>
+            <li class="n-footer__copyright-link">
+              <a class="ot-sdk-show-settings">Impostazioni cookie</a>
+            </li>
+          </ul>
+       </div>
+        <div class="n-footer__right">
+              <li class="n-footer__copyright-link">
+                <a target="_self" href="javascript:netapp_mailto()">Invia feedback su questa pagina</a>
+              </li>
+        </div>
+     </div>
+  </div>
+</footer>
+
+      </div><!-- Elasticsearch JS -->
+      <script type="text/javascript" src='/it-it/storagegrid-enable/js/bundle.js'></script>
+
+      <!-- Syntax Highlighting -->
+      <script type="text/javascript" src='/it-it/storagegrid-enable/js/prism.js'></script>
+      <script type="text/javascript" src='/it-it/storagegrid-enable/js/prism-curl.js'></script>
+    </div>
+    <script>
+      document.body.offsetWidth=1903;
+      cookieLaw = {}
+      cookieLaw.euCountry = "US";
+      cookieLaw.invoke = function(){return false;}
+    </script>
+    <script src='/it-it/storagegrid-enable/js/ie-tabbed-blocks.js'></script>
+    <script src='/it-it/storagegrid-enable/js/ie-sidebar.js'></script>
+  </body>
+
+</html>
