@@ -17,6 +17,7 @@ sidebar:
   - section: product-feature-guides
   - section: tools-apps-guides
   - section: examples
+  - section: technical-reports
   - title: Post del blog
     url: "/blogs.html"
   - title: Documentazione StorageGRID
