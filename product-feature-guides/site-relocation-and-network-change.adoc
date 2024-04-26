@@ -1,0 +1,92 @@
+---
+permalink: product-feature-guides/site-relocation-and-network-change.html 
+sidebar: sidebar 
+keywords: relocation move network change 
+summary: Questa guida descrive la preparazione e la procedura per il trasferimento del sito StorageGRID in una griglia multisito. 
+---
+= Procedura di trasferimento del sito a griglia e di modifica della rete a livello di sito
+:hardbreaks:
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Questa guida descrive la preparazione e la procedura per il trasferimento del sito StorageGRID in una griglia multisito. È necessario avere una conoscenza completa di questa procedura e pianificare in anticipo per garantire un processo senza problemi e ridurre al minimo le interruzioni per i clienti.
+
+Se è necessario modificare la rete Grid di tutta la griglia, vedere
+link:https://docs.netapp.com/us-en/storagegrid-118/maintain/changing-nodes-network-configuration.html["Modificare gli indirizzi IP per tutti i nodi nella griglia"].
+
+
+
+== Considerazioni prima del trasferimento del sito
+
+* Lo spostamento del sito deve essere completato e tutti i nodi online entro 15 giorni per evitare la ricostruzione del database Cassandra.
+link:https://docs.netapp.com/us-en/storagegrid-118/maintain/recovering-storage-node-that-has-been-down-more-than-15-days.html["Recovery Storage Node Down per più di 15 giorni"^]
+* Se una regola ILM delle policy attive utilizza un comportamento di acquisizione rigoroso, considerare la possibilità di cambiarlo in modo da bilanciarlo o in dual commit se il cliente desidera continuare a INSERIRE gli oggetti nel Grid durante il trasferimento del sito.
+* Per le appliance storage con 60 dischi o più, non spostare mai lo shelf con i dischi installati.  Etichettare ciascuna unità disco e rimuoverla dal contenitore di archiviazione prima di imballarla/spostarla.
+* Modifica appliance StorageGRID la rete VLAN può essere eseguita in remoto tramite rete di amministrazione o rete client.  Oppure si prevede di essere in loco per eseguire la modifica prima o dopo il trasferimento.
+* Verificare se l'applicazione cliente sta utilizzando HEAD o OTTENERE l'oggetto di non esistenza prima di METTERE. In caso affermativo, modificare la coerenza del bucket in strong-site per evitare l'errore HTTP 500.  In caso di dubbi, consultare la panoramica S3 grafici Grafana *Grid manager > supporto > metriche*, passare il mouse sul grafico "richiesta totale completata".  Se il conteggio è molto elevato di 404 oggetti GET o 404 oggetti Head, probabilmente una o più applicazioni utilizzano l'oggetto Head o Get nonexistence. Il conteggio è cumulativo, passare il mouse su una timeline diversa per vedere la differenza.
++
+image:site-relocation/s3-completed-request.png["S3 Panoramica grafico Grafana campione"]
+
+
+
+
+
+=== Procedura di modifica dell'indirizzo IP della griglia prima del trasferimento del sito
+
+.Fasi
+. Se la nuova subnet di rete della griglia viene utilizzata nella nuova posizione,
+link:https://docs.netapp.com/us-en/storagegrid-118/expand/updating-subnets-for-grid-network.htmll["Aggiungere la subnet all'elenco delle subnet di rete della griglia"^]
+. Accedere al nodo di amministrazione primario, utilizzare change-ip per modificare l'IP della griglia, deve *stage* la modifica prima di arrestare il nodo per il trasferimento.
++
+.. Selezionare 2 quindi 1 per la modifica dell'IP della griglia
++
+image:site-relocation/ip-change-1.png[""]
+
+.. selezionare 5 per visualizzare le modifiche
++
+image:site-relocation/ip-change-2.png[""]
+
+.. selezionare 10 per convalidare e applicare la modifica.
++
+image:site-relocation/ip-change-3.png[""]
+
+.. In questa fase è necessario selezionare *fase*.
++
+image:site-relocation/ip-change-4.png[""]
+
+.. Se il nodo di amministrazione primario è incluso nella modifica precedente, immettere *'A' per riavviare manualmente il nodo di amministrazione primario*
++
+image:site-relocation/ip-change-5.png[""]
+
+.. Premere invio per tornare al menu precedente e uscire dall'interfaccia change-ip.
++
+image:site-relocation/ip-change-6.png[""]
+
+
+
+. Da Grid Manager, scaricare il nuovo pacchetto di ripristino. *Grid manager* > *Maintenance* > *Recovery package*
+. Se è necessario modificare la VLAN sull'appliance StorageGRID, vedere la sezione <<Modifica VLAN dell'appliance>>.
+. Arrestare tutti i nodi e/o le appliance in sede, etichettare/rimuovere le unità disco se necessario, disimballare, imballare e spostare.
+. Se si prevede di modificare l'indirizzo ip della rete amministrativa e/o la VLAN e l'indirizzo ip del client, è possibile eseguire la modifica dopo il trasferimento.
+
+
+
+
+=== Modifica VLAN dell'appliance
+
+La procedura riportata di seguito presuppone l'accesso remoto alla rete client o di amministrazione dell'appliance StorageGRID per eseguire la modifica in remoto.
+
+.Fasi
+. Prima di spegnere l'apparecchio,
+link:https://docs.netapp.com/us-en/storagegrid-appliances/commonhardware/placing-appliance-into-maintenance-mode.html["impostare l'apparecchio in modalità di manutenzione"].
+. Utilizzando un browser per accedere alla GUI del programma di installazione dell'appliance StorageGRID utilizzando https://<admin-or-client-network-ip>:8443[].  Non è possibile utilizzare Grid IP come nuovo Grid IP già in uso dopo l'avvio dell'appliance in modalità di manutenzione.
+. Modificare la VLAN per la rete Grid.  Se si accede all'appliance tramite la rete client, non è possibile modificare la VLAN client in questo momento, è possibile modificarla dopo lo spostamento.
+. ssh per l'appliance e spegnere il nodo utilizzando 'hutdoown -h now'
+. Dopo che le appliance sono pronte presso il nuovo sito, accedere alla GUI del programma di installazione dell'appliance StorageGRID utilizzando https://<grid-network-ip>:8443[].  Verificare che lo storage sia in uno stato ottimale e la connettività di rete agli altri nodi Grid utilizzando gli strumenti ping/nmap nella GUI.
+. Se si prevede di modificare l'IP della rete client, è possibile modificare la VLAN client in questa fase.  La rete client non è pronta finché non si aggiorna l'ip della rete client utilizzando lo strumento change-ip nel passaggio successivo.
+. Uscire dalla modalità di manutenzione. Dal programma di installazione dell'appliance StorageGRID, selezionare *Avanzate* > *Riavvia controller*, quindi selezionare *Riavvia in StorageGRID*.
+. Dopo che tutti i nodi sono attivi e Grid non mostra alcun problema di connettività, utilizzare change-ip per aggiornare la rete di amministrazione dell'appliance e la rete client, se necessario.
+

@@ -1528,4 +1528,54 @@ Tutta la gamma</block>
   <block id="0ad1cadfe97c5910e1b3ce75c8b0ff1f" category="sidebar">NetApp StorageGRID e analisi dei big data</block>
   <block id="6407baffaf35e5f51c2e06e83659fcae" category="sidebar">Best practice per l'ottimizzazione di Hadoop S3A</block>
   <block id="34d8c979f20e6e946fc25898c9b703b0" category="sidebar">Tuning di Hadoop S3A</block>
+  <block id="23e421cbf9f56a23426fd9d29746a636" category="summary">Questa guida descrive la preparazione e la procedura per il trasferimento del sito StorageGRID in una griglia multisito.</block>
+  <block id="8295ab4dfd6c34f8b3da70a8bfaaada3" category="doc">Procedura di trasferimento del sito a griglia e di modifica della rete a livello di sito</block>
+  <block id="a7b0b12fd572901946be0ed19cb6a438" category="paragraph">Questa guida descrive la preparazione e la procedura per il trasferimento del sito StorageGRID in una griglia multisito. È necessario avere una conoscenza completa di questa procedura e pianificare in anticipo per garantire un processo senza problemi e ridurre al minimo le interruzioni per i clienti.</block>
+  <block id="731561f650e3a36691bae029b4547c66" category="inline-link-macro">Modificare gli indirizzi IP per tutti i nodi nella griglia</block>
+  <block id="e16a17e0f04937786448505101cf5703" category="paragraph">Se è necessario modificare la rete Grid di tutta la griglia, vedere
+<block ref="25fe4ea07c9ed2c1ea3e524430970ba9" category="inline-link-macro-rx"></block>.</block>
+  <block id="d62541926508b7fc98152bdd26f6b28c" category="section-title">Considerazioni prima del trasferimento del sito</block>
+  <block id="adb2a3f1ce6044cca831a1c3e1fcc38c" category="inline-link-macro">Recovery Storage Node Down per più di 15 giorni</block>
+  <block id="79286dd19701572b9607fd1b47f14c5f" category="list-text">Lo spostamento del sito deve essere completato e tutti i nodi online entro 15 giorni per evitare la ricostruzione del database Cassandra.
+<block ref="fb2aa662be1b0eb04ce42e59fa10d995" category="inline-link-macro-rx"></block></block>
+  <block id="d81093eaf5709c0a3ae4db45ea962851" category="list-text">Se una regola ILM delle policy attive utilizza un comportamento di acquisizione rigoroso, considerare la possibilità di cambiarlo in modo da bilanciarlo o in dual commit se il cliente desidera continuare a INSERIRE gli oggetti nel Grid durante il trasferimento del sito.</block>
+  <block id="5fcd60bee26dbdd38058786d89d30945" category="list-text">Per le appliance storage con 60 dischi o più, non spostare mai lo shelf con i dischi installati.  Etichettare ciascuna unità disco e rimuoverla dal contenitore di archiviazione prima di imballarla/spostarla.</block>
+  <block id="3bf27243eed945ae028b0d83a672aafd" category="list-text">Modifica appliance StorageGRID la rete VLAN può essere eseguita in remoto tramite rete di amministrazione o rete client.  Oppure si prevede di essere in loco per eseguire la modifica prima o dopo il trasferimento.</block>
+  <block id="fc1ade2120cd035ae884b4c776a06e08" category="list-text">Verificare se l'applicazione cliente sta utilizzando HEAD o OTTENERE l'oggetto di non esistenza prima di METTERE. In caso affermativo, modificare la coerenza del bucket in strong-site per evitare l'errore HTTP 500.  In caso di dubbi, consultare la panoramica S3 grafici Grafana *Grid manager &gt; supporto &gt; metriche*, passare il mouse sul grafico "richiesta totale completata".  Se il conteggio è molto elevato di 404 oggetti GET o 404 oggetti Head, probabilmente una o più applicazioni utilizzano l'oggetto Head o Get nonexistence. Il conteggio è cumulativo, passare il mouse su una timeline diversa per vedere la differenza.</block>
+  <block id="61bce3e94387d562e70e4344c21875a9" category="inline-image-macro">S3 Panoramica grafico Grafana campione</block>
+  <block id="c8d25296b6242f878bcc65b3463a9213" category="paragraph"><block ref="c8d25296b6242f878bcc65b3463a9213" category="inline-image-macro-rx" type="image"></block></block>
+  <block id="91ecbe84c3a3b51ceb6c3c1c46fe828e" category="section-title">Procedura di modifica dell'indirizzo IP della griglia prima del trasferimento del sito</block>
+  <block id="7ce3d8dcf98150ca295b4e8b4a175d28" category="inline-link-macro">Aggiungere la subnet all'elenco delle subnet di rete della griglia</block>
+  <block id="ef79c64bf374a8f7d8f11ddac8bac6ea" category="list-text">Se la nuova subnet di rete della griglia viene utilizzata nella nuova posizione,
+<block ref="a48adf12485e7e1fabf51f229ceb57fd" category="inline-link-macro-rx"></block></block>
+  <block id="a27c73113b9f8b1c8936231a5c6b72db" category="list-text">Accedere al nodo di amministrazione primario, utilizzare change-ip per modificare l'IP della griglia, deve *stage* la modifica prima di arrestare il nodo per il trasferimento.</block>
+  <block id="e8ebed2710314532bd7421c291775f7a" category="list-text">Selezionare 2 quindi 1 per la modifica dell'IP della griglia</block>
+  <block id="f246621acb182eca202eb998d35a0a71" category="paragraph"><block ref="f246621acb182eca202eb998d35a0a71" category="inline-image-macro-rx" type="image"></block></block>
+  <block id="0fc35f100f57d71f3d04d75f8e34db7a" category="list-text">selezionare 5 per visualizzare le modifiche</block>
+  <block id="51db02a440736bec001c7d690821ec49" category="paragraph"><block ref="51db02a440736bec001c7d690821ec49" category="inline-image-macro-rx" type="image"></block></block>
+  <block id="0db10ef124f48bf74646e51d511e42e7" category="list-text">selezionare 10 per convalidare e applicare la modifica.</block>
+  <block id="ecf8b3b84403afdd8f30ff4ca92df4d0" category="paragraph"><block ref="ecf8b3b84403afdd8f30ff4ca92df4d0" category="inline-image-macro-rx" type="image"></block></block>
+  <block id="b535a2204d1cc298ac5c3b36cc8a9249" category="list-text">In questa fase è necessario selezionare *fase*.</block>
+  <block id="a8c78f88b73dcaf8b7082c7d8bab4356" category="paragraph"><block ref="a8c78f88b73dcaf8b7082c7d8bab4356" category="inline-image-macro-rx" type="image"></block></block>
+  <block id="23e28a352f23f6051ecbe97b0516b42f" category="list-text">Se il nodo di amministrazione primario è incluso nella modifica precedente, immettere *'A' per riavviare manualmente il nodo di amministrazione primario*</block>
+  <block id="6cfd9d702fc475a31c16db4299ee31a0" category="paragraph"><block ref="6cfd9d702fc475a31c16db4299ee31a0" category="inline-image-macro-rx" type="image"></block></block>
+  <block id="355ec7ab5ee5e52899a8a48528d82b93" category="list-text">Premere invio per tornare al menu precedente e uscire dall'interfaccia change-ip.</block>
+  <block id="34efad53185ba8366fcb774fe4502175" category="paragraph"><block ref="34efad53185ba8366fcb774fe4502175" category="inline-image-macro-rx" type="image"></block></block>
+  <block id="6a713acf175fd861bbb563ab540a06fe" category="list-text">Da Grid Manager, scaricare il nuovo pacchetto di ripristino. *Grid manager* &gt; *Maintenance* &gt; *Recovery package*</block>
+  <block id="96557217b00ac75f863bec84c65347bf" category="list-text">Se è necessario modificare la VLAN sull'appliance StorageGRID, vedere la sezione <block ref="f1c1d143229526a165bf49ac775d4ecd" category="inline-xref-macro-rx"></block>.</block>
+  <block id="26afb12dd81518887c60c85ae47dab08" category="list-text">Arrestare tutti i nodi e/o le appliance in sede, etichettare/rimuovere le unità disco se necessario, disimballare, imballare e spostare.</block>
+  <block id="850fa0cd526764089644bd18997fcf0b" category="list-text">Se si prevede di modificare l'indirizzo ip della rete amministrativa e/o la VLAN e l'indirizzo ip del client, è possibile eseguire la modifica dopo il trasferimento.</block>
+  <block id="28b10382e67e37853ae45379b731cfaf" category="section-title">Modifica VLAN dell'appliance</block>
+  <block id="a65d2c0e652207280c57973442478f26" category="paragraph">La procedura riportata di seguito presuppone l'accesso remoto alla rete client o di amministrazione dell'appliance StorageGRID per eseguire la modifica in remoto.</block>
+  <block id="840a6c754184c6fbce872458dcf35141" category="inline-link-macro">impostare l'apparecchio in modalità di manutenzione</block>
+  <block id="5b8e4de8e50ebe10173b2539d1612010" category="list-text">Prima di spegnere l'apparecchio,
+<block ref="1d36a7361466de3adde00ce864c41474" category="inline-link-macro-rx"></block>.</block>
+  <block id="24377316ae141b63c8170119bbfe4239" category="list-text">Utilizzando un browser per accedere alla GUI del programma di installazione dell'appliance StorageGRID utilizzando<block ref="41c0f2506f64eaa17788753cf29de6aa" category="inline-link-rx"></block>.  Non è possibile utilizzare Grid IP come nuovo Grid IP già in uso dopo l'avvio dell'appliance in modalità di manutenzione.</block>
+  <block id="fe21d31242c56f4eee91182bd1268a5a" category="list-text">Modificare la VLAN per la rete Grid.  Se si accede all'appliance tramite la rete client, non è possibile modificare la VLAN client in questo momento, è possibile modificarla dopo lo spostamento.</block>
+  <block id="293c5807e9e9ab4b268fd617e8e5a56d" category="list-text">ssh per l'appliance e spegnere il nodo utilizzando 'hutdoown -h now'</block>
+  <block id="1c33a8d84128bb59ae10a50b662e3a98" category="list-text">Dopo che le appliance sono pronte presso il nuovo sito, accedere alla GUI del programma di installazione dell'appliance StorageGRID utilizzando<block ref="fba5b5bfbff166288edb187e140418b2" category="inline-link-rx"></block>.  Verificare che lo storage sia in uno stato ottimale e la connettività di rete agli altri nodi Grid utilizzando gli strumenti ping/nmap nella GUI.</block>
+  <block id="786f3a0a71ff6ad9513f86143e55c1ce" category="list-text">Se si prevede di modificare l'IP della rete client, è possibile modificare la VLAN client in questa fase.  La rete client non è pronta finché non si aggiorna l'ip della rete client utilizzando lo strumento change-ip nel passaggio successivo.</block>
+  <block id="fff8d22924e491405ba3026b24555fa6" category="list-text">Uscire dalla modalità di manutenzione. Dal programma di installazione dell'appliance StorageGRID, selezionare *Avanzate* &gt; *Riavvia controller*, quindi selezionare *Riavvia in StorageGRID*.</block>
+  <block id="6668d4dfafe68f86bfe1db4386e9ce7b" category="list-text">Dopo che tutti i nodi sono attivi e Grid non mostra alcun problema di connettività, utilizzare change-ip per aggiornare la rete di amministrazione dell'appliance e la rete client, se necessario.</block>
+  <block id="bae75f6502d7126b5a2837bf5628cab3" category="sidebar">Come spostare un sito e modificare la rete</block>
 </blocks>
