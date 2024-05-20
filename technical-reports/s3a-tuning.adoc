@@ -5,9 +5,13 @@ keywords: data lake, on-premises, analytics, storagegrid, object, hadoop
 summary: 'Questo rapporto tratta l"ottimizzazione S3A per StorageGRID.' 
 ---
 = Tuning di Hadoop S3A
+:hardbreaks:
 :allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
 
 
+[role="lead"]
 Il connettore Hadoop S3A facilita un'interazione perfetta tra le applicazioni basate su Hadoop e lo storage a oggetti S3. La messa a punto del connettore Hadoop S3A è essenziale per ottimizzare le performance quando si lavora con lo storage a oggetti S3. Prima di entrare nei dettagli di messa a punto, cerchiamo di comprendere di base Hadoop e i suoi componenti.
 
 
@@ -73,7 +77,7 @@ Sperimenta entrambi per determinare la soluzione più adatta al tuo carico di la
 
 In sintesi, i S3A committer forniscono una soluzione alla sfida fondamentale di un impegno coerente, ad alte prestazioni e affidabile nei confronti del S3. Il design interno garantisce un trasferimento efficiente dei dati, mantenendo al contempo l'integrità dei dati.
 
-image:../media/s3a-tuning/image1.png["S3A Tabella delle opzioni"]
+image:s3a-tuning/image1.png["S3A Tabella delle opzioni"]
 
 *3. Filettatura, dimensioni pool di connessione e dimensione blocco*
 
@@ -83,7 +87,7 @@ image:../media/s3a-tuning/image1.png["S3A Tabella delle opzioni"]
 * Blocchi di dimensioni maggiori possono migliorare le performance per il caricamento di grandi dati, riducendo l'overhead di gestione di parti multiparte durante il caricamento. Il valore consigliato è pari o superiore a 256 MB per set di dati di grandi dimensioni.
 
 
-image:../media/s3a-tuning/image2.png["S3A Tabella delle opzioni"]
+image:s3a-tuning/image2.png["S3A Tabella delle opzioni"]
 
 *4. Caricamento multiparte*
 
@@ -122,12 +126,12 @@ Un caricamento multiparte è un https://docs.aws.amazon.com/AmazonS3/latest/dev/
 
 Se la richiesta di caricamento multiparte completa non viene inviata correttamente, le parti rimangono in StorageGRID e non creano alcun oggetto. Ciò si verifica quando i lavori vengono interrotti, non riusciti o interrotti. Le parti rimangono nella griglia fino a quando il caricamento multiparte non viene completato o interrotto o StorageGRID elimina queste parti se sono trascorsi 15 giorni dall'avvio del caricamento. Se in un bucket sono presenti molti (da poche centinaia di migliaia a milioni) upload multiparte in corso, quando Hadoop invia "list-multipart-Uploads" (questa richiesta non filtra per id di caricamento), il completamento della richiesta potrebbe richiedere molto tempo o un timeout. È possibile impostare fs.S3A.mutlipart.purge su true con un valore fs.S3A.multipart.purge.age appropriato (ad esempio, da 5 a 7 giorni, non utilizzare il valore predefinito di 86400, ossia 1 giorno). O contattare l'assistenza NetApp per esaminare la situazione.
 
-image:../media/s3a-tuning/image3.png["S3A Tabella delle opzioni"]
+image:s3a-tuning/image3.png["S3A Tabella delle opzioni"]
 
 *5. Buffer: Scrittura dei dati in memoria*
 
 Per migliorare le prestazioni, è possibile inserire i dati in scrittura nella memoria prima di caricarli su S3. Riducendo così il numero di scritture ridotte e migliorando l'efficienza.
 
-image:../media/s3a-tuning/image4.png["S3A Tabella delle opzioni"]
+image:s3a-tuning/image4.png["S3A Tabella delle opzioni"]
 
 Ricorda che S3 e HDFS funzionano in modi diversi. È necessario un'attenta messa a punto/test/esperimento per utilizzare al meglio le risorse S3.

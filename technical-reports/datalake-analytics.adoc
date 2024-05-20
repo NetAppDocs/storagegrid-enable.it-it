@@ -5,7 +5,10 @@ keywords: data lake, on-premises, analytics, storagegrid, object
 summary: Questo report riguarda le analisi dei big data su StorageGRID. 
 ---
 = NetApp StorageGRID e analisi dei big data
+:hardbreaks:
 :allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
 
 
 
@@ -30,7 +33,7 @@ La soluzione di storage a oggetti NetApp StorageGRID offre scalabilità, disponi
 
 *Casi di utilizzo dello storage a oggetti*
 
-image:../media/datalake-analytics/image1.png["Schema casi di utilizzo StorageGRID, larghezza=396, altezza=394"]
+image:datalake-analytics/image1.png["Schema casi di utilizzo StorageGRID, larghezza=396, altezza=394"]
 
 Tra questi, l'analisi dei big data è uno dei casi di utilizzo più importanti e l'andamento del suo utilizzo sta aumentando.
 
@@ -47,7 +50,7 @@ Tra questi, l'analisi dei big data è uno dei casi di utilizzo più importanti e
 
 *StorageGRID S3 Data Lake*
 
-image:../media/datalake-analytics/image2.png["Esempio datalake StorageGRID,width=614,height=345"]
+image:datalake-analytics/image2.png["Esempio datalake StorageGRID,width=614,height=345"]
 
 
 
