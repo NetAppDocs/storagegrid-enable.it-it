@@ -44,7 +44,6 @@
   <block id="639a958d74ef218710689b55aa4ef73e" category="list-text">Quando si passa dalle appliance SG5660 o SG5760 alle appliance SG6060, tenere presente che le unità SG5x60 dispongono di 60 dischi di capacità, mentre le unità SG6060 ne hanno solo 58.</block>
   <block id="4d1c46cee1bdcec65653b2e2163398e0" category="list-text">Il processo di clonazione del nodo richiede che il nodo di origine sia offline nella griglia per tutta la durata del processo di clonazione. Se un nodo aggiuntivo passa offline durante questo periodo di tempo, i servizi client potrebbero risentire.</block>
   <block id="83d1a0f23bb258b2a270a1d6f7ff51d7" category="list-text">Un nodo di storage può essere offline solo per 15 giorni. Se la stima del processo di cloning è prossima a 15 giorni o supera i 15 giorni, utilizzare le procedure di espansione e decommissionamento.</block>
-  <block id="efde8725bd1e96e2479c137c19099fae" category="list-text">Per un sistema SG6060 con shelf di espansione, è necessario aggiungere il tempo necessario per la dimensione corretta del disco shelf al tempo di utilizzo dell'appliance di base per ottenere la durata completa del clone.</block>
   <block id="fec00ca7ab315b679cc642c66a770bd8" category="section-title">Stime delle performance dei cloni dei nodi</block>
   <block id="517e3359377bb6a7ea9488482299838f" category="paragraph">Le seguenti tabelle contengono stime calcolate per la durata del clone del nodo. Le condizioni variano, pertanto, le voci in *BOLD* potrebbero rischiare di superare il limite di 15 giorni per un nodo inattivo.</block>
   <block id="39ab52e8aaafa95380d3f56ccd8095d9" category="section-title">DDP8</block>
@@ -65,15 +64,12 @@
   <block id="6c32f983ee38ad5089298aa659cd011c" category="paragraph">4 giorni</block>
   <block id="a5dffc518be58d2936a993ee100d71b6" category="paragraph">4.5 giorni</block>
   <block id="e5d3435cf14793a49310fa8d85bcc4a1" category="paragraph">25 GB</block>
-  <block id="885e215d2d15d2ac1b34e5b8d416f86a" category="section-title">SG5712 -&gt; qualsiasi</block>
-  <block id="97fce1ba98948ee51fbf31978af80696" category="section-title">SG5660 -&gt; SG5760</block>
   <block id="9958432b6417f293cb0d15128b08e42f" category="paragraph">3 giorni</block>
   <block id="366adabd6f1babc8138db3063adaf869" category="paragraph">6 giorni</block>
   <block id="374616a0b786e9bffadc7f28e68d6c59" category="paragraph">7 giorni</block>
   <block id="51ab732b98b519b5e54ce60864cc8d69" category="paragraph">8.5 giorni</block>
   <block id="b00a84012a03b35beb30466d8baa4a1c" category="paragraph">11.5 giorni</block>
   <block id="194ae66ddb8567ab63da3b82c925fa03" category="paragraph">*13 giorni*</block>
-  <block id="85c75ace300325f8e407a841eb055d37" category="section-title">SG5660 -&gt; SG6060</block>
   <block id="61cab577ce1bed82e1b5d7caacb7456b" category="paragraph">2.5 giorni</block>
   <block id="bf30897fe2ce34b7e9f89291e20d9eae" category="paragraph">5.5 giorni</block>
   <block id="e5fd76b3288061d2c2638ccc41688416" category="paragraph">6.5 giorni</block>
@@ -82,11 +78,8 @@
   <block id="e727fed489e8b7eecf1901196ec3ede9" category="paragraph">2 giorni</block>
   <block id="6383598717ae8ac458dc988dff77c800" category="paragraph">5 giorni</block>
   <block id="79e241fd6b320cbb41d67b028ec6f1c0" category="paragraph">8 giorni</block>
-  <block id="c6a6ab48074fa03db6df437c1f27b415" category="section-title">SG5760 -&gt; SG5760</block>
-  <block id="4c0768167e7e249808ed4bd4ad28b2ed" category="section-title">SG5760 -&gt; SG6060</block>
   <block id="2a8a1b5738432b51afcd4dcbbbfe1434" category="paragraph">1.5 giorni</block>
   <block id="9e6b8df1cd23e71938af979057e5144a" category="paragraph">3.5 giorni</block>
-  <block id="bf0581629b559d1033e12e37f31bb0d7" category="section-title">SG6060 -&gt; SG6060</block>
   <block id="7da42b5478786d91e64cb31ec52e2511" category="paragraph">9.5 giorni</block>
   <block id="d2bfdb3de60e1c2f154e5f9fa5a1dfc1" category="section-title">DDP16</block>
   <block id="00471150fc4d84adcd57392d7a47a3cb" category="paragraph">3.5 giorni</block>
@@ -95,7 +88,6 @@
   <block id="383aea8468a529b339b755e27b1d4668" category="paragraph">7.5 giorni</block>
   <block id="9ff416b798a88ec4bfb30f4f045aada5" category="paragraph">11 giorni</block>
   <block id="ed01ec12331788a408398b059da47a39" category="paragraph">10.5 giorni</block>
-  <block id="ec3751d915801591991ca3553c2fa5a7" category="section-title">Shelf di espansione (aggiungere a SG6060 per ogni shelf sull'appliance di origine)</block>
   <block id="87edd78cd55896c283c8e2897bc9ba41" category="summary">Questa guida fornisce istruzioni dettagliate per la configurazione del servizio di integrazione della ricerca di NetApp StorageGRID 11.6 con il servizio Amazon OpenSearch o on-premise Elasticsearch.</block>
   <block id="c86030d76e5f59c53ee3bc844dccdbd2" category="doc">Configurare il servizio di integrazione della ricerca StorageGRID</block>
   <block id="f14bf9907ae948f8af2bfd00dbd85f09" category="paragraph">Questa guida fornisce istruzioni dettagliate per la configurazione del servizio di integrazione della ricerca di NetApp StorageGRID 11.6 con il servizio Amazon OpenSearch o on-premise Elasticsearch.</block>
@@ -1134,7 +1126,6 @@
   <block id="a4bd669931c15a4828a4c38a495d7ff3" category="section-title">Configurazione StorageGRID</block>
   <block id="b85a187b18cf0ecaff36c27f7e5e7500" category="paragraph">NetApp StorageGRID 11,6 o 11,7 con la correzione rapida più recente sono le versioni consigliate per le implementazioni Veeam. Nel StorageGRID 11.6.0.11 e 11.7.0.4 sono state introdotte molte funzionalità di ottimizzazione che saranno vantaggiose per i workload Veeam. Si consiglia di restare sempre aggiornati e di applicare gli aggiornamenti rapidi più recenti per il sistema StorageGRID in uso.</block>
   <block id="8215067184a09c074108be8e3fbbe725" category="section-title">Bilanciamento del carico e configurazione dell'endpoint S3</block>
-  <block id="923dc06db89bcd66cca887f28c0733c5" category="paragraph">Veeam richiede che l'endpoint sia connesso solo tramite HTTPS. Una connessione non crittografata non è supportata da Veeam. Il certificato SSL può essere un certificato autofirmato, un'autorità di certificazione privata attendibile o un'autorità di certificazione pubblica attendibile. Per garantire un accesso continuo al repository S3, si consiglia di utilizzare almeno due bilanciatori del carico in una configurazione ha. I bilanciatori del carico possono essere un servizio di bilanciamento del carico integrato fornito da StorageGRID situato in ogni nodo amministrativo e nodo gateway o soluzione di terze parti come F5, Kemp, HAproxy, Loadbalanacer.org, ecc. L'utilizzo di un bilanciatore del carico StorageGRID fornirà la possibilità di impostare classificatori di traffico (regole QoS) che possono dare priorità al workload Veeam, o limitare Veeam a non influire sui carichi di lavoro a priorità più alta sul sistema StorageGRID.</block>
   <block id="84ace9fb8e132c96d1dfcd31447efedc" category="section-title">Bucket S3</block>
   <block id="55876228853abf632dec9346a4f372ec" category="inline-link">documentazione</block>
   <block id="69e163f50758f77f10618e8e4b89f0cb" category="paragraph">StorageGRID è un sistema storage multi-tenant sicuro. Si consiglia di creare un tenant dedicato per il workload Veeam. È possibile assegnare facoltativamente una quota di archiviazione. Come Best practice, è possibile utilizzare "utilizzare la propria origine identità". Proteggere l'utente di gestione root del tenant con una password appropriata. Veeam Backup 12 richiede una forte coerenza per i bucket S3. StorageGRID offre diverse opzioni di coerenza configurate a livello di bucket. Per le implementazioni multi-sito con Veeam che accede ai dati da posizioni multiple, seleziona "strong-Global". Se Veeam effettua backup e ripristini solo su un singolo sito, dovrebbe essere impostato su "strong-site". Per ulteriori informazioni sui livelli di coerenza della benna, consultare la<block ref="782397d2a33ccd7da9c1580a84d10f9d" category="inline-link-rx"></block>. Per utilizzare StorageGRID per i backup di Veeam Immutability, S3 Object Lock deve essere abilitato a livello globale e configurato nel bucket durante la creazione del bucket.</block>
@@ -1816,4 +1807,13 @@ StorageGRID scala le performance utilizzando nodi con performance più elevate p
 <block ref="fa4af55c3fdbce23e96d2cf73261fa5b" category="inline-link-rx"></block></block>
   <block id="748e9574a05efa0e0738de58c2ff670b" category="list-text">Documentazione CommVault +
 <block ref="27eb3a3d6ca60f8dbf05e2df1f7e4644" category="inline-link-rx"></block></block>
+  <block id="c4d7e990537b5cabb7c53ef27e8240d3" category="paragraph">Veeam richiede che l'endpoint sia connesso solo tramite HTTPS. Una connessione non crittografata non è supportata da Veeam. Il certificato SSL può essere un certificato autofirmato, un'autorità di certificazione privata attendibile o un'autorità di certificazione pubblica attendibile. Per garantire un accesso continuo al repository S3, si consiglia di utilizzare almeno due bilanciatori del carico in una configurazione ha. I bilanciatori del carico possono essere un servizio di bilanciamento del carico integrato fornito da StorageGRID situato in ogni nodo amministrativo e nodo gateway o soluzione di terze parti come F5, Kemp, HAproxy, Loadbalancer.org, ecc. L'utilizzo di un bilanciatore del carico StorageGRID fornirà la possibilità di impostare classificatori di traffico (regole QoS) che possono dare priorità al workload Veeam, o limitare Veeam a non influire sui carichi di lavoro a priorità più alta sul sistema StorageGRID.</block>
+  <block id="2adef84f9348cc9769b8c3e1982c3cb1" category="list-text">Per un SG6060 o SG6160 con shelf di espansione, è necessario aggiungere al tempo dell'appliance di base il tempo necessario per le dimensioni corrette dello shelf, per ottenere l'intera durata del clone.</block>
+  <block id="77ffe904133c5c2e3ab960ef54b7be2d" category="section-title">SG5712/SG5812 -&gt; qualsiasi</block>
+  <block id="2060afee4c8201b859d447131ee1434a" category="section-title">SG5660 -&gt; SG5760/SG5860</block>
+  <block id="85b9faf406d03aaecca5e119294ceb1a" category="section-title">SG5660 -&gt; SG6060/SG6160</block>
+  <block id="7d9a95e91e60865aaa29da1eb0f75121" category="section-title">SG5760/SG5860 -&gt; SG5760/SG5860</block>
+  <block id="ab7ccd4f66da0de459e420e05417e0dd" category="section-title">SG5760/SG5860 -&gt; SG6060/SG6160</block>
+  <block id="25b15e92a1710d10f6bca458e130baaa" category="section-title">SG6060/SG6160 -&gt; SG6060/SG6160</block>
+  <block id="6219d1d3d5ac2385dfb8d391122edd3e" category="section-title">Shelf di espansione (aggiunta a oltre SG6060 TB/SG6160 TB per ogni shelf sull'appliance di origine)</block>
 </blocks>
