@@ -1,0 +1,499 @@
+---
+sidebar: sidebar 
+permalink: technical-reports/bare-metal/prerequisites-install-storagegrid.html 
+keywords: prerequisites, install storagegrid 
+summary: Scopri i requisiti di calcolo, storage, rete, docker e nodo per implementare StorageGRID. 
+---
+= Prerequisiti per l'installazione di StorageGRID
+:hardbreaks:
+:allow-uri-read: 
+:nofooter: 
+:icons: font
+:linkattrs: 
+:imagesdir: ../../media/
+
+
+[role="lead"]
+Scopri i requisiti di calcolo, storage, rete, docker e nodo per implementare StorageGRID.
+
+
+
+== Requisiti di calcolo
+
+La tabella riportata di seguito elenca i requisiti minimi delle risorse supportate per ogni tipo di nodo StorageGRID. Queste sono le risorse minime richieste per i nodi StorageGRID.
+
+[cols="30,35,35"]
+|===
+| Tipo di nodo | Core di CPU | RAM 
+
+
+| Amministratore | 8 | 24GB 
+
+
+| Storage | 8 | 24GB 
+
+
+| Gateway | 8 | 24GB 
+|===
+Inoltre, per garantire il corretto funzionamento di ciascun host fisico di Docker deve essere allocato un minimo di 16GB GB di RAM. Ad esempio, per ospitare insieme due dei servizi descritti nella tabella in un unico host fisico di Docker, occorre eseguire il seguente calcolo:
+
+24 + 24 + 16 = 64GB GB di RAM e 8 + 8 = 16 core
+
+Poiché molti server moderni superano questi requisiti, combiniamo sei servizi (container StorageGRID) su tre server fisici.
+
+
+
+== Requisiti di rete
+
+I tre tipi di traffico StorageGRID includono:
+
+* *Traffico griglia (obbligatorio).* Il traffico StorageGRID interno che viaggia tra tutti i nodi della griglia.
+* *Traffico amministrativo (opzionale).* Il traffico utilizzato per l'amministrazione e la manutenzione del sistema.
+* *Traffico client (opzionale).* Il traffico che viaggia tra le applicazioni client esterne e il grid, incluse tutte le richieste di storage a oggetti dai client S3 e Swift.
+
+
+È possibile configurare fino a tre reti da utilizzare con il sistema StorageGRID. Ogni tipo di rete deve trovarsi su una subnet separata senza sovrapposizioni. Se tutti i nodi si trovano nella stessa subnet, non è necessario un indirizzo gateway.
+
+Per questa valutazione, verrà eseguita la distribuzione su due reti, che contengono la rete e il traffico client. È possibile aggiungere successivamente una rete di amministrazione per supportare questa funzione aggiuntiva.
+
+È molto importante mappare le reti in modo coerente alle interfacce in tutti gli host. Ad esempio, se su ogni nodo sono presenti due interfacce, ens192 e ens224, tutte devono essere mappate alla stessa rete o VLAN su tutti gli host. In questa installazione, il programma di installazione esegue il mapping di questi dati nei contenitori Docker come eth0@IF2 e eth2@IF3 (poiché il loopback è IF1 all'interno del contenitore), pertanto un modello coerente è molto importante.
+
+
+
+=== Nota sul networking di Docker
+
+StorageGRID utilizza il networking in modo diverso da alcune implementazioni di container Docker. Non utilizza il networking fornito da Docker (o Kubernetes o Swarm). Al contrario, in realtà StorageGRID utilizza il container come --net=none, in modo che Docker non esegua alcuna operazione di rete. Dopo che il contenitore è stato generato dal servizio StorageGRID, viene creato un nuovo dispositivo macvlan dall'interfaccia definita nel file di configurazione del nodo. Tale dispositivo dispone di un nuovo indirizzo MAC e funge da dispositivo di rete separato in grado di ricevere pacchetti dall'interfaccia fisica. Il dispositivo macvlan viene quindi spostato nello spazio dei nomi dei contenitori e rinominato in uno dei eth0, eth1 o eth2 all'interno del contenitore. A questo punto, il dispositivo di rete non è più visibile nel sistema operativo host. Nel nostro esempio, il dispositivo di rete Grid è eth0 all'interno dei container Docker e la rete Client è eth2. Se avessimo una rete di amministrazione, il dispositivo sarebbe eth1 nel container.
+
+
+NOTE: Il nuovo indirizzo MAC del dispositivo di rete del contenitore potrebbe richiedere l'attivazione della modalità promiscua in alcuni ambienti di rete e virtuali. Questa modalità consente al dispositivo fisico di ricevere e inviare pacchetti per gli indirizzi MAC che differiscono dagli indirizzi MAC fisici noti. ++ ++ se si esegue in VMware vSphere, è necessario accettare la modalità promiscua, le modifiche degli indirizzi MAC e le trasmissioni falsificate nei gruppi di porte che serviranno il traffico StorageGRID quando si esegue RHEL. Ubuntu o Debian funziona senza questi cambiamenti nella maggior parte delle circostanze. ++ ++
+
+
+
+== Requisiti di storage
+
+I nodi richiedono ciascuno dispositivi di dischi locali o basati su SAN delle dimensioni indicate nella tabella seguente.
+
+
+NOTE: I numeri contenuti nella tabella sono relativi a ciascun tipo di servizio StorageGRID, non all'intero grid o a ciascun host fisico. In base alle scelte di distribuzione, verranno calcolati i numeri per ciascun host fisico in , più avanti in link:prerequisites-install-storagegrid.html#physical-host-layout-and-requirements["Layout e requisiti dell'host fisico"]questo documento. ++ ++ i percorsi o i file system contrassegnati con un asterisco verranno creati nel contenitore StorageGRID stesso dall'installatore. L'amministratore non richiede alcuna configurazione manuale o creazione di file system, ma gli host hanno bisogno di dispositivi a blocchi per soddisfare questi requisiti. In altre parole, il dispositivo a blocchi dovrebbe apparire utilizzando il comando `lsblk` ma non essere formattato o montato all'interno del sistema operativo host. ++ ++
+
+[cols="15,20,15,15,15,20"]
+|===
+| Tipo di nodo | Scopo del LUN | Numero di LUN | Dimensione minima di LUN | File system manuale richiesto | Voce di configurazione nodo consigliata 
+
+
+| Tutto | Spazio di sistema del nodo amministrativo
+`/var/local` (SSD utile qui) | Uno per ogni nodo amministrativo | 90GB | No | `BLOCK_DEVICE_VAR_LOCAL = /dev/mapper/ADM-VAR-LOCAL` 
+
+
+| Tutti i nodi | Pool di storage Docker all'indirizzo
+`/var/lib/docker for container pool` | Uno per ciascun host (fisico o VM) | 100GB per contenitore | Sì – etx4 | NA – formatta e monta come file system host (non mappato nel contenitore) 
+
+
+| Amministratore | Audit log del nodo amministrativo (dati del sistema nel container dell'amministratore)
+`/var/local/audit/export` | Uno per ogni nodo amministrativo | 200GB | No | `BLOCK_DEVICE_AUDIT_LOGS =/dev/mapper/ADM-OS` 
+
+
+| Amministratore | Tabelle nodo amministrativo (dati di sistema nel contenitore amministrativo)
+`/var/local/mysql_ibdata` | Uno per ogni nodo amministrativo | 200GB | No | `BLOCK_DEVICE_TABLES = /dev/mapper/ADM-MySQL` 
+
+
+| Nodi di storage | Storage a oggetti (dispositivi a blocchi  `/var/local/rangedb0` ) (SSD utili qui)  `/var/local/rangedb1`  `/var/local/rangedb2` | Tre per ciascun contenitore di stoccaggio | 4000GB | No | `BLOCK_DEVICE_RANGEDB_000 = /dev/mapper/SN-Db00
+BLOCK_DEVICE_RANGEDB_001 = /dev/mapper/SN-Db01
+BLOCK_DEVICE_RANGEDB_002 = /dev/mapper/SN-Db02` 
+|===
+In questo esempio, le dimensioni dei dischi mostrate nella seguente tabella sono necessarie per tipo di contenitore. I requisiti per host fisico sono descritti nella , più avanti in link:prerequisites-install-storagegrid.html#physical-host-layout-and-requirements["Layout e requisiti dell'host fisico"]questo documento.
+
+
+
+== Dimensioni dei dischi per tipo di container
+
+
+
+=== Container di amministrazione
+
+[cols="50,50"]
+|===
+| Nome | Dimensioni (GiB) 
+
+
+| Docker-Store | 100 (per contenitore) 
+
+
+| ADM-OS | 90 
+
+
+| ADM-Audit | 200 
+
+
+| ADM-MySQL | 200 
+|===
+
+
+=== Contenitore di stoccaggio
+
+[cols="50,50"]
+|===
+| Nome | Dimensioni (GiB) 
+
+
+| Docker-Store | 100 (per contenitore) 
+
+
+| SN-OS | 90 
+
+
+| Rangedb-0 | 4096 
+
+
+| Rangedb-1 | 4096 
+
+
+| Rangedb-2 | 4096 
+|===
+
+
+=== Contenitore gateway
+
+[cols="50,50"]
+|===
+| Nome | Dimensioni (GiB) 
+
+
+| Docker-Store | 100 (per contenitore) 
+
+
+| /var/local | 90 
+|===
+
+
+== Layout e requisiti dell'host fisico
+
+Combinando i requisiti di elaborazione e di rete illustrati nella tabella precedente, è possibile ottenere un set di hardware di base necessario per questa installazione di tre server fisici (o virtuali) con 16 core, 64GB di RAM e due interfacce di rete. Se si desidera un throughput più elevato, è possibile collegare due o più interfacce sulla griglia o sulla rete client e utilizzare un'interfaccia con codifica VLAN come bond0,520 nel file di configurazione del nodo. In presenza di carichi di lavoro più intensi, è preferibile una maggiore quantità di memoria per l'host e i container.
+
+Come illustrato nella seguente figura, questi server ospitano sei container Docker, due per host. La RAM viene calcolata fornendo 24GB GB per contenitore e 16GB GB per il sistema operativo host stesso.
+
+image:bare-metal-layout-for-three-hosts.png["Layout di esempio per tre host."]
+
+La RAM totale richiesta per host fisico (o VM) è 24 x 2 GB + 16 GB = 64GB GB. Nelle tabelle che seguono sono elencati i requisiti di archiviazione su disco per gli host 1, 2 e 3.
+
+[cols="50,50"]
+|===
+| Host 1 | Dimensioni (GiB) 
+
+
+ a| 
+*Docker Store*
+
+
+
+| `/var/lib/docker` (File system) | 200 (100 x 2) 
+
+
+ a| 
+*Contenitore amministratore*
+
+
+
+| `BLOCK_DEVICE_VAR_LOCAL` | 90 
+
+
+| `BLOCK_DEVICE_AUDIT_LOGS` | 200 
+
+
+| `BLOCK_DEVICE_TABLES` | 200 
+
+
+ a| 
+*Contenitore di stoccaggio*
+
+
+
+| SN-OS
+`/var/local` (dispositivo) | 90 
+
+
+| Rangedb-0 (dispositivo) | 4096 
+
+
+| Rangedb-1 (dispositivo) | 4096 
+
+
+| Rangedb-2 (dispositivo) | 4096 
+|===
+[cols="50,50"]
+|===
+| Host 2 | Dimensioni (GiB) 
+
+
+ a| 
+*Docker Store*
+
+
+
+| `/var/lib/docker` (Condiviso) | 200 (100 x 2) 
+
+
+ a| 
+*Contenitore gateway*
+
+
+
+| GW-OS *`/var/local` | 100 
+
+
+ a| 
+*Contenitore di stoccaggio*
+
+
+
+| *`/var/local` | 100 
+
+
+| Rangedb-0 | 4096 
+
+
+| Rangedb-1 | 4096 
+
+
+| Rangedb-2 | 4096 
+|===
+[cols="50,50"]
+|===
+| Host 3 | Dimensioni (GiB) 
+
+
+ a| 
+*Docker Store*
+
+
+
+| `/var/lib/docker` (Condiviso) | 200 (100 x 2) 
+
+
+ a| 
+*Contenitore gateway*
+
+
+
+| *`/var/local` | 100 
+
+
+ a| 
+*Contenitore di stoccaggio*
+
+
+
+| *`/var/local` | 100 
+
+
+| Rangedb-0 | 4096 
+
+
+| Rangedb-1 | 4096 
+
+
+| Rangedb-2 | 4096 
+|===
+Docker Store è stato calcolato consentendo 100GB per /var/local (per contenitore) x due contenitori = 200GB.
+
+
+
+== Preparazione dei nodi
+
+Per preparare l'installazione iniziale di StorageGRID, installare prima RHEL versione 9,2 e abilitare SSH. Impostare le interfacce di rete, NTP (Network Time Protocol), DNS e il nome host in base alle Best practice. È necessaria almeno un'interfaccia di rete abilitata sulla rete di rete e un'altra per la rete client. Se si utilizza un'interfaccia con codifica VLAN, configurarla come descritto negli esempi seguenti. In caso contrario, sarà sufficiente una semplice configurazione standard dell'interfaccia di rete.
+
+Se è necessario utilizzare un tag VLAN sull'interfaccia di rete della griglia, la configurazione dovrebbe avere due file nel `/etc/sysconfig/network-scripts/` seguente formato:
+
+[listing]
+----
+# cat /etc/sysconfig/network-scripts/ifcfg-enp67s0
+# This is the parent physical device
+TYPE=Ethernet
+BOOTPROTO=none
+DEVICE=enp67s0
+ONBOOT=yes
+# cat /etc/sysconfig/network-scripts/ifcfg-enp67s0.520
+# The actual device that will be used by the storage node file
+DEVICE=enp67s0.520
+BOOTPROTO=none
+NAME=enp67s0.520
+IPADDR=10.10.200.31
+PREFIX=24
+VLAN=yes
+ONBOOT=yes
+----
+Questo esempio presuppone che il dispositivo di rete fisico per la rete di rete sia enp67s0. Potrebbe anche essere un dispositivo Unito come bond0. Sia che si utilizzi il bonding o un'interfaccia di rete standard, è necessario utilizzare l'interfaccia con codifica VLAN nel file di configurazione del nodo se la porta di rete non dispone di una VLAN predefinita o se la VLAN predefinita non è associata alla rete di rete. Il contenitore StorageGRID stesso non annulla l'etichetta dei frame Ethernet, quindi deve essere gestito dal sistema operativo padre.
+
+
+
+== Configurazione dello storage opzionale con iSCSI
+
+Se non si utilizza storage iSCSI, è necessario assicurarsi che host1, Host2 e host3 contengano dispositivi a blocchi di dimensioni sufficienti per soddisfare i relativi requisiti. Consultare la sezione link:prerequisites-install-storagegrid.html#disk-sizes-per-container-type["Dimensioni dei dischi per tipo di container"] per i requisiti di storage di host1, Host2 e host3.
+
+Per configurare lo storage con iSCSI, attenersi alla seguente procedura:
+
+.Fasi
+. Se si utilizza storage iSCSI esterno, ad esempio il software di gestione dei dati NetApp e-Series o NetApp ONTAP®, installare i seguenti pacchetti:
++
+[listing]
+----
+sudo yum install iscsi-initiator-utils
+sudo yum install device-mapper-multipath
+----
+. Individuare l'ID iniziatore su ciascun host.
++
+[listing]
+----
+# cat /etc/iscsi/initiatorname.iscsi
+InitiatorName=iqn.2006-04.com.example.node1
+----
+. Utilizzando il nome dell'iniziatore del passaggio 2, mappare i LUN del dispositivo di archiviazione (del numero e delle dimensioni indicati nella tabella) a ciascun nodo di archiviazione link:prerequisites-install-storagegrid.html#storage-requirements["Requisiti di storage"] .
+. Scopri i LUN appena creati `iscsiadm` ed effettua l'accesso.
++
+[listing]
+----
+# iscsiadm -m discovery -t st -p target-ip-address
+# iscsiadm -m node -T iqn.2006-04.com.example:3260 -l
+Logging in to [iface: default, target: iqn.2006-04.com.example:3260, portal: 10.64.24.179,3260] (multiple)
+Login to [iface: default, target: iqn.2006-04.com.example:3260, portal: 10.64.24.179,3260] successful.
+----
++
+
+NOTE: Per ulteriori informazioni, consultate il https://access.redhat.com/documentation/en-us/red_hat_enterprise_linux/7/html/storage_administration_guide/osm-create-iscsi-initiator["Creazione di un iniziatore iSCSI"^] portale clienti Red Hat.
+
+. Per visualizzare i dispositivi multipath e i WWID LUN associati, eseguire il seguente comando:
++
+[listing]
+----
+# multipath -ll
+----
++
+Se non si utilizza iSCSI con dispositivi multipercorso, è sufficiente montare il dispositivo con un nome di percorso univoco che mantiene le modifiche e il riavvio del dispositivo allo stesso modo.
+
++
+[listing]
+----
+/dev/disk/by-path/pci-0000:03:00.0-scsi-0:0:1:0
+----
++
+
+TIP: Se i dispositivi vengono rimossi o aggiunti, la semplice utilizzo dei `/dev/sdx` nomi dei dispositivi potrebbe causare problemi in seguito. ++ ++ se si utilizzano dispositivi multipath, modificare il `/etc/multipath.conf` file per utilizzare gli alias come segue. ++ ++
+
++
+
+NOTE: Questi dispositivi potrebbero essere o meno presenti su tutti i nodi, a seconda del layout.
+
++
+[listing]
+----
+multipaths {
+multipath {
+wwid 36d039ea00005f06a000003c45fa8f3dc
+alias Docker-Store
+}
+multipath {
+wwid 36d039ea00006891b000004025fa8f597
+alias Adm-Audit
+}
+multipath {
+wwid 36d039ea00005f06a000003c65fa8f3f0
+alias Adm-MySQL
+}
+multipath {
+wwid 36d039ea00006891b000004015fa8f58c
+alias Adm-OS
+}
+multipath {
+wwid 36d039ea00005f06a000003c55fa8f3e4
+alias SN-OS
+}
+multipath {
+wwid 36d039ea00006891b000004035fa8f5a2
+alias SN-Db00
+}
+multipath {
+wwid 36d039ea00005f06a000003c75fa8f3fc
+alias SN-Db01
+}
+multipath {
+    wwid 36d039ea00006891b000004045fa8f5af
+alias SN-Db02
+}
+multipath {
+wwid 36d039ea00005f06a000003c85fa8f40a
+alias GW-OS
+}
+}
+----
+
+
+Prima di installare Docker nel sistema operativo host, formattare e montare il LUN o il backup del disco `/var/lib/docker`. Le altre LUN sono definite nel file di configurazione del nodo e utilizzate direttamente dai container StorageGRID. In altre parole, non vengono visualizzati nel sistema operativo host; vengono visualizzati nei contenitori stessi e i file system vengono gestiti dall'installatore.
+
+Se si utilizza un LUN con backup iSCSI, inserire nel file fstab qualcosa di simile alla seguente riga. Come notato, gli altri LUN non devono essere montati nel sistema operativo host ma devono essere visualizzati come dispositivi a blocchi disponibili.
+
+[listing]
+----
+/dev/disk/by-path/pci-0000:03:00.0-scsi-0:0:1:0 /var/lib/docker ext4 defaults 0 0
+----
+
+
+== Preparazione dell'installazione di Docker
+
+Per prepararsi all'installazione di Docker, attenersi alla seguente procedura:
+
+.Fasi
+. Crea un file system sul volume di storage Docker su tutti e tre gli host.
++
+[listing]
+----
+# sudo mkfs.ext4 /dev/sd?
+----
++
+Se si utilizzano dispositivi iSCSI con multipath, utilizzare `/dev/mapper/Docker-Store`.
+
+. Creare il punto di montaggio del volume di storage Docker:
++
+[listing]
+----
+# sudo mkdir -p /var/lib/docker
+----
+. Aggiungere una voce simile per la periferica-volume-archiviazione-docker a `/etc/fstab`.
++
+[listing]
+----
+/dev/disk/by-path/pci-0000:03:00.0-scsi-0:0:1:0 /var/lib/docker ext4 defaults 0 0
+----
++
+L'opzione seguente `_netdev` è consigliata solo se si utilizza un dispositivo iSCSI. Se si utilizza un dispositivo di blocco locale `_netdev` non è necessario ed `defaults` è consigliato.
+
++
+[listing]
+----
+/dev/mapper/Docker-Store /var/lib/docker ext4 _netdev 0 0
+----
+. Montare il nuovo file system e visualizzare l'utilizzo del disco.
++
+[listing]
+----
+# sudo mount /var/lib/docker
+[root@host1]# df -h | grep docker
+/dev/sdb 200G 33M 200G 1% /var/lib/docker
+----
+. Disattivare lo swap e disattivarlo per motivi di prestazioni.
++
+[listing]
+----
+$ sudo swapoff --all
+----
+. Per mantenere le impostazioni, rimuovete tutte le voci di swap da /etc/fstab come:
++
+[listing]
+----
+/dev/mapper/rhel-swap swap defaults 0 0
+----
++
+
+NOTE: La mancata disattivazione completa dello swap può ridurre notevolmente le performance.
+
+. Eseguire un riavvio di prova del nodo per verificare che il `/var/lib/docker` volume sia persistente e che tutti i dispositivi disco ritornino.
+

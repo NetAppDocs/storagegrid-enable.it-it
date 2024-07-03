@@ -1,0 +1,21 @@
+---
+sidebar: sidebar 
+permalink: technical-reports/load-balancer/global-load-balancing-design.html 
+keywords: global load balancing, storagegrid 
+summary: Esplorate le considerazioni e i requisiti di progettazione per il bilanciamento del carico globale in StorageGRID. 
+---
+= Comprendere i requisiti globali di bilanciamento del carico per StorageGRID
+:hardbreaks:
+:allow-uri-read: 
+:nofooter: 
+:icons: font
+:linkattrs: 
+:imagesdir: ../../media/
+
+
+[role="lead"]
+Esplorate le considerazioni e i requisiti di progettazione per il bilanciamento del carico globale in StorageGRID.
+
+Il bilanciamento del carico globale richiede l'integrazione con DNS per fornire routing intelligente su più siti StorageGRID. Questa funzione si trova al di fuori del dominio StorageGRID e deve essere fornita da una soluzione di terze parti come i prodotti di bilanciamento del carico discussi in precedenza e/o una soluzione di controllo del traffico DNS come Infoblox. Il bilanciamento del carico di livello superiore fornisce un routing intelligente al sito di destinazione più vicino nello spazio dei nomi, nonché il rilevamento e il reindirizzamento dei black-out al sito successivo nello spazio dei nomi. Una tipica implementazione GSLB è costituita dal GSLB di livello superiore con pool di siti contenenti bilanciatori del carico locale-sito. I bilanciatori del carico del sito contengono pool di nodi di storage del sito locale. Ciò può includere una combinazione di bilanciatori del carico di terze parti per le funzioni GSLB e StorageGRID che fornisce il bilanciamento del carico locale del sito, o una combinazione di terze parti, o molte delle terze parti discusse in precedenza possono fornire bilanciamento del carico sia GSLB che locale del sito.
+
+image:load-balancer-generic-gslb.png["generico-gslb"]

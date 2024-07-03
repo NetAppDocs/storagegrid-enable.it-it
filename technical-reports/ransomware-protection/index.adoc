@@ -1,0 +1,47 @@
+---
+sidebar: sidebar 
+permalink: technical-reports/ransomware-protection/index.html 
+keywords: ransomware attacks, storagegrid, best practices 
+summary: Scopri di più sugli attacchi ransomware e su come proteggere i dati grazie alle Best practice di sicurezza di StorageGRID. 
+---
+= Proteggere gli oggetti StorageGRID S3 dal ransomware
+:hardbreaks:
+:allow-uri-read: 
+:nofooter: 
+:icons: font
+:linkattrs: 
+:imagesdir: ../../media/
+
+
+[role="lead"]
+Scopri di più sugli attacchi ransomware e su come proteggere i dati grazie alle Best practice di sicurezza di StorageGRID.
+
+Gli attacchi ransomware sono in aumento. Questo documento fornisce alcuni consigli su come proteggere i dati degli oggetti su StorageGRID.
+
+Il ransomware di oggi è il pericolo sempre presente nel data center. Il ransomware è progettato per crittografare i dati e renderli inutilizzabili dagli utenti e dalle applicazioni che li fanno affidamento. La protezione inizia con le solite difese di reti rafforzate e solide pratiche di sicurezza per gli utenti, e dobbiamo seguire le procedure di sicurezza per l'accesso ai dati.
+
+Il ransomware è una delle maggiori minacce alla sicurezza odierne. Il team NetApp StorageGRID collabora con i nostri clienti per stare al passo con queste minacce. Con l'uso del blocco degli oggetti e del controllo delle versioni, è possibile proteggere da modifiche indesiderate e ripristinare da attacchi dannosi. La sicurezza dei dati è un'impresa multi-layer che considera lo storage a oggetti solo una parte del data center.
+
+
+
+== Best practice di StorageGRID
+
+Per StorageGRID, le Best practice sulla sicurezza devono includere l'utilizzo di HTTPS con certificati firmati sia per la gestione che per l'accesso agli oggetti. Crea account utente dedicati per applicazioni e singoli utenti e non utilizza gli account root tenant per l'accesso alle applicazioni o ai dati utente. In altre parole, seguire il principio del privilegio minimo. Utilizzare i gruppi di protezione con criteri IAM (Identity and Access Management) definiti per gestire i diritti degli utenti e accedere agli account specifici per le applicazioni e gli utenti. Con queste misure in atto, devi comunque assicurarti che i tuoi dati siano protetti. Nel caso di Simple Storage Service (S3), quando gli oggetti vengono modificati per crittografarli, viene eseguita la sovrascrittura dell'oggetto originale.
+
+
+
+== Metodi di difesa
+
+Il meccanismo di protezione dal ransomware primario nell'API S3 consiste nell'implementare il blocco degli oggetti. Non tutte le applicazioni sono compatibili con il blocco degli oggetti, pertanto sono disponibili altre due opzioni per proteggere gli oggetti descritti in questo report: La replica in un altro bucket con la versione abilitata e la versione con i criteri IAM.
+
+
+
+== Dove trovare ulteriori informazioni
+
+Per ulteriori informazioni sulle informazioni descritte in questo documento, consultare i seguenti documenti e/o siti Web:
+
+* Centro di documentazione NetApp StorageGRID https://docs.netapp.com/us-en/storagegrid-118/[]
+* Abilitazione NetApp StorageGRID https://docs.netapp.com/us-en/storagegrid-enable/[]
+* Pagina risorse documentazione StorageGRID https://www.netapp.com/data-storage/storagegrid/documentation/[]
+* Documentazione dei prodotti NetApp https://www.netapp.com/support-and-training/documentation/[]
+

@@ -1,0 +1,80 @@
+---
+sidebar: sidebar 
+permalink: technical-reports/commvault/data-protection-jobs.html 
+keywords: Backup, on-premises, commvault, storagegrid, object, S3, WORM 
+summary: Scopri alcuni casi di utilizzo per le configurazioni StorageGRID implementate dai clienti e da NetApp IT. 
+---
+= Eseguire un lavoro di protezione dati
+:hardbreaks:
+:allow-uri-read: 
+:nofooter: 
+:icons: font
+:linkattrs: 
+:imagesdir: ../../media/
+
+
+[role="lead"]
+Per configurare StorageGRID con CommVault complete Backup and Recovery for NetApp, sono stati eseguiti i seguenti passaggi per aggiungere StorageGRID come libreria cloud all'interno del software CommVault.
+
+
+
+== Fase 1: Configurare CommVault con StorageGRID
+
+.Fasi
+. Effettua l'accesso al CommVault Command Center. Nel pannello di sinistra, fare clic su archiviazione > Cloud > Aggiungi per visualizzare e rispondere alla finestra di dialogo Aggiungi cloud:
++
+image:commvault/add-cloud.png["Aggiungi cloud"]
+
+. Per tipo, selezionare NetApp StorageGRID.
+. Per MediaAgent, selezionare tutte le voci associate alla libreria cloud.
+. Per host server, immettere l'indirizzo IP o il nome host dell'endpoint StorageGRID e il numero di porta.
++
+Seguire le istruzioni riportate nella documentazione di StorageGRID a. https://docs.netapp.com/sgws-113/topic/com.netapp.doc.sg-admin/GUID-54FCAB84-143C-4A5D-B078-A837886BB242.html["come configurare un endpoint del bilanciamento del carico (porta)"]. Assicurarsi di disporre di una porta HTTPS con un certificato autofirmato e dell'indirizzo IP o del nome di dominio dell'endpoint StorageGRID.
+
+. Se si desidera utilizzare la deduplica, attivare questa opzione e specificare il percorso del database di deduplica.
+. Fare clic su Salva.
+
+
+
+
+== Fase 2: Creare un piano di backup con StorageGRID come destinazione principale
+
+.Fasi
+. Nel pannello di sinistra, selezionare Gestisci > piani per visualizzare e rispondere alla finestra di dialogo Crea piano di backup server.
++
+image:commvault/create-server.png["Creare un piano di backup dei server"]
+
+. Immettere il nome di un piano.
+. Selezionare la destinazione di backup dello storage di StorageGRID Simple Storage Service (S3) creata in precedenza.
+. Inserisci il periodo di conservazione dei backup e il recovery point objective (RPO) che preferisci.
+. Fare clic su Salva.
+
+
+
+
+== Fase 3: Avviare un processo di backup per proteggere i carichi di lavoro
+
+.Fasi
+. Sul CommVault Command Center, selezionare Protect > Virtualization (protezione > virtualizzazione).
+. Aggiunta di un hypervisor VMware vCenter Server.
+. Fare clic sull'hypervisor appena aggiunto.
+. Fare clic su Add VM group (Aggiungi gruppo VM) per rispondere alla finestra di dialogo Add VM Group (Aggiungi gruppo VM) in modo da visualizzare l'ambiente vCenter che si intende proteggere.
++
+image:commvault/add-vm-group.png["Aggiungi gruppo VM"]
+
+. Seleziona un datastore, una macchina virtuale o una raccolta di macchine virtuali e inserisci un nome per questo.
+. Selezionare il piano di backup creato nell'attività precedente.
+. Fare clic su Salva per visualizzare il gruppo VM creato.
+. Nell'angolo superiore destro della finestra del gruppo VM, selezionare Backup:
++
+image:commvault/vm-group.png["Gruppo VM"]
+
+. Selezionare Full come livello di backup, (facoltativamente) richiedere un'e-mail al termine del backup, quindi fare clic su OK per avviare il processo di backup:
++
+image:commvault/backup-level.png["Livello di backup"]
+
+. Passare alla pagina di riepilogo dei lavori per visualizzare le metriche dei lavori:
++
+image:commvault/job-summary.png["Riepilogo processo"]
+
+

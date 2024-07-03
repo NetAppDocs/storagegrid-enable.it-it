@@ -1,0 +1,25 @@
+---
+sidebar: sidebar 
+permalink: technical-reports/data-security/cloud-integration-storagegrid.html 
+keywords: cloud integration, storagegrid 
+summary: Scopri come StorageGRID si integra con i servizi cloud. 
+---
+= Integrazione del cloud
+:hardbreaks:
+:allow-uri-read: 
+:nofooter: 
+:icons: font
+:linkattrs: 
+:imagesdir: ../../media/
+
+
+[role="lead"]
+Scopri come StorageGRID si integra con i servizi cloud.
+
+[cols="30,35,35"]
+|===
+| Funzione | Funzione | Impatto 
+
+
+| Scansione antivirus basata su notifiche | I servizi della piattaforma StorageGRID supportano le notifiche degli eventi. Le notifiche degli eventi possono essere utilizzate con servizi di cloud computing esterni per attivare i flussi di lavoro di scansione antivirus sui dati. | Consente agli amministratori dei tenant di attivare la scansione dei dati tramite virus utilizzando servizi di cloud computing esterni. 
+|===

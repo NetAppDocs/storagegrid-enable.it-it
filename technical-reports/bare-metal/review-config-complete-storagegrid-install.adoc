@@ -1,0 +1,57 @@
+---
+sidebar: sidebar 
+permalink: technical-reports/bare-metal/review-config-complete-storagegrid-install.html 
+keywords: summary page, storagegrid install 
+summary: Scopri come convalidare le informazioni di configurazione della griglia e completare il processo di installazione di StorageGRID. 
+---
+= Rivedere la configurazione e completare l'installazione di StorageGRID
+:hardbreaks:
+:allow-uri-read: 
+:nofooter: 
+:icons: font
+:linkattrs: 
+:imagesdir: ../../media/
+
+
+[role="lead"]
+Scopri come convalidare le informazioni di configurazione della griglia e completare il processo di installazione di StorageGRID.
+
+Per assicurarsi che l'installazione venga completata correttamente, esaminare attentamente le informazioni di configurazione immesse. Seguire questa procedura.
+
+.Fasi
+. Visualizzare la pagina Riepilogo.
++
+image:bare-metal-summary-page.png["pagina-di-riepilogo-bare-metal"]
+
+. Verificare che tutte le informazioni di configurazione della griglia siano corrette. Utilizzare i link Modify (Modifica) nella pagina Summary (Riepilogo) per tornare indietro e correggere eventuali errori.
+. Fare clic su Installa.
++
+
+NOTE: Se un nodo è configurato per l'utilizzo della rete client, il gateway predefinito per quel nodo passa dalla rete griglia alla rete client quando si fa clic su Installa. Se si perde la connettività, assicurarsi di accedere al nodo amministrativo primario tramite una subnet accessibile. Per ulteriori informazioni, vedere "Installazione e provisioning della rete".
+
+. Fare clic su Scarica pacchetto di ripristino.
++
+Quando l'installazione procede fino al punto in cui è definita la topologia della griglia, viene richiesto di scaricare il file del pacchetto di ripristino (`.zip`) e di confermare che è possibile accedere al contenuto di questo file. È necessario scaricare il file del pacchetto di ripristino in modo da poter ripristinare il sistema StorageGRID in caso di errore di uno o più nodi della griglia.
+
++
+Verificare che sia possibile estrarre il contenuto del `.zip` file e salvarlo in due posizioni sicure, sicure e separate.
+
++
+
+CAUTION: Il file del pacchetto di ripristino deve essere protetto perché contiene chiavi di crittografia e password che possono essere utilizzate per ottenere dati dal sistema StorageGRID.
+
+. Selezionare l'opzione ho scaricato e verificato il file del pacchetto di ripristino, quindi fare clic su Avanti.
++
+image:bare-metal-download-recovery-package.png["pacchetto-ripristino-download-bare-metal"]
+
++
+Se l'installazione è ancora in corso, viene visualizzata la pagina Stato installazione. Questa pagina indica lo stato di avanzamento dell'installazione per ciascun nodo della griglia.
+
++
+image:bare-metal-installation-status.png["stato-installazione-bare-metal"]
+
++
+Quando viene raggiunta la fase completa per tutti i nodi della griglia, si apre la pagina di accesso per Grid Manager.
+
+. Accedere a Grid Manager come utente root con la password specificata durante l'installazione.
+

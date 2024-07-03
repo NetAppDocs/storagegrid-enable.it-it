@@ -1,0 +1,53 @@
+---
+sidebar: sidebar 
+permalink: technical-reports/ransomware-protection/replicate-bucket-versioning-storagegrid.html 
+keywords: bucket versioning, cloudmirror, storagegrid 
+summary: Scopri come replicare gli oggetti in un bucket secondario utilizzando StorageGRID CloudMirror. 
+---
+= Difesa da ransomware tramite bucket replicati con versione
+:allow-uri-read: 
+
+
+[role="lead"]
+Scopri come replicare gli oggetti in un bucket secondario utilizzando StorageGRID CloudMirror.
+
+Non tutte le applicazioni e i carichi di lavoro saranno compatibili con il blocco degli oggetti. Un'altra opzione è replicare gli oggetti in un bucket secondario nella stessa griglia (preferibilmente un tenant diverso con accesso limitato) o in qualsiasi altro endpoint S3 con il servizio della piattaforma StorageGRID, CloudMirror.
+
+StorageGRID CloudMirror è un componente di StorageGRID che può essere configurato per replicare gli oggetti di un bucket in una destinazione definita quando vengono acquisiti nel bucket di origine e non replicano le eliminazioni. Poiché CloudMirror è un componente integrato di StorageGRID, non può essere disattivato o manipolato da un attacco basato su API S3. È possibile configurare questo bucket replicato con la versione abilitata. In questo scenario, è necessario eseguire una pulizia automatica delle vecchie versioni del bucket replicato, che possono essere eliminate in modo sicuro. A tale scopo, è possibile utilizzare il motore dei criteri ILM di StorageGRID. Creare regole per gestire il posizionamento degli oggetti in base al tempo non corrente per diversi giorni sufficienti ad identificarli e recuperarli da un attacco.
+
+Un aspetto negativo di questo approccio è il fatto che consuma più storage disponendo di una seconda copia completa del bucket e di più versioni degli oggetti conservati per un po' di tempo. Inoltre, gli oggetti intenzionalmente eliminati dal bucket primario devono essere rimossi manualmente dal bucket replicato. Esistono altre opzioni di replica esterne al prodotto, come NetApp CloudSync, che possono replicare le eliminazioni per una soluzione simile. Un altro aspetto negativo per il bucket secondario che è abilitato per il controllo delle versioni e non per il blocco degli oggetti è la presenza di una serie di account privilegiati che potrebbero essere utilizzati per causare danni alla posizione secondaria. Il vantaggio è che dovrebbe essere un account univoco per quel bucket di endpoint o tenant e la compromissione probabilmente non include l'accesso agli account nella sede principale o viceversa.
+
+Una volta creati i bucket di origine e destinazione e configurata la destinazione con la versione, è possibile configurare e abilitare la replica, come segue:
+
+.Fasi
+. Per configurare CloudMirror, creare un endpoint dei servizi di piattaforma per la destinazione S3.
++
+image:ransomware-protection-create-endpoint.png["protezione dal ransomware: crea un endpoint"]
+
+. Nel bucket di origine, configurare la replica per utilizzare l'endpoint configurato.
++
+[listing]
+----
+<ReplicationConfiguration>
+    <Role></Role>
+    <Rule>
+        <Status>Enabled</Status>
+        <Prefix></Prefix>
+        <Destination>
+            <Bucket>arn:aws:s3:::mybucket</Bucket>
+            <StorageClass>STANDARD</StorageClass>
+        </Destination>
+    </Rule>
+</ReplicationConfiguration>
+----
+. Creare regole ILM per gestire il posizionamento dello storage e la gestione della durata dello storage della versione. In questo esempio, vengono configurate le versioni non correnti degli oggetti da memorizzare.
++
+image:ransomware-protection-create-ilm-rule.png["regola-ilm-protezione-ransomware"]
+
++
+image:ransomware-protection-create-ilm-rule-step-2.png["protezione dal ransomware-creazione-ilm-regola-fase-2"]
+
++
+Ci sono due copie nel sito 1 per 30 giorni. È inoltre possibile configurare le regole per la versione corrente degli oggetti in base all'utilizzo del tempo di acquisizione come tempo di riferimento nella regola ILM in modo che corrispondano alla durata di archiviazione del bucket di origine. Il posizionamento dello storage per le versioni a oggetti può essere sottoposto a erasure coding o replicato.
+
+

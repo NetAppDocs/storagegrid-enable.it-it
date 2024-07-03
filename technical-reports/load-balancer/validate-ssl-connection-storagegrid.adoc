@@ -1,0 +1,19 @@
+---
+sidebar: sidebar 
+permalink: technical-reports/load-balancer/validate-ssl-connection-storagegrid.html 
+keywords: validating ssl connection, storagegrid 
+summary: Informazioni su come convalidare la connessione SSL in StorageGRID. 
+---
+= Convalidare la connessione SSL in StorageGRID
+:hardbreaks:
+:allow-uri-read: 
+:nofooter: 
+:icons: font
+:linkattrs: 
+:imagesdir: ../../media/
+
+
+[role="lead"]
+Informazioni su come convalidare la connessione SSL in StorageGRID.
+
+Una volta configurato il bilanciamento del carico, è necessario convalidare la connessione utilizzando strumenti come OpenSSL e l'interfaccia CLI di AWS. Altre applicazioni, come il browser S3, potrebbero ignorare errori di configurazione SSL.
