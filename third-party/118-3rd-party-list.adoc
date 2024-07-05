@@ -118,3 +118,25 @@ Queste soluzioni sono state testate.
 * QStar
 * Velasea
 
+
+
+
+== Responsabili delle chiavi supportati su StorageGRID
+
+Queste soluzioni sono state testate.
+
+* Controllo chiave Entrust 10,2
+* Vault Hashiorp 1.15.0
+* Thales CipherTrust Manager 2,0
+* Thales CipherTrust Manager 2,1
+* Thales CipherTrust Manager 2,2
+* Thales CipherTrust Manager 2,3
+* Thales CipherTrust Manager 2,4
+* Thales CipherTrust Manager 2,8
+* Thales CipherTrust Manager 2,9
+* Thales CipherTrust Manager 2,10
+* Thales CipherTrust Manager 2,11
+* Thales CipherTrust Manager 2,12
+* Thales CipherTrust Manager 2,13
+* Thales CipherTrust Manager 2,14
+
