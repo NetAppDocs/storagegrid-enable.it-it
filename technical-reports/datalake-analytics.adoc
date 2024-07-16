@@ -144,7 +144,7 @@ Dai risultati di questo benchmark, possiamo concludere che il sistema di analisi
 
 Visita i collegamenti riportati di seguito per scoprire come StorageGRID e Dremio collaborano per fornire un'infrastruttura di data Lake moderna ed efficiente e come NetApp è passata da Hive + HDFS a Dremio + StorageGRID per migliorare in modo significativo l'efficienza dell'analisi dei big data.
 
-* https://www.netapp.tv/details/31426?mcid=02148179640195118863901007338453703701["Migliora le performance dei tuoi big data con NetApp StorageGRID"]
-* https://www.netapp.com/media/80932-SB-4236-StorageGRID-Dremio.pdf["Infrastruttura di data Lake moderna, potente ed efficiente con StorageGRID e Dremio"]
-* https://youtu.be/Y57Gyj4De2I?si=nwVG5ohCj93TggKS["In che modo NetApp sta ridefinendo l'esperienza del cliente con l'analisi dei prodotti"]
+* https://media.netapp.com/video-detail/de55c7b1-eb5e-5b70-8790-1241039209e2/boost-performance-for-your-big-data-with-netapp-storagegrid-1600-1["Migliora le performance dei tuoi big data con NetApp StorageGRID"^]
+* https://www.netapp.com/media/80932-SB-4236-StorageGRID-Dremio.pdf["Infrastruttura di data Lake moderna, potente ed efficiente con StorageGRID e Dremio"^]
+* https://youtu.be/Y57Gyj4De2I?si=nwVG5ohCj93TggKS["In che modo NetApp sta ridefinendo l'esperienza del cliente con l'analisi dei prodotti"^]
 
