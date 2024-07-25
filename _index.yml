@@ -14,6 +14,10 @@ indexpage:
     proteggere, proteggere e conservare i dati non strutturati in modo conveniente
     per lunghi periodi.
   tiles:
+  - title: Prova StorageGRID
+    links:
+    - title: Software di valutazione StorageGRID
+      url: "/evaluation-software.html"
   - title: Soluzioni di terze parti validate
     links:
     - title: Panoramica
