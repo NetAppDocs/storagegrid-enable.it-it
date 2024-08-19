@@ -140,7 +140,7 @@ Dual commit
 |===
 La regola di copia di ILM 2 è la regola predefinita. La regola Erasure Coding 2+1 è stata applicata per questo test a qualsiasi oggetto 200KB o superiore. La regola predefinita è stata applicata agli oggetti di dimensioni inferiori a 200KB. L'applicazione delle regole in questo modo è una Best practice di StorageGRID.
 
-Per informazioni tecniche su questo ambiente di test, leggere la sezione progettazione della soluzione e Best practice nella https://www.netapp.com/us/media/tr-4831.pdf["Data Protection scale-out NetApp con CommVault"] report tecnico.
+Per informazioni tecniche su questo ambiente di test, leggere la sezione progettazione della soluzione e Best practice nel https://www.netapp.com/pdf.html?item=/media/19372-tr-4831.pdf["Data Protection scale-out NetApp con CommVault"^] report tecnico.
 
 
 
@@ -511,7 +511,7 @@ image:commvault/job-summary.png["Riepilogo processo"]
 
 === Test delle prestazioni di base
 
-La tabella 7 mostra i risultati dei nostri test sulle performance di base. Nell'operazione di copia ausiliaria, quattro CommVault MediaAgent hanno eseguito il backup dei dati su un sistema NetApp AFF A300 e una copia ausiliaria è stata creata su NetApp StorageGRID. Per ulteriori informazioni sull'ambiente di configurazione dei test, consultare la sezione progettazione della soluzione e Best practice nella https://www.netapp.com/us/media/tr-4831.pdf["Data Protection scale-out NetApp con CommVault"] report tecnico.
+La tabella 7 mostra i risultati dei nostri test sulle performance di base. Nell'operazione di copia ausiliaria, quattro CommVault MediaAgent hanno eseguito il backup dei dati su un sistema NetApp AFF A300 e una copia ausiliaria è stata creata su NetApp StorageGRID. Per informazioni dettagliate sull'ambiente di configurazione dei test, leggere la sezione progettazione della soluzione e Best practice nel https://www.netapp.com/pdf.html?item=/media/19372-tr-4831.pdf["Data Protection scale-out NetApp con CommVault"^] report tecnico.
 
 I test sono stati eseguiti con 100 VM e 1000 VM, entrambi con una combinazione di 50/50 VM Windows e CentOS.
 
