@@ -955,9 +955,6 @@
   <block id="83b20ea3ae67e47021c38e81e4f589ca" category="list-text">Smartstore Splunk</block>
   <block id="3c03c9aa39f09aa3bf70c853404ab185" category="list-text">Verniciare Enterprise 6.0.4</block>
   <block id="01d16ea73fb659ea507974db4f28b791" category="list-text">Veeeam 9.5.4</block>
-  <block id="683c5d7a06c262f5e2e17cbb84869a3d" category="list-text">Veritas Enterprise Vault 11</block>
-  <block id="1f61ef960fbeb10906bd09932e1faa5e" category="list-text">Veritas Enterprise Vault 12</block>
-  <block id="aa92d10a39cb2c4707a61d62d73be93f" category="list-text">Veritas NetBackup 8.0</block>
   <block id="2bfecc5738e4f19170da7b6787f2aac4" category="list-text">Visoline</block>
   <block id="5b334f642369a1ed86af886a70b9a70a" category="summary">Soluzioni di terze parti validate per StorageGRID 11.4</block>
   <block id="bf535f2769af42cb4a0ef69bf5605f50" category="doc">Soluzioni di terze parti validate da StorageGRID 11.4</block>
@@ -989,13 +986,10 @@
   <block id="edf1439075a83a447fb8b630ddc9c8de" category="list-text">Fiocco di neve</block>
   <block id="e53636996ad9257c31aa596f6c267dbd" category="list-text">Lo storage diventa semplice</block>
   <block id="95e97cbf382fde28370be90f19cb74b7" category="list-text">Veeeam 11</block>
-  <block id="dbaa460bd61bfe1c91c1c136338013e6" category="list-text">Veritas Enterprise Vault 14</block>
   <block id="e6a211de1fc20ed87589cd9c30f29ac3" category="list-text">Virtalica StorageFabric</block>
   <block id="f1ef2cbfa857a0d2a7b845499f219ef8" category="list-text">Weka v3.10 o versione successiva</block>
   <block id="5c89f8abd30585311811b6067eeaf96d" category="section-title">Soluzioni di terze parti validate su StorageGRID con blocco a oggetti</block>
   <block id="1c4333b49a7b43ae27f876070a712cb8" category="list-text">CommVault 11 Feature Release 26</block>
-  <block id="401b6d44d3c927f0424adce982cc6506" category="list-text">Veritas Enterprise Vault 14.2.2</block>
-  <block id="e3cd39cab4140108c69a9666712a418b" category="list-text">Veritas NetBackup 10.1.1 e versioni successive</block>
   <block id="e1b55d6b6904a9bbd61463de2b1306c9" category="summary">Soluzioni di terze parti validate per StorageGRID 11.5</block>
   <block id="5c77045b793e49a2c9356629fa42247c" category="doc">Soluzioni di terze parti validate da StorageGRID 11.5</block>
   <block id="a3c271786c8eb7cf6e9beebf6c8792f6" category="paragraph">Le seguenti soluzioni di terze parti sono state validate per l'utilizzo con StorageGRID 11.5. + se la soluzione che stai cercando non è presente nell'elenco, contatta il tuo rappresentante commerciale NetApp.</block>
@@ -1104,7 +1098,6 @@
   <block id="35fff1030215641180d446636f07b965" category="paragraph">Assicurarsi di leggere la documentazione del prodotto per<block ref="011dc6ff3c4a6db4449338299b84c9c4" category="inline-link-rx"></block> e.<block ref="f6f71f61964919c3e794acd51103ea76" category="inline-link-rx"></block> prima di iniziare. Veeam offre calcolatori per comprendere il dimensionamento dell'infrastruttura Veeam e i requisiti di capacità da utilizzare prima del dimensionamento della soluzione StorageGRID. Verifica sempre le configurazioni validate di Veeam-NetApp nel sito web del Veeam Ready Program per<block ref="27e44db2d47a236831b6854277703ed2" category="inline-link-rx"></block>.</block>
   <block id="2cc1f5cc43ba172ac443ca2cbdcce2b4" category="section-title">Configurazione Veeam</block>
   <block id="8d5d0d535411e895f9d96eda059a901d" category="section-title">Versione consigliata</block>
-  <block id="e7e23fdc645b150075b11f4c4918739b" category="paragraph">Si consiglia sempre di rimanere aggiornati e di applicare gli aggiornamenti rapidi più recenti per il sistema Veeam Backup &amp; Replication 12. Al momento consigliamo almeno di installare la patch Veeam P20230718.</block>
   <block id="8a30f8c97261f6be55fd4a89233559fc" category="section-title">S3 Configurazione del repository</block>
   <block id="6ee286a7db9c406f8c2971e8ec86b74d" category="paragraph">Un repository di backup scale-out (SOBR) è il Tier di capacità dello storage a oggetti S3. Il Tier di capacità è un'estensione del repository primario che offre periodi di conservazione dei dati più lunghi e una soluzione di storage a costi inferiori. Veeam offre la possibilità di fornire immutabilità tramite l'API S3 Object Lock. Veeam 12 può utilizzare bucket multipli in un repository scale-out. StorageGRID non ha un limite per il numero di oggetti o la capacità in un singolo bucket. L'utilizzo di bucket multipli può migliorare le performance durante il backup di set di dati molto grandi, dove i dati di backup possono raggiungere la scalabilità di petabyte in oggetti.</block>
   <block id="274d09dbf63a4b2cf6067da7bdccc520" category="section-title">Configurazione del processo di backup</block>
@@ -1122,7 +1115,6 @@
   <block id="5a80842ad876afca2599388c0e374483" category="list-text">Limite slot attività SOBR= 2-16</block>
   <block id="4bb90882de8268f14eedce7a49450a9a" category="list-text">Limite eliminazione oggetti multipli = 34-1000</block>
   <block id="a4bd669931c15a4828a4c38a495d7ff3" category="section-title">Configurazione StorageGRID</block>
-  <block id="b85a187b18cf0ecaff36c27f7e5e7500" category="paragraph">NetApp StorageGRID 11,6 o 11,7 con la correzione rapida più recente sono le versioni consigliate per le implementazioni Veeam. Nel StorageGRID 11.6.0.11 e 11.7.0.4 sono state introdotte molte funzionalità di ottimizzazione che saranno vantaggiose per i workload Veeam. Si consiglia di restare sempre aggiornati e di applicare gli aggiornamenti rapidi più recenti per il sistema StorageGRID in uso.</block>
   <block id="8215067184a09c074108be8e3fbbe725" category="section-title">Bilanciamento del carico e configurazione dell'endpoint S3</block>
   <block id="84ace9fb8e132c96d1dfcd31447efedc" category="section-title">Bucket S3</block>
   <block id="55876228853abf632dec9346a4f372ec" category="inline-link">documentazione</block>
@@ -1193,7 +1185,6 @@ Se si utilizza un certificato CA autofirmato per questo endpoint S3, seguire la 
   <block id="2804a96d012f15794c6aaa8f11797dfc" category="inline-link">Il laboratorio on-demand è il tuo miglior tool di vendita per StorageGRID</block>
   <block id="d2634778cafa4c3045e5e3351c9098fc" category="inline-link">StorageGRID: Memorizzazione e gestione dei dati di replica e backup on-premise</block>
   <block id="f49b908c8064ba5b4ab223b14e8d376a" category="inline-link">Consulta l'elenco in continua crescita di soluzioni validate dei partner per StorageGRID</block>
-  <block id="47ac119989829cf384ff1ad266df420f" category="inline-link">Blocco degli oggetti StorageGRID S3 validato per Veritas NetBackup</block>
   <block id="0883099d6628246c0f3172404097c1d1" category="inline-link">USA BlueXP per proteggere Epic EHR con una policy di backup conforme a 3:2:1</block>
   <block id="1e81f3787bf865826867c808345c93cf" category="inline-link">Novità della famiglia di storage a oggetti StorageGRID</block>
   <block id="f0d2294cd432ef286ea4c0d40d486219" category="inline-link">Introduzione di StorageGRID 11,7 e della nuova appliance di storage a oggetti all-flash SGF6112</block>
@@ -1396,43 +1387,20 @@ Se la soluzione che stai cercando non è presente nell'elenco, contatta il tuo r
   <block id="6d5424acc89d68777ded882e67fba989" category="list-text">Sicurezza: StorageGRID offre varie funzionalità di sicurezza, tra cui crittografia, policy per il controllo degli accessi, gestione del ciclo di vita dei dati, blocco degli oggetti e versioni per proteggere i dati archiviati in bucket S3</block>
   <block id="9ed95e053e569a8027874c20fc968fa0" category="paragraph">*StorageGRID S3 Data Lake*</block>
   <block id="16440189dc2ac5b52ea041615f4e3502" category="inline-image-macro">Esempio datalake StorageGRID,width=614,height=345</block>
-  <block id="bcf6df0d4fc301b73dfb0f84c2b25fca" category="section-title">Quale data warehouse o data Lake funziona meglio con lo storage a oggetti S3</block>
   <block id="f5fb5a608581154f9f31a7efeaf26b22" category="inline-link">Apache Iceberg: La guida definitiva</block>
-  <block id="961898fd5ba4fc2d612d1c831953550a" category="paragraph">NetApp ha messo a confronto StorageGRID con tre ecosistemi data warehouse/Lake house - Hive, Delta Lake e Dremio.<block ref="ea7970154750f3c7264130a8bd2b3dc5" category="inline-link-rx"></block> include una breve introduzione di data warehouse e data lake house e pro/contro di queste due architetture.</block>
   <block id="d74100f8d86dca0577d39ba1e04a17a6" category="list-text">Strumento benchmark - TPC-DS -<block ref="d703b8825e30c09e87a04e77b042a1a8" category="inline-link-rx"></block></block>
   <block id="d30ec88779257c0b31627ba4c551888a" category="list-text">Ecosistemi di big data</block>
-  <block id="3d8fdb479ba6a1b9cecf651f9b7eea26" category="list-text">Cluster di 5 VM, ciascuna con 128G GB di RAM e 24 vCPU, storage SSD per disco di sistema</block>
   <block id="a7bc6add825dafcb28d8468de2244c0e" category="list-text">Hadoop 3.3.5 con Hive 3.1.3 (1 nodi nome + 4 nodi dati)</block>
   <block id="6b3b732f04270b0bc61c4e04a2f39184" category="list-text">Delta Lake con Spark 3.2.0 (1 master + 4 dipendenti) e Hadoop 3.3.5</block>
-  <block id="6b18ec7d77a4e9e064cbf7907da0f995" category="list-text">Dremio V23 (1 master + 4 esecutori)</block>
   <block id="670aaecb1a526fbed439dad3ec353a96" category="list-text">Storage a oggetti</block>
-  <block id="2d9b029355e87294061ae6f1de033209" category="list-text">NetApp^®^ StorageGRID^® 11,6 con bilanciamento del carico 3 x SG6060 + 1x SG1000</block>
-  <block id="3e02059b0b44d7c31aea68d26d910c82" category="list-text">Protezione degli oggetti - 2 copie</block>
   <block id="3cf72a217876a6502e40c6bc45a93c60" category="list-text">Dimensioni del database 1000GB</block>
-  <block id="8db25bfcdb041c33cb3750cd355e2821" category="list-text">Cache disabilitata in tutti gli ecosistemi 3 per ottenere risultati coerenti per ogni test di query.</block>
-  <block id="4775694e0c94905d9a80366e4fa7f65a" category="paragraph">TPC-DS include 99 query SQL complesse per l'analisi comparativa delle query. Abbiamo misurato i minuti totali per completare tutte e 99 le query e ci siamo accorti di aver suddiviso il tipo e il numero di richieste S3 per analizzare il risultato. La prima tabella riportata di seguito mostra la durata totale di tutte le 99 query e la seconda tabella riassume il numero e i tipi di richieste S3 inviate a StorageGRID da ciascun ecosistema.</block>
-  <block id="6d250f65ee48829b160dce910ccf0190" category="paragraph">*Risultato query TPC-DS*</block>
   <block id="47e3170ffb3d6c316975632968933646" category="cell">Ecosistema</block>
   <block id="c05def664dae0985e5984993db2b69a0" category="cell">Alveare</block>
   <block id="e51fc2a250a74f84b11010c0f9316c46" category="cell">Lago Delta</block>
-  <block id="6f632a1f063dc14df220da8c1d176f38" category="cell">Layer di storage</block>
-  <block id="49519cec4f69d00412deaceb05c68eb8" category="cell">NetApp^®^ StorageGRID^®</block>
-  <block id="ce1dc110e77caccbe12e51dce2d1c9b7" category="cell">Tipo di disco</block>
-  <block id="9c2dc227590d4220750b52b21b0aeb99" category="cell">DISCO RIGIDO</block>
-  <block id="5128c40e9b4875ff6b6f9b08e8d0a03f" category="cell">Formato tabella</block>
-  <block id="ace780da4816e1e457db8c57d60b5d66" category="cell">Parquet</block>
-  <block id="f49606530a9567c51e160fcce34b8f71" category="cell">Parquet ^1^</block>
-  <block id="6267eaec7dcff27c3dc9e28ff41252d0" category="cell">Dimensione del database</block>
-  <block id="a0b2fbadd5b3ebfe64b31483a2ac8886" category="cell">1000G</block>
   <block id="35b5589d5690d7ef32acf311beb9bbea" category="cell">TPCDS 99 query +
 minuti totali</block>
-  <block id="d06520689ef9c6002c5ceab8146281f6" category="cell">1084 ^2^</block>
   <block id="b53b3a3d6ab90ce0268229151c9bde11" category="cell">55</block>
   <block id="67c6a1e7ce56d3d6fa748ab6d9af3fd7" category="cell">47</block>
-  <block id="fb9fcf59d7e277fffe7705ce2be3777a" category="paragraph">^1^ ha testato sia il formato della tabella Parquet che Iceberg, il risultato è simile.</block>
-  <block id="673b0197afb5ff5d157542553d103217" category="paragraph">^2^ Impossibile completare la query numero 72.</block>
-  <block id="95f1998726f8cd4be0aff86865fa8eae" category="paragraph">*Query TPC-DS - S3 richieste di disaggregazione*</block>
-  <block id="3e197ca7a19378fad3e5581cbd39fb4b" category="cell">S3 richieste</block>
   <block id="7528035a93ee69cedb1dbddb2f0bfcc8" category="cell">OTTIENI</block>
   <block id="8db7bb1512ff25e1db67c5b9a53f897d" category="cell">1.117.184</block>
   <block id="2569e54b8230d5c2746fa85c61dcf512" category="cell">2.074.610</block>
@@ -1460,12 +1428,7 @@ Tutta la gamma</block>
   <block id="a56d0d38d9846ac044442ecabae19902" category="cell">2.567.390</block>
   <block id="6dfffbda5aeba01126df9439ffbc82a3" category="cell">3.033.603</block>
   <block id="b0f186b9ad3639a900dc289160a9505b" category="cell">4.416.504</block>
-  <block id="15dc52463e414693d28f722fd4d402db" category="paragraph">Dalla prima tavola, possiamo vedere Delta Lago e Dremio sono molto più veloce di Hive. Dalla seconda tabella, si nota che Hive ha inviato molte S3 richieste list-objects, che in genere sono lente in tutte le piattaforme di storage a oggetti, soprattutto se si tratta di un bucket contenente molti oggetti. Ciò aumenta notevolmente la durata complessiva delle query. Un'altra osservazione è stata Dremio in grado di inviare un elevato numero di richieste GET in parallelo, da 2.000 a 2.300 richieste al secondo contro 50 - 100 richieste al secondo in Hive. Il file system hive e Hadoop S3A mimico standard contribuisce alla lentezza di Hive nello storage a oggetti S3.</block>
-  <block id="5fd92565468cb3e9de156c317d9d5f07" category="paragraph">L'utilizzo di Hadoop (su storage a oggetti HDFS o S3) con Hive o Spark richiede un'estesa conoscenza di Hadoop e Hive/Spark e del modo in cui interagiscono le impostazioni di ogni servizio, insieme hanno più di 1000 impostazioni. Molto spesso, le impostazioni sono correlate e non possono essere modificate da sole. Per trovare la combinazione ottimale di impostazioni e valori da utilizzare sono necessari tempi e sforzi enormi.</block>
-  <block id="8a96077dd21be324029bd1c265c53313" category="paragraph">Dremio è un motore di data Lake che utilizza Apache Arrow end-to-end per aumentare drasticamente le prestazioni delle query. Apache Arrow fornisce un formato di memoria colonnare standardizzato per una condivisione dei dati efficiente e analisi rapide. Arrow adotta un approccio indipendente dal linguaggio, progettato per eliminare la necessità di serializzazione e deserializzazione dei dati, migliorando le prestazioni e l'interoperabilità tra sistemi e processi di dati complessi.</block>
-  <block id="dec1fbcbe442f11c3d728feb8041cb00" category="paragraph">Le prestazioni di Dremio dipendono principalmente dalla potenza di elaborazione del cluster Dremio. Sebbene Dremio utilizzi il connettore S3A di Hadoop per la connessione di storage a oggetti S3, Hadoop non è richiesto e la maggior parte delle impostazioni fs.S3A di Hadoop non sono utilizzate da Dremio. Ciò semplifica l'ottimizzazione delle prestazioni di Dremio senza dedicare tempo ad apprendere e testare varie impostazioni di Hadoop S3A.</block>
   <block id="71860c77c6745379b0d44304d66b6a13" category="inline-link">pagina</block>
-  <block id="5db9c9da095f8d74e0628dbbdfdfb825" category="paragraph">Dai risultati di questo benchmark, possiamo concludere che il sistema di analisi dei big data ottimizzato per carichi di lavoro basati su S3 è un fattore importante per le performance. Dremio ottimizza l'esecuzione delle query, utilizza in modo efficiente i metadati e fornisce un accesso senza problemi ai dati S3, garantendo prestazioni migliori rispetto a Hive quando si utilizza lo storage S3. Fare riferimento a questo<block ref="e4ec3c3ef03861ef67845dfb086c7b17" category="inline-link-rx"></block> Per configurare l'origine dati Dremio S3 con StorageGRID.</block>
   <block id="c0c37f88f031a9b491d9a8bbea81dda7" category="paragraph">Visita i collegamenti riportati di seguito per scoprire come StorageGRID e Dremio collaborano per fornire un'infrastruttura di data Lake moderna ed efficiente e come NetApp è passata da Hive + HDFS a Dremio + StorageGRID per migliorare in modo significativo l'efficienza dell'analisi dei big data.</block>
   <block id="79304bd05c48f486a8924e2c45f39311" category="inline-link">Migliora le performance dei tuoi big data con NetApp StorageGRID</block>
   <block id="5683e5844e7df088ba30c5038415b393" category="inline-link">Infrastruttura di data Lake moderna, potente ed efficiente con StorageGRID e Dremio</block>
@@ -1536,7 +1499,6 @@ Tutta la gamma</block>
   <block id="80b92583825de655262f5ec03db36d8d" category="list-text">Marzo 30 2023:<block ref="b439a8f44229e6c1e7b2461211f6849b" category="inline-link-rx"></block></block>
   <block id="fb9c460add81700ce3ddf20b5b36105d" category="list-text">Marzo 14 2023:<block ref="3c7ed37db994ec363730d455072b8b2b" category="inline-link-rx"></block></block>
   <block id="e725a1c619e4b377a5580a3fd0e904ee" category="list-text">Febbraio 14 2023:<block ref="276d9658a5f8a049f2dcc595745c0879" category="inline-link-rx"></block></block>
-  <block id="cb1e1878ece3c2a899fd7db63967b8a8" category="list-text">Gennaio 18 2023:<block ref="6ea6516d4586962fa5f8e8460c33ccd0" category="inline-link-rx"></block></block>
   <block id="75639a2b61decb387fb6bbec29908248" category="list-text">Gennaio 16 2023:<block ref="68d21b96499b1933cc9fc03f94f1e388" category="inline-link-rx"></block></block>
   <block id="cdea5a154b0b0ab86d0d6304a21bda3f" category="list-text">6 2022 dicembre:<block ref="e235608a45034e1deea87e6e77daddf3" category="inline-link-rx"></block></block>
   <block id="b033dccd559a42657b2fbb03dd21c349" category="list-text">23 2022 novembre:<block ref="67d6d3a21cc9af1520f991806f578b6b" category="inline-link-rx"></block></block>
@@ -1814,7 +1776,6 @@ StorageGRID scala le performance utilizzando nodi con performance più elevate p
   <block id="130e1538b9d47c6356996089d17dcc9d" category="list-text">Nella pagina Siti, immettere il nome del sito.</block>
   <block id="c197e60a49f72b1ab7f60e3562193354" category="list-text">Per aggiungere altri siti, fare clic sul segno più accanto all'ultima voce del sito e immettere il nome nella nuova casella di testo Nome sito. Aggiungi tutti i siti aggiuntivi necessari per la topologia della griglia. È possibile aggiungere fino a 16 siti.</block>
   <block id="1d194d439e614fd5af6d6e0ca435ee48" category="inline-image-macro">siti-aggiuntivi-bare-metal</block>
-  <block id="d8557d40121efd6d540e80f5c9cced74" category="paragraph"><block ref="d8557d40121efd6d540e80f5c9cced74" category="inline-image-macro-rx" type="image"></block></block>
   <block id="dcae96231bba4c35e94accf7724b8cea" category="list-text">Fare clic su Avanti.</block>
   <block id="6e260d6df26abe1d47f9156c30667329" category="summary">Scopri come esaminare e approvare tutti i nodi grid in sospeso che si uniscono al sistema StorageGRID.</block>
   <block id="20d84da7bdca5a26838fe674351adfa6" category="doc">Approva nodi griglia per StorageGRID</block>
@@ -1825,11 +1786,9 @@ StorageGRID scala le performance utilizzando nodi con performance più elevate p
   <block id="c17a11a7bd7c8fb88cf892fc290c2512" category="admonition">Se manca un nodo Grid, confermare che è stato implementato correttamente.</block>
   <block id="d575f8832e003888f4562052cfb3a6f6" category="list-text">Fare clic sul pulsante di opzione accanto a un nodo in sospeso che si desidera approvare.</block>
   <block id="e7b101119399fe8adb08d34996866226" category="inline-image-macro">media/bare-metal-approve-configure-grid-node</block>
-  <block id="f4bbad5fb8d8da659a2ea7831b3202dd" category="paragraph"><block ref="f4bbad5fb8d8da659a2ea7831b3202dd" category="inline-image-macro-rx" type="image"></block></block>
   <block id="06b143508ebbc3dd17cd58c38e7e99d5" category="list-text">Fare clic su approva.</block>
   <block id="ae401da0d59e062e16119c35b5533f00" category="list-text">In Impostazioni generali, modificare le impostazioni per le seguenti proprietà, se necessario.</block>
   <block id="cf7d82d0beb2aacccbdaf21cf0de1733" category="inline-image-macro">configurazione-nodo-amministratore-bare-metal</block>
-  <block id="1ad0e50ba23bf98c71b9cd2012fba1a4" category="paragraph"><block ref="1ad0e50ba23bf98c71b9cd2012fba1a4" category="inline-image-macro-rx" type="image"></block></block>
   <block id="7ccb01f3ef7de333bbde0913e8a09b32" category="paragraph">-- *Sito*: Il nome del sistema del sito per questo nodo della griglia.</block>
   <block id="22af84ec92b59f976dcfa953d21b6629" category="paragraph">-- *Nome*: Il nome host che verrà assegnato al nodo e il nome che verrà visualizzato in Grid Manager. Per impostazione predefinita, il nome è quello specificato durante la distribuzione dei nodi, ma è possibile modificarlo in base alle esigenze.</block>
   <block id="779cbaa6d822c0c104a91d0cf0c9ca90" category="paragraph">-- *ruolo NTP*: Il ruolo NTP del nodo grid. Le opzioni disponibili sono Automatic (automatico), Primary (primario) e Client (Client). Selezionando l'opzione automatico, il ruolo primario viene assegnato ai nodi di amministrazione, ai nodi di archiviazione con i servizi ADC (Administrative Domain Controller), ai nodi gateway e a tutti i nodi di griglia che dispongono di indirizzi IP non statici. A tutti gli altri nodi della griglia viene assegnato il ruolo del client.</block>
@@ -1857,8 +1816,6 @@ StorageGRID scala le performance utilizzando nodi con performance più elevate p
   <block id="af45cd5e2e4530880561b6d95e4074a6" category="list-text">Confermare che è possibile configurare le reti appropriate. Devono essere già popolate con le informazioni fornite nella pagina di configurazione IP. Per ulteriori informazioni, consultare le istruzioni di installazione e manutenzione dell'apparecchio.</block>
   <block id="a002eae85e873c5268c60fe47bfc6b3f" category="list-text">Fare clic su Salva. La voce del nodo della griglia viene spostata nell'elenco dei nodi approvati.</block>
   <block id="3a23bcc886bcfcabab3e26790811b8c7" category="inline-image-macro">elenco-nodi-approvati-bare-metal</block>
-  <block id="a7b727de0a5f163ad18832a8d6cd3ea9" category="paragraph"><block ref="a7b727de0a5f163ad18832a8d6cd3ea9" category="inline-image-macro-rx" type="image"></block></block>
-  <block id="bfa84570af44d35c7c04b3b0ae0b4894" category="list-text">Ripetere i passaggi da 1 a 8 per ogni nodo griglia in sospeso che si desidera approvare.</block>
   <block id="2550c5730e39cc55c59fc87a8a1666bd" category="paragraph">È necessario approvare tutti i nodi desiderati nella griglia. Tuttavia, è possibile tornare a questa pagina in qualsiasi momento prima di fare clic su Installa nella pagina Riepilogo. Per modificare le proprietà di un nodo griglia approvato, fare clic sul relativo pulsante di opzione, quindi fare clic su Modifica.</block>
   <block id="8e60bae5c8b1499a18c917452cad6320" category="list-text">Dopo aver approvato i nodi della griglia, fare clic su Avanti.</block>
   <block id="a530b03d96fc151b549eed4cff10416b" category="summary">Informazioni su come configurare il gestore di griglie in StorageGRID sul nodo amministrativo primario.</block>
@@ -1890,7 +1847,6 @@ StorageGRID scala le performance utilizzando nodi con performance più elevate p
   <block id="f2655180d4e4913e2de9f899abe36fd2" category="paragraph">In alternativa, è possibile accedere a Grid Manager sulla porta 8443.</block>
   <block id="9b80f8ce4c56dd2fb8430fb78a4d153e" category="list-text">Fare clic su Installa un sistema StorageGRID. Viene visualizzata la pagina utilizzata per configurare una griglia StorageGRID.</block>
   <block id="93589fdf9fa5ce84e893e5b7d77ef9d6" category="inline-image-macro">bare-metal-configure-storagegrid-grid</block>
-  <block id="b7721b1954bb575aecd8f861f0cd039d" category="paragraph"><block ref="b7721b1954bb575aecd8f861f0cd039d" category="inline-image-macro-rx" type="image"></block></block>
   <block id="1f332cbeda33342c070d2097c128d368" category="summary">Informazioni su come configurare il server DNS per StorageGRID.</block>
   <block id="f8496bcc083f3532921fda775f0a9e82" category="doc">Specificare i dettagli del server DNS per StorageGRID</block>
   <block id="a3bb8e71a8afb062831a38f0e2de59a5" category="paragraph">È necessario specificare le informazioni DNS per il sistema StorageGRID in modo da poter accedere ai server esterni utilizzando nomi host invece di indirizzi IP.</block>
@@ -1900,7 +1856,6 @@ StorageGRID scala le performance utilizzando nodi con performance più elevate p
   <block id="d0ab55cd4d26d417d0f97408bcc5f697" category="list-text">Nella casella di testo Server 1, specificare l'indirizzo IP di un server DNS.</block>
   <block id="1e61bc64ca343d74b34847dd5000dccb" category="list-text">Se necessario, fare clic sul segno più accanto all'ultima voce per aggiungere altri server.</block>
   <block id="e2cb07bb2e5da2cf8d592a0018e4b5e7" category="inline-image-macro">bare-metal-add-more-server-2</block>
-  <block id="ba3aa3377e98498b9b01ba24a802fd7a" category="paragraph"><block ref="ba3aa3377e98498b9b01ba24a802fd7a" category="inline-image-macro-rx" type="image"></block></block>
   <block id="3c597fd2b68a32b7f20e77aa59568bbe" category="summary">Informazioni su come configurare le subnet di rete per StorageGRID.</block>
   <block id="b96754e4e112b889e3b65f9796c4feab" category="doc">Specificare le subnet di rete della griglia per StorageGRID</block>
   <block id="6092d6c95dc9345e9fc2f9393637366f" category="paragraph">È necessario specificare le subnet utilizzate sulla rete a griglia.</block>
@@ -1910,7 +1865,6 @@ StorageGRID scala le performance utilizzando nodi con performance più elevate p
   <block id="901ad78229e56f3cfe4923cb2fb91cf4" category="list-text">Nella casella di testo Subnet 1, specificare l'indirizzo di rete CIDR per almeno una rete a griglia.</block>
   <block id="5b2e07d1148d69347b968600f2027092" category="list-text">Fare clic sul segno più accanto all'ultima voce per aggiungere una voce di rete aggiuntiva. Se è già stato distribuito almeno un nodo, fare clic su rileva subnet Grid Networks per compilare automaticamente l'elenco delle subnet della rete griglia con le subnet segnalate dai nodi della griglia registrati con Grid Manager.</block>
   <block id="4b988fcce569f5f8ae3f7bf260e946e2" category="inline-image-macro">bare-metal-subnet-grid-network</block>
-  <block id="6b348cb4599b5ceaa81c936234485125" category="paragraph"><block ref="6b348cb4599b5ceaa81c936234485125" category="inline-image-macro-rx" type="image"></block></block>
   <block id="48f6c9d6fba1611dc98c2669925c1099" category="summary">Scopri come installare StorageGRID su una griglia bare metal.</block>
   <block id="273f15cc5d5a9b82b3ed937c075f0165" category="doc">Introduzione all'installazione di StorageGRID</block>
   <block id="4bf8c31681edafd88d86ee89bb157c9f" category="paragraph">Scopri come installare StorageGRID su host bare metal.</block>
@@ -1964,7 +1918,6 @@ StorageGRID scala le performance utilizzando nodi con performance più elevate p
   <block id="00821ee7fcf45bcd3beba61903d8bb8b" category="list-text">Nelle caselle di testo Server 1 to Server 4 (Server 1 - Server 2), specificare gli indirizzi IP per almeno quattro server NTP.</block>
   <block id="f9d565da6115b4f886b1206c3cf163bd" category="list-text">Se necessario, fare clic sul segno più accanto all'ultima voce per aggiungere altre voci al server.</block>
   <block id="87647ffe3f4052667a65d48489aa1861" category="inline-image-macro">voci-server-aggiunto-bare-metal</block>
-  <block id="9a9b4b2d213e216ec4f66ef07141c9fe" category="paragraph"><block ref="9a9b4b2d213e216ec4f66ef07141c9fe" category="inline-image-macro-rx" type="image"></block></block>
   <block id="1818d7bb505eb0a9356019133c103083" category="summary">Scopri i requisiti di calcolo, storage, rete, docker e nodo per implementare StorageGRID.</block>
   <block id="793650804c23880df1a414e076d87de6" category="section-title">Requisiti di calcolo</block>
   <block id="6a2a458810293d5e417a1af6a7ec96c9" category="paragraph">La tabella riportata di seguito elenca i requisiti minimi delle risorse supportate per ogni tipo di nodo StorageGRID. Queste sono le risorse minime richieste per i nodi StorageGRID.</block>
@@ -2038,7 +1991,6 @@ StorageGRID scala le performance utilizzando nodi con performance più elevate p
   <block id="7b86d858ba88988d38a0a7691de46189" category="paragraph">Combinando i requisiti di elaborazione e di rete illustrati nella tabella precedente, è possibile ottenere un set di hardware di base necessario per questa installazione di tre server fisici (o virtuali) con 16 core, 64GB di RAM e due interfacce di rete. Se si desidera un throughput più elevato, è possibile collegare due o più interfacce sulla griglia o sulla rete client e utilizzare un'interfaccia con codifica VLAN come bond0,520 nel file di configurazione del nodo. In presenza di carichi di lavoro più intensi, è preferibile una maggiore quantità di memoria per l'host e i container.</block>
   <block id="14aa6453547abb65e147f9a63bd00ce5" category="paragraph">Come illustrato nella seguente figura, questi server ospitano sei container Docker, due per host. La RAM viene calcolata fornendo 24GB GB per contenitore e 16GB GB per il sistema operativo host stesso.</block>
   <block id="fdff05307e339d6ad229d46bf6d02b81" category="inline-image-macro">Layout di esempio per tre host.</block>
-  <block id="93a1c77903ba2b044742253261962120" category="paragraph"><block ref="93a1c77903ba2b044742253261962120" category="inline-image-macro-rx" type="image"></block></block>
   <block id="9dac9fe9f0bf4e5e3c4e4745d1641723" category="paragraph">La RAM totale richiesta per host fisico (o VM) è 24 x 2 GB + 16 GB = 64GB GB. Nelle tabelle che seguono sono elencati i requisiti di archiviazione su disco per gli host 1, 2 e 3.</block>
   <block id="c0cca200fe11cde38a6792401808bf45" category="cell">Host 1</block>
   <block id="bd7aece585ea4045bd93f81c08edca47" category="paragraph">*Docker Store*</block>
@@ -2097,7 +2049,6 @@ StorageGRID scala le performance utilizzando nodi con performance più elevate p
   <block id="04796c10cece5394a89b36c322312d79" category="paragraph">Per assicurarsi che l'installazione venga completata correttamente, esaminare attentamente le informazioni di configurazione immesse. Seguire questa procedura.</block>
   <block id="f189abc23cbec9c12167097fbc0853c3" category="list-text">Visualizzare la pagina Riepilogo.</block>
   <block id="ca47c9063377504722d3477106fd35ae" category="inline-image-macro">pagina-di-riepilogo-bare-metal</block>
-  <block id="4d359c03c30d23d92dd7b1f2fb862f4a" category="paragraph"><block ref="4d359c03c30d23d92dd7b1f2fb862f4a" category="inline-image-macro-rx" type="image"></block></block>
   <block id="08000e8c53acc4995c5cdb96bd31ada5" category="list-text">Verificare che tutte le informazioni di configurazione della griglia siano corrette. Utilizzare i link Modify (Modifica) nella pagina Summary (Riepilogo) per tornare indietro e correggere eventuali errori.</block>
   <block id="bbd6e51dda18896691e705ef7cb6c0e0" category="list-text">Fare clic su Installa.</block>
   <block id="f62afe8922852d8719ba26a61eadfa3f" category="admonition">Se un nodo è configurato per l'utilizzo della rete client, il gateway predefinito per quel nodo passa dalla rete griglia alla rete client quando si fa clic su Installa. Se si perde la connettività, assicurarsi di accedere al nodo amministrativo primario tramite una subnet accessibile. Per ulteriori informazioni, vedere "Installazione e provisioning della rete".</block>
@@ -2107,10 +2058,8 @@ StorageGRID scala le performance utilizzando nodi con performance più elevate p
   <block id="f4d8ae80d397e410789e20f2792f3323" category="admonition">Il file del pacchetto di ripristino deve essere protetto perché contiene chiavi di crittografia e password che possono essere utilizzate per ottenere dati dal sistema StorageGRID.</block>
   <block id="0ac3f2812dab16d76fa371e221cefe6f" category="list-text">Selezionare l'opzione ho scaricato e verificato il file del pacchetto di ripristino, quindi fare clic su Avanti.</block>
   <block id="0a9b7a08c95bf1a8fbcd52964f597bbb" category="inline-image-macro">pacchetto-ripristino-download-bare-metal</block>
-  <block id="7044d8e51310d80b057f54874177f61a" category="paragraph"><block ref="7044d8e51310d80b057f54874177f61a" category="inline-image-macro-rx" type="image"></block></block>
   <block id="e02e133dd983517013e337df1e193b4f" category="paragraph">Se l'installazione è ancora in corso, viene visualizzata la pagina Stato installazione. Questa pagina indica lo stato di avanzamento dell'installazione per ciascun nodo della griglia.</block>
   <block id="eddfe200de58c486f7de9d38ebd8b9b1" category="inline-image-macro">stato-installazione-bare-metal</block>
-  <block id="d4dea791d2998901dbbe06b84d11a728" category="paragraph"><block ref="d4dea791d2998901dbbe06b84d11a728" category="inline-image-macro-rx" type="image"></block></block>
   <block id="d5e898aea811e02df68dafac2216b3b4" category="paragraph">Quando viene raggiunta la fase completa per tutti i nodi della griglia, si apre la pagina di accesso per Grid Manager.</block>
   <block id="e7263461f81beaf38395b626bd9228df" category="list-text">Accedere a Grid Manager come utente root con la password specificata durante l'installazione.</block>
   <block id="f6075f705fc7db161a3aee43896cccaa" category="summary">Informazioni su come avviare il servizio host StorageGRID.</block>
@@ -2131,7 +2080,6 @@ StorageGRID scala le performance utilizzando nodi con performance più elevate p
   <block id="138667ce7b68146ab9ef5c9a1fefe55f" category="list-text">Fare clic su Sfoglia, individuare il file di licenza NetApp <block ref="e6d7d9c1b2548b21ac2921378485020b" prefix="(" category="inline-code"></block>e fare clic su Apri. Il file di licenza viene validato e vengono visualizzati il numero di serie e la capacità dello storage concesso in licenza.</block>
   <block id="f085047056aeaf0d4f4296e89bc8d874" category="admonition">L'archivio di installazione di StorageGRID include una licenza gratuita che non fornisce alcun diritto di supporto per il prodotto. È possibile eseguire l'aggiornamento a una licenza che offra supporto dopo l'installazione.</block>
   <block id="069650fe3bf49e5264dd21815df31d3e" category="inline-image-macro">licenza-aggiornamento-bare-metal</block>
-  <block id="35f7a36819e7e86963f64c47182ac313" category="paragraph"><block ref="35f7a36819e7e86963f64c47182ac313" category="inline-image-macro-rx" type="image"></block></block>
   <block id="503ada1cc373e8bb723ff1843faea66e" category="summary">Scoprite come proteggere il vostro sistema StorageGRID impostando la passphrase di provisioning e la password utente root di gestione delle griglie.</block>
   <block id="d75b856b08ec8f2f3d651a18a40a2ea6" category="doc">Specificare le password di sistema per StorageGRID</block>
   <block id="27f78ad3a95a795c62c63deddf4ee70d" category="paragraph">Per immettere le password da utilizzare per proteggere il sistema StorageGRID, attenersi alla seguente procedura:</block>
@@ -2140,7 +2088,6 @@ StorageGRID scala le performance utilizzando nodi con performance più elevate p
   <block id="e3f9ae4173fd7a392b7aec45609983bf" category="list-text">In Grid Management Root User Password (Password utente principale di Grid Management), immettere la password da utilizzare per accedere a Grid Manager come utente root.</block>
   <block id="92327bac1659a24cea944d48fd3baea6" category="list-text">In Confirm Root User Password (Conferma password utente root), immettere nuovamente la password di Grid Manager.</block>
   <block id="f134973c593ceddee8a64f9c163e99f4" category="inline-image-macro">password-gestore-bare-metal-grid</block>
-  <block id="84e0135b591263bbf8d6398ebef6e56d" category="paragraph"><block ref="84e0135b591263bbf8d6398ebef6e56d" category="inline-image-macro-rx" type="image"></block></block>
   <block id="d67e0d50bf955151686170db4b2a685e" category="list-text">Se si sta installando una griglia per scopi dimostrativi o dimostrativi, deselezionare l'opzione Crea password della riga di comando casuale.</block>
   <block id="faf54f5c7808a17a3058501f34c61183" category="paragraph">Per le implementazioni in produzione, le password casuali devono essere sempre utilizzate per motivi di sicurezza. Deselezionare l'opzione Create Random Command Line Passwords (Crea password casuali della riga di comando) solo per le griglie demo se si desidera utilizzare password predefinite per accedere ai nodi della griglia dalla riga di comando utilizzando l'account root o admin.</block>
   <block id="51bd4683761cb1bb8d85278613715f1e" category="admonition">Quando si fa clic su Installa nella pagina Riepilogo, viene richiesto di scaricare il file del pacchetto di ripristino <block ref="473178645502a5ab705476a4d961c39b" prefix="(" category="inline-code"></block>. È necessario scaricare questo file per completare l'installazione. Le password di accesso al sistema vengono memorizzate nel<block ref="28325afa13c532a62489ef0d7bee3061" prefix=" " category="inline-code"></block> file contenuto nel pacchetto di ripristino.</block>
@@ -2154,10 +2101,8 @@ StorageGRID scala le performance utilizzando nodi con performance più elevate p
   <block id="7af406a1a11ca43d1f4d41e02bec23aa" category="paragraph">Per convalidare il contenuto dei file di configurazione, eseguire il seguente comando su ciascun host:</block>
   <block id="c44d5e58056ae33c255438929de34ea7" category="paragraph">Se i file sono corretti, l'output mostra SUPERATO per ogni file di configurazione:</block>
   <block id="d9c356a8c2546acdeea9b8b1c15f40d5" category="inline-image-macro">base-metallo-output-mostra-passato</block>
-  <block id="2548287ab1648893be76c3ddc6917550" category="paragraph"><block ref="2548287ab1648893be76c3ddc6917550" category="inline-image-macro-rx" type="image"></block></block>
   <block id="90ee582a3c5d5a39be505cb53ef79288" category="paragraph">Se i file di configurazione non sono corretti, i problemi vengono visualizzati come AVVISI ed ERRORI. Se vengono rilevati errori di configurazione, è necessario correggerli prima di procedere con l'installazione.</block>
   <block id="4354560354d8408d1c18e9c0b355e09d" category="inline-image-macro">output-metallo-base-mostra-avviso-errore</block>
-  <block id="1a1aaa85d1268fe69ba0efc9cd23b71e" category="paragraph"><block ref="1a1aaa85d1268fe69ba0efc9cd23b71e" category="inline-image-macro-rx" type="image"></block></block>
   <block id="040c89d37bea72830f915c730c54a323" category="summary">Scopri alcuni casi di utilizzo per le configurazioni StorageGRID implementate dai clienti e da NetApp IT.</block>
   <block id="6b3cea9a64792ec5d7e688de3ba29ba0" category="doc">Esaminare i test delle prestazioni di base</block>
   <block id="d49b79b5786df5b1f9fed49f0ba0061f" category="paragraph">Nell'operazione di copia ausiliaria, quattro CommVault MediaAgent hanno eseguito il backup dei dati su un sistema NetApp AFF A300 e una copia ausiliaria è stata creata su NetApp StorageGRID. Per informazioni dettagliate sull'ambiente di configurazione dei test, leggere la sezione progettazione della soluzione e Best practice nel<block ref="03ce17f8b5e1206a493f3bd56ef5953d" category="inline-link-rx"></block> report tecnico.</block>
@@ -2448,7 +2393,6 @@ StorageGRID scala le performance utilizzando nodi con performance più elevate p
   <block id="bd181fa499b4297ca0f96b237f19b965" category="list-text">Nel campo Invia stringa, immettere<block ref="97f7892b24df272e50350757ceb43b37" prefix=" " category="inline-code"></block> \r\n sono ritorni a capo; versioni diverse del software BIG-IP richiedono zero, uno o due set di sequenze \r\n. Per ulteriori informazioni, vedere<block ref="4852b727b6bde26d63d1e5b08662c2e2" category="inline-link-rx"></block>.</block>
   <block id="902b77afbc5629cc8ee652e06adcac1b" category="list-text">Nel campo Receive String (stringa di ricezione), immettere:<block ref="26c1e7b2e4b9c3ad6ee704fe983ca1d9" prefix=" " category="inline-code"></block>.</block>
   <block id="1334477fa01ccc253171d26254c84e05" category="inline-image-macro">Pagina di configurazione del monitor</block>
-  <block id="e772a0718360d9094e93dafa7d802964" category="paragraph"><block ref="e772a0718360d9094e93dafa7d802964" category="inline-image-macro-rx" type="image"></block></block>
   <block id="f520303aafcd791ddca69170ea616ff7" category="list-text">In Create Pool (Crea pool) creare un pool per ciascuna porta richiesta.</block>
   <block id="bca66e85df16d449451771c1dfaa0e04" category="list-text">Assegnare il monitor dello stato creato nel passaggio precedente.</block>
   <block id="61ca2f0cf79f8dd539c0ade05c7afc1b" category="list-text">Selezionare un metodo di bilanciamento del carico.</block>
@@ -2460,9 +2404,7 @@ StorageGRID scala le performance utilizzando nodi con performance più elevate p
   <block id="b6e45c53457b3e5a3fb4ff9901c40d5b" category="inline-link">Configurazione di esempio per il monitor di controllo dello stato HTTP-ECV</block>
   <block id="b32f00d1e6048938e59a0b57c3b8d0f6" category="paragraph">Per ulteriori informazioni, consultare la documentazione Citrix,<block ref="9c02ec018ed76228b267d66ae485d4da" category="inline-link-rx"></block>.</block>
   <block id="880796fcaaa4d949a777ed4943c18341" category="inline-image-macro">Pagina di configurazione di Citrix Netscaler Monitor</block>
-  <block id="d5c4b12d1277c9232b4cf6998ad6d5ac" category="paragraph"><block ref="d5c4b12d1277c9232b4cf6998ad6d5ac" category="inline-image-macro-rx" type="image"></block></block>
   <block id="f1a019d81ace49ae05c637e3b257bb30" category="inline-image-macro">Configure-monitor.png</block>
-  <block id="984962d4b4fe1cf099e96cb9325e11a6" category="paragraph"><block ref="984962d4b4fe1cf099e96cb9325e11a6" category="inline-image-macro-rx" type="image"></block></block>
   <block id="713be778c8d38f91dc492a2180ad5e93" category="section-title">Loadbalancer.org</block>
   <block id="c804c2ec3b0c9faa88da01d5d7557790" category="paragraph">Loadbalancer.org ha eseguito i propri test di integrazione con StorageGRID e dispone di una guida completa alla configurazione:<block ref="03a0be03bae2b471b941b5ca6dcd6c59" category="inline-link-rx"></block>.</block>
   <block id="d46ddb287552508c0c54b94c7dec1628" category="section-title">Kemp</block>
@@ -2477,7 +2419,6 @@ StorageGRID scala le performance utilizzando nodi con performance più elevate p
   <block id="6dc3d5f61c3a6c9b229ed85a045b5e5d" category="doc">Comprendere i requisiti globali di bilanciamento del carico per StorageGRID</block>
   <block id="34f6a9aeab830b6ab672e2d23cb23df0" category="paragraph">Il bilanciamento del carico globale richiede l'integrazione con DNS per fornire routing intelligente su più siti StorageGRID. Questa funzione si trova al di fuori del dominio StorageGRID e deve essere fornita da una soluzione di terze parti come i prodotti di bilanciamento del carico discussi in precedenza e/o una soluzione di controllo del traffico DNS come Infoblox. Il bilanciamento del carico di livello superiore fornisce un routing intelligente al sito di destinazione più vicino nello spazio dei nomi, nonché il rilevamento e il reindirizzamento dei black-out al sito successivo nello spazio dei nomi. Una tipica implementazione GSLB è costituita dal GSLB di livello superiore con pool di siti contenenti bilanciatori del carico locale-sito. I bilanciatori del carico del sito contengono pool di nodi di storage del sito locale. Ciò può includere una combinazione di bilanciatori del carico di terze parti per le funzioni GSLB e StorageGRID che fornisce il bilanciamento del carico locale del sito, o una combinazione di terze parti, o molte delle terze parti discusse in precedenza possono fornire bilanciamento del carico sia GSLB che locale del sito.</block>
   <block id="598e19149cea7c839958d9b5ebe55aa2" category="inline-image-macro">generico-gslb</block>
-  <block id="0cfead2968793dee7be1ab3f93752ea5" category="paragraph"><block ref="0cfead2968793dee7be1ab3f93752ea5" category="inline-image-macro-rx" type="image"></block></block>
   <block id="8544d9ff7415a439150dd5b56d854dc3" category="summary">Scopri il ruolo di bilanciatori del carico globale e di terze parti in sistemi storage a oggetti come StorageGRID.</block>
   <block id="7c37f16e9cbf7999830f6d447e5139cc" category="doc">Utilizza sistemi di bilanciamento del carico di terze parti con StorageGRID</block>
   <block id="3edd1c33d7ef33f3f2d4bd6d83866d6a" category="paragraph">Indicazioni generali per l'implementazione di NetApp® StorageGRID® con sistemi di bilanciamento del carico di terze parti.</block>
@@ -2487,7 +2428,6 @@ StorageGRID scala le performance utilizzando nodi con performance più elevate p
   <block id="ced6da2d844a75b99ad7de81dfc4b594" category="paragraph">I bilanciatori del carico sono un componente essenziale di un sistema storage a oggetti di livello Enterprise come StorageGRID. StorageGRID è composto da più nodi storage, ciascuno dei quali può presentare l'intero spazio dei nomi di Simple Storage Service (S3) per una determinata istanza di StorageGRID. I bilanciatori del carico creano un endpoint altamente disponibile dietro cui è possibile posizionare i nodi StorageGRID. StorageGRID è un'esclusiva tra i sistemi di storage a oggetti compatibili con S3, in quanto offre un proprio bilanciamento del carico, ma supporta anche bilanciatori del carico di terze parti o General-purpose come F5, Citrix Netscaler, ha Proxy, NGINX e così via.</block>
   <block id="34c95b85eab9d149c0654c4541686dfe" category="paragraph">Nella figura seguente viene utilizzato l'URL di esempio/nome di dominio completo (FQDN) "s3.company.com”. Il bilanciamento del carico crea un IP virtuale (VIP) che viene risolto all'FQDN tramite DNS, quindi indirizza le richieste dalle applicazioni a un pool di nodi StorageGRID. Il bilanciamento del carico esegue un controllo dello stato di salute su ogni nodo e stabilisce solo connessioni a nodi sani.</block>
   <block id="4941784a59eb11e9e82511a31694404a" category="inline-image-macro">Bilanciamento del carico del gestore del traffico locale</block>
-  <block id="4f53fca9881058e8f3fcb7a71c4930f2" category="paragraph"><block ref="4f53fca9881058e8f3fcb7a71c4930f2" category="inline-image-macro-rx" type="image"></block></block>
   <block id="1ef102b3c8ff2a21a3fcb109669d2c4b" category="paragraph">La figura mostra il bilanciamento del carico fornito da StorageGRID, ma il concetto è lo stesso per i bilanciatori del carico di terze parti. Le applicazioni stabiliscono una sessione HTTP utilizzando il VIP sul bilanciamento del carico e il traffico passa attraverso il bilanciamento del carico fino ai nodi di storage. Per impostazione predefinita, tutto il traffico, dall'applicazione al bilanciamento del carico e dal bilanciamento del carico al nodo storage è crittografato tramite HTTPS. HTTP è un'opzione supportata.</block>
   <block id="d24d04f6bb41a4779a65a52fbb1b6dd6" category="section-title">Bilanciatori del carico locali e globali</block>
   <block id="7929df38aedb7ea6e0c08ca19bba1388" category="paragraph">Esistono due tipi di bilanciatori del carico:</block>
@@ -2570,7 +2510,6 @@ StorageGRID scala le performance utilizzando nodi con performance più elevate p
   <block id="f99f5ec7c8468db8426b435e16ded574" category="paragraph">L'utilizzo di un certificato autofirmato richiede al client di considerare attendibile il certificato fornito senza alcuna CA per verificarne l'autenticità. Alcune applicazioni potrebbero non accettare certificati autofirmati e non essere in grado di ignorare la verifica.</block>
   <block id="38a5b90f9a7bf320916ff566cf67a564" category="paragraph">Il posizionamento del certificato SSL nel percorso StorageGRID di bilanciamento del carico del client dipende da dove è necessaria la terminazione SSL. È possibile configurare un bilanciamento del carico come endpoint di terminazione per il client, quindi eseguire nuovamente la crittografia o la crittografia a caldo con un nuovo certificato SSL per il bilanciamento del carico alla connessione StorageGRID. In alternativa, è possibile passare attraverso il traffico e lasciare che StorageGRID sia l'endpoint di terminazione SSL. Se il bilanciamento del carico è l'endpoint di terminazione SSL, il certificato viene installato sul bilanciamento del carico e contiene il nome del soggetto per il nome/URL DNS e qualsiasi nome URL/DNS alternativo per il quale un client è configurato per connettersi alla destinazione StorageGRID tramite il bilanciamento del carico, inclusi i nomi dei caratteri jolly. Se il bilanciamento del carico è configurato per il pass-through, il certificato SSL deve essere installato in StorageGRID. Anche in questo caso, il certificato deve contenere il nome del soggetto per il nome/URL DNS e tutti i nomi URL/DNS alternativi per i quali un client è configurato per connettersi alla destinazione StorageGRID tramite il sistema di bilanciamento del carico, inclusi i nomi di caratteri jolly. Non è necessario includere nel certificato i nomi dei singoli nodi di archiviazione, ma solo gli URL degli endpoint.</block>
   <block id="16bb68daba73384a82c256705fe23940" category="inline-image-macro">Esempio di certificato caricato in StorageGRID</block>
-  <block id="a1829adab5057aab36e7dd7287060a71" category="paragraph"><block ref="a1829adab5057aab36e7dd7287060a71" category="inline-image-macro-rx" type="image"></block></block>
   <block id="a04db2c21d01462f1cae1d4b38f98d8d" category="summary">Scopri come configurare il bilanciamento del carico di terze parti attendibile in StorageGRID.</block>
   <block id="2c7c333a0f0c1ab6f715438b601fd166" category="doc">Configurare il bilanciamento del carico di terze parti attendibile in StorageGRID</block>
   <block id="c6bbdb189be1d0f0a2fa1a1499673e59" category="inline-link">Come configurare StorageGRID per il funzionamento con sistemi di bilanciamento del carico Layer 7 di terze parti</block>
@@ -2585,7 +2524,6 @@ StorageGRID scala le performance utilizzando nodi con performance più elevate p
   <block id="26cc51752576fff1f28165235ec5a4a3" category="list-text">Nell'interfaccia GMI, selezionare menu:Guida[documentazione API].</block>
   <block id="582d423c7a52fa2fe26a0d9a1509065f" category="list-text">Scorrere verso il basso fino a Auth per trovare le operazioni su autorizzazione. La seguente schermata mostra i parametri per il metodo POST.</block>
   <block id="732b4622672af9b45ee02ccc42e301ac" category="inline-image-macro">monitoraggio-post-metodo</block>
-  <block id="9e886c1a5434bd9d0e71271df4c2b2e7" category="paragraph"><block ref="9e886c1a5434bd9d0e71271df4c2b2e7" category="inline-image-macro-rx" type="image"></block></block>
   <block id="aa72021339b76cb303ef4aaaa760841d" category="list-text">Fare clic su prova e modificare il corpo con il nome utente e la password GMI.</block>
   <block id="e3ee8218b1f6b4812ec9cd6f6f55e5bc" category="list-text">Fare clic su Esegui.</block>
   <block id="3b4593aa2662753fd8b1b1e2c2138bc6" category="list-text">Copiare il comando curl fornito nella sezione curl e incollarlo in una finestra terminale. Il comando è simile al seguente:</block>
@@ -2600,16 +2538,13 @@ StorageGRID scala le performance utilizzando nodi con performance più elevate p
   <block id="d78cb05ef4141e30f21311d8a0ad4d7c" category="section-title">Visualizzare l'API delle metriche tramite una query Prometheus</block>
   <block id="5777f62f583151ef7c49b156e0aef90f" category="paragraph">Prometheus è un software open-source per la raccolta delle metriche. Per accedere al Prometheus integrato di StorageGRID tramite l'GMI, vai al menu:Support[Metrics].</block>
   <block id="0bea5c98ba2eef48d7bd8a847691d237" category="inline-image-macro">pagina-metriche-monitor</block>
-  <block id="24e9f8195d01ba2d175fb896fad23899" category="paragraph"><block ref="24e9f8195d01ba2d175fb896fad23899" category="inline-image-macro-rx" type="image"></block></block>
   <block id="cf4b35655f5bc5daf680006f1b1ce15e" category="paragraph">In alternativa, è possibile accedere direttamente al collegamento.</block>
   <block id="833bcd82b8ef62520e5be8f2701347ac" category="inline-image-macro">interfaccia monitor-prometheus</block>
-  <block id="627f995f4bf72b5dbdf164692192d5d6" category="paragraph"><block ref="627f995f4bf72b5dbdf164692192d5d6" category="inline-image-macro-rx" type="image"></block></block>
   <block id="c7f89929fc543735065ba8d00b6e18c3" category="paragraph">Con questa visualizzazione, è possibile accedere all'interfaccia Prometheus. Da lì, puoi cercare nelle metriche disponibili e persino sperimentare le query.</block>
   <block id="f0f563ade1da817bd8a439292d0e8d3c" category="paragraph">Per eseguire una query URL Prometheus, attenersi alla seguente procedura:</block>
   <block id="164f408beb950c8617e791861fda776a" category="list-text">Iniziare a digitare nella casella di testo della query. Durante la digitazione, vengono elencate le metriche. Per i nostri scopi, sono importanti solo le metriche che iniziano con StorageGRID e nodo.</block>
   <block id="053386f0d5445d6121c8baab8583296f" category="list-text">Per visualizzare il numero di sessioni HTTP per ogni nodo, digitare<block ref="81395af7a720741ca394c882a197c66b" prefix=" " category="inline-code"></block> e selezionare<block ref="50ffff513c166e8d2dd4800339157da9" prefix=" " category="inline-code"></block>. Fare clic su Esegui e visualizzare le informazioni in formato grafico o console.</block>
   <block id="23575e1dc3cfb15deb18275e322e553c" category="inline-image-macro">monitorare-sessioni-http</block>
-  <block id="27a68e50a17f186a6bf586c4ab2cbaa5" category="paragraph"><block ref="27a68e50a17f186a6bf586c4ab2cbaa5" category="inline-image-macro-rx" type="image"></block></block>
   <block id="007cc7fa2832e8f022af5678d4379431" category="admonition">Le query e i grafici creati tramite questo URL non persistono. Le query complesse consumano risorse sul nodo amministrativo. NetApp consiglia di utilizzare questa vista per esplorare le metriche disponibili.</block>
   <block id="114d8b9251665a84a3c3949c46b6b3a1" category="admonition">Si sconsiglia di interfacciarsi direttamente con la nostra istanza Prometheus perché questo richiede l'apertura di porte aggiuntive. L'accesso alle metriche tramite la nostra API è il metodo consigliato e sicuro.</block>
   <block id="7d70779a6347af3f7b93052d4e5bd3f0" category="section-title">Esporta metriche tramite API</block>
@@ -2617,10 +2552,8 @@ StorageGRID scala le performance utilizzando nodi con performance più elevate p
   <block id="e161a976d6ab825ed87cd37d3e7f790b" category="paragraph">Per esportare le metriche tramite l'API, attenersi alla seguente procedura:</block>
   <block id="1e5da00c579a9d593a4dc8fdeebbf0ae" category="list-text">Scorrere fino a Metrics (metriche) e selezionare GET /grid/METRIC-query (OTTIENI /griglia/query metrica).</block>
   <block id="ffe2d973e52165efa20480acbec18814" category="inline-image-macro">monitoraggio-metriche-query</block>
-  <block id="45cb0edb43543240b242bdc0560611a4" category="paragraph"><block ref="45cb0edb43543240b242bdc0560611a4" category="inline-image-macro-rx" type="image"></block></block>
   <block id="b6f0f95818bbc67704d1047ffb6d723f" category="paragraph">La risposta include le stesse informazioni che è possibile ottenere tramite una query URL Prometheus. È possibile visualizzare nuovamente il numero di sessioni HTTP attualmente stabilite su ciascun nodo di storage. È anche possibile scaricare la risposta in formato JSON per la leggibilità. La figura seguente mostra risposte di query Prometheus di esempio.</block>
   <block id="a0508d80e9851dbd1352c1dbe4cac298" category="inline-image-macro">monitorare-campione-prometheus-risposte-query</block>
-  <block id="4a3b615092a2d9d5b12a664763ddb41f" category="paragraph"><block ref="4a3b615092a2d9d5b12a664763ddb41f" category="inline-image-macro-rx" type="image"></block></block>
   <block id="8b406d1ef5b4e8a5bdd44a92dfd742db" category="admonition">Il vantaggio dell'utilizzo dell'API è che consente di eseguire query autenticate</block>
   <block id="14624ae0105638df9429a5c0a3b15261" category="summary">Informazioni su come utilizzare il sistema di avvisi in StorageGRID per il monitoraggio dei problemi, la gestione degli avvisi personalizzati e l'estensione delle notifiche di avviso tramite SNMP o e-mail.</block>
   <block id="2e75e86d5ab1f43204d531b899ed8692" category="doc">Utilizzare gli avvisi per monitorare StorageGRID</block>
@@ -2642,7 +2575,6 @@ StorageGRID scala le performance utilizzando nodi con performance più elevate p
   <block id="39b81327c86d279ca5a4de77b6a927a7" category="paragraph">La dashboard dell'interfaccia GMI (Grid Management Interface) di StorageGRID fornisce una vista centralizzata dell'infrastruttura StorageGRID, consentendo di controllare lo stato, le prestazioni e la capacità dell'intero grid.</block>
   <block id="59eb9298b03ce6ca974397e8e2898877" category="paragraph">Utilizzare il dashboard GMI per esaminare ciascun componente principale della griglia.</block>
   <block id="e10bb47bce8369170055e6153c06dd7b" category="inline-image-macro">monitor-storagegrid-cruscotto-gmi</block>
-  <block id="38374ecc0508697aaa429bb6c71636ed" category="paragraph"><block ref="38374ecc0508697aaa429bb6c71636ed" category="inline-image-macro-rx" type="image"></block></block>
   <block id="e84df7ca41541e6bf514f7b1469d1fc9" category="section-title">Informazioni che è necessario monitorare regolarmente</block>
   <block id="a936f4db17b50337c719059ebf9bd705" category="inline-link">Guida al monitoraggio e alla risoluzione di problemi</block>
   <block id="38118fa7d20262a8aee8b9506304a278" category="paragraph">In una versione precedente di questo report tecnico sono elencate le metriche da controllare periodicamente rispetto alle tendenze. Tali informazioni sono ora incluse nella<block ref="9cfbf35549c931909cca159205c8231f" category="inline-link-rx"></block>.</block>
@@ -2656,10 +2588,8 @@ StorageGRID scala le performance utilizzando nodi con performance più elevate p
   <block id="598dcdb07778ee7be35cb70f33132df4" category="list-text">Nell'interfaccia GMI, menu:Support[Metrics] (supporto[metriche]).</block>
   <block id="8dc71bbaf46676b033897ad3ee641092" category="list-text">Nella sezione Grafana, selezionare il dashboard Node (nodo).</block>
   <block id="6f03fa78a12197917356dfcd4afbd9ab" category="inline-image-macro">monitor-nodo-dashboard</block>
-  <block id="865492da633ad2b3014bd31bc828b965" category="paragraph"><block ref="865492da633ad2b3014bd31bc828b965" category="inline-image-macro-rx" type="image"></block></block>
   <block id="fcd3fcf32cd8b9433cdf7272580e9eb2" category="list-text">In Grafana, impostare gli host sul nodo su cui si desidera visualizzare le metriche. In questo caso, viene selezionato un nodo storage. Vengono fornite ulteriori informazioni rispetto alle seguenti schermate acquisite.</block>
   <block id="6f9b566bf84106070754272dc0b149dc" category="inline-image-macro">monitorare-le-metriche-grafiche</block>
-  <block id="db926601176de8e277e24308ea9e8610" category="paragraph"><block ref="db926601176de8e277e24308ea9e8610" category="inline-image-macro-rx" type="image"></block></block>
   <block id="ca268a6974bf87ebc32af9f071cc48cb" category="summary">Scopri come NetApp StorageGRID, le sue condizioni di errore e come monitorarlo in modo efficace utilizzando applicazioni esterne come Splunk.</block>
   <block id="a0c0cdc4f328b27bd17c7ba7acb3b816" category="doc">Introduzione al monitoraggio StorageGRID</block>
   <block id="ee525877dfb65d89a979b93b5bf5836f" category="paragraph">Scopri come monitorare il tuo sistema StorageGRID utilizzando applicazioni esterne, come Splunk.</block>
@@ -2688,16 +2618,12 @@ StorageGRID scala le performance utilizzando nodi con performance più elevate p
   <block id="29c37d543374c10557413e6541903743" category="list-text">Immettere un nome e una descrizione per la politica.</block>
   <block id="bb1373c782eeaa4a75814ecc4d060720" category="list-text">Creare una regola corrispondente.</block>
   <block id="d1f77d643e48713d15284108e2d2892d" category="inline-image-macro">regola-corrispondenza-monitor</block>
-  <block id="a23490256eb63f668d09ae908b564c1e" category="paragraph"><block ref="a23490256eb63f668d09ae908b564c1e" category="inline-image-macro-rx" type="image"></block></block>
   <block id="8a9e39209ee3ce8078d159a32779c53f" category="list-text">Impostare un limite (opzionale).</block>
   <block id="7912061336d88a40313f1f8ada5bfcc1" category="inline-image-macro">limite monitor</block>
-  <block id="dbdb1ea278c900fd78cbddc33af57b57" category="paragraph"><block ref="dbdb1ea278c900fd78cbddc33af57b57" category="inline-image-macro-rx" type="image"></block></block>
   <block id="3b727c8c658892fe06eeaaf4bf43735f" category="list-text">Salvare la policy</block>
   <block id="80d191ed333edf4462cdac0a5abcf6c0" category="inline-image-macro">policy-monitoraggio-traffico</block>
-  <block id="03190c047637b3d5f55617fc1d78d10f" category="paragraph"><block ref="03190c047637b3d5f55617fc1d78d10f" category="inline-image-macro-rx" type="image"></block></block>
   <block id="568bfe018800e0496038cca7115baecb" category="paragraph">Per visualizzare le metriche associate al criterio di classificazione del traffico, selezionare il criterio e fare clic su metriche. Viene generata una dashboard Grafana che visualizza informazioni come il traffico delle richieste di bilanciamento del carico e la durata media delle richieste.</block>
   <block id="ae911ae935b9eff49beadfdf25b5afe6" category="inline-image-macro">metriche-di-visualizzazione-dashboard</block>
-  <block id="ed2021e9cf9187b97df3b07f79f5b3ab" category="paragraph"><block ref="ed2021e9cf9187b97df3b07f79f5b3ab" category="inline-image-macro-rx" type="image"></block></block>
   <block id="4654119eb3a8fb68470adc28025fd4b3" category="summary">Scopri di più sugli attacchi ransomware e su come proteggere i dati grazie alle Best practice di sicurezza di StorageGRID.</block>
   <block id="73784bce4aa908b9919866212fd51853" category="doc">Proteggere gli oggetti StorageGRID S3 dal ransomware</block>
   <block id="f784ee965f00ba2af19faeea46ccbae6" category="paragraph">Gli attacchi ransomware sono in aumento. Questo documento fornisce alcuni consigli su come proteggere i dati degli oggetti su StorageGRID.</block>
@@ -2715,13 +2641,10 @@ StorageGRID scala le performance utilizzando nodi con performance più elevate p
   <block id="a16563897828d821edf628dd82945758" category="paragraph">Una volta creati i bucket di origine e destinazione e configurata la destinazione con la versione, è possibile configurare e abilitare la replica, come segue:</block>
   <block id="be9daa31583599df724c8df59a503c9d" category="list-text">Per configurare CloudMirror, creare un endpoint dei servizi di piattaforma per la destinazione S3.</block>
   <block id="611b96ea17eadbd463eab3da4b006a08" category="inline-image-macro">protezione dal ransomware: crea un endpoint</block>
-  <block id="c88d84e75901b97f34db1d63d33cfdd9" category="paragraph"><block ref="c88d84e75901b97f34db1d63d33cfdd9" category="inline-image-macro-rx" type="image"></block></block>
   <block id="c510dab2c8ac5ee4b4411e8a49d4b5d3" category="list-text">Nel bucket di origine, configurare la replica per utilizzare l'endpoint configurato.</block>
   <block id="805bfc00046708ebf1a16ab68b556a21" category="list-text">Creare regole ILM per gestire il posizionamento dello storage e la gestione della durata dello storage della versione. In questo esempio, vengono configurate le versioni non correnti degli oggetti da memorizzare.</block>
   <block id="e0a4f9c43eaf312a13fbe59879babc68" category="inline-image-macro">regola-ilm-protezione-ransomware</block>
-  <block id="be86a18865c9f883dd0a13ce9a55be31" category="paragraph"><block ref="be86a18865c9f883dd0a13ce9a55be31" category="inline-image-macro-rx" type="image"></block></block>
   <block id="7a24b133e2a2c80e8e545596903ecba1" category="inline-image-macro">protezione dal ransomware-creazione-ilm-regola-fase-2</block>
-  <block id="01e57cabe95641a2cfe70c17de67640e" category="paragraph"><block ref="01e57cabe95641a2cfe70c17de67640e" category="inline-image-macro-rx" type="image"></block></block>
   <block id="933502478320f8d29965512cb963bbee" category="paragraph">Ci sono due copie nel sito 1 per 30 giorni. È inoltre possibile configurare le regole per la versione corrente degli oggetti in base all'utilizzo del tempo di acquisizione come tempo di riferimento nella regola ILM in modo che corrispondano alla durata di archiviazione del bucket di origine. Il posizionamento dello storage per le versioni a oggetti può essere sottoposto a erasure coding o replicato.</block>
   <block id="e07a8c072ea1ca6e4d3dcdbd6c83dcef" category="summary">Scopri come il blocco degli oggetti in StorageGRID fornisce un modello WORM per impedire la cancellazione o la sovrascrittura dei dati e come soddisfa i requisiti normativi.</block>
   <block id="2d3bfc77a9312b4c20c2c11de2543112" category="doc">Difesa dal ransomware tramite il blocco degli oggetti</block>
@@ -2743,57 +2666,25 @@ StorageGRID scala le performance utilizzando nodi con performance più elevate p
   <block id="865383bbbfa775e3d6b22d489517f4bb" category="paragraph">Un metodo per proteggere i dati senza utilizzare il blocco degli oggetti o la replica consiste nell'abilitare la versione nel bucket e implementare le policy IAM sui gruppi di sicurezza degli utenti per limitare la capacità degli utenti di gestire versioni degli oggetti. In caso di attacco, vengono create nuove versioni errate dei dati come la versione corrente e la versione non corrente più recente è quella sicura. Gli account compromessi per ottenere l'accesso ai dati non hanno accesso per eliminare o modificare in altro modo la versione non corrente proteggendoli per operazioni di ripristino successive. Proprio come lo scenario precedente, le regole ILM gestiscono la conservazione delle versioni non correnti con una durata a scelta. L'aspetto negativo è che esiste ancora la possibilità di disporre di account privilegiati per un attacco di un attore non valido, ma tutti gli account del servizio applicazioni e gli utenti devono essere configurati con un accesso più restrittivo. I criteri di gruppo restrittivi devono consentire esplicitamente a ogni azione di cui si desidera che gli utenti o l'applicazione siano in grado di eseguire e negare esplicitamente le azioni di cui non si desidera che siano in grado di eseguire tali azioni. NetApp sconsiglia l'utilizzo di un'opzione con caratteri jolly, poiché in futuro potrebbe essere introdotta una nuova azione e si desidera controllare se è consentita o negata. Per questa soluzione, l'elenco di negazione deve includere DeleteObjectVersion, PutBucketPolicy, DeleteBucketPolicy, PutLifecycleConfiguration e PutBucketVersioning per proteggere la configurazione delle versioni del bucket e delle versioni dell'oggetto da modifiche dell'utente o del programma.</block>
   <block id="14721ed09b53cff866a4251ecf8be9ad" category="paragraph">In StorageGRID 11,7 è stata introdotta una nuova opzione di policy di gruppo S3 "mitigazione del ransomware" per rendere più semplice l'implementazione di questa soluzione. Quando si crea un gruppo di utenti nel tenant, dopo aver selezionato le autorizzazioni del gruppo, è possibile visualizzare questo nuovo criterio opzionale.</block>
   <block id="45e24bd145ccdb664274ea3753a3feb3" category="inline-image-macro">creare un gruppo-protezione-ransomware</block>
-  <block id="f45e4134d3abb1d61c6013218d4457b5" category="paragraph"><block ref="f45e4134d3abb1d61c6013218d4457b5" category="inline-image-macro-rx" type="image"></block></block>
   <block id="5f1cf2bf2a76a7221d167793f6f1d80f" category="paragraph">Di seguito viene riportato il contenuto dei criteri di gruppo che includono la maggior parte delle operazioni disponibili esplicitamente consentite e il minimo richiesto negato.</block>
-  <block id="e5d9ed669a875ccabd1e8a8c7c04f770" category="summary">Scopri come implementare le configurazioni di base per StorageGRID 11,5 e Veritas Enterprise Vault 14,1.</block>
-  <block id="7e8829dd017cc9404c7f25866b3e86a4" category="doc">Configurare StorageGRID e Veritas Enterprise Vault</block>
-  <block id="15f91c60892410037aae4a3942b89ef3" category="paragraph">Scopri come implementare le configurazioni di base per StorageGRID 11,5 o versioni successive e Veritas Enterprise Vault 14,1 o versioni successive.</block>
   <block id="1b46922bca2761ea0a6c327c6ff7fb97" category="paragraph">Questa guida alla configurazione si basa su StorageGRID 11,5 e Enterprise Vault 14,1. Per lo storage in modalità write once, Read many (WORM) utilizzando blocco degli oggetti S3, StorageGRID 11,6 ed Enterprise Vault 14.2.2. Per informazioni più dettagliate su queste linee guida, visitare la<block ref="8d80aa7c37bec53b7171a35567fec311" category="inline-link-rx"></block> pagina o contattare un esperto StorageGRID.</block>
-  <block id="410b2b2292a95771f2937cbe775c0c8c" category="section-title">Prerequisiti per configurare StorageGRID e Veritas Enterprise Vault</block>
-  <block id="6bfb62af2f92669cbb0dceb633cff716" category="list-text">Prima di configurare StorageGRID con Veritas Enterprise Vault, verificare i seguenti prerequisiti:</block>
   <block id="1dd36541ff76792b9a1f4286f706f550" category="admonition">Per lo storage WORM (blocco oggetti) è richiesto StorageGRID 11,6 o superiore.</block>
-  <block id="5dbdaad1c225f81d0b6cccd828811ba5" category="list-text">È installato Veritas Enterprise Vault 14,1 o versione successiva.</block>
   <block id="d713154cf1f274827caf27a31f82cb45" category="admonition">Per lo storage WORM (blocco degli oggetti), è richiesto Enterprise Vault versione 14.2.2 o superiore.</block>
-  <block id="975881ace9bb68192f0b3671cfc08194" category="list-text">Sono stati creati gruppi di archivi del vault e un archivio del vault. Per ulteriori informazioni, vedere Veritas Enterprise Vault Administration Guide.</block>
   <block id="03c9d88cda3782913d26a1a7bc26f136" category="list-text">Sono stati creati tenant StorageGRID, chiave di accesso, chiave segreta e bucket.</block>
   <block id="e0824b7fe5042443d6867a035cbc059d" category="list-text">È stato creato un endpoint di bilanciamento del carico StorageGRID (HTTP o HTTPS).</block>
-  <block id="1b227bc738dba312c115b2a798da234c" category="inline-link">Articolo della Veritas Knowledge base</block>
-  <block id="ce87bfd676c54deb8bb2ad274315afd0" category="list-text">Se si utilizza un certificato autofirmato, aggiungere il certificato CA autofirmato StorageGRID ai server di Enterprise Vault. Per ulteriori informazioni, vedere questo<block ref="76ad7647a9a7e6994e89c39886d1900d" category="inline-link-rx"></block>.</block>
-  <block id="588a5d1dc60b0aa2f4fcb2454ef96929" category="list-text">Aggiornare e applicare il file di configurazione del vault Enterprise più recente per abilitare le soluzioni di storage supportate, come NetApp StorageGRID. Per ulteriori informazioni, vedere questo<block ref="f0d9a24c875b4e67e4e5822ce9d331e4" category="inline-link-rx"></block>.</block>
-  <block id="e7b058735f0528a37fa7e3d72c81105b" category="section-title">Configurare StorageGRID con Veritas Enterprise Vault</block>
-  <block id="2c6b4643bba0ee960cb64248e63df632" category="paragraph">Per configurare StorageGRID con Veritas Enterprise Vault, attenersi alla seguente procedura:</block>
   <block id="ccfce46e320ba5260f1ee1d4082cf063" category="list-text">Avviare la console di amministrazione di Enterprise Vault.</block>
-  <block id="b1b7957222336d707a5a9888fc91e7aa" category="inline-image-macro">media/enterprise-vault di terze parti</block>
-  <block id="a5496aaf34f086c2383c3cff608af8d0" category="paragraph"><block ref="a5496aaf34f086c2383c3cff608af8d0" category="inline-image-macro-rx" type="image"></block></block>
   <block id="12b199291b692b06fcee61cbd72a4fe4" category="list-text">Creare una nuova partizione dell'archivio dei vault nell'archivio appropriato. Espandere la cartella Vault Store Groups e quindi l'archivio del vault appropriato. Fare clic con il pulsante destro del mouse su partizione e selezionare menu:Nuova[partizione].</block>
-  <block id="c07323bf747d0b9a9cb16714b753c529" category="inline-image-macro">media/enterprise-vault-di-terze-parti-2</block>
-  <block id="7aa44332a8b6b7cf0ecb9a3b98a5ffc7" category="paragraph"><block ref="7aa44332a8b6b7cf0ecb9a3b98a5ffc7" category="inline-image-macro-rx" type="image"></block></block>
   <block id="e0e90cb563fd5221ff22be442b6bdc5c" category="list-text">Seguire la procedura guidata creazione nuova partizione. Dal menu a discesa tipo di archiviazione, selezionare NetApp StorageGRID (S3). Fare clic su Avanti.</block>
-  <block id="7159f8faf189acce365f122f5c505481" category="inline-image-macro">nuova partizione di terze parti</block>
-  <block id="dc11d4b85c13dfaa0225db7b97165007" category="paragraph"><block ref="dc11d4b85c13dfaa0225db7b97165007" category="inline-image-macro-rx" type="image"></block></block>
   <block id="507de6a31abd8f6192d0bad8a99c7fa4" category="list-text">Lasciare deselezionata l'opzione Memorizza dati in modalità WORM utilizzando blocco oggetti S3. Fare clic su Avanti.</block>
-  <block id="5d3e3c1b796ba78fc738d21c5b20c300" category="inline-image-macro">nuova-partizione-di-terze-parti-2</block>
-  <block id="fbdcc01e2f73fd88dac7bf330989cc43" category="paragraph"><block ref="fbdcc01e2f73fd88dac7bf330989cc43" category="inline-image-macro-rx" type="image"></block></block>
   <block id="27297a1fb14386d9429c63e79efd9d13" category="list-text">Nella pagina delle impostazioni di connessione, fornire le seguenti informazioni:</block>
   <block id="d407ce3c6418b602c5e62d17e75153e2" category="list-text">ID chiave di accesso</block>
   <block id="864021d1cb190319b62722e58e59a8bf" category="list-text">Chiave di accesso segreta</block>
   <block id="32795074a39344590d17540d2b201838" category="list-text">Nome host del servizio: Assicurarsi di includere la porta LBE (Load Balancer Endpoint) configurata in StorageGRID (ad esempio \https://&lt;hostname&gt;:&lt;LBE_port&gt;)</block>
-  <block id="668418c943e8a93e8a5e8e778b12d84c" category="list-text">Nome bucket: Nome del bucket target creato in precedenza. Veritas Enterprise Vault non crea il bucket.</block>
   <block id="dc0c9174fafe0994fbdccfb9e7717229" category="list-text">Area bucket:<block ref="c800b6d9163b0db7d28f86c1470a9542" prefix=" " category="inline-code"></block> È il valore predefinito.</block>
-  <block id="4ed9838862c15fad65155eb7ac3489cf" category="inline-image-macro">nuova-partizione-di-terze-parti-3</block>
-  <block id="e85f5d4123f657beca9e8bc0cb177e05" category="paragraph"><block ref="e85f5d4123f657beca9e8bc0cb177e05" category="inline-image-macro-rx" type="image"></block></block>
   <block id="c25b4f67628ba5b52c9f09be180c1934" category="list-text">Per verificare il collegamento al bucket StorageGRID, fare clic su Test. Verificare che il test di connessione sia stato eseguito correttamente. Fare clic su OK, quindi su Next (Avanti).</block>
-  <block id="c4ec4fc9005ebf6a7950942bf7e8c42c" category="inline-image-macro">nuova-partizione-di-terze-parti-4</block>
-  <block id="969bc32aee8e2e5998bf61e42e3c7b20" category="paragraph"><block ref="969bc32aee8e2e5998bf61e42e3c7b20" category="inline-image-macro-rx" type="image"></block></block>
   <block id="5e28a4c450ff551f8cb9499edeacde68" category="list-text">StorageGRID non supporta il parametro di replica S3. Per proteggere gli oggetti, StorageGRID utilizza le regole ILM (Information Lifecycle Management) per specificare schemi di protezione dei dati: Copie multiple o erasure coding. Selezionare l'opzione quando esistono file archiviati nell'archiviazione e fare clic su Avanti.</block>
-  <block id="067ceb72f9fd41d7203f015a8b1ce92d" category="inline-image-macro">nuova-partizione-di-terze-parti-5</block>
-  <block id="a06db09bdc6f9f91ebf17ed357dac611" category="paragraph"><block ref="a06db09bdc6f9f91ebf17ed357dac611" category="inline-image-macro-rx" type="image"></block></block>
   <block id="7749207f8271fb7f649b1f3ef39fbf5d" category="list-text">Verificare le informazioni nella pagina di riepilogo e fare clic su fine.</block>
-  <block id="e494862f16ab010d80d0e60b27fff9f9" category="inline-image-macro">nuova-partizione-di-terze-parti-6</block>
-  <block id="deb1cd22744249d20777daf6b9cc577e" category="paragraph"><block ref="deb1cd22744249d20777daf6b9cc577e" category="inline-image-macro-rx" type="image"></block></block>
   <block id="f9bacafb1759e46379558a1bd77251a0" category="list-text">Una volta creata la nuova partizione dell'archivio vault, è possibile archiviare, ripristinare e cercare i dati in Enterprise Vault con StorageGRID come storage primario.</block>
-  <block id="c887b40b05aa8614bba35df5ca0bd0b2" category="inline-image-macro">nuova-partizione-di-terze-parti-7</block>
-  <block id="637be4bbe93314a50e97cb40180259d4" category="paragraph"><block ref="637be4bbe93314a50e97cb40180259d4" category="inline-image-macro-rx" type="image"></block></block>
   <block id="ba40de2abbe8f22c1ddefaf0652eb8c0" category="summary">Scopri come configurare StorageGRID per lo storage WORM utilizzando blocco oggetti S3.</block>
   <block id="316bb55238f2402b36fc9a4ad643a5ad" category="doc">Configurare il blocco degli oggetti StorageGRID S3 per lo storage WORM</block>
   <block id="bb4d69716f1ec83dcb07464a3fd52211" category="section-title">Prerequisiti per configurare StorageGRID per lo storage WORM</block>
@@ -2801,30 +2692,18 @@ StorageGRID scala le performance utilizzando nodi con performance più elevate p
   <block id="8c870accaec595079cdf496f1793a55e" category="section-title">Configurare la conservazione predefinita del bucket di blocco oggetti StorageGRID S3</block>
   <block id="30db1e0d890f9510d7b8712976fcb137" category="paragraph">Per configurare la conservazione predefinita del bucket di blocco degli oggetti StorageGRID S3, attenersi alla seguente procedura:</block>
   <block id="d24937db40b8a84dc942039cba3a9100" category="list-text">In Gestione tenant StorageGRID, creare un bucket e fare clic su continua</block>
-  <block id="84c6936e36a936d29129d62aa3e022a2" category="inline-image-macro">third-party-create-bucket.png</block>
-  <block id="542e27c3a746dfbecd63aeddb8a575ba" category="paragraph"><block ref="542e27c3a746dfbecd63aeddb8a575ba" category="inline-image-macro-rx" type="image"></block></block>
   <block id="a626ce66e7eaf62b35b215d06cb11fcd" category="list-text">Selezionare l'opzione attiva blocco oggetti S3 e fare clic su Crea bucket.</block>
-  <block id="544c4f3a42530afc7a5c657981fdd948" category="inline-image-macro">third-party-create-bucket-2.png</block>
-  <block id="e687d2c87374f8512f0be61fdee6dd4b" category="paragraph"><block ref="e687d2c87374f8512f0be61fdee6dd4b" category="inline-image-macro-rx" type="image"></block></block>
   <block id="6caf33ef1cee8f3afaaf1c820d8f1299" category="list-text">Una volta creata la benna, selezionarla per visualizzare le opzioni della benna. Espandere l'opzione a discesa blocco oggetti S3.</block>
-  <block id="16d90fc1bab16e5f829ed834262c353a" category="inline-image-macro">third-party-overview.png</block>
-  <block id="3de7e2f78fe41f95567e757b3982bb9f" category="paragraph"><block ref="3de7e2f78fe41f95567e757b3982bb9f" category="inline-image-macro-rx" type="image"></block></block>
   <block id="6e2728e25476dcd5ed065f06fa9da3a9" category="list-text">In conservazione predefinita, selezionare attiva e impostare un periodo di conservazione predefinito di 1 giorno. Fare clic su Salva modifiche.</block>
-  <block id="d822d6d9d36c3f31678339005766cfa9" category="inline-image-macro">blocco-oggetto-s3-terze-parti</block>
-  <block id="ad26ce7807792552af53f85b99e59c6b" category="paragraph"><block ref="ad26ce7807792552af53f85b99e59c6b" category="inline-image-macro-rx" type="image"></block></block>
   <block id="7d3ee9eb31d48b068ee9afc974c6688e" category="paragraph">Il bucket è ora pronto per essere utilizzato da Enterprise Vault per memorizzare dati WORM.</block>
   <block id="cdf294cdb11d58c4a1cf6c6b989f7ac0" category="section-title">Configurare Enterprise Vault</block>
   <block id="2b8482f3259b54a252e32e6c77841bea" category="paragraph">Per configurare Enterprise Vault, completare i seguenti passaggi:</block>
   <block id="416206518e27ed2ec8b8e0876078af35" category="inline-link-macro">Configurazione di base</block>
   <block id="0fdd01b1b915af6ef0310b3ded5842a9" category="list-text">Ripetere i passaggi 1-3 della <block ref="b0733c8485b73f6326917495c59e375f" category="inline-link-macro-rx"></block> sezione, ma questa volta selezionare l'opzione Memorizza dati in modalità WORM utilizzando blocco oggetti S3. Fare clic su Avanti.</block>
-  <block id="4f7eaaac29722f070bace92a996eb2cc" category="inline-image-macro">nuova-partizione-di-terze-parti-8</block>
-  <block id="1d9465d61e1899aa06f61b050e9ee630" category="paragraph"><block ref="1d9465d61e1899aa06f61b050e9ee630" category="inline-image-macro-rx" type="image"></block></block>
   <block id="0b5abcc8070dd573f1f60f2342e139a1" category="list-text">Quando si immettono le impostazioni di connessione del bucket S3, assicurarsi di immettere il nome di un bucket S3 in cui è attivata la conservazione predefinita del blocco degli oggetti S3.</block>
   <block id="9a5b0fcd0b1275de30e89b6c94f15569" category="list-text">Verificare la connessione per verificare le impostazioni.</block>
   <block id="b37ab6844ec455af7b65aaae53986022" category="summary">Scoprite come configurare il failover del sito StorageGRID in uno scenario di disaster recovery.</block>
   <block id="6b27dcb8002b0f1590dd7594cf75a822" category="doc">Configurare il failover del sito StorageGRID per il disaster recovery</block>
-  <block id="be18f5fb99f18a9ae61b9d96e174a4ed" category="paragraph">È una prassi comune che l'implementazione di un'architettura StorageGRID sia multisito. I siti possono essere Active-Active o Active-passive per il disaster recovery. In uno scenario di disaster recovery, assicurati che Veritas Enterprise Vault mantenga la connessione al proprio storage primario (StorageGRID) e continui ad acquisire e recuperare i dati durante un guasto del sito. In questa sezione vengono fornite istruzioni di configurazione di alto livello per una distribuzione attiva-passiva a due siti. Per informazioni dettagliate su queste linee guida, visitare <block ref="8efc367b31c66b8aa3b87a5daa8b07fa" category="inline-link-macro-rx"></block> la pagina o contattare un esperto StorageGRID.</block>
-  <block id="525ed0d0c5aabc142d13bc73aca13d33" category="section-title">Prerequisiti per configurare StorageGRID con Veritas Enterprise Vault</block>
   <block id="0bfe801b13cf3e81901c3410c8570e2e" category="paragraph">Prima di configurare il failover del sito StorageGRID, verificare i seguenti prerequisiti:</block>
   <block id="60ae5f0a3dc3e41cb1a8d17ca4ae3cc4" category="list-text">È prevista una distribuzione di StorageGRID in due siti, ad esempio site1 e site2.</block>
   <block id="c216325d17aa822764283030cb5baddc" category="list-text">È stato creato un nodo admin che esegue il servizio di bilanciamento del carico o un nodo gateway, in ciascun sito, per il bilanciamento del carico.</block>
@@ -2832,34 +2711,16 @@ StorageGRID scala le performance utilizzando nodi con performance più elevate p
   <block id="6e7ba5fe6520e0b407ab10ee11b1d696" category="section-title">Configurare il failover del sito StorageGRID</block>
   <block id="308d28d08b7f81ec7b11883d6d4f9102" category="paragraph">Per configurare il failover del sito StorageGRID, attenersi alla seguente procedura:</block>
   <block id="921a4d863daf068a5f614c53c331ed7a" category="list-text">Per garantire la connettività a StorageGRID in caso di guasti nel sito, configurare un gruppo ad alta disponibilità (ha). Dall'interfaccia GMI (StorageGRID Grid Manager Interface), fare clic su Configurazione, gruppi ad alta disponibilità e + Crea.</block>
-  <block id="ce4a66c5cd1b4d6821c00e75bd4f4451" category="inline-image-macro">gruppi-ad-alta disponibilità-creati-da-terze parti</block>
-  <block id="1c3411ea44ec266135b09b550ce9ea7a" category="paragraph"><block ref="1c3411ea44ec266135b09b550ce9ea7a" category="inline-image-macro-rx" type="image"></block></block>
   <block id="bf2e77e2f5492ada5768dcb61171ca77" category="list-text">Inserire le informazioni richieste. Fare clic su Select Interfaces (Seleziona interfacce) e includere le interfacce di rete di site1 e site2 in cui site1 (il sito primario) è il master preferito. Assegnare un indirizzo IP virtuale all'interno della stessa subnet. Fare clic su Salva.</block>
-  <block id="7512ccfcc59360e598f9e84d29033e83" category="inline-image-macro">gruppo-ad-alta-disponibilità-di-editing-di-terze-parti</block>
-  <block id="36b9b9bbb5d9c5aeb291101b9a30856e" category="paragraph"><block ref="36b9b9bbb5d9c5aeb291101b9a30856e" category="inline-image-macro-rx" type="image"></block></block>
-  <block id="65f4937b641d97a80cf0952a5576fa15" category="list-text">Questo indirizzo IP virtuale (VIP) deve essere associato al nome host S3 utilizzato durante la configurazione della partizione di Veritas Enterprise Vault. L'indirizzo VIP risolve il traffico a site1 e, durante un errore site1, l'indirizzo VIP reindirizza il traffico a site2 in modo trasparente.</block>
   <block id="b7f012b6955d2acff12a09570fab346e" category="list-text">Verifica che i dati siano replicati su site1 e site2. In questo modo, se site1 fallisce, i dati dell'oggetto sono ancora disponibili da site2. Questa operazione viene eseguita configurando per la prima volta i pool di storage.</block>
   <block id="2f8cd206e8f11440f6d566a145683d88" category="paragraph">Da StorageGRID GMI, fare clic su ILM, Storage Pools, quindi su + Crea. Seguire la procedura guidata per creare due pool di storage: Uno per site1 e uno per site2.</block>
   <block id="569b553d1a29238d3f49a97309bb7e7f" category="paragraph">I pool di storage sono raggruppamenti logici di nodi utilizzati per definire il posizionamento degli oggetti</block>
-  <block id="9b540f3416a321be61e365aa13b34abb" category="inline-image-macro">dettagli-pool-di-storage-di-terze-parti-sito-1</block>
-  <block id="bb9603d456449340931de70080e1e697" category="paragraph"><block ref="bb9603d456449340931de70080e1e697" category="inline-image-macro-rx" type="image"></block></block>
-  <block id="5c4e94d14a1c112c4a2f1a7e5597d241" category="inline-image-macro">dettagli-pool-di-storage-di-terze-parti-sito-2</block>
-  <block id="507391a9f10e21dc963c661728c2b3c1" category="paragraph"><block ref="507391a9f10e21dc963c661728c2b3c1" category="inline-image-macro-rx" type="image"></block></block>
   <block id="08576c5d4b4ca78ca9766ffe2b9fa81f" category="list-text">Da StorageGRID GMI, fare clic su ILM, regole, quindi su + Crea. Seguire la procedura guidata per creare una regola ILM specificando una copia da archiviare per sito con un comportamento di acquisizione bilanciato.</block>
-  <block id="00edc6a391750ee9d5516a6c4fdca617" category="inline-image-macro">dettagli-pool-di-storage-di-terze-parti-sito-3</block>
-  <block id="b0472505c0e5cb9c5557e82d3a91d8c8" category="paragraph"><block ref="b0472505c0e5cb9c5557e82d3a91d8c8" category="inline-image-macro-rx" type="image"></block></block>
   <block id="457cde276ecbe36449d34f4da631a90d" category="list-text">Aggiungere la regola ILM in un criterio ILM e attivare il criterio.</block>
   <block id="f2633f86de73d147465e5df7ca640192" category="paragraph">Questa configurazione produce i seguenti risultati:</block>
   <block id="457068c4a125d38f71a7790879029a8f" category="list-text">Un IP endpoint virtuale S3 in cui site1 è l'endpoint primario e site2 è l'endpoint secondario. Se site1 fallisce, il VIP passa a site2.</block>
-  <block id="b6e1077aef7634269ecd810ef2e145fb" category="list-text">Quando i dati archiviati vengono inviati da Veritas Enterprise Vault, StorageGRID garantisce che una copia venga archiviata in site1 e un'altra copia di DR in site2. Se site1 si guasta, Enterprise Vault continua ad acquisire e recuperare da site2 TB.</block>
-  <block id="2717ca8ac1b3b4eb08fdbb363b353437" category="admonition">Entrambe queste configurazioni sono trasparenti per Veritas Enterprise Vault. L'endpoint S3, il nome del bucket, le chiavi di accesso e così via sono gli stessi. Non è necessario riconfigurare le impostazioni di connessione S3 nella partizione Veritas Enterprise Vault.</block>
-  <block id="6af634f34cbaa9c21ffa52b0fc2e2571" category="summary">Scopri come Veritas Enterprise Vault utilizza StorageGRID come destinazione di storage primario per il disaster recovery.</block>
   <block id="f23ea2f2d2e408d14ea72e7895f24a9b" category="doc">Introduzione alla configurazione di StorageGRID per il failover del sito</block>
-  <block id="ae1fc32a84d371102898372a310cee7e" category="paragraph">Questa guida alla configurazione fornisce i passaggi per configurare NetApp® StorageGRID® come destinazione di storage primario con Veritas Enterprise Vault. Viene inoltre descritto come configurare StorageGRID per il failover del sito in uno scenario di disaster recovery (DR).</block>
   <block id="b240db17f82e985f3d0d364567a003be" category="section-title">Architettura di riferimento</block>
-  <block id="38b9dc2e7ce28edb104e987ce311dfbc" category="paragraph">StorageGRID offre una destinazione di backup cloud on-premise compatibile con S3 per Veritas Enterprise Vault. La figura seguente illustra l'architettura di Veritas Enterprise Vault e StorageGRID.</block>
-  <block id="55a3f9272ed73338bb14bc797ee9e53e" category="inline-image-macro">architettura-enterprise-vault-and-storagegrid-di-terze-parti-veritas</block>
-  <block id="b0c40e63486719b6a10c52db8bedaa98" category="paragraph"><block ref="b0c40e63486719b6a10c52db8bedaa98" category="inline-image-macro-rx" type="image"></block></block>
   <block id="632423b5da71d682caee956a05b4fd2b" category="sidebar">TR-4993: Analisi di NetApp StorageGRID e big data</block>
   <block id="73b0d6bd4229ce34d5668acb219b4052" category="sidebar">TR-4994: Best practice per l'ottimizzazione di Hadoop S3A</block>
   <block id="f3bee8cc791d63235a8d1d05244f54b7" category="sidebar">TR-4871: Backup e recovery completi di CommVault e NetApp StorageGRID</block>
@@ -2867,7 +2728,6 @@ StorageGRID scala le performance utilizzando nodi con performance più elevate p
   <block id="398ab7fa1cdf69da3a866bb409f80421" category="sidebar">TR-4921: Difesa dal ransomware</block>
   <block id="1cfe9266fd97efe523e3b7ce11ebb1f1" category="sidebar">TR-4765: StorageGRID monitor</block>
   <block id="7f3e8b5f38d9b9937162a27e3c86aa63" category="sidebar">TR-4882: Installazione di una griglia bare metal StorageGRID</block>
-  <block id="bc667d10ae74e8b726987909cf554a5b" category="sidebar">TR-4907: Configurare StorageGRID con Veritas Enterprise Vault</block>
   <block id="f3035506aa0c64c91592bc491a349515" category="sidebar">Introduzione ai report tecnici di StorageGRID</block>
   <block id="7879c124051e0d93a93b1bfe6ea06158" category="sidebar">TR-4993: Analisi di NetApp StorageGRID e big data</block>
   <block id="4f6534c0c689f1866062f2d4e37a0485" category="sidebar">TR-4994: Tuning di Hadoop S3A</block>
@@ -2881,7 +2741,6 @@ StorageGRID scala le performance utilizzando nodi con performance più elevate p
   <block id="70ca7442b81ada7ae57803224dad0c83" category="sidebar">Visualizza le metriche utilizzando Grafana in StorageGRID</block>
   <block id="57e828039531aa32aed96923380fee16" category="sidebar">Installare StorageGRID su host bare metal</block>
   <block id="1d9276cf0fbeb5d3c213ee2bed5d0046" category="sidebar">Specificare i dettagli del server NTP per StorageGRID</block>
-  <block id="5e9cbbff6e37b7d1a9a0579bcce90f0d" category="sidebar">Disaster recovery di StorageGRID – Configurazione di StorageGRID per il failover del sito con Veritas Enterprise Vault</block>
   <block id="ae52e3c45bd713b4082b98c518149807" category="sidebar">Configurare StorageGRID per lo storage WORM</block>
   <block id="654021875452c0979ec25d167125283d" category="sidebar">Configurare StorageGRID per il disaster recovery</block>
   <block id="5795a3af3561471cfdd0a268caf7368a" category="section-title">Responsabili delle chiavi supportati su StorageGRID</block>
@@ -2929,4 +2788,370 @@ StorageGRID scala le performance utilizzando nodi con performance più elevate p
   <block id="2988dc07d3c7f2675b337739e6a81ff7" category="sidebar">Prova StorageGRID</block>
   <block id="af628eae5a4bda33fe7f98b90dfd07ad" category="paragraph">Per informazioni tecniche su questo ambiente di test, leggere la sezione progettazione della soluzione e Best practice nel<block ref="42208ea06469332a89cb87f688663202" category="inline-link-rx"></block> report tecnico.</block>
   <block id="d448077c68c161f782d3bf423a865381" category="paragraph">La tabella 7 mostra i risultati dei nostri test sulle performance di base. Nell'operazione di copia ausiliaria, quattro CommVault MediaAgent hanno eseguito il backup dei dati su un sistema NetApp AFF A300 e una copia ausiliaria è stata creata su NetApp StorageGRID. Per informazioni dettagliate sull'ambiente di configurazione dei test, leggere la sezione progettazione della soluzione e Best practice nel<block ref="42208ea06469332a89cb87f688663202" category="inline-link-rx"></block> report tecnico.</block>
+  <block id="6254689add36612cde2207c4eeb003c9" category="inline-link">Blocco degli oggetti StorageGRID S3 validato per veritas NetBackup</block>
+  <block id="a712bd63fac80e1aca62c3ed8e924142" category="list-text">Gennaio 18 2023:<block ref="6179dfb2fcec0a08c60e48740241db0a" category="inline-link-rx"></block></block>
+  <block id="14f977b97d7dbd181f04d50ec1ed468e" category="summary">Migrazione da ONTAP S3 a StorageGRID.</block>
+  <block id="c748d5315fae1e52e5f773402cf3e67c" category="doc">Offerta di S3 Enterprise mediante la migrazione perfetta dello storage basato su oggetti da ONTAP S3 a StorageGRID</block>
+  <block id="7b3c0eb00dc33b1a631328955bc9b836" category="section-title">Demo sulla migrazione</block>
+  <block id="2c5eb617201a058feceb919d646677f1" category="paragraph">Questa è una dimostrazione sulla migrazione di utenti e bucket da ONTAP S3 a StorageGRID.</block>
+  <block id="1783e046b7fe7c378da7c227231027e0" category="section-title">Migrare S3 chiavi</block>
+  <block id="edb86190528e859c24c52b1166d4d97c" category="paragraph">Per una migrazione, la maggior parte del tempo si desidera migrare le credenziali per gli utenti invece di generare nuove credenziali sul lato di destinazione. StorageGRID fornisce api per consentire l'importazione di S3 chiavi per un utente.</block>
+  <block id="945e89158728b42e91a54f60d737accb" category="paragraph">Accedendo all'interfaccia utente di gestione di StorageGRID (non all'interfaccia utente di gestione tenant), aprire la pagina dello swap della documentazione API.</block>
+  <block id="9c8536e856e330218749728fda422921" category="inline-image-macro">Aprire la documentazione API</block>
+  <block id="3506a2e330cc3467a9ad96d0994f1299" category="paragraph"><block ref="3506a2e330cc3467a9ad96d0994f1299" category="inline-image-macro-rx" type="image"></block></block>
+  <block id="41dc275fd67e3aa5346fd71812fb601d" category="paragraph">Espandere la sezione "account", selezionare "POST /grid/account-enable-S3-key-import", fare clic sul pulsante "prova", quindi fare clic sul pulsante "Esegui".</block>
+  <block id="53f9aa67bd72c2cdd9d7a7b1c052ec1c" category="inline-image-macro">Attiva importazione chiave S3</block>
+  <block id="7c685a71f19dd935a19a0a88d28cd1b8" category="paragraph"><block ref="7c685a71f19dd935a19a0a88d28cd1b8" category="inline-image-macro-rx" type="image"></block></block>
+  <block id="96741f14b1eeac7c6c4d68b472646f40" category="paragraph">Ora scorri verso il basso ancora sotto "Accounts" fino a "POST /grid/accounts/{id}/users/{user_id}/S3-access-keys"</block>
+  <block id="b50cdc016573ea5afe0879acc5936ff3" category="paragraph">Qui è dove stiamo andando inserire l'ID del inquilino e l'ID dell'account utente che abbiamo raccolto in precedenza. Compilare i campi e le chiavi del nostro utente ONTAP nella casella json. È possibile impostare la scadenza delle chiavi, o rimuovere il " , "expires": 123456789" e fare clic su execute.</block>
+  <block id="ee83287b94198af6e1adaab7cb856b99" category="inline-image-macro">Importare la chiave S3</block>
+  <block id="77e95fb77226dac54e27441c3e4ad1b0" category="paragraph"><block ref="77e95fb77226dac54e27441c3e4ad1b0" category="inline-image-macro-rx" type="image"></block></block>
+  <block id="3f5ce7271fcf0ca72073075f787f388d" category="paragraph">Una volta completate tutte le importazioni della chiave utente, disabilitare la funzione di importazione della chiave in "account" "POST /grid/account-disable-S3-key-import"</block>
+  <block id="417545bdfccc96b32165dda23e4cae49" category="inline-image-macro">Disattiva importazione chiave S3</block>
+  <block id="fe85615f433dcd9f0c52fb145e63e6cd" category="paragraph"><block ref="fe85615f433dcd9f0c52fb145e63e6cd" category="inline-image-macro-rx" type="image"></block></block>
+  <block id="7ed390d6527135d2c4847cea90fff8fd" category="paragraph">Se guardiamo l'account utente nell'interfaccia utente del gestore tenant, possiamo vedere che è stata aggiunta la nuova chiave.</block>
+  <block id="6c71616b3b352a37f779acd74de2f813" category="inline-image-macro">Chiavi utente</block>
+  <block id="69c1ba0ccf07e95f969128f46a279d12" category="paragraph"><block ref="69c1ba0ccf07e95f969128f46a279d12" category="inline-image-macro-rx" type="image"></block></block>
+  <block id="eb21098d13b81a8ffc4044c79b1490ce" category="section-title">Il taglio finale</block>
+  <block id="95e6ee1587d0ceb3b3f9e4df062bd818" category="paragraph">Se l'intenzione è quella di avere un bucket a replica perpetua da ONTAP a StorageGRID, puoi finire qui. Se si tratta di una migrazione da ONTAP S3 a StorageGRID, allora è il momento di mettervi fine e tagliare.</block>
+  <block id="c8d22ed512ddedd9ac3f36314a291bb0" category="paragraph">In Gestione di sistema di ONTAP, modificare il gruppo S3 e impostarlo su "ReadOnlyAccess". In questo modo gli utenti non potranno più scrivere nel bucket ONTAP S3.</block>
+  <block id="700d575cb12e48533c1f3424c58278a2" category="inline-image-macro">Impostare il gruppo ONTAP su sola lettura</block>
+  <block id="81544e391a684ffda7638a9876ff732c" category="paragraph"><block ref="81544e391a684ffda7638a9876ff732c" category="inline-image-macro-rx" type="image"></block></block>
+  <block id="652bf7eb59a04cac2463054dc1c39587" category="paragraph">Tutto ciò che resta da fare è configurare il DNS in modo che punti dal cluster ONTAP all'endpoint StorageGRID. Assicurarsi che il certificato dell'endpoint sia corretto e, se sono necessarie richieste di stile ospitate virtuali, aggiungere i nomi di dominio dell'endpoint in StorageGRID</block>
+  <block id="39a9f4fb89ab2cddfdb856cb888d5019" category="paragraph"><block ref="39a9f4fb89ab2cddfdb856cb888d5019" category="inline-image-macro-rx" type="image"></block></block>
+  <block id="5d68231d18be913f9a645c3c636ab7f0" category="paragraph">I client dovranno attendere la scadenza del TTL o scaricare il DNS per risolvere il problema nel nuovo sistema in modo da poter verificare che tutto funzioni. Resta solo ripulire le chiavi S3 temporanee iniziali utilizzate per verificare l'accesso ai dati StorageGRID (NON alle chiavi importate), rimuovere le relazioni SnapMirror e rimuovere i dati ONTAP.</block>
+  <block id="2ccd23bbd57324bd4619072b8f8501bc" category="paragraph">_Di Rafael Guedes e Aron Klein_</block>
+  <block id="5b66143188e929285ce4259f3cef73f4" category="section-title">Compilare il bucket Source (origine)</block>
+  <block id="61dd7bb6a68b9468979c9dd027c3c0e7" category="paragraph">Consente di inserire alcuni oggetti nel bucket ONTAP di origine. Utilizzeremo S3Browser per questa demo, ma puoi usare qualsiasi strumento che ti trovi a tuo agio.</block>
+  <block id="1b176c01bbfcb191297aa148baab6da7" category="paragraph">Utilizzando le chiavi S3 dell'utente ONTAP create in precedenza, configurare S3Browser per la connessione al sistema ONTAP.</block>
+  <block id="cb41001b51d0090b7d292134a65aaf4a" category="inline-image-macro">S3Browser-config</block>
+  <block id="81ce4395cdc6b12d91ae25346528f6e3" category="paragraph"><block ref="81ce4395cdc6b12d91ae25346528f6e3" category="inline-image-macro-rx" type="image"></block></block>
+  <block id="0c922c601c50c24c7a3dd43d1db08ba1" category="paragraph">Ora permette di caricare alcuni file nel bucket abilitato per la versione.</block>
+  <block id="c46a4a4b6181b39a4e9396fad75ec7a2" category="inline-image-macro">Fare clic su carica</block>
+  <block id="ca5cdcc16ae630e806298b063046f485" category="paragraph"><block ref="ca5cdcc16ae630e806298b063046f485" category="inline-image-macro-rx" type="image"></block></block>
+  <block id="1e1612be1f37edad00c8cb80dd90158d" category="inline-image-macro">Selezionare i file da caricare</block>
+  <block id="3557157f4c9e7e18f142bc76c34e6bad" category="paragraph"><block ref="3557157f4c9e7e18f142bc76c34e6bad" category="inline-image-macro-rx" type="image"></block></block>
+  <block id="293fc6e4068205eefc9df77baa941b5f" category="inline-image-macro">File caricati</block>
+  <block id="d675998f2d4289e47fe145bb1fd69438" category="paragraph"><block ref="d675998f2d4289e47fe145bb1fd69438" category="inline-image-macro-rx" type="image"></block></block>
+  <block id="90b606ced696b2ed871d1d8a622652e9" category="paragraph">Ora permette di creare alcune versioni di oggetti nel bucket.</block>
+  <block id="e905c485a94d23f34cf95a215259dc1d" category="paragraph">Eliminare un file.</block>
+  <block id="b80b4ad2e703a2f5ddf4eff8e5b57bfb" category="inline-image-macro">Eliminare un file</block>
+  <block id="44f25c4b033691468a52cb061d98e30b" category="paragraph"><block ref="44f25c4b033691468a52cb061d98e30b" category="inline-image-macro-rx" type="image"></block></block>
+  <block id="3984a410dc20249f4a4852b6d78c1277" category="paragraph">Caricare un file già esistente nel bucket per copiare il file su se stesso e crearne una nuova versione.</block>
+  <block id="62359f48fa5e49e4942386318b168185" category="inline-image-macro">carica un file già esistente</block>
+  <block id="4ff9fdbbe683cc44c224b66deb98de1f" category="paragraph"><block ref="4ff9fdbbe683cc44c224b66deb98de1f" category="inline-image-macro-rx" type="image"></block></block>
+  <block id="53c26fef5387cf81693d7943b21612a7" category="paragraph">In S3Browser possiamo visualizzare le versioni degli oggetti appena creati.</block>
+  <block id="78427a671180994263dd4cbf23fb350e" category="inline-image-macro">Visualizza versioni</block>
+  <block id="7dd07afda409774ee242c0948ad6383a" category="paragraph"><block ref="7dd07afda409774ee242c0948ad6383a" category="inline-image-macro-rx" type="image"></block></block>
+  <block id="f0cc421ed326a461c5f0874594d1d240" category="section-title">Stabilire la relazione di replica</block>
+  <block id="0ed6ca41d82d38f21d992d4aa4bed18f" category="paragraph">Consente di iniziare a inviare dati da ONTAP a StorageGRID.</block>
+  <block id="c2020f00595514288b21bfce34022b0c" category="paragraph">In Gestione di sistema di ONTAP, selezionare "protezione/Panoramica". Scorri verso il basso fino a "Archivio oggetti cloud", quindi fai clic sul pulsante "Aggiungi" e seleziona "StorageGRID".</block>
+  <block id="57252445efd7d3ab6d473d30ed72352f" category="inline-image-macro">Protezione ONTAP</block>
+  <block id="0c6ab570024b5f9690d5ddd940442d96" category="paragraph"><block ref="0c6ab570024b5f9690d5ddd940442d96" category="inline-image-macro-rx" type="image"></block></block>
+  <block id="0d4b7a7f586d7a5b2b93a96583c3c3d0" category="paragraph">Inserisci le informazioni StorageGRID fornendo un nome, uno stile URL (per questa demo useremo gli URL Path-styl). Impostare l'ambito dell'archivio oggetti su "Storage VM".</block>
+  <block id="a872e75393e5b7cfee8a70de0ae0bc57" category="inline-image-macro">Inserire i dati StorageGRID</block>
+  <block id="1b535a08aa91b34200eddd5d2bc9c5f7" category="paragraph"><block ref="1b535a08aa91b34200eddd5d2bc9c5f7" category="inline-image-macro-rx" type="image"></block></block>
+  <block id="551f5221c10ec5f7ee2f0b4d61a17bf8" category="paragraph">Se si utilizza SSL, impostare la porta dell'endpoint del bilanciamento del carico e copiarla nel certificato dell'endpoint StorageGRID. Altrimenti deselezionare la casella SSL e immettere la porta dell'endpoint HTTP qui.</block>
+  <block id="e229a1d7b0308e6585ca1573057494bb" category="paragraph">Immettere i tasti S3 dell'utente StorageGRID e il nome del bucket dalla configurazione StorageGRID riportata sopra per la destinazione.</block>
+  <block id="18fcda5616e3e713cf27733c1b0c6103" category="paragraph"><block ref="18fcda5616e3e713cf27733c1b0c6103" category="inline-image-macro-rx" type="image"></block></block>
+  <block id="a6aeb9bd73491bcf1712de697de6b638" category="paragraph">Una volta configurata una destinazione, è possibile configurare le impostazioni dei criteri per la destinazione. Espandere "Impostazioni criteri locali" e selezionare "continuo".</block>
+  <block id="88df0c4e805c29553bc039ef84e69340" category="inline-image-macro">Impostazioni dei criteri locali</block>
+  <block id="4bbea4d0051ef50dfe8b36e07eef800e" category="paragraph"><block ref="4bbea4d0051ef50dfe8b36e07eef800e" category="inline-image-macro-rx" type="image"></block></block>
+  <block id="13a2198af60cd718923f537163dd5412" category="paragraph">Modificare il criterio continuo e modificare l'obiettivo del punto di ripristino da "1 ore" a "3 secondi".</block>
+  <block id="354d4b16948c7e767e3ce6fb2aa8516e" category="inline-image-macro">Modifica delle impostazioni dei criteri locali</block>
+  <block id="04bf99072ca4977cd92a49e76b37c8b8" category="paragraph"><block ref="04bf99072ca4977cd92a49e76b37c8b8" category="inline-image-macro-rx" type="image"></block></block>
+  <block id="865e5172d02296d12d4c3077f7b37073" category="paragraph">Ora possiamo configurare SnapMirror per replicare il bucket.</block>
+  <block id="fdf3a76d6e1b2fc248d186dbe429ec20" category="paragraph">SnapMirror create -source-path sv_demo: /Bucket/bucket -destination-path sgws_demo: /Objstore -policy Continuous</block>
+  <block id="e8567630fe85d755fed9996bd6f55a0c" category="inline-image-macro">Crea relazione SnapMirror</block>
+  <block id="7ee063ac689e33edf05fa89215b26255" category="paragraph"><block ref="7ee063ac689e33edf05fa89215b26255" category="inline-image-macro-rx" type="image"></block></block>
+  <block id="1d8f46cb77f0064dbb97e41792e84703" category="paragraph">Il bucket mostrerà ora un simbolo di nuvola nell'elenco bucket sotto protezione.</block>
+  <block id="57c9ce100b486743ab9fff8cc61cbf2c" category="inline-image-macro">Il bucket è protetto nella destinazione cloud</block>
+  <block id="8d3a7d937b6862dbc7e6fc8ae632c722" category="paragraph"><block ref="8d3a7d937b6862dbc7e6fc8ae632c722" category="inline-image-macro-rx" type="image"></block></block>
+  <block id="eb86c505873ad47fa4a174f670d7469f" category="paragraph">Se si seleziona il bucket e si passa alla scheda "SnapMirror (ONTAP o Cloud)", verrà visualizzato lo stato di spedizione SnapMirror.</block>
+  <block id="04eebe2fdfc7eba5901d4d867884daaf" category="inline-image-macro">Controllare la relazione SnapMirror</block>
+  <block id="325d40a34e1ca19110896923461f65a8" category="paragraph"><block ref="325d40a34e1ca19110896923461f65a8" category="inline-image-macro-rx" type="image"></block></block>
+  <block id="252fa3b3eebd82056be1bab16c67f39e" category="section-title">I dettagli della replica</block>
+  <block id="625d7876e4a4b4d15ac6fdd9b1f95c7c" category="paragraph">Ora disponiamo di un bucket di replica con successo da ONTAP a StorageGRID. Ma che cosa si replica? La nostra fonte e la nostra destinazione sono entrambi bucket in versione. Anche le versioni precedenti vengono replicate nella destinazione? Se guardiamo al nostro bucket StorageGRID con S3Browser vediamo che le versioni esistenti non sono state replicate e l'oggetto eliminato non esiste, né un marcatore di eliminazione per quell'oggetto. L'oggetto duplicato ha solo la versione 1 nel bucket StorageGRID.</block>
+  <block id="7654b3c6ecce42bd6d80d3c3eda0d460" category="inline-image-macro">Vista S3browser del bucket StorageGRID dopo la sincronizzazione iniziale</block>
+  <block id="7360ed33a91141894312965ee102e374" category="paragraph"><block ref="7360ed33a91141894312965ee102e374" category="inline-image-macro-rx" type="image"></block></block>
+  <block id="67d39cdd9eb9df4138519617ca637a14" category="paragraph">Nel bucket ONTAP, si aggiunge una nuova versione allo stesso oggetto utilizzato in precedenza e si osserva come viene replicata.</block>
+  <block id="8fb4fd5d2f752fa5f7b226c4d527a69a" category="inline-image-macro">Vista S3browser del bucket ONTAP dopo il caricamento della nuova versione</block>
+  <block id="2ed59d66171d22d74d133c63c225e251" category="paragraph"><block ref="2ed59d66171d22d74d133c63c225e251" category="inline-image-macro-rx" type="image"></block></block>
+  <block id="351c27f6243057013664721b76d198d3" category="paragraph">Se guardiamo al lato StorageGRID vediamo che è stata creata anche una nuova versione in questo bucket, ma manca la versione iniziale da prima della relazione SnapMirror.</block>
+  <block id="e9c51f250ae2c68745b305d518c752c8" category="paragraph"><block ref="e9c51f250ae2c68745b305d518c752c8" category="inline-image-macro-rx" type="image"></block></block>
+  <block id="085edea4486b9c58286039b2de3e0da8" category="paragraph">Questo perché il processo di ONTAP SnapMirror S3 replica solo la versione corrente dell'oggetto. Ecco perché abbiamo creato un bucket di versione sul lato StorageGRID per essere la destinazione. In questo modo StorageGRID può mantenere una cronologia delle versioni degli oggetti.</block>
+  <block id="a5394f6191bef59bac44916c2ef5ad14" category="section-title">Preparazione di ONTAP</block>
+  <block id="da850783b45b977935f2d31304e870a5" category="paragraph">A scopo dimostrativo creeremo un server per archivio di oggetti SVM, un utente, un gruppo, una policy di gruppo e bucket.</block>
+  <block id="aafb42088c8c68e1842dadde9625370b" category="section-title">Creare la Storage Virtual Machine</block>
+  <block id="a180e0d1788e522c9e3007f9463891d1" category="paragraph">In Gestione sistema di ONTAP, accedere alle VM di archiviazione e aggiungere una nuova VM di archiviazione.</block>
+  <block id="470a3393e959f3a189834c2a8a7e38ac" category="inline-image-macro">Aggiungere una nuova SVM</block>
+  <block id="4b5db63d899d14fabaecf07c458ed106" category="paragraph"><block ref="4b5db63d899d14fabaecf07c458ed106" category="inline-image-macro-rx" type="image"></block></block>
+  <block id="c5a07e569188d4c87bdc33aa4bc22888" category="paragraph">Selezionare le caselle di controllo "Enable" (attiva S3) e "Enable TLS" (attiva TLS) e configurare le porte HTTP(S). Definire l'IP, la subnet mask e definire il gateway e il dominio di broadcast se non si utilizza l'impostazione predefinita o obbligatoria nell'ambiente in uso.</block>
+  <block id="df05aef739eda5cc136be34597b24d9a" category="inline-image-macro">Configura nuova SVM</block>
+  <block id="abe5d2e753bf10753566e313e20dd8be" category="paragraph"><block ref="abe5d2e753bf10753566e313e20dd8be" category="inline-image-macro-rx" type="image"></block></block>
+  <block id="7543da458aba2be8e44022f8ff61edc1" category="paragraph">Durante la creazione della SVM verrà creato un utente. Scaricare i S3 tasti per questo utente e chiudere la finestra.</block>
+  <block id="7500624d3292ede4cdd31e43d2ff8c65" category="inline-image-macro">Scarica S3 chiavi</block>
+  <block id="afa0ccf6bcc8dfa395e380b0bb87c2cc" category="paragraph"><block ref="afa0ccf6bcc8dfa395e380b0bb87c2cc" category="inline-image-macro-rx" type="image"></block></block>
+  <block id="3205d46c79d604835a90642c77ed3d72" category="paragraph">Una volta creata la SVM, edita la SVM e Aggiungi le impostazioni DNS.</block>
+  <block id="ab77fcf006331856d1c6b528f9fea219" category="inline-image-macro">Configure DNS (Configura DNS)</block>
+  <block id="3a89c6c94d91b3298a519dab2512852f" category="paragraph"><block ref="3a89c6c94d91b3298a519dab2512852f" category="inline-image-macro-rx" type="image"></block></block>
+  <block id="2cfea9be4158dc7848cc45788ead4cbc" category="paragraph">Definire il nome DNS e l'IP.</block>
+  <block id="ea9c1b9d1059e7bba9ae9290a0500dff" category="inline-image-macro">Configure DNS Server (Configura server DNS)</block>
+  <block id="892d3d984b1c02a6dd52c1fcdfff0424" category="paragraph"><block ref="892d3d984b1c02a6dd52c1fcdfff0424" category="inline-image-macro-rx" type="image"></block></block>
+  <block id="5ad4fea59478c49704959e0edf00758a" category="section-title">Creare un utente SVM S3</block>
+  <block id="5aad1eae2b8325639985e48478aac16d" category="paragraph">Ora possiamo configurare i S3 utenti e il gruppo. Modificare le impostazioni S3.</block>
+  <block id="d3b07e00903941108f0fec78a82a8966" category="inline-image-macro">Configurare S3</block>
+  <block id="2d1d9a180589699ff2921b13d35ac9c5" category="paragraph"><block ref="2d1d9a180589699ff2921b13d35ac9c5" category="inline-image-macro-rx" type="image"></block></block>
+  <block id="7903f9f562fe20e9352ef79291d03baf" category="paragraph">Aggiungere un nuovo utente.</block>
+  <block id="08ec0f7654cccad69821337b3c47af67" category="inline-image-macro">Aggiungere un nuovo utente</block>
+  <block id="78aae283d542d8cf187bf641aef50061" category="paragraph"><block ref="78aae283d542d8cf187bf641aef50061" category="inline-image-macro-rx" type="image"></block></block>
+  <block id="69d6084c745c16018f644076d47e62df" category="paragraph">Inserire il nome utente e la scadenza della chiave.</block>
+  <block id="f358c7744fea47b4bdf515ca606e1570" category="paragraph">Scaricare i S3 tasti per il nuovo utente.</block>
+  <block id="de32b1bd35a50047cc179f6deaba3fe8" category="inline-image-macro">nuovi tasti utente s3</block>
+  <block id="45fa7bdf93cb91dd943a187cb2a5c03d" category="paragraph"><block ref="45fa7bdf93cb91dd943a187cb2a5c03d" category="inline-image-macro-rx" type="image"></block></block>
+  <block id="398671caeda44244f5153c7dbe9665a3" category="section-title">Creare un gruppo SVM S3</block>
+  <block id="fb86a24a628266c1afe5c96a8ae7caac" category="paragraph">Nella scheda Groups (gruppi) delle impostazioni SVM S3, aggiungere un nuovo gruppo con l'utente creato in precedenza e le autorizzazioni FullAccess.</block>
+  <block id="d3666b040f101e51f2ec63e2972245f7" category="inline-image-macro">Aggiungi S3 gruppo</block>
+  <block id="5108782f4b51f14cff0bab234a568697" category="paragraph"><block ref="5108782f4b51f14cff0bab234a568697" category="inline-image-macro-rx" type="image"></block></block>
+  <block id="dc28c4546d839545501ba1ac361d079a" category="section-title">Creare bucket SVM S3</block>
+  <block id="a35233ef2933210164f63ea2c98a885b" category="paragraph">Passare alla sezione benne e fare clic sul pulsante "+Aggiungi".</block>
+  <block id="299fbfe2cdb9679387811daaf3a0d442" category="inline-image-macro">Aggiungi bucket</block>
+  <block id="a1984921fedda4350f65c7ebd76836b3" category="paragraph"><block ref="a1984921fedda4350f65c7ebd76836b3" category="inline-image-macro-rx" type="image"></block></block>
+  <block id="1a78a668508f8dc7e9b29b11fff445e2" category="paragraph">Immettere un nome, una capacità e deselezionare la casella di controllo "Abilita accesso a ListBucket...", quindi fare clic sul pulsante "altre opzioni".</block>
+  <block id="2af7572db33e32d97c2a172374697a61" category="paragraph"><block ref="2af7572db33e32d97c2a172374697a61" category="inline-image-macro-rx" type="image"></block></block>
+  <block id="953602c2739e355d7b031c7048d621b1" category="paragraph">Nella sezione "altre opzioni" selezionare la casella di controllo attiva versione e fare clic sul pulsante "Salva".</block>
+  <block id="823e3d309f271d17abda0806debebd13" category="inline-image-macro">Abilitare il controllo delle versioni</block>
+  <block id="52c810af819e4fe293f29a8b476f201e" category="paragraph"><block ref="52c810af819e4fe293f29a8b476f201e" category="inline-image-macro-rx" type="image"></block></block>
+  <block id="12b0bebdc5fd6d89d65dca8f905b046c" category="paragraph">Ripetere il processo e creare un secondo bucket senza attivare il controllo delle versioni. Immettere un nome con la stessa capacità del bucket uno e deselezionare la casella di controllo "Abilita accesso a ListBucket...", quindi fare clic sul pulsante "Salva".</block>
+  <block id="d7ee833a734bb3582435c86b1ef4b2d9" category="inline-image-macro">Aggiungere il bucket due</block>
+  <block id="28a98808203cd08ab1f44fb3be7c4c70" category="paragraph"><block ref="28a98808203cd08ab1f44fb3be7c4c70" category="inline-image-macro-rx" type="image"></block></block>
+  <block id="6be12c1b6627a3a9bb2aa4cb185fc866" category="section-title">Preparazione di StorageGRID</block>
+  <block id="9c9f246dc3e4119f5c0f1c814f738dc2" category="paragraph">Continuando la configurazione per questa demo, creeremo un tenant, un utente, un gruppo di sicurezza, una policy di gruppo e un bucket.</block>
+  <block id="393cb18603dfc01f76621e7fa99d7e34" category="section-title">Creare il tenant</block>
+  <block id="756b2d5b0f7e310581deb6b02911b947" category="paragraph">Passare alla scheda "inquilini" e fare clic sul pulsante "Crea"</block>
+  <block id="08e9570c93c393f2ec223840c1c187ed" category="inline-image-macro">Pulsante Aggiungi tenant</block>
+  <block id="88ed9671d8147896ed27652bc742cd36" category="paragraph"><block ref="88ed9671d8147896ed27652bc742cd36" category="inline-image-macro-rx" type="image"></block></block>
+  <block id="cd5c40dbc94691aa20e5da986f322339" category="paragraph">Inserire i dettagli del tenant che fornisce il nome del tenant, selezionare S3 per il tipo di client e non è richiesta alcuna quota. Non è necessario selezionare i servizi della piattaforma o consentire la selezione S3. Se lo si sceglie, è possibile scegliere di utilizzare la propria fonte di identità. Impostare la password principale e fare clic sul pulsante Finish (fine).</block>
+  <block id="21b4425fcc55a66cff28a256101916d6" category="paragraph">Fare clic sul nome del tenant per visualizzare i dettagli del tenant. *In seguito sarà necessario l'ID tenant, quindi copiarlo*. Fare clic sul pulsante Accedi. In questo modo si accede al portale tenant. Salvare l'URL per uso futuro.</block>
+  <block id="120b3f55b543341ae3eb65aa66d41fab" category="inline-image-macro">Selezionare il tenant</block>
+  <block id="91645b25c5815c71cd2f5cb6c50c2851" category="paragraph"><block ref="91645b25c5815c71cd2f5cb6c50c2851" category="inline-image-macro-rx" type="image"></block></block>
+  <block id="46458c8f8b233f76c65f13928652d03b" category="paragraph">In questo modo si accede al portale tenant. Salvare l'URL per uso futuro e immettere le credenziali dell'utente root.</block>
+  <block id="914fa618e5db704c65410405b1df86a6" category="inline-image-macro">Accesso tenant</block>
+  <block id="a016ff6a8701161b71a08e297f187eb6" category="paragraph"><block ref="a016ff6a8701161b71a08e297f187eb6" category="inline-image-macro-rx" type="image"></block></block>
+  <block id="ba4a9cd6fb5b572946d710f33f0fc386" category="section-title">Creare l'utente</block>
+  <block id="51e8cab66c71f8d79e6d4fd1dcdde969" category="paragraph">Accedere alla scheda utenti e creare un nuovo utente.</block>
+  <block id="6968f54a13a1210fd95b00282bf4714c" category="inline-image-macro">Accedere agli utenti</block>
+  <block id="18a47360ef32adef1d918eabfb601cf0" category="paragraph"><block ref="18a47360ef32adef1d918eabfb601cf0" category="inline-image-macro-rx" type="image"></block></block>
+  <block id="3ccfd9806bc9889d5c0e4b2f361f54f4" category="inline-image-macro">Crea nuovo utente</block>
+  <block id="1d32fcd034450d4ebf3390b23bb911d8" category="paragraph"><block ref="1d32fcd034450d4ebf3390b23bb911d8" category="inline-image-macro-rx" type="image"></block></block>
+  <block id="c6086e8a1623c95be5be3d08ed5b94d0" category="paragraph">Ora che il nuovo utente è stato creato, fare clic sul nome dell'utente per aprire i dettagli dell'utente.</block>
+  <block id="8b5dfc9215c2fc5f932c21b6d0ebc76b" category="paragraph">Copiare l'ID utente dall'URL da utilizzare in un secondo momento.</block>
+  <block id="7fdef6b904b4c3e44ac8ac680498b585" category="inline-image-macro">Copia nuovo ID</block>
+  <block id="9c3b107cf4e3b9cd613c7ae73f6a04c7" category="paragraph"><block ref="9c3b107cf4e3b9cd613c7ae73f6a04c7" category="inline-image-macro-rx" type="image"></block></block>
+  <block id="111d0ae2406ffba81e61eae4abd88478" category="paragraph">Per creare i tasti S3, fare clic sul nome utente.</block>
+  <block id="80e223872fabdc66def1d7f6d84eba90" category="inline-image-macro">Crea S3 chiavi</block>
+  <block id="7b714043efafa7cd3253909adeaa05eb" category="paragraph"><block ref="7b714043efafa7cd3253909adeaa05eb" category="inline-image-macro-rx" type="image"></block></block>
+  <block id="fceda54795e2936815d59a603b141cfd" category="paragraph">Selezionare la scheda "tasti di accesso" e fare clic sul pulsante "Crea chiave". Non è necessario impostare un'ora di scadenza. Scaricare i S3 tasti in quanto non possono essere richiamati una volta chiusa la finestra.</block>
+  <block id="57622436ec5afc45d57d88509732a0f8" category="inline-image-macro">Tasti di download</block>
+  <block id="4f9d0e4a47e5db245b20e8015d5483c7" category="paragraph"><block ref="4f9d0e4a47e5db245b20e8015d5483c7" category="inline-image-macro-rx" type="image"></block></block>
+  <block id="63a7bded731937b2466a7a856f89b5e5" category="section-title">Creare il gruppo di protezione</block>
+  <block id="85b69a80b60a46ce65a37f198db050d7" category="paragraph">Andare alla pagina gruppi e creare un nuovo gruppo.</block>
+  <block id="e94f58e4efb3f77e13519c199bc52d97" category="inline-image-macro">Crea nuovo gruppo</block>
+  <block id="c7cace6f39583aa80b87737955c7ce6c" category="paragraph"><block ref="c7cace6f39583aa80b87737955c7ce6c" category="inline-image-macro-rx" type="image"></block></block>
+  <block id="5b9d87901ac015cd0e913a32b7750e7f" category="paragraph">Impostare le autorizzazioni del gruppo su sola lettura. Si tratta delle autorizzazioni dell'interfaccia utente tenant, non delle autorizzazioni S3.</block>
+  <block id="f63c2840bbc9107b66637b31a5d83b7d" category="inline-image-macro">Impostare le autorizzazioni del gruppo</block>
+  <block id="61eb214a9c613b4f9d50d03f9328f9a9" category="paragraph"><block ref="61eb214a9c613b4f9d50d03f9328f9a9" category="inline-image-macro-rx" type="image"></block></block>
+  <block id="a36618049720e6ba43c39aeb8f3944f8" category="paragraph">Le autorizzazioni S3 sono controllate con i criteri di gruppo (criteri IAM). Impostare il criterio di gruppo su personalizzato e incollare il criterio json nella casella. Questo criterio consente agli utenti di questo gruppo di elencare i bucket del tenant ed eseguire qualsiasi operazione S3 nel bucket denominato "bucket" o sottocartelle nel bucket denominato "bucket".</block>
+  <block id="7ffcbf68734e791cd72723c4954078e9" category="inline-image-macro">Definire i criteri di gruppo</block>
+  <block id="417574f285186847a5cc21d2dc9bb598" category="paragraph"><block ref="417574f285186847a5cc21d2dc9bb598" category="inline-image-macro-rx" type="image"></block></block>
+  <block id="50ba0663e964492af6c417f7d4eb7c56" category="paragraph">Infine, aggiungere l'utente al gruppo e terminare.</block>
+  <block id="4e1fd25cbe5209a6e6a9745d4f04f365" category="inline-image-macro">Aggiungi utente al gruppo</block>
+  <block id="a9ccd02f003e46b00d3a716dcf834823" category="paragraph"><block ref="a9ccd02f003e46b00d3a716dcf834823" category="inline-image-macro-rx" type="image"></block></block>
+  <block id="0cc1b9650560b6c78ec6580fd6be669b" category="section-title">Creare due bucket</block>
+  <block id="254d4d81ebac5c31e21f263ce47c7bf0" category="paragraph">Passare alla scheda bucket e fare clic sul pulsante Crea bucket.</block>
+  <block id="e68caa30e18a2772e791ada342429dc5" category="inline-image-macro">Pagina Crea bucket</block>
+  <block id="63337c401341a8003ca291ca9423ea04" category="paragraph"><block ref="63337c401341a8003ca291ca9423ea04" category="inline-image-macro-rx" type="image"></block></block>
+  <block id="95278a2006be88dde456d823cc988fcf" category="paragraph">Definire il nome del bucket e la regione.</block>
+  <block id="f1a6bfffa76920f61aad594fdb6d4ed3" category="paragraph"><block ref="f1a6bfffa76920f61aad594fdb6d4ed3" category="inline-image-macro-rx" type="image"></block></block>
+  <block id="902cd2ab3474775e36ce6ac47b4bc8df" category="paragraph">In questo primo bucket abilitare la versione.</block>
+  <block id="bc34f789fb5cbcd94af4d0d494f8ea6d" category="inline-image-macro">Imposta versione</block>
+  <block id="e783640cb4c279880a25388159e378a4" category="paragraph"><block ref="e783640cb4c279880a25388159e378a4" category="inline-image-macro-rx" type="image"></block></block>
+  <block id="c1053c509b131ad2d2e7358d439718ab" category="paragraph">Ora creare un secondo bucket senza abilitare il controllo delle versioni.</block>
+  <block id="c3153d971e754e0e427d68d00ae2c9b0" category="inline-image-macro">Creare un secondo bucket</block>
+  <block id="f3f081810932233601f313ac610053e4" category="paragraph"><block ref="f3f081810932233601f313ac610053e4" category="inline-image-macro-rx" type="image"></block></block>
+  <block id="289a0e5b9a11398ac0c72f14f45cb30b" category="paragraph">Non abilitare la versione in questo secondo bucket.</block>
+  <block id="89c44b922ff9edd703a49957f01f0c84" category="inline-image-macro">non impostare la versione</block>
+  <block id="515386d5ad040c09a8fe4a0d2d7bab46" category="paragraph"><block ref="515386d5ad040c09a8fe4a0d2d7bab46" category="inline-image-macro-rx" type="image"></block></block>
+  <block id="e3276058dd2b8a3501db3ed1cf59e11b" category="paragraph"><block ref="e3276058dd2b8a3501db3ed1cf59e11b" category="inline-image-macro-rx" type="image"></block></block>
+  <block id="f33f7e4c550d5b049658bb48a6dc3d01" category="paragraph"><block ref="f33f7e4c550d5b049658bb48a6dc3d01" category="inline-image-macro-rx" type="image"></block></block>
+  <block id="900b0263e9b753b83cbaf04a42f90dec" category="paragraph"><block ref="900b0263e9b753b83cbaf04a42f90dec" category="inline-image-macro-rx" type="image"></block></block>
+  <block id="6217ffd1eea9981985eb67bb0c9544ef" category="paragraph"><block ref="6217ffd1eea9981985eb67bb0c9544ef" category="inline-image-macro-rx" type="image"></block></block>
+  <block id="7f0b6f9e91c398d8a72444fc496f8b15" category="list-text">Ripetere i passaggi 1-8 per ogni nodo griglia in sospeso che si desidera approvare.</block>
+  <block id="c436c7c9f6644d1f59916eb145eccbce" category="paragraph"><block ref="c436c7c9f6644d1f59916eb145eccbce" category="inline-image-macro-rx" type="image"></block></block>
+  <block id="cbc2c719a4b646ec1b829378cffbb62c" category="paragraph"><block ref="cbc2c719a4b646ec1b829378cffbb62c" category="inline-image-macro-rx" type="image"></block></block>
+  <block id="3f22b7f4ed72e66d6e3b89cde323b775" category="paragraph"><block ref="3f22b7f4ed72e66d6e3b89cde323b775" category="inline-image-macro-rx" type="image"></block></block>
+  <block id="ad761804c8db2c35db1b04a938fdbc45" category="paragraph"><block ref="ad761804c8db2c35db1b04a938fdbc45" category="inline-image-macro-rx" type="image"></block></block>
+  <block id="2505da9cc59525ea8ea38913a61f3d1d" category="paragraph"><block ref="2505da9cc59525ea8ea38913a61f3d1d" category="inline-image-macro-rx" type="image"></block></block>
+  <block id="73fabd06e0fa7f38e657122a29a67e63" category="paragraph"><block ref="73fabd06e0fa7f38e657122a29a67e63" category="inline-image-macro-rx" type="image"></block></block>
+  <block id="bb697ffd76758d63ea2359b938dec45f" category="paragraph"><block ref="bb697ffd76758d63ea2359b938dec45f" category="inline-image-macro-rx" type="image"></block></block>
+  <block id="534c560757a42aaeb317ce7c91023fef" category="paragraph"><block ref="534c560757a42aaeb317ce7c91023fef" category="inline-image-macro-rx" type="image"></block></block>
+  <block id="2578e5a28b1f21ed43560903ded7bd2e" category="paragraph"><block ref="2578e5a28b1f21ed43560903ded7bd2e" category="inline-image-macro-rx" type="image"></block></block>
+  <block id="54ddba979e33f92dff27be78ae040e96" category="paragraph"><block ref="54ddba979e33f92dff27be78ae040e96" category="inline-image-macro-rx" type="image"></block></block>
+  <block id="230e927ef1cbcfb4706e2ca2fe79b068" category="paragraph"><block ref="230e927ef1cbcfb4706e2ca2fe79b068" category="inline-image-macro-rx" type="image"></block></block>
+  <block id="6cfd96f46e0c61db4b057de9b2f02787" category="paragraph"><block ref="6cfd96f46e0c61db4b057de9b2f02787" category="inline-image-macro-rx" type="image"></block></block>
+  <block id="7c648110d8b752889f98cd2d87517c0f" category="section-title">Benchmarking di Data warehouse e Lakehouses con storage a oggetti S3: Uno studio comparativo</block>
+  <block id="3f7d606956bcb4f8b565d2799da4a4e3" category="paragraph">Questo articolo presenta un benchmark completo di vari ecosistemi di data warehouse e lakehouse che utilizzano NetApp StorageGRID. L'obiettivo è determinare il sistema che funziona meglio con lo storage a oggetti S3. Fare riferimento a questo <block ref="ca1f374596a7de7e13cf95753411f6e0" category="inline-link-rx"></block> per ulteriori informazioni sulle architetture datawarehous/lakehouse e sul formato tabella (Parquet e Iceberg).</block>
+  <block id="39b5836a4532001dfbe7e05fb49461e4" category="list-text">Cluster di macchine virtuali, ciascuno con 128G GB di RAM e 24 vCPU, storage SSD per disco di sistema</block>
+  <block id="37e59045c327c8ae9b2d4f7b4f136217" category="list-text">Dremio V23 (1 cordinatore + 5 esecutori)</block>
+  <block id="1543c40ac4e68e60ea63a94bfab320ec" category="list-text">Trino v438 (1 cordinatore + 5 addetti)</block>
+  <block id="e9940dffc6cb8987f8ea2849d2c81a2c" category="list-text">Starburst v453 (1 cordinatore + 5 addetti)</block>
+  <block id="e6626cf4bf50ce440a045708b2e1f1e5" category="list-text">NetApp^®^ StorageGRID^® 11,8 con bilanciamento del carico 3 x SG6060 + 1x SG1000</block>
+  <block id="20536af82697c291683798ab540160e0" category="list-text">Protezione degli oggetti - 2 copie (il risultato è simile a EC 2+1)</block>
+  <block id="b9d35717430d39eef24c76f0c1796c11" category="list-text">La cache è stata disabilitata in tutti gli ecosistemi per ogni test di query utilizzando il formato Parquet. Per il formato Iceberg, abbiamo confrontato il numero di richieste GET S3 e il tempo totale di query tra scenari con cache disabilitata e scenari con cache abilitata.</block>
+  <block id="cdbfde1ab888a940af383c70c682b87a" category="paragraph">TPC-DS include 99 query SQL complesse progettate per il benchmarking. Abbiamo misurato il tempo totale impiegato per eseguire tutte le 99 query e abbiamo condotto un'analisi dettagliata esaminando il tipo e il numero di richieste S3. I nostri test hanno confrontato l'efficienza di due formati di tabella popolari: Parquet e Iceberg.</block>
+  <block id="96e14f82cc6500529b0c04afc6ebafa1" category="paragraph">*Risultato query TPC-DS con formato tabella parquet*</block>
+  <block id="f37fa2c6484789a1a50f7d43e5b6c2df" category="cell">Starburst</block>
+  <block id="c98abcd54e4d3791a1400bab7aa399fe" category="cell">1084 ^1^</block>
+  <block id="6364d3f0f495b6ab9dcf8d3b5c6e0b01" category="cell">32</block>
+  <block id="33e75ff09dd601bbe69f351039152189" category="cell">28</block>
+  <block id="75b00b5e6500e718036f28f893b7dee1" category="paragraph">S3 richieste di ripartizione</block>
+  <block id="e1327a62998567085c28d8caac25a097" category="cell">1.504.212</block>
+  <block id="61f6b2bbbbcd552b422c8740065ff520" category="cell">1.495.039</block>
+  <block id="c7eb1fdd90d51dff9000a413a518c83c" category="cell">Dimensioni del range: 50% inferiore a 100KB, 16% circa 1MB, 27% 2MB-9MB, 3500 - 4000 richieste/sec</block>
+  <block id="f8bc1fd43d6bb150e5b0b51185508a46" category="cell">Dimensioni del range: 50% inferiore a 100KB, 16% circa 1MB, 27% 2MB-9MB, 4000 - 5000 richiesta/sec</block>
+  <block id="e2230b853516e7b05d79744fbd4c9c13" category="cell">509</block>
+  <block id="cfcd208495d565ef66e7dff9f98764da" category="cell">0</block>
+  <block id="a6555d2b06722bde8a106c16e353a06a" category="cell">1.504.721</block>
+  <block id="794b1e43f91a9913da14ea20cd4198c9" category="cell">1.499.551</block>
+  <block id="f1cab053650b93fe71331be2c4c9c40d" category="paragraph">^1^ Impossibile completare la query numero 72</block>
+  <block id="2e09f209b7749073d8732d856a6afe12" category="paragraph">*Risultato query TPC-DS con formato tabella Iceberg*</block>
+  <block id="077385462ac0cf8f7fe1ddb0b3983c42" category="cell">TPCDS 99 query + minuti totali (cache disattivata)</block>
+  <block id="34173cb38f07f89ddbebc2ac9128303f" category="cell">30</block>
+  <block id="b6d767d2f8ed5d21a44b0e5886680cb9" category="cell">22</block>
+  <block id="95df7e4eb2568a2c428c70b695f7cac2" category="cell">TPCDS 99 query + minuti totali (cache abilitata)</block>
+  <block id="d81fdeb5a429e85d04118048e4b3485d" category="cell">21,5</block>
+  <block id="b7ae258c3f8653133aa9c0c448f67516" category="cell">GET (OTTIENI) (cache disattivata)</block>
+  <block id="3bb0dd7ec24af388f7e49723482fb553" category="cell">2.154.747</block>
+  <block id="817c2a89c3531f80836a2db8d06d85b3" category="cell">938.639</block>
+  <block id="5f4363558dd08c8d9c04d30802266c70" category="cell">931.582</block>
+  <block id="18c14d7f109f020c287a26f7a8f428d4" category="cell">GET (OTTIENI) (cache abilitata)</block>
+  <block id="e3f91fa6ba87f03f3166a20beea1c344" category="cell">5.389</block>
+  <block id="6b11f97cb60ca2cd6f46178c1e7cf4f3" category="cell">30.158</block>
+  <block id="bc06fdbde6a0ac6d6d654b6614f9b5d7" category="cell">3.281</block>
+  <block id="76de71b9903e9b839668c173592c80be" category="cell">Dimensioni di RICEZIONE intervallo: 67% 1MB, 15% 100KB, 10% 500KB, 3000 - 4000 richieste/sec</block>
+  <block id="5819eb0ec4b00d343de26ea1746d62b0" category="cell">Dimensioni del range: 42% inferiore a 100KB, 17% circa 1MB, 33% 2MB-9MB, 3500 - 4000 richieste/sec</block>
+  <block id="a6939d8de1e94d811eb67cb92270c822" category="cell">Dimensioni del range: 43% inferiore a 100KB, 17% circa 1MB, 33% 2MB-9MB, 4000 - 5000 richieste/sec</block>
+  <block id="46ba9f2a6976570b0353203ec4474217" category="cell">284</block>
+  <block id="e087b5b2372a325fbbc3eb02013bd513" category="cell">1.261</block>
+  <block id="2d6a14455d72488e5e91089f0b50905c" category="cell">Richieste totali (cache disattivata)</block>
+  <block id="2096b1864713f451954f320346ec801a" category="cell">2.156.578</block>
+  <block id="bfd8a8a359e411cea773da89ea7b516e" category="cell">939.148</block>
+  <block id="95368980785d6fcc2e447b3569f7e08e" category="cell">932.071</block>
+  <block id="e7c4b70d9a61af19b7bb26b3656a04a7" category="paragraph">Come mostrato nella prima tabella, Hive è significativamente più lento di altri moderni dati ecosistemi lakehouse. Abbiamo osservato che Hive ha inviato un gran numero di richieste list-objects S3, che in genere sono lente su tutte le piattaforme di storage a oggetti, soprattutto quando si gestiscono bucket contenenti molti oggetti. Ciò aumenta notevolmente la durata complessiva della query. Inoltre, i moderni ecosistemi lakehouse possono inviare in parallelo un elevato numero di richieste GET, che vanno da 2.000 a 5.000 richieste al secondo, rispetto alle richieste da 50 a 100 di Hive al secondo. Il file system standard mimicry di Hive e Hadoop S3A contribuisce alla lentezza di Hive nell'interazione con lo storage a oggetti S3.</block>
+  <block id="64e5657b42a88da8f35487a29fd462a0" category="paragraph">L'utilizzo di Hadoop (su storage a oggetti HDFS o S3) con Hive o Spark richiede un'estesa conoscenza di Hadoop e Hive/Spark, oltre a una comprensione dell'interazione delle impostazioni di ogni servizio. Insieme, hanno più di 1.000 impostazioni, molte delle quali sono correlate e non possono essere modificate indipendentemente. Trovare la combinazione ottimale di impostazioni e valori richiede un'enorme quantità di tempo e di lavoro.</block>
+  <block id="b466c5196d6e79148750db2791c91da3" category="paragraph">Confrontando i risultati di Parquet e Iceberg, notiamo che il formato della tabella è un fattore di prestazioni importante. Il formato della tavola Iceberg è più efficiente del Parquet in termini di numero di S3 richieste, con un numero di richieste inferiore dal 35% al 50% rispetto al formato Parquet.</block>
+  <block id="e42410a9640211b1ecea1110a2d993ef" category="paragraph">Le prestazioni di Dremio, Trino o Starburst sono principalmente determinate dalla potenza di calcolo del cluster. Sebbene tutte e tre utilizzino il connettore S3A per la connessione allo storage a oggetti S3, non richiedono Hadoop e la maggior parte delle impostazioni fs.S3A di Hadoop non sono utilizzate da questi sistemi. Questo semplifica il tuning delle performance, eliminando la necessità di imparare e testare le varie impostazioni di Hadoop S3A.</block>
+  <block id="ae292ab8583812dbb91d237b1397afd3" category="paragraph">Da questo risultato del benchmark, possiamo concludere che il sistema di analisi dei big data ottimizzato per carichi di lavoro basati su S3 è un importante fattore di performance. I moderni Lakehouse ottimizzano l'esecuzione delle query, utilizzano in modo efficiente i metadati e forniscono un accesso perfetto ai dati S3, producendo performance migliori rispetto a Hive quando si utilizza lo storage S3.</block>
+  <block id="e5a51e32ae018b0fd70ad8a44e42454d" category="paragraph">Fare riferimento a questa<block ref="e4ec3c3ef03861ef67845dfb086c7b17" category="inline-link-rx"></block> sezione per configurare l'origine dati Dremio S3 con StorageGRID.</block>
+  <block id="29ba7c2ce7db44a399c2e6636ce805cf" category="paragraph"><block ref="29ba7c2ce7db44a399c2e6636ce805cf" category="inline-image-macro-rx" type="image"></block></block>
+  <block id="debd8913c08ffb1db2be4aa0bc738660" category="paragraph"><block ref="debd8913c08ffb1db2be4aa0bc738660" category="inline-image-macro-rx" type="image"></block></block>
+  <block id="8693d74f9ca58a57f81e33290d37abd5" category="paragraph"><block ref="8693d74f9ca58a57f81e33290d37abd5" category="inline-image-macro-rx" type="image"></block></block>
+  <block id="54ec027559e8cb37be54da6a71ba6e63" category="paragraph"><block ref="54ec027559e8cb37be54da6a71ba6e63" category="inline-image-macro-rx" type="image"></block></block>
+  <block id="780ce03a8949a98dc11122083b493ba7" category="paragraph"><block ref="780ce03a8949a98dc11122083b493ba7" category="inline-image-macro-rx" type="image"></block></block>
+  <block id="0f9b1c23e72398af55f49e1c186c08a1" category="paragraph"><block ref="0f9b1c23e72398af55f49e1c186c08a1" category="inline-image-macro-rx" type="image"></block></block>
+  <block id="8deceed456e38579761b6f74cb6a622d" category="paragraph"><block ref="8deceed456e38579761b6f74cb6a622d" category="inline-image-macro-rx" type="image"></block></block>
+  <block id="e4d0bf69638b007cb9a3a5bf173e57ad" category="paragraph"><block ref="e4d0bf69638b007cb9a3a5bf173e57ad" category="inline-image-macro-rx" type="image"></block></block>
+  <block id="a92cd8149a6e9e0fcf5b7e6cfd1bbf6a" category="paragraph"><block ref="a92cd8149a6e9e0fcf5b7e6cfd1bbf6a" category="inline-image-macro-rx" type="image"></block></block>
+  <block id="2ac92ea2fe96038032e77a5244ff8ada" category="paragraph"><block ref="2ac92ea2fe96038032e77a5244ff8ada" category="inline-image-macro-rx" type="image"></block></block>
+  <block id="b248313f534e233f9a6155f8a4919aac" category="paragraph"><block ref="b248313f534e233f9a6155f8a4919aac" category="inline-image-macro-rx" type="image"></block></block>
+  <block id="8ae78a82d807f1873522dac87932d193" category="paragraph"><block ref="8ae78a82d807f1873522dac87932d193" category="inline-image-macro-rx" type="image"></block></block>
+  <block id="c498909fdbe99559943a55360091ec41" category="paragraph"><block ref="c498909fdbe99559943a55360091ec41" category="inline-image-macro-rx" type="image"></block></block>
+  <block id="8bae6995b49758e07b2ce0b2ce8c03dd" category="paragraph"><block ref="8bae6995b49758e07b2ce0b2ce8c03dd" category="inline-image-macro-rx" type="image"></block></block>
+  <block id="7fcb1884a4c99208bc8ce2172ecf5bea" category="paragraph"><block ref="7fcb1884a4c99208bc8ce2172ecf5bea" category="inline-image-macro-rx" type="image"></block></block>
+  <block id="a254cd213ae260bb546051560ac3febe" category="paragraph"><block ref="a254cd213ae260bb546051560ac3febe" category="inline-image-macro-rx" type="image"></block></block>
+  <block id="11955bb281ad17761bb704aaa81280c0" category="paragraph"><block ref="11955bb281ad17761bb704aaa81280c0" category="inline-image-macro-rx" type="image"></block></block>
+  <block id="f17f01baaedf7370779a00e3853677ba" category="paragraph"><block ref="f17f01baaedf7370779a00e3853677ba" category="inline-image-macro-rx" type="image"></block></block>
+  <block id="355dc6b033e8a213d7dae817c6e13b50" category="paragraph"><block ref="355dc6b033e8a213d7dae817c6e13b50" category="inline-image-macro-rx" type="image"></block></block>
+  <block id="78d37a7f254e84c36902ce5704c6ab79" category="paragraph"><block ref="78d37a7f254e84c36902ce5704c6ab79" category="inline-image-macro-rx" type="image"></block></block>
+  <block id="5f8d58a12bc433f7b344b7c33f1904e6" category="paragraph"><block ref="5f8d58a12bc433f7b344b7c33f1904e6" category="inline-image-macro-rx" type="image"></block></block>
+  <block id="87190992f3ceae55c586605f4aa1de5c" category="paragraph"><block ref="87190992f3ceae55c586605f4aa1de5c" category="inline-image-macro-rx" type="image"></block></block>
+  <block id="c143bb79bc8328f8a6c0bffcf736eefd" category="paragraph"><block ref="c143bb79bc8328f8a6c0bffcf736eefd" category="inline-image-macro-rx" type="image"></block></block>
+  <block id="034ae50adccad2698bbc81fb44360894" category="summary">Scopri come implementare le configurazioni di base per StorageGRID 11,5 e veritas Enterprise Vault 14,1.</block>
+  <block id="72eb1b8133e1520504346d36c5fac9d1" category="doc">Configurare StorageGRID e veritas Enterprise Vault</block>
+  <block id="ef4718392779b0750969af799ad151bb" category="paragraph">Scopri come implementare le configurazioni di base per StorageGRID 11,5 o versioni successive e veritas Enterprise Vault 14,1 o versioni successive.</block>
+  <block id="372d595448d97ec17e5756118c9e3486" category="section-title">Prerequisiti per configurare StorageGRID e veritas Enterprise Vault</block>
+  <block id="94940e3825739e86d43d20b71a2bdb81" category="list-text">Prima di configurare StorageGRID con veritas Enterprise Vault, verificare i seguenti prerequisiti:</block>
+  <block id="e1b2071d5db8fac237a17040ea82b8ef" category="list-text">È installato veritas Enterprise Vault 14,1 o versione successiva.</block>
+  <block id="367e5e1fbaf108d8dbf97e500327dc8b" category="list-text">Sono stati creati gruppi di archivi del vault e un archivio del vault. Per ulteriori informazioni, vedere veritas Enterprise Vault Administration Guide.</block>
+  <block id="6c73463ffeddef6e57a34a14bafd3419" category="inline-link">Articolo della veritas Knowledge base</block>
+  <block id="ddf1e2343a6c7e2d16b8597f3e961548" category="list-text">Se si utilizza un certificato autofirmato, aggiungere il certificato CA autofirmato StorageGRID ai server di Enterprise Vault. Per ulteriori informazioni, vedere questo<block ref="96b16704d1203901b729f96db3886a57" category="inline-link-rx"></block>.</block>
+  <block id="15022c2cf46544f0b3a7bf0180d8ebe5" category="list-text">Aggiornare e applicare il file di configurazione del vault Enterprise più recente per abilitare le soluzioni di storage supportate, come NetApp StorageGRID. Per ulteriori informazioni, vedere questo<block ref="9c1aa3a99115a819862872de47644b63" category="inline-link-rx"></block>.</block>
+  <block id="2b95da50afe417c5fdfe08882fc95a9a" category="section-title">Configurare StorageGRID con veritas Enterprise Vault</block>
+  <block id="5785dc46caf2287e47aa188701676c27" category="paragraph">Per configurare StorageGRID con veritas Enterprise Vault, attenersi alla seguente procedura:</block>
+  <block id="e5c9b80471f693a4c039200dd452f7e7" category="inline-image-macro">media/veritas/enterprise-vault</block>
+  <block id="1536385a41cec4888a286618d0d7ee3e" category="paragraph"><block ref="1536385a41cec4888a286618d0d7ee3e" category="inline-image-macro-rx" type="image"></block></block>
+  <block id="2692509554a8301ebc2f9196b6b9e543" category="inline-image-macro">media/veritas/enterprise-vault-2</block>
+  <block id="418979d7615d02076bc62d5b450374e4" category="paragraph"><block ref="418979d7615d02076bc62d5b450374e4" category="inline-image-macro-rx" type="image"></block></block>
+  <block id="19d94215e1bbbf668cc58181d0a1d895" category="inline-image-macro">veritas/veritas-new-partition</block>
+  <block id="55eaf5c34b171bde6516f1a74103f3ce" category="paragraph"><block ref="55eaf5c34b171bde6516f1a74103f3ce" category="inline-image-macro-rx" type="image"></block></block>
+  <block id="a9b5f6e03ed7ce22016b559be63917ac" category="inline-image-macro">veritas/veritas-new-partition-2</block>
+  <block id="28757f2a18d6cf522e8bb4fc1c67febf" category="paragraph"><block ref="28757f2a18d6cf522e8bb4fc1c67febf" category="inline-image-macro-rx" type="image"></block></block>
+  <block id="7455d4ada214bb6150c4ee66c1ab09f0" category="list-text">Nome bucket: Nome del bucket di destinazione creato in precedenza. veritas Enterprise Vault non crea il bucket.</block>
+  <block id="8852ee40f2eb647ba4c5cf75d93a5771" category="inline-image-macro">veritas/veritas-new-partition-3</block>
+  <block id="e5bb5ea5b4f52f12bf40531ebfa8b110" category="paragraph"><block ref="e5bb5ea5b4f52f12bf40531ebfa8b110" category="inline-image-macro-rx" type="image"></block></block>
+  <block id="6e898938cfae63ee693fd08b9be8a594" category="inline-image-macro">veritas/veritas-new-partition-4</block>
+  <block id="ea846d505fa8c64ca8e878a6bb7d89eb" category="paragraph"><block ref="ea846d505fa8c64ca8e878a6bb7d89eb" category="inline-image-macro-rx" type="image"></block></block>
+  <block id="b0d36dc673bf1097c502e15527f31976" category="inline-image-macro">veritas/veritas-new-partition-5</block>
+  <block id="fe808ac3f774c55de92ec52f7d85a2f8" category="paragraph"><block ref="fe808ac3f774c55de92ec52f7d85a2f8" category="inline-image-macro-rx" type="image"></block></block>
+  <block id="4de953b055a0d26d8590cf0bcd5bf01c" category="inline-image-macro">veritas/veritas-new-partition-6</block>
+  <block id="41ae360fa86c17098be8743d2d050c92" category="paragraph"><block ref="41ae360fa86c17098be8743d2d050c92" category="inline-image-macro-rx" type="image"></block></block>
+  <block id="b6fe3747f6c4d112310386474c670a3f" category="inline-image-macro">veritas/veritas-new-partition-7</block>
+  <block id="22b735d20517887fa4f06cf49bd4d449" category="paragraph"><block ref="22b735d20517887fa4f06cf49bd4d449" category="inline-image-macro-rx" type="image"></block></block>
+  <block id="3eebf8254fde4e8d2c6a816c4320f21e" category="inline-image-macro">vertigini/veritas-create-bucket.png</block>
+  <block id="95291b4cdd19db828a0d045364518fbd" category="paragraph"><block ref="95291b4cdd19db828a0d045364518fbd" category="inline-image-macro-rx" type="image"></block></block>
+  <block id="094b5581d50a9ae9dfef7ab77a3db688" category="inline-image-macro">vertigini/veritas-create-bucket-2.png</block>
+  <block id="380edd7a9cba0915b0ad9309b0db539c" category="paragraph"><block ref="380edd7a9cba0915b0ad9309b0db539c" category="inline-image-macro-rx" type="image"></block></block>
+  <block id="dbfd501fb101bf802a7ee81a1fac837d" category="inline-image-macro">vertigini/veritas-overview.png</block>
+  <block id="df94ba3f30910a83d6bd5b670f112e3b" category="paragraph"><block ref="df94ba3f30910a83d6bd5b670f112e3b" category="inline-image-macro-rx" type="image"></block></block>
+  <block id="c921c13e8cd3cb94aadeb8c25da58859" category="inline-image-macro">vertias/veritas-s3-object-lock</block>
+  <block id="2c5ae5790fe14e007a8ce6ef21272460" category="paragraph"><block ref="2c5ae5790fe14e007a8ce6ef21272460" category="inline-image-macro-rx" type="image"></block></block>
+  <block id="305ed56e9cc761a6928f149d8a7fed68" category="inline-image-macro">vertias/veritas-new-partition-8</block>
+  <block id="d42aa79a11be13d3f0d5a09babb765cb" category="paragraph"><block ref="d42aa79a11be13d3f0d5a09babb765cb" category="inline-image-macro-rx" type="image"></block></block>
+  <block id="64b0c79c0081965bc7ce9c6cc6a3f774" category="paragraph">È una prassi comune che l'implementazione di un'architettura StorageGRID sia multisito. I siti possono essere Active-Active o Active-passive per il disaster recovery. In uno scenario di disaster recovery, assicurati che veritas Enterprise Vault mantenga la connessione al proprio storage primario (StorageGRID) e continui ad acquisire e recuperare i dati durante un guasto del sito. In questa sezione vengono fornite istruzioni di configurazione di alto livello per una distribuzione attiva-passiva a due siti. Per informazioni dettagliate su queste linee guida, visitare <block ref="8efc367b31c66b8aa3b87a5daa8b07fa" category="inline-link-macro-rx"></block> la pagina o contattare un esperto StorageGRID.</block>
+  <block id="fc1d41b2ff28c31ef720aa29cbdb1625" category="section-title">Prerequisiti per configurare StorageGRID con veritas Enterprise Vault</block>
+  <block id="568f836336942515cf2ad370aa171e55" category="inline-image-macro">vertias/veritas-create-un-gruppo-ad-alta disponibilità</block>
+  <block id="97b5b099aca023f024fd3ca7169b6e8e" category="paragraph"><block ref="97b5b099aca023f024fd3ca7169b6e8e" category="inline-image-macro-rx" type="image"></block></block>
+  <block id="6a856baab30258bd4bf6b3c8e997af43" category="inline-image-macro">vertias/veritas-edit-gruppo-ad-alta disponibilità</block>
+  <block id="d921e5624986d96c28deaf8b0b782be3" category="paragraph"><block ref="d921e5624986d96c28deaf8b0b782be3" category="inline-image-macro-rx" type="image"></block></block>
+  <block id="e17fb1e3d997076f324b7246b7f7dff3" category="list-text">Questo indirizzo IP virtuale (VIP) deve essere associato al nome host S3 utilizzato durante la configurazione della partizione di veritas Enterprise Vault. L'indirizzo VIP risolve il traffico a site1 e, durante un errore site1, l'indirizzo VIP reindirizza il traffico a site2 in modo trasparente.</block>
+  <block id="0def3d0da889c0e13e06d8e1ff2af9dd" category="inline-image-macro">vertias/veritas-storage-pool-details-site-1</block>
+  <block id="43ad61add042d6d64a01afe1db28f05c" category="paragraph"><block ref="43ad61add042d6d64a01afe1db28f05c" category="inline-image-macro-rx" type="image"></block></block>
+  <block id="1c4cb0eddc44a68196819920f522f16a" category="inline-image-macro">vertias/veritas-storage-pool-details-site-2</block>
+  <block id="f4d48050c229a4cd522d6ca91d710a64" category="paragraph"><block ref="f4d48050c229a4cd522d6ca91d710a64" category="inline-image-macro-rx" type="image"></block></block>
+  <block id="75381ece1664fa46e0387e8b6436f7ea" category="inline-image-macro">vertias/veritas-storage-pool-details-site-3</block>
+  <block id="3e2cf841de27a979e1d058590ff5e98e" category="paragraph"><block ref="3e2cf841de27a979e1d058590ff5e98e" category="inline-image-macro-rx" type="image"></block></block>
+  <block id="419754dcc8bb78c19b08aef3cde80cfb" category="list-text">Quando i dati archiviati vengono inviati da veritas Enterprise Vault, StorageGRID garantisce che una copia venga archiviata in site1 e un'altra copia di DR in site2. Se site1 si guasta, Enterprise Vault continua ad acquisire e recuperare da site2 TB.</block>
+  <block id="32b3440d0a295232731c116fa5442f36" category="admonition">Entrambe queste configurazioni sono trasparenti per veritas Enterprise Vault. L'endpoint S3, il nome del bucket, le chiavi di accesso e così via sono gli stessi. Non è necessario riconfigurare le impostazioni di connessione S3 nella partizione veritas Enterprise Vault.</block>
+  <block id="f5ab4938048291a0a6cd674b47551852" category="summary">Scopri come veritas Enterprise Vault utilizza StorageGRID come destinazione di storage primario per il disaster recovery.</block>
+  <block id="e4d96bf38daf6358642e31e511c4e3ae" category="paragraph">Questa guida alla configurazione fornisce i passaggi per configurare NetApp® StorageGRID® come destinazione di storage primario con veritas Enterprise Vault. Viene inoltre descritto come configurare StorageGRID per il failover del sito in uno scenario di disaster recovery (DR).</block>
+  <block id="b9faea4479e9fc1bc458b58b8247cda0" category="paragraph">StorageGRID offre una destinazione di backup cloud on-premise compatibile con S3 per veritas Enterprise Vault. La figura seguente illustra l'architettura di veritas Enterprise Vault e StorageGRID.</block>
+  <block id="055f9879907c22c8cfd3c54bd9f610cb" category="inline-image-macro">vertias/veritas-enterprise-vault-and-StorageGRID-architettura</block>
+  <block id="52cb822768beb11d3d42a3f9b19804d9" category="paragraph"><block ref="52cb822768beb11d3d42a3f9b19804d9" category="inline-image-macro-rx" type="image"></block></block>
+  <block id="7a14e19b8ee1a0a04a0446df31d46f8c" category="list-text">veritas Enterprise Vault 11</block>
+  <block id="6369bbbcf565d042b20a283550fe3ed1" category="list-text">veritas Enterprise Vault 12</block>
+  <block id="9d9543f7e1d6b0664f04ff4f8a7c47b9" category="list-text">veritas NetBackup 8,0</block>
+  <block id="ff5cfc1dbf017ecb8959d053238bf56b" category="list-text">veritas Enterprise Vault 14</block>
+  <block id="176411398f4cd808898ca8b28d32a473" category="list-text">veritas Enterprise Vault 14.2.2</block>
+  <block id="630b3115bbfc0cab3a6c9f0257baa041" category="list-text">veritas NetBackup 10.1.1 e versioni successive</block>
+  <block id="8bab4d54d9f4be0e126140976cdd93e4" category="list-text">Snapshot Elasticsearch (incluso il Tier "frozen")</block>
+  <block id="f12757e29dee512b70563c66186ae3d8" category="paragraph">Si consiglia sempre di restare aggiornati e di applicare gli aggiornamenti rapidi più recenti per il sistema Veeam Backup &amp; Replication 12 o 12,1. Attualmente consigliamo almeno di installare Veeam 12 patch P20230718.</block>
+  <block id="d9077bfff46af079bd1370f652df5fc8" category="paragraph">NetApp StorageGRID 11,7 o 11,8 con la correzione rapida più recente sono le versioni consigliate per le implementazioni Veeam. Si consiglia di restare sempre aggiornati e di applicare gli aggiornamenti rapidi più recenti per il sistema StorageGRID in uso.</block>
+  <block id="ab04d5a9409dc8a45ac13596c3483cbe" category="inline-link-macro">Documentazione del prodotto NetApp StorageGRID 11,8</block>
+  <block id="0b27dbe2229bcc6cc460d4c9db01ca59" category="list-text"><block ref="0b27dbe2229bcc6cc460d4c9db01ca59" category="inline-link-macro-rx"></block></block>
+  <block id="734ae27bd626f001863fc96cdf284a4c" category="sidebar">Migrazione dello storage a oggetti da ONTAP S3 a StorageGRID</block>
+  <block id="7278573c930789840fac32f75102c4cb" category="sidebar">TR-4907: Configurare StorageGRID con veritas Enterprise Vault</block>
+  <block id="c4661d92ec5bfd72a43733aea8dc23dd" category="sidebar">Migrazione da ONTAP S3 a StorageGRID</block>
+  <block id="d3aa740f8e2398fe1df8b4f9eb4d398c" category="sidebar">Popolare e replicare il bucket</block>
+  <block id="083e747ac97fd71c385f2c89f8eefdb7" category="sidebar">Migrazione di utenti e chiavi, quindi cutover</block>
+  <block id="81022eb5da399c3a2fd9f2b07db1afd3" category="sidebar">Disaster recovery di StorageGRID – Configurazione di StorageGRID per il failover del sito con veritas Enterprise Vault</block>
 </blocks>

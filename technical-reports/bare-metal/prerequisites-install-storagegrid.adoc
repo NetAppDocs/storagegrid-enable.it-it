@@ -172,7 +172,7 @@ Combinando i requisiti di elaborazione e di rete illustrati nella tabella preced
 
 Come illustrato nella seguente figura, questi server ospitano sei container Docker, due per host. La RAM viene calcolata fornendo 24GB GB per contenitore e 16GB GB per il sistema operativo host stesso.
 
-image:bare-metal-layout-for-three-hosts.png["Layout di esempio per tre host."]
+image:bare-metal/bare-metal-layout-for-three-hosts.png["Layout di esempio per tre host."]
 
 La RAM totale richiesta per host fisico (o VM) è 24 x 2 GB + 16 GB = 64GB GB. Nelle tabelle che seguono sono elencati i requisiti di archiviazione su disco per gli host 1, 2 e 3.
 

@@ -23,10 +23,10 @@ Questi dashboard predefiniti sono utili non solo per il monitoraggio ma anche pe
 . Nell'interfaccia GMI, menu:Support[Metrics] (supporto[metriche]).
 . Nella sezione Grafana, selezionare il dashboard Node (nodo).
 +
-image:monitor-node-dashboard.png["monitor-nodo-dashboard"]
+image:monitor/monitor-node-dashboard.png["monitor-nodo-dashboard"]
 
 . In Grafana, impostare gli host sul nodo su cui si desidera visualizzare le metriche. In questo caso, viene selezionato un nodo storage. Vengono fornite ulteriori informazioni rispetto alle seguenti schermate acquisite.
 +
-image:monitor-grafana-metrics.png["monitorare-le-metriche-grafiche"]
+image:monitor/monitor-grafana-metrics.png["monitorare-le-metriche-grafiche"]
 
 

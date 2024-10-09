@@ -29,7 +29,7 @@ Per specificare le informazioni sul server DNS, attenersi alla procedura illustr
 . Nella casella di testo Server 1, specificare l'indirizzo IP di un server DNS.
 . Se necessario, fare clic sul segno più accanto all'ultima voce per aggiungere altri server.
 +
-image:bare-metal-add-more-servers-2.png["bare-metal-add-more-server-2"]
+image:bare-metal/bare-metal-add-more-servers-2.png["bare-metal-add-more-server-2"]
 
 . Fare clic su Avanti.
 

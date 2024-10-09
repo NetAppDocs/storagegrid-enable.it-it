@@ -32,7 +32,7 @@ Per configurare il monitor di controllo dello stato del gestore del traffico loc
 .. Nel campo Invia stringa, immettere `OPTIONS / HTTP/1.1\r\n\r\n.` \r\n sono ritorni a capo; versioni diverse del software BIG-IP richiedono zero, uno o due set di sequenze \r\n. Per ulteriori informazioni, vedere https://support.f5.com/csp/article/K10655[].
 .. Nel campo Receive String (stringa di ricezione), immettere: `HTTP/1.1 200 OK`.
 +
-image:load-balancer-monitor-configuration-page.png["Pagina di configurazione del monitor"]
+image:load-balancer/load-balancer-monitor-configuration-page.png["Pagina di configurazione del monitor"]
 
 
 
@@ -56,9 +56,9 @@ Utilizzare il monitor di controllo dello stato HTTPS-ECV per creare un monitor p
 
 Per ulteriori informazioni, consultare la documentazione Citrix, https://docs.citrix.com/en-us/citrix-adc/current-release/load-balancing/load-balancing-builtin-monitors/monitor-ssl-services.html#sample-configuration-for-https-ecv-health-check-monitor["Configurazione di esempio per il monitor di controllo dello stato HTTP-ECV"^].
 
-image:load-balancer-citrix-netscaler-configuration-page.png["Pagina di configurazione di Citrix Netscaler Monitor"]
+image:load-balancer/load-balancer-citrix-netscaler-configuration-page.png["Pagina di configurazione di Citrix Netscaler Monitor"]
 
-image:load-balancer-configure-monitor.png["Configure-monitor.png"]
+image:load-balancer/load-balancer-configure-monitor.png["Configure-monitor.png"]
 
 
 

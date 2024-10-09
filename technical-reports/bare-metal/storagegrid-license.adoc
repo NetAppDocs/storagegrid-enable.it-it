@@ -28,7 +28,7 @@ Per specificare le informazioni sulla licenza StorageGRID, attenersi alla seguen
 NOTE: L'archivio di installazione di StorageGRID include una licenza gratuita che non fornisce alcun diritto di supporto per il prodotto. È possibile eseguire l'aggiornamento a una licenza che offra supporto dopo l'installazione.
 
 +
-image:bare-metal-update-license.png["licenza-aggiornamento-bare-metal"]
+image:bare-metal/bare-metal-update-license.png["licenza-aggiornamento-bare-metal"]
 
 . Fare clic su Avanti.
 

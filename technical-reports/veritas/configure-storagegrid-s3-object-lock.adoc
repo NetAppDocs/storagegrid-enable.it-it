@@ -29,19 +29,19 @@ Per configurare la conservazione predefinita del bucket di blocco degli oggetti 
 .Fasi
 . In Gestione tenant StorageGRID, creare un bucket e fare clic su continua
 +
-image:third-party-create-bucket.png["third-party-create-bucket.png"]
+image:veritas/veritas-create-bucket.png["vertigini/veritas-create-bucket.png"]
 
 . Selezionare l'opzione attiva blocco oggetti S3 e fare clic su Crea bucket.
 +
-image:third-party-create-bucket-2.png["third-party-create-bucket-2.png"]
+image:veritas/veritas-create-bucket-2.png["vertigini/veritas-create-bucket-2.png"]
 
 . Una volta creata la benna, selezionarla per visualizzare le opzioni della benna. Espandere l'opzione a discesa blocco oggetti S3.
 +
-image:third-party-overview.png["third-party-overview.png"]
+image:veritas/veritas-overview.png["vertigini/veritas-overview.png"]
 
 . In conservazione predefinita, selezionare attiva e impostare un periodo di conservazione predefinito di 1 giorno. Fare clic su Salva modifiche.
 +
-image:third-party-s3-object-lock.png["blocco-oggetto-s3-terze-parti"]
+image:veritas/veritas-s3-object-lock.png["vertias/veritas-s3-object-lock"]
 
 +
 Il bucket è ora pronto per essere utilizzato da Enterprise Vault per memorizzare dati WORM.
@@ -57,7 +57,7 @@ Per configurare Enterprise Vault, completare i seguenti passaggi:
 .Fasi
 . Ripetere i passaggi 1-3 della link:configure-storagegrid-s3-object-lock.html#configure-storagegrid-s3-object-lock-default-bucket-retention["Configurazione di base"] sezione, ma questa volta selezionare l'opzione Memorizza dati in modalità WORM utilizzando blocco oggetti S3. Fare clic su Avanti.
 +
-image:third-party-new-partition-8.png["nuova-partizione-di-terze-parti-8"]
+image:veritas/veritas-new-partition-8.png["vertias/veritas-new-partition-8"]
 
 . Quando si immettono le impostazioni di connessione del bucket S3, assicurarsi di immettere il nome di un bucket S3 in cui è attivata la conservazione predefinita del blocco degli oggetti S3.
 . Verificare la connessione per verificare le impostazioni.

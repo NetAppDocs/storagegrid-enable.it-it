@@ -54,93 +54,123 @@ image:datalake-analytics/image2.png["Esempio datalake StorageGRID,width=614,heig
 
 
 
-== Quale data warehouse o data Lake funziona meglio con lo storage a oggetti S3
+== Benchmarking di Data warehouse e Lakehouses con storage a oggetti S3: Uno studio comparativo
 
-NetApp ha messo a confronto StorageGRID con tre ecosistemi data warehouse/Lake house - Hive, Delta Lake e Dremio. https://www.dremio.com/wp-content/uploads/2023/02/apache-iceberg-TDG_ER1.pdf?aliId=eyJpIjoieDRUYjFKN2ZMbXhTRnFRWCIsInQiOiJIUUw0djJsWnlJa21iNUsyQURRalNnPT0ifQ%253D%253D["Apache Iceberg: La guida definitiva"] include una breve introduzione di data warehouse e data lake house e pro/contro di queste due architetture.
+Questo articolo presenta un benchmark completo di vari ecosistemi di data warehouse e lakehouse che utilizzano NetApp StorageGRID. L'obiettivo è determinare il sistema che funziona meglio con lo storage a oggetti S3. Fare riferimento a questo https://www.dremio.com/wp-content/uploads/2023/02/apache-Iceberg-TDG_ER1.pdf?aliId=eyJpIjoieDRUYjFKN2ZMbXhTRnFRWCIsInQiOiJIUUw0djJsWnlJa21iNUsyQURRalNnPT0ifQ%253D%253D["Apache Iceberg: La guida definitiva"] per ulteriori informazioni sulle architetture datawarehous/lakehouse e sul formato tabella (Parquet e Iceberg).
 
 * Strumento benchmark - TPC-DS - https://www.tpc.org/tpcds/[]
 * Ecosistemi di big data
 +
-** Cluster di 5 VM, ciascuna con 128G GB di RAM e 24 vCPU, storage SSD per disco di sistema
+** Cluster di macchine virtuali, ciascuno con 128G GB di RAM e 24 vCPU, storage SSD per disco di sistema
 ** Hadoop 3.3.5 con Hive 3.1.3 (1 nodi nome + 4 nodi dati)
 ** Delta Lake con Spark 3.2.0 (1 master + 4 dipendenti) e Hadoop 3.3.5
-** Dremio V23 (1 master + 4 esecutori)
+** Dremio V23 (1 cordinatore + 5 esecutori)
+** Trino v438 (1 cordinatore + 5 addetti)
+** Starburst v453 (1 cordinatore + 5 addetti)
 
 
 * Storage a oggetti
 +
-** NetApp^®^ StorageGRID^® 11,6 con bilanciamento del carico 3 x SG6060 + 1x SG1000
-** Protezione degli oggetti - 2 copie
+** NetApp^®^ StorageGRID^® 11,8 con bilanciamento del carico 3 x SG6060 + 1x SG1000
+** Protezione degli oggetti - 2 copie (il risultato è simile a EC 2+1)
 
 
 * Dimensioni del database 1000GB
-* Cache disabilitata in tutti gli ecosistemi 3 per ottenere risultati coerenti per ogni test di query.
+* La cache è stata disabilitata in tutti gli ecosistemi per ogni test di query utilizzando il formato Parquet. Per il formato Iceberg, abbiamo confrontato il numero di richieste GET S3 e il tempo totale di query tra scenari con cache disabilitata e scenari con cache abilitata.
 
 
-TPC-DS include 99 query SQL complesse per l'analisi comparativa delle query. Abbiamo misurato i minuti totali per completare tutte e 99 le query e ci siamo accorti di aver suddiviso il tipo e il numero di richieste S3 per analizzare il risultato. La prima tabella riportata di seguito mostra la durata totale di tutte le 99 query e la seconda tabella riassume il numero e i tipi di richieste S3 inviate a StorageGRID da ciascun ecosistema.
+TPC-DS include 99 query SQL complesse progettate per il benchmarking. Abbiamo misurato il tempo totale impiegato per eseguire tutte le 99 query e abbiamo condotto un'analisi dettagliata esaminando il tipo e il numero di richieste S3. I nostri test hanno confrontato l'efficienza di due formati di tabella popolari: Parquet e Iceberg.
 
-*Risultato query TPC-DS*
+*Risultato query TPC-DS con formato tabella parquet*
 
-[cols="35%,20%,23%,22%"]
+[cols="10%,18%,18%,18%,18%,18%"]
 |===
-| Ecosistema | Alveare | Lago Delta | Dremio 
-
-
-| Layer di storage | NetApp^®^ StorageGRID^® | NetApp^®^ StorageGRID^® | NetApp^®^ StorageGRID^® 
-
-
-| Tipo di disco | DISCO RIGIDO | DISCO RIGIDO | DISCO RIGIDO 
-
-
-| Formato tabella | Parquet | Parquet | Parquet ^1^ 
-
-
-| Dimensione del database | 1000G | 1000G | 1000G 
+| Ecosistema | Alveare | Lago Delta | Dremio | Trino | Starburst 
 
 
 | TPCDS 99 query +
-minuti totali | 1084 ^2^ | 55 | 47 
-|===
-^1^ ha testato sia il formato della tabella Parquet che Iceberg, il risultato è simile.
-
-^2^ Impossibile completare la query numero 72.
-
-*Query TPC-DS - S3 richieste di disaggregazione*
-
-[cols="24%,24%,27%,25%"]
-|===
-| S3 richieste | Alveare | Lago Delta | Dremio 
+minuti totali | 1084 ^1^ | 55 | 47 | 32 | 28 
 
 
-| OTTIENI | 1.117.184 | 2.074.610 | 4.414.227 
+ a| 
+S3 richieste di ripartizione
+
+
+
+| OTTIENI | 1.117.184 | 2.074.610 | 4.414.227 | 1.504.212 | 1.495.039 
 
 
 | osservazione: +
-Tutta la gamma | 80% range get di 2KB a 2MB da 32MB oggetti, 50 - 100 richieste/sec | Il range del 73% è inferiore a 100KB da 32MB oggetti, 1000 - 1400 richieste/sec | 90% 1M byte range get from 256MB objects, 2000 - 2300 requests/sec 
+Tutta la gamma | 80% range get di 2KB a 2MB da 32MB oggetti, 50 - 100 richieste/sec | Il range del 73% è inferiore a 100KB da 32MB oggetti, 1000 - 1400 richieste/sec | 90% 1M byte range get from 256MB objects, 2000 - 2300 requests/sec | Dimensioni del range: 50% inferiore a 100KB, 16% circa 1MB, 27% 2MB-9MB, 3500 - 4000 richieste/sec | Dimensioni del range: 50% inferiore a 100KB, 16% circa 1MB, 27% 2MB-9MB, 4000 - 5000 richiesta/sec 
 
 
-| Elenca oggetti | 312.053 | 24.158 | 240 
-
-
-| TESTA +
-(oggetto inesistente) | 156.027 | 12.103 | 192 
+| Elenca oggetti | 312.053 | 24.158 | 240 | 509 | 512 
 
 
 | TESTA +
-(oggetto esistente) | 982.126 | 922.732 | 1.845 
+(oggetto inesistente) | 156.027 | 12.103 | 192 | 0 | 0 
 
 
-| Richieste totali | 2.567.390 | 3.033.603 | 4.416.504 
+| TESTA +
+(oggetto esistente) | 982.126 | 922.732 | 1.845 | 0 | 0 
+
+
+| Richieste totali | 2.567.390 | 3.033.603 | 4.416.504 | 1.504.721 | 1.499.551 
 |===
-Dalla prima tavola, possiamo vedere Delta Lago e Dremio sono molto più veloce di Hive. Dalla seconda tabella, si nota che Hive ha inviato molte S3 richieste list-objects, che in genere sono lente in tutte le piattaforme di storage a oggetti, soprattutto se si tratta di un bucket contenente molti oggetti. Ciò aumenta notevolmente la durata complessiva delle query. Un'altra osservazione è stata Dremio in grado di inviare un elevato numero di richieste GET in parallelo, da 2.000 a 2.300 richieste al secondo contro 50 - 100 richieste al secondo in Hive. Il file system hive e Hadoop S3A mimico standard contribuisce alla lentezza di Hive nello storage a oggetti S3.
+^1^ Impossibile completare la query numero 72
 
-L'utilizzo di Hadoop (su storage a oggetti HDFS o S3) con Hive o Spark richiede un'estesa conoscenza di Hadoop e Hive/Spark e del modo in cui interagiscono le impostazioni di ogni servizio, insieme hanno più di 1000 impostazioni. Molto spesso, le impostazioni sono correlate e non possono essere modificate da sole. Per trovare la combinazione ottimale di impostazioni e valori da utilizzare sono necessari tempi e sforzi enormi.
+*Risultato query TPC-DS con formato tabella Iceberg*
 
-Dremio è un motore di data Lake che utilizza Apache Arrow end-to-end per aumentare drasticamente le prestazioni delle query. Apache Arrow fornisce un formato di memoria colonnare standardizzato per una condivisione dei dati efficiente e analisi rapide. Arrow adotta un approccio indipendente dal linguaggio, progettato per eliminare la necessità di serializzazione e deserializzazione dei dati, migliorando le prestazioni e l'interoperabilità tra sistemi e processi di dati complessi.
+[cols="22%,26%,26%,26%"]
+|===
+| Ecosistema | Dremio | Trino | Starburst 
 
-Le prestazioni di Dremio dipendono principalmente dalla potenza di elaborazione del cluster Dremio. Sebbene Dremio utilizzi il connettore S3A di Hadoop per la connessione di storage a oggetti S3, Hadoop non è richiesto e la maggior parte delle impostazioni fs.S3A di Hadoop non sono utilizzate da Dremio. Ciò semplifica l'ottimizzazione delle prestazioni di Dremio senza dedicare tempo ad apprendere e testare varie impostazioni di Hadoop S3A.
 
-Dai risultati di questo benchmark, possiamo concludere che il sistema di analisi dei big data ottimizzato per carichi di lavoro basati su S3 è un fattore importante per le performance. Dremio ottimizza l'esecuzione delle query, utilizza in modo efficiente i metadati e fornisce un accesso senza problemi ai dati S3, garantendo prestazioni migliori rispetto a Hive quando si utilizza lo storage S3. Fare riferimento a questo https://docs.netapp.com/us-en/storagegrid-enable/tools-apps-guides/configure-dremio-storagegrid.html["pagina"] Per configurare l'origine dati Dremio S3 con StorageGRID.
+| TPCDS 99 query + minuti totali (cache disattivata) | 30 | 28 | 22 
+
+
+| TPCDS 99 query + minuti totali (cache abilitata) | 22 | 28 | 21,5 
+
+
+ a| 
+S3 richieste di ripartizione
+
+
+
+| GET (OTTIENI) (cache disattivata) | 2.154.747 | 938.639 | 931.582 
+
+
+| GET (OTTIENI) (cache abilitata) | 5.389 | 30.158 | 3.281 
+
+
+| osservazione: +
+Tutta la gamma | Dimensioni di RICEZIONE intervallo: 67% 1MB, 15% 100KB, 10% 500KB, 3000 - 4000 richieste/sec | Dimensioni del range: 42% inferiore a 100KB, 17% circa 1MB, 33% 2MB-9MB, 3500 - 4000 richieste/sec | Dimensioni del range: 43% inferiore a 100KB, 17% circa 1MB, 33% 2MB-9MB, 4000 - 5000 richieste/sec 
+
+
+| Elenca oggetti | 284 | 0 | 0 
+
+
+| TESTA +
+(oggetto inesistente) | 284 | 0 | 0 
+
+
+| TESTA +
+(oggetto esistente) | 1.261 | 509 | 509 
+
+
+| Richieste totali (cache disattivata) | 2.156.578 | 939.148 | 932.071 
+|===
+Come mostrato nella prima tabella, Hive è significativamente più lento di altri moderni dati ecosistemi lakehouse. Abbiamo osservato che Hive ha inviato un gran numero di richieste list-objects S3, che in genere sono lente su tutte le piattaforme di storage a oggetti, soprattutto quando si gestiscono bucket contenenti molti oggetti. Ciò aumenta notevolmente la durata complessiva della query. Inoltre, i moderni ecosistemi lakehouse possono inviare in parallelo un elevato numero di richieste GET, che vanno da 2.000 a 5.000 richieste al secondo, rispetto alle richieste da 50 a 100 di Hive al secondo. Il file system standard mimicry di Hive e Hadoop S3A contribuisce alla lentezza di Hive nell'interazione con lo storage a oggetti S3.
+
+L'utilizzo di Hadoop (su storage a oggetti HDFS o S3) con Hive o Spark richiede un'estesa conoscenza di Hadoop e Hive/Spark, oltre a una comprensione dell'interazione delle impostazioni di ogni servizio. Insieme, hanno più di 1.000 impostazioni, molte delle quali sono correlate e non possono essere modificate indipendentemente. Trovare la combinazione ottimale di impostazioni e valori richiede un'enorme quantità di tempo e di lavoro.
+
+Confrontando i risultati di Parquet e Iceberg, notiamo che il formato della tabella è un fattore di prestazioni importante. Il formato della tavola Iceberg è più efficiente del Parquet in termini di numero di S3 richieste, con un numero di richieste inferiore dal 35% al 50% rispetto al formato Parquet.
+
+Le prestazioni di Dremio, Trino o Starburst sono principalmente determinate dalla potenza di calcolo del cluster. Sebbene tutte e tre utilizzino il connettore S3A per la connessione allo storage a oggetti S3, non richiedono Hadoop e la maggior parte delle impostazioni fs.S3A di Hadoop non sono utilizzate da questi sistemi. Questo semplifica il tuning delle performance, eliminando la necessità di imparare e testare le varie impostazioni di Hadoop S3A.
+
+Da questo risultato del benchmark, possiamo concludere che il sistema di analisi dei big data ottimizzato per carichi di lavoro basati su S3 è un importante fattore di performance. I moderni Lakehouse ottimizzano l'esecuzione delle query, utilizzano in modo efficiente i metadati e forniscono un accesso perfetto ai dati S3, producendo performance migliori rispetto a Hive quando si utilizza lo storage S3.
+
+Fare riferimento a questa https://docs.netapp.com/us-en/storagegrid-enable/tools-apps-guides/configure-dremio-storagegrid.html["pagina"] sezione per configurare l'origine dati Dremio S3 con StorageGRID.
 
 Visita i collegamenti riportati di seguito per scoprire come StorageGRID e Dremio collaborano per fornire un'infrastruttura di data Lake moderna ed efficiente e come NetApp è passata da Hive + HDFS a Dremio + StorageGRID per migliorare in modo significativo l'efficienza dell'analisi dei big data.
 

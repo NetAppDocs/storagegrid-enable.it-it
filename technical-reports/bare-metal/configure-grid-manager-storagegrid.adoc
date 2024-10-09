@@ -64,4 +64,4 @@ https://primary_admin_node_ip:8443
 . Fare clic su Installa un sistema StorageGRID. Viene visualizzata la pagina utilizzata per configurare una griglia StorageGRID.
 
 
-image:bare-metal-configure-storagegrid-grid.png["bare-metal-configure-storagegrid-grid"]
+image:bare-metal/bare-metal-configure-storagegrid-grid.png["bare-metal-configure-storagegrid-grid"]

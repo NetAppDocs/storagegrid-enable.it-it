@@ -30,7 +30,7 @@ I bilanciatori del carico sono un componente essenziale di un sistema storage a 
 
 Nella figura seguente viene utilizzato l'URL di esempio/nome di dominio completo (FQDN) "s3.company.com”. Il bilanciamento del carico crea un IP virtuale (VIP) che viene risolto all'FQDN tramite DNS, quindi indirizza le richieste dalle applicazioni a un pool di nodi StorageGRID. Il bilanciamento del carico esegue un controllo dello stato di salute su ogni nodo e stabilisce solo connessioni a nodi sani.
 
-image:load-balancer-local-traffic-manager-load-balancer.png["Bilanciamento del carico del gestore del traffico locale"]
+image:load-balancer/load-balancer-local-traffic-manager-load-balancer.png["Bilanciamento del carico del gestore del traffico locale"]
 
 La figura mostra il bilanciamento del carico fornito da StorageGRID, ma il concetto è lo stesso per i bilanciatori del carico di terze parti. Le applicazioni stabiliscono una sessione HTTP utilizzando il VIP sul bilanciamento del carico e il traffico passa attraverso il bilanciamento del carico fino ai nodi di storage. Per impostazione predefinita, tutto il traffico, dall'applicazione al bilanciamento del carico e dal bilanciamento del carico al nodo storage è crittografato tramite HTTPS. HTTP è un'opzione supportata.
 

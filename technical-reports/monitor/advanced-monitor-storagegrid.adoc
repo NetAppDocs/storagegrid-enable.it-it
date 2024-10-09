@@ -21,11 +21,11 @@ Scopri come accedere ed esportare le metriche per risolvere i problemi.
 
 Prometheus è un software open-source per la raccolta delle metriche. Per accedere al Prometheus integrato di StorageGRID tramite l'GMI, vai al menu:Support[Metrics].
 
-image:monitor-metrics-page.png["pagina-metriche-monitor"]
+image:monitor/monitor-metrics-page.png["pagina-metriche-monitor"]
 
 In alternativa, è possibile accedere direttamente al collegamento.
 
-image:monitor-prometheus-interface.png["interfaccia monitor-prometheus"]
+image:monitor/monitor-prometheus-interface.png["interfaccia monitor-prometheus"]
 
 Con questa visualizzazione, è possibile accedere all'interfaccia Prometheus. Da lì, puoi cercare nelle metriche disponibili e persino sperimentare le query.
 
@@ -35,7 +35,7 @@ Per eseguire una query URL Prometheus, attenersi alla seguente procedura:
 . Iniziare a digitare nella casella di testo della query. Durante la digitazione, vengono elencate le metriche. Per i nostri scopi, sono importanti solo le metriche che iniziano con StorageGRID e nodo.
 . Per visualizzare il numero di sessioni HTTP per ogni nodo, digitare `storagegrid_http` e selezionare `storagegrid_http_sessions_incoming_currently_established`. Fare clic su Esegui e visualizzare le informazioni in formato grafico o console.
 +
-image:monitor-http-sessions.png["monitorare-sessioni-http"]
+image:monitor/monitor-http-sessions.png["monitorare-sessioni-http"]
 
 
 
@@ -56,13 +56,13 @@ Per esportare le metriche tramite l'API, attenersi alla seguente procedura:
 . Nell'interfaccia GMI, selezionare menu:Guida[documentazione API].
 . Scorrere fino a Metrics (metriche) e selezionare GET /grid/METRIC-query (OTTIENI /griglia/query metrica).
 +
-image:monitor-metrics-query.png["monitoraggio-metriche-query"]
+image:monitor/monitor-metrics-query.png["monitoraggio-metriche-query"]
 
 +
 La risposta include le stesse informazioni che è possibile ottenere tramite una query URL Prometheus. È possibile visualizzare nuovamente il numero di sessioni HTTP attualmente stabilite su ciascun nodo di storage. È anche possibile scaricare la risposta in formato JSON per la leggibilità. La figura seguente mostra risposte di query Prometheus di esempio.
 
 +
-image:monitor-sample-prometheus-query-responses.png["monitorare-campione-prometheus-risposte-query"]
+image:monitor/monitor-sample-prometheus-query-responses.png["monitorare-campione-prometheus-risposte-query"]
 
 
 

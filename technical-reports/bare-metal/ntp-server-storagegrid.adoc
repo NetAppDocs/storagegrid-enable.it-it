@@ -32,7 +32,7 @@ Per specificare le informazioni sul server NTP, attenersi alla seguente procedur
 . Nelle caselle di testo Server 1 to Server 4 (Server 1 - Server 2), specificare gli indirizzi IP per almeno quattro server NTP.
 . Se necessario, fare clic sul segno più accanto all'ultima voce per aggiungere altre voci al server.
 +
-image:bare-metal-add-server-entries.png["voci-server-aggiunto-bare-metal"]
+image:bare-metal/bare-metal-add-server-entries.png["voci-server-aggiunto-bare-metal"]
 
 . Fare clic su Avanti.
 

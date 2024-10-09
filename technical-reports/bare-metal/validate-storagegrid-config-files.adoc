@@ -26,8 +26,8 @@ sudo storagegrid node validate all
 ----
 Se i file sono corretti, l'output mostra SUPERATO per ogni file di configurazione:
 
-image:bare-metal-output-shows-passed.png["base-metallo-output-mostra-passato"]
+image:bare-metal/bare-metal-output-shows-passed.png["base-metallo-output-mostra-passato"]
 
 Se i file di configurazione non sono corretti, i problemi vengono visualizzati come AVVISI ed ERRORI. Se vengono rilevati errori di configurazione, è necessario correggerli prima di procedere con l'installazione.
 
-image:bare-metal-output-shows-warning-error.png["output-metallo-base-mostra-avviso-errore"]
+image:bare-metal/bare-metal-output-shows-warning-error.png["output-metallo-base-mostra-avviso-errore"]

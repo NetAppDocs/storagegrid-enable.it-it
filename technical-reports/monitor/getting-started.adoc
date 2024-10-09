@@ -16,7 +16,7 @@ La dashboard dell'interfaccia GMI (Grid Management Interface) di StorageGRID for
 
 Utilizzare il dashboard GMI per esaminare ciascun componente principale della griglia.
 
-image:monitor-storagegrid-gmi-dashboard.png["monitor-storagegrid-cruscotto-gmi"]
+image:monitor/monitor-storagegrid-gmi-dashboard.png["monitor-storagegrid-cruscotto-gmi"]
 
 
 

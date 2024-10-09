@@ -34,7 +34,7 @@ Assicurarsi di leggere la documentazione del prodotto per https://www.veeam.com/
 
 === Versione consigliata
 
-Si consiglia sempre di rimanere aggiornati e di applicare gli aggiornamenti rapidi più recenti per il sistema Veeam Backup & Replication 12. Al momento consigliamo almeno di installare la patch Veeam P20230718.
+Si consiglia sempre di restare aggiornati e di applicare gli aggiornamenti rapidi più recenti per il sistema Veeam Backup & Replication 12 o 12,1. Attualmente consigliamo almeno di installare Veeam 12 patch P20230718.
 
 
 
@@ -85,7 +85,7 @@ Contatta il tuo account team NetApp per ottenere la configurazione consigliata i
 
 === Versione consigliata
 
-NetApp StorageGRID 11,6 o 11,7 con la correzione rapida più recente sono le versioni consigliate per le implementazioni Veeam. Nel StorageGRID 11.6.0.11 e 11.7.0.4 sono state introdotte molte funzionalità di ottimizzazione che saranno vantaggiose per i workload Veeam. Si consiglia di restare sempre aggiornati e di applicare gli aggiornamenti rapidi più recenti per il sistema StorageGRID in uso.
+NetApp StorageGRID 11,7 o 11,8 con la correzione rapida più recente sono le versioni consigliate per le implementazioni Veeam. Si consiglia di restare sempre aggiornati e di applicare gli aggiornamenti rapidi più recenti per il sistema StorageGRID in uso.
 
 
 
@@ -186,7 +186,7 @@ image:veeam-bp/tc_2.png["Criteri di classificazione del traffico"]
 
 Per ulteriori informazioni sulle informazioni descritte in questo documento, consultare i seguenti documenti e/o siti Web:
 
-* link:https://docs.netapp.com/us-en/storagegrid-117/["Documentazione del prodotto NetApp StorageGRID 11,7"^]
+* link:https://docs.netapp.com/us-en/storagegrid-118/["Documentazione del prodotto NetApp StorageGRID 11,8"^]
 * link:https://www.veeam.com/documentation-guides-datasheets.html?productId=8&version=product%3A8%2F221["Backup e replica di Veeam"^]
 
 

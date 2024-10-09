@@ -32,12 +32,12 @@ NOTE: Se manca un nodo Grid, confermare che è stato implementato correttamente.
 
 . Fare clic sul pulsante di opzione accanto a un nodo in sospeso che si desidera approvare.
 +
-image:bare-metal-approve-configure-grid-nodes.png["media/bare-metal-approve-configure-grid-node"]
+image:bare-metal/bare-metal-approve-configure-grid-nodes.png["media/bare-metal-approve-configure-grid-node"]
 
 . Fare clic su approva.
 . In Impostazioni generali, modificare le impostazioni per le seguenti proprietà, se necessario.
 +
-image:bare-metal-admin-node-configuration.png["configurazione-nodo-amministratore-bare-metal"]
+image:bare-metal/bare-metal-admin-node-configuration.png["configurazione-nodo-amministratore-bare-metal"]
 
 +
 -- *Sito*: Il nome del sistema del sito per questo nodo della griglia.
@@ -109,9 +109,9 @@ NOTE: Se si seleziona DHCP per la configurazione della rete amministrativa e si 
 
 . Fare clic su Salva. La voce del nodo della griglia viene spostata nell'elenco dei nodi approvati.
 +
-image:bare-metal-approved-node-list.png["elenco-nodi-approvati-bare-metal"]
+image:bare-metal/bare-metal-approved-node-list.png["elenco-nodi-approvati-bare-metal"]
 
-. Ripetere i passaggi da 1 a 8 per ogni nodo griglia in sospeso che si desidera approvare.
+. Ripetere i passaggi 1-8 per ogni nodo griglia in sospeso che si desidera approvare.
 +
 È necessario approvare tutti i nodi desiderati nella griglia. Tuttavia, è possibile tornare a questa pagina in qualsiasi momento prima di fare clic su Installa nella pagina Riepilogo. Per modificare le proprietà di un nodo griglia approvato, fare clic sul relativo pulsante di opzione, quindi fare clic su Modifica.
 

@@ -21,7 +21,7 @@ Per eseguire questa operazione, è necessario prima ottenere un token di autoriz
 . Nell'interfaccia GMI, selezionare menu:Guida[documentazione API].
 . Scorrere verso il basso fino a Auth per trovare le operazioni su autorizzazione. La seguente schermata mostra i parametri per il metodo POST.
 +
-image:monitor-post-method.png["monitoraggio-post-metodo"]
+image:monitor/monitor-post-method.png["monitoraggio-post-metodo"]
 
 . Fare clic su prova e modificare il corpo con il nome utente e la password GMI.
 . Fare clic su Esegui.

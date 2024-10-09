@@ -28,7 +28,7 @@ Per specificare le sottoreti della rete a griglia, attenersi alla seguente proce
 . Nella casella di testo Subnet 1, specificare l'indirizzo di rete CIDR per almeno una rete a griglia.
 . Fare clic sul segno più accanto all'ultima voce per aggiungere una voce di rete aggiuntiva. Se è già stato distribuito almeno un nodo, fare clic su rileva subnet Grid Networks per compilare automaticamente l'elenco delle subnet della rete griglia con le subnet segnalate dai nodi della griglia registrati con Grid Manager.
 +
-image:bare-metal-subnets-grid-network.png["bare-metal-subnet-grid-network"]
+image:bare-metal/bare-metal-subnets-grid-network.png["bare-metal-subnet-grid-network"]
 
 . Fare clic su Avanti.
 

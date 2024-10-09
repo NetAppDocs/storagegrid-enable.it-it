@@ -25,20 +25,20 @@ Per configurare un criterio di classificazione del traffico, attenersi alla segu
 . Immettere un nome e una descrizione per la politica.
 . Creare una regola corrispondente.
 +
-image:monitor-matching-rule.png["regola-corrispondenza-monitor"]
+image:monitor/monitor-matching-rule.png["regola-corrispondenza-monitor"]
 
 . Impostare un limite (opzionale).
 +
-image:monitor-limit.png["limite monitor"]
+image:monitor/monitor-limit.png["limite monitor"]
 
 . Salvare la policy
 +
-image:monitor-traffic-policy.png["policy-monitoraggio-traffico"]
+image:monitor/monitor-traffic-policy.png["policy-monitoraggio-traffico"]
 
 +
 Per visualizzare le metriche associate al criterio di classificazione del traffico, selezionare il criterio e fare clic su metriche. Viene generata una dashboard Grafana che visualizza informazioni come il traffico delle richieste di bilanciamento del carico e la durata media delle richieste.
 
 +
-image:monitor-dashboard-showing-metrics.png["metriche-di-visualizzazione-dashboard"]
+image:monitor/monitor-dashboard-showing-metrics.png["metriche-di-visualizzazione-dashboard"]
 
 

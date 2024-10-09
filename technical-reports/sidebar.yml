@@ -21,7 +21,7 @@ entries:
   - title: Eseguire un lavoro di protezione dati
     url: "/technical-reports/commvault/data-protection-jobs.html"
   - title: Esaminare i test delle prestazioni di base
-    url: "/commvault/baseline-performance-tests.html"
+    url: "/technical-reports/commvault/baseline-performance-tests.html"
   - title: Suggerimento del livello di coerenza della benna
     url: "/technical-reports/commvault/s3-consistency-levels.html"
 - title: 'TR-4626: Bilanciatori del carico'
@@ -127,13 +127,13 @@ entries:
     url: "/technical-reports/bare-metal/review-config-complete-storagegrid-install.html"
   - title: Aggiorna i nodi bare-metal in StorageGRID
     url: "/technical-reports/bare-metal/upgrading-bare-metal-nodes-storagegrid.html"
-- title: 'TR-4907: Configurare StorageGRID con Veritas Enterprise Vault'
+- title: 'TR-4907: Configurare StorageGRID con veritas Enterprise Vault'
   pdf-filename: Disaster recovery di StorageGRID – Configurazione di StorageGRID per
-    il failover del sito con Veritas Enterprise Vault
+    il failover del sito con veritas Enterprise Vault
   entries:
   - title: Introduzione alla configurazione di StorageGRID per il failover del sito
     url: "/technical-reports/veritas/index.html"
-  - title: Configurare StorageGRID e Veritas Enterprise Vault
+  - title: Configurare StorageGRID e veritas Enterprise Vault
     url: "/technical-reports/veritas/configure-storagegrid-enterprise-vault.html"
   - title: Configurare StorageGRID per lo storage WORM
     url: "/technical-reports/veritas/configure-storagegrid-s3-object-lock.html"

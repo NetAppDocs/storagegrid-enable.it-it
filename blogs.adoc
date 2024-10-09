@@ -28,7 +28,7 @@ Puoi trovare alcuni fantastici blog su NetApp StorageGRID qui:
 * Marzo 30 2023: https://www.netapp.com/blog/3-2-1-backup-bluexp-ontap-storagegrid-rest-apis/["USA BlueXP per proteggere Epic EHR con una policy di backup conforme a 3:2:1"^]
 * Marzo 14 2023: https://community.netapp.com/t5/Tech-ONTAP-Blogs/How-to-back-up-Epic-Systems-EHR-databases-with-one-command-in-a-3-2-1-compliant/ba-p/442426#M171["Come eseguire il backup dei database EHR di Epic Systems con un comando in un'architettura compatibile con 3:2:1"^]
 * Febbraio 14 2023: https://www.netapp.com/blog/bedag-storagegrid-story/["Cosa hanno in comune cioccolato, sci, orologi e mainframe?"^]
-* Gennaio 18 2023: https://community.netapp.com/t5/Tech-ONTAP-Blogs/StorageGRID-S3-Object-Lock-validated-for-Veritas-NetBackup/ba-p/440916["Blocco degli oggetti StorageGRID S3 validato per Veritas NetBackup"^]
+* Gennaio 18 2023: https://community.netapp.com/t5/Tech-ONTAP-Blogs/StorageGRID-S3-Object-Lock-validated-for-veritas-NetBackup/ba-p/440916["Blocco degli oggetti StorageGRID S3 validato per veritas NetBackup"^]
 * Gennaio 16 2023: https://community.netapp.com/t5/Tech-ONTAP-Blogs/StorageGRID-renews-NF203-and-ISO-IEC-25051-compliance-certification/ba-p/440942["StorageGRID rinnova la certificazione di conformità NF203 e ISO/IEC 25051"^]
 * 6 2022 dicembre: https://community.netapp.com/t5/Tech-ONTAP-Blogs/StorageGRID-achieves-KPMG-compliance-certification/ba-p/440343["StorageGRID ottiene la certificazione di conformità KPMG"^]
 * 23 2022 novembre: https://www.netapp.com/blog/explainable-AI-netapp-modzy/["Ai spiegabile con MLOPS basati su NetApp e Modzy"^]

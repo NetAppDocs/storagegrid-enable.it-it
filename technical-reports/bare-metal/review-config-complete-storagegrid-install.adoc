@@ -21,7 +21,7 @@ Per assicurarsi che l'installazione venga completata correttamente, esaminare at
 .Fasi
 . Visualizzare la pagina Riepilogo.
 +
-image:bare-metal-summary-page.png["pagina-di-riepilogo-bare-metal"]
+image:bare-metal/bare-metal-summary-page.png["pagina-di-riepilogo-bare-metal"]
 
 . Verificare che tutte le informazioni di configurazione della griglia siano corrette. Utilizzare i link Modify (Modifica) nella pagina Summary (Riepilogo) per tornare indietro e correggere eventuali errori.
 . Fare clic su Installa.
@@ -42,13 +42,13 @@ CAUTION: Il file del pacchetto di ripristino deve essere protetto perché contie
 
 . Selezionare l'opzione ho scaricato e verificato il file del pacchetto di ripristino, quindi fare clic su Avanti.
 +
-image:bare-metal-download-recovery-package.png["pacchetto-ripristino-download-bare-metal"]
+image:bare-metal/bare-metal-download-recovery-package.png["pacchetto-ripristino-download-bare-metal"]
 
 +
 Se l'installazione è ancora in corso, viene visualizzata la pagina Stato installazione. Questa pagina indica lo stato di avanzamento dell'installazione per ciascun nodo della griglia.
 
 +
-image:bare-metal-installation-status.png["stato-installazione-bare-metal"]
+image:bare-metal/bare-metal-installation-status.png["stato-installazione-bare-metal"]
 
 +
 Quando viene raggiunta la fase completa per tutti i nodi della griglia, si apre la pagina di accesso per Grid Manager.

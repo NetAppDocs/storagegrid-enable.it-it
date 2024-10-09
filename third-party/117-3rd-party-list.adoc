@@ -36,6 +36,7 @@ Queste soluzioni sono state testate in collaborazione con i rispettivi partner.
 * DefendX
 * Dati di diskover
 * Dremio
+* Snapshot Elasticsearch (incluso il Tier "frozen")
 * EMAM
 * Archivio di oggetti Fujifilm
 * Server aziendale GitHub
@@ -70,8 +71,8 @@ Queste soluzioni sono state testate in collaborazione con i rispettivi partner.
 * Trino
 * Verniciare Enterprise 6.0.4
 * Veeeam 12
-* Veritas Enterprise Vault 14
-* Veritas NetBackup 8.0
+* veritas Enterprise Vault 14
+* veritas NetBackup 8,0
 * Verticale 10.x
 * Visoline
 * Virtalica StorageFabric
@@ -89,8 +90,8 @@ Queste soluzioni sono state testate in collaborazione con i rispettivi partner.
 * Documento OpenText 21.4
 * Rubrik
 * Veeeam 12
-* Veritas Enterprise Vault 14.2.2
-* Veritas NetBackup 10.1.1 e versioni successive
+* veritas Enterprise Vault 14.2.2
+* veritas NetBackup 10.1.1 e versioni successive
 
 
 

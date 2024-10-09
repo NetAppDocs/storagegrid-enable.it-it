@@ -24,7 +24,7 @@ Per aggiungere siti, attenersi alla seguente procedura:
 . Nella pagina Siti, immettere il nome del sito.
 . Per aggiungere altri siti, fare clic sul segno più accanto all'ultima voce del sito e immettere il nome nella nuova casella di testo Nome sito. Aggiungi tutti i siti aggiuntivi necessari per la topologia della griglia. È possibile aggiungere fino a 16 siti.
 +
-image:bare-metal-add-sites.png["siti-aggiuntivi-bare-metal"]
+image:bare-metal/bare-metal-add-sites.png["siti-aggiuntivi-bare-metal"]
 
 . Fare clic su Avanti.
 
