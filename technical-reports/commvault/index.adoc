@@ -107,8 +107,7 @@ Non supportato
 
 Per ulteriori informazioni sulle informazioni descritte in questo documento, consultare i seguenti documenti e/o siti Web:
 
-* Centro di documentazione di StorageGRID 11,8 +
-https://docs.netapp.com/us-en/storagegrid-118/[]
+* Centro di documentazione di StorageGRID 11,9 + https://docs.netapp.com/us-en/storagegrid-119/[]
 * Documentazione del prodotto NetApp +
 https://docs.netapp.com[]
 * Documentazione CommVault +

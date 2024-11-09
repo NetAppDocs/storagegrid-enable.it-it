@@ -122,6 +122,6 @@ StorageGRID scala le performance utilizzando nodi con performance più elevate p
 
 [NOTE]
 ====
-Per ulteriori informazioni sull'espansione del sistema StorageGRID, vedere https://docs.netapp.com/us-en/storagegrid-118/landing-expand/index.html["Guida all'espansione di StorageGRID 11,8"].
+Per ulteriori informazioni sull'espansione del sistema StorageGRID, vedere https://docs.netapp.com/us-en/storagegrid-119/landing-expand/index.html["Guida all'espansione di StorageGRID 11,9"].
 
 ====

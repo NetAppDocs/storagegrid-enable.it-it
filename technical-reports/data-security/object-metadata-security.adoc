@@ -32,7 +32,7 @@ Quando la crittografia è attivata, ogni oggetto viene crittografato con una chi
 
 
 | Dischi di crittografia conformi a Federal Information Processing Standard (FIPS) 140-2-2  a| 
-Le appliance SG5712, SG5760, SG6060 e SGF6024 StorageGRID offrono l'opzione di dischi di crittografia conformi FIPS 140-2-2. Le chiavi di crittografia dei dischi possono essere facoltativamente gestite da un server KMIP esterno.
+Le appliance SG5812, SG5860, SG6160 e SGF6024 StorageGRID offrono l'opzione di dischi di crittografia conformi FIPS 140-2-2. Le chiavi di crittografia dei dischi possono essere facoltativamente gestite da un server KMIP esterno.
 | Abilita lo storage sicuro di dati, metadati e oggetti di sistema. Fornisce inoltre una crittografia degli oggetti basata su software StorageGRID, che protegge storage e trasmissione di oggetti. | Regola SEC 17a-4(f) CTFC 1,31(c)-(d) (FINRA) regola 4511(c) 
 
 

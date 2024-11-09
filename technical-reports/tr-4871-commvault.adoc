@@ -258,7 +258,7 @@ StorageGRID scala le performance utilizzando nodi con performance più elevate p
 
 [NOTE]
 ====
-Per ulteriori informazioni sull'espansione del sistema StorageGRID, vedere https://docs.netapp.com/us-en/storagegrid-118/landing-expand/index.html["Guida all'espansione di StorageGRID 11,8"].
+Per ulteriori informazioni sull'espansione del sistema StorageGRID, vedere https://docs.netapp.com/us-en/storagegrid-119/landing-expand/index.html["Guida all'espansione di StorageGRID 11,9"].
 
 ====
 
@@ -577,8 +577,7 @@ CommVault MediaAgent è il data mover di un ambiente CommVault. Nella maggior pa
 
 Per ulteriori informazioni sulle informazioni descritte in questo documento, consultare i seguenti documenti e/o siti Web:
 
-* Centro di documentazione di StorageGRID 11,8 +
-https://docs.netapp.com/us-en/storagegrid-118/[]
+* Centro di documentazione di StorageGRID 11,9 + https://docs.netapp.com/us-en/storagegrid-119/[]
 * Documentazione del prodotto NetApp +
 https://docs.netapp.com[]
 * Documentazione CommVault +

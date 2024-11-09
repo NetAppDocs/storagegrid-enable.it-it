@@ -1633,8 +1633,6 @@ Tutta la gamma</block>
   <block id="bc967dc2d57e6eff184a821bf7577a80" category="section-title">Scalabilità</block>
   <block id="900c557ee6849406e1e6f451f65bdde1" category="paragraph">È possibile espandere un sistema NetApp StorageGRID aggiungendo storage ai nodi storage, aggiungendo nuovi nodi grid a un sito esistente o aggiungendo un nuovo sito per il data center. È possibile eseguire espansioni senza interrompere il funzionamento del sistema corrente.
 StorageGRID scala le performance utilizzando nodi con performance più elevate per i nodi storage o l'appliance fisica che esegue il bilanciamento del carico e i nodi amministrativi o semplicemente aggiungendo nodi aggiuntivi.</block>
-  <block id="87c6a063dd59ec7afe1b7de60674167f" category="inline-link">Guida all'espansione di StorageGRID 11,8</block>
-  <block id="178a2b6eb168714f3392d86f31b81107" category="paragraph">Per ulteriori informazioni sull'espansione del sistema StorageGRID, vedere<block ref="ad2f8b162bf757bc05f37ca0091f2d6d" category="inline-link-rx"></block>.</block>
   <block id="39e0647405a456dbe0f327581e422077" category="section-title">Specifiche dell'hardware StorageGRID</block>
   <block id="7ac8ba0d8d9d0dbf967afc44eebecee4" category="paragraph">Nella tabella 4 viene descritto l'hardware NetApp StorageGRID utilizzato per il test. L'appliance StorageGRID SG5712 con connettività di rete 10Gbps è l'opzione entry-level e rappresenta una configurazione di base. In alternativa, SG5712 può essere configurato per il collegamento in rete 25Gbps.</block>
   <block id="380be67f84564c575abe95593c0c96c3" category="paragraph">La scelta di opzioni di appliance con performance più elevate come le appliance NetApp StorageGRID SG5760, SG6060 o All Flash SGF6112 può fornire benefici significativi in termini di performance. Per assistenza sul dimensionamento, consulta il Solution Architect NetApp StorageGRID.</block>
@@ -1753,8 +1751,6 @@ StorageGRID scala le performance utilizzando nodi con performance più elevate p
   <block id="3ceaa99fe3628c0d4ddb470789b9212d" category="list-text">Versioni di CommVault precedenti alla 11.0.0 - Service Pack 16.* nelle versioni precedenti alla 11.0.0 - Service Pack 16, CommVault esegue S3 TESTE e OTTIENE le operazioni su oggetti inesistenti come parte del processo di ripristino e pruning. Impostare il livello di coerenza del bucket su un sito sicuro per ottenere un livello di coerenza ottimale per i backup CommVault su StorageGRID.</block>
   <block id="9a76294cf4d43d5686590bb6c98a280b" category="list-text">CommVault versioni 11.0.0 - Service Pack 16 e successive.* nelle versioni 11.0.0 - Service Pack 16 e successive, il numero di operazioni HEAD S3 e GET eseguite su oggetti inesistenti viene ridotto al minimo. Impostare il livello di coerenza del bucket predefinito su Read-after-new-write per garantire un elevato livello di coerenza nell'ambiente CommVault e StorageGRID.</block>
   <block id="3887d417240a72ab69f6d0301efd3b2b" category="section-title">Dove trovare ulteriori informazioni</block>
-  <block id="b69ce771bb450c54c2a29e08595a1621" category="list-text">Centro di documentazione di StorageGRID 11,8 +
-<block ref="47ea1c2d0f136bec8b3e66c2121bf70f" category="inline-link-rx"></block></block>
   <block id="a1b241b7e61d12e641e864fa7e3c7a8e" category="list-text">Documentazione del prodotto NetApp +
 <block ref="fa4af55c3fdbce23e96d2cf73261fa5b" category="inline-link-rx"></block></block>
   <block id="748e9574a05efa0e0738de58c2ff670b" category="list-text">Documentazione CommVault +
@@ -2271,9 +2267,7 @@ StorageGRID scala le performance utilizzando nodi con performance più elevate p
   <block id="8fcaac261a43456ba5d28692ad76f1a7" category="cell">Consente ai client di crittografare gli oggetti con le chiavi controllate dall'utente. La chiave di crittografia è necessaria per scrivere e recuperare questi oggetti.</block>
   <block id="731de27084d8604a1d6b2d4f3db3e813" category="summary">Scopri le funzionalità di sicurezza integrate della soluzione di storage a oggetti StorageGRID.</block>
   <block id="1258e6ff8b374b8ea1a0bd0ab918bd2b" category="doc">Proteggi dati e metadati StorageGRID in un archivio di oggetti</block>
-  <block id="37555cad129f87a5d0dbe66af2e608f5" category="paragraph">Questa è una panoramica delle numerose funzionalità di protezione di NetApp® StorageGRID®, che includono l'accesso ai dati, gli oggetti e i metadati, l'accesso amministrativo e la protezione della piattaforma. È stato aggiornato per includere le funzioni più recenti rilasciate con StorageGRID 11,8.</block>
   <block id="6a26fac444f2fa8249e58b9e1ad5f1f5" category="paragraph">La sicurezza è parte integrante della soluzione di storage a oggetti NetApp StorageGRID. La sicurezza è particolarmente importante, in quanto molti tipi di dati rich content adatti allo storage a oggetti sono anche sensibili, soggetti a normative e conformità. Con la continua evoluzione delle funzionalità di StorageGRID, il software rende disponibili molte funzionalità di sicurezza preziose per proteggere il livello di sicurezza di un'organizzazione e aiutare l'organizzazione a soddisfare le Best practice del settore.</block>
-  <block id="4a4dabde11a077d631a0208b03dfdd6a" category="paragraph">In questo documento viene fornita una panoramica delle numerose funzioni di protezione di StorageGRID 11,8, suddivise in cinque categorie:</block>
   <block id="bc9171df5cd05800ed1cfc0f1e57ee3c" category="list-text">Funzionalità di sicurezza di oggetti e metadati</block>
   <block id="4c09768521a2b8d071ec184101026f0b" category="list-text">Funzioni di sicurezza della piattaforma</block>
   <block id="bd3813fae65cb7c59dcb2440c1767ac0" category="inline-link">Guida alla tempra StorageGRID</block>
@@ -2283,7 +2277,6 @@ StorageGRID scala le performance utilizzando nodi con performance più elevate p
   <block id="e49b7c4182308a3c27dbec32987e8e67" category="paragraph">Oltre alle funzionalità descritte in questo rapporto, StorageGRID segue la<block ref="304cf4448819c099eaccd4f8123ab72d" category="inline-link-rx"></block>. Le vulnerabilità segnalate vengono verificate e risolte in base al processo di risposta agli incidenti di sicurezza del prodotto.</block>
   <block id="23e21fdb0716a632da9ef25685dbc487" category="paragraph">NetApp StorageGRID offre funzionalità di sicurezza avanzate per casi di utilizzo dello storage a oggetti aziendale molto esigenti.</block>
   <block id="3bdba8537a031ec25e6ed46ff2e22424" category="list-text">NetApp StorageGRID: Valutazione della conformità SEC 17a-4(f), FINRA 4511(c) e CFTC 1,31(c)-(d) <block ref="dc6d251ee495c96de57ac351b8ca3a6f" category="inline-link-rx"></block></block>
-  <block id="2cbf7b84b091bb76f9e653d971faa3e6" category="list-text">Pagina della documentazione di StorageGRID 11,8 <block ref="47ea1c2d0f136bec8b3e66c2121bf70f" category="inline-link-rx"></block></block>
   <block id="682026a33ae6dd46be9dad491b716b01" category="section-title">Termini e acronimi</block>
   <block id="5b66d86127a2b0a925034cfcc284c687" category="paragraph">In questa sezione vengono fornite le definizioni della terminologia utilizzata nel documento.</block>
   <block id="2a2006e5a6b22cc16fc0894555912667" category="cell">Termine o acronimo</block>
@@ -2327,7 +2320,6 @@ StorageGRID scala le performance utilizzando nodi con performance più elevate p
   <block id="d64aa93292b065628260e9509c89afae" category="paragraph">Quando la crittografia è attivata, ogni oggetto viene crittografato con una chiave simmetrica univoca generata in modo casuale, memorizzata all'interno di StorageGRID senza accesso esterno.</block>
   <block id="c3830d20240c4ba204beb61af4e9bd4e" category="cell">Consente la crittografia degli oggetti senza richiedere una gestione esterna delle chiavi.</block>
   <block id="26217ba08b7324d30253fffae8ed7ec7" category="cell">Dischi di crittografia conformi a Federal Information Processing Standard (FIPS) 140-2-2</block>
-  <block id="476d9a8f1d131333f205e6793dd28254" category="paragraph">Le appliance SG5712, SG5760, SG6060 e SGF6024 StorageGRID offrono l'opzione di dischi di crittografia conformi FIPS 140-2-2. Le chiavi di crittografia dei dischi possono essere facoltativamente gestite da un server KMIP esterno.</block>
   <block id="fdf3619a8a241ec7b5e5a8d0110b4225" category="cell">Abilita lo storage sicuro di dati, metadati e oggetti di sistema. Fornisce inoltre una crittografia degli oggetti basata su software StorageGRID, che protegge storage e trasmissione di oggetti.</block>
   <block id="b56b27275ea9fc75a7ac4dda9b49b749" category="cell">Scansione di integrità in background e autoriparazione</block>
   <block id="2e6b4c580a8bcff25b5a47d60fcac9d0" category="paragraph">StorageGRID utilizza un meccanismo di interblocco costituito da hash, checksum e controlli di ridondanza ciclici (CRC) a livello di oggetto e sottooggetto per proteggere da incoerenza, manomissioni o modifiche dei dati, sia quando gli oggetti sono in storage che in transito. StorageGRID rileva automaticamente gli oggetti corrotti e manomessi e li sostituisce, mettendo in quarantena i dati modificati e avvisando l'amministratore.</block>
@@ -3136,17 +3128,9 @@ StorageGRID scala le performance utilizzando nodi con performance più elevate p
   <block id="b9faea4479e9fc1bc458b58b8247cda0" category="paragraph">StorageGRID offre una destinazione di backup cloud on-premise compatibile con S3 per veritas Enterprise Vault. La figura seguente illustra l'architettura di veritas Enterprise Vault e StorageGRID.</block>
   <block id="055f9879907c22c8cfd3c54bd9f610cb" category="inline-image-macro">vertias/veritas-enterprise-vault-and-StorageGRID-architettura</block>
   <block id="52cb822768beb11d3d42a3f9b19804d9" category="paragraph"><block ref="52cb822768beb11d3d42a3f9b19804d9" category="inline-image-macro-rx" type="image"></block></block>
-  <block id="7a14e19b8ee1a0a04a0446df31d46f8c" category="list-text">veritas Enterprise Vault 11</block>
-  <block id="6369bbbcf565d042b20a283550fe3ed1" category="list-text">veritas Enterprise Vault 12</block>
-  <block id="9d9543f7e1d6b0664f04ff4f8a7c47b9" category="list-text">veritas NetBackup 8,0</block>
-  <block id="ff5cfc1dbf017ecb8959d053238bf56b" category="list-text">veritas Enterprise Vault 14</block>
-  <block id="176411398f4cd808898ca8b28d32a473" category="list-text">veritas Enterprise Vault 14.2.2</block>
-  <block id="630b3115bbfc0cab3a6c9f0257baa041" category="list-text">veritas NetBackup 10.1.1 e versioni successive</block>
   <block id="8bab4d54d9f4be0e126140976cdd93e4" category="list-text">Snapshot Elasticsearch (incluso il Tier "frozen")</block>
   <block id="f12757e29dee512b70563c66186ae3d8" category="paragraph">Si consiglia sempre di restare aggiornati e di applicare gli aggiornamenti rapidi più recenti per il sistema Veeam Backup &amp; Replication 12 o 12,1. Attualmente consigliamo almeno di installare Veeam 12 patch P20230718.</block>
   <block id="d9077bfff46af079bd1370f652df5fc8" category="paragraph">NetApp StorageGRID 11,7 o 11,8 con la correzione rapida più recente sono le versioni consigliate per le implementazioni Veeam. Si consiglia di restare sempre aggiornati e di applicare gli aggiornamenti rapidi più recenti per il sistema StorageGRID in uso.</block>
-  <block id="ab04d5a9409dc8a45ac13596c3483cbe" category="inline-link-macro">Documentazione del prodotto NetApp StorageGRID 11,8</block>
-  <block id="0b27dbe2229bcc6cc460d4c9db01ca59" category="list-text"><block ref="0b27dbe2229bcc6cc460d4c9db01ca59" category="inline-link-macro-rx"></block></block>
   <block id="734ae27bd626f001863fc96cdf284a4c" category="sidebar">Migrazione dello storage a oggetti da ONTAP S3 a StorageGRID</block>
   <block id="7278573c930789840fac32f75102c4cb" category="sidebar">TR-4907: Configurare StorageGRID con veritas Enterprise Vault</block>
   <block id="c4661d92ec5bfd72a43733aea8dc23dd" category="sidebar">Migrazione da ONTAP S3 a StorageGRID</block>
@@ -3154,4 +3138,25 @@ StorageGRID scala le performance utilizzando nodi con performance più elevate p
   <block id="083e747ac97fd71c385f2c89f8eefdb7" category="sidebar">Migrazione di utenti e chiavi, quindi cutover</block>
   <block id="81022eb5da399c3a2fd9f2b07db1afd3" category="sidebar">Disaster recovery di StorageGRID – Configurazione di StorageGRID per il failover del sito con veritas Enterprise Vault</block>
   <block id="454255deb718c7d2b26df2342f80d3d3" category="list-text">Febbraio 2 2024: <block ref="890e1ea9b3a6310b9da56310b581c035" category="inline-link-rx"></block></block>
+  <block id="038f39e88db40cdb4f2702538c9f7cac" category="inline-link">StorageGRID 11,9</block>
+  <block id="69962f106c568f6867ef85cee5ce38c8" category="list-text"><block ref="69962f106c568f6867ef85cee5ce38c8" category="inline-link-rx"></block></block>
+  <block id="c0ffd7598ab1538e87530f78e30ee7a5" category="list-text">Centro di documentazione di StorageGRID 11,9 + <block ref="8cd5d43b808eac3380916fd8a7010bbf" category="inline-link-rx"></block></block>
+  <block id="023074507079b61efa6f2839e5f70a91" category="inline-link">Guida all'espansione di StorageGRID 11,9</block>
+  <block id="f4940e01170c039d45c3e66e940623ae" category="paragraph">Per ulteriori informazioni sull'espansione del sistema StorageGRID, vedere<block ref="383fbf920d7819c777fd14de7ab5c076" category="inline-link-rx"></block>.</block>
+  <block id="56a72c05a4e2e9d60f84e7af8a5efaa8" category="paragraph">Questa è una panoramica delle numerose funzionalità di protezione di NetApp® StorageGRID®, che includono l'accesso ai dati, gli oggetti e i metadati, l'accesso amministrativo e la protezione della piattaforma. È stato aggiornato per includere le funzioni più recenti rilasciate con StorageGRID 11,9.</block>
+  <block id="78c953ee6a7bceaa8f9e31793e0d9600" category="paragraph">In questo documento viene fornita una panoramica delle numerose funzioni di protezione di StorageGRID 11,9, suddivise in cinque categorie:</block>
+  <block id="14898bc1984707385c6d2c37b2a3b038" category="list-text">Pagina della documentazione di StorageGRID 11,9 <block ref="8cd5d43b808eac3380916fd8a7010bbf" category="inline-link-rx"></block></block>
+  <block id="7519ba71db8577a641b71a19274cb841" category="paragraph">Le appliance SG5812, SG5860, SG6160 e SGF6024 StorageGRID offrono l'opzione di dischi di crittografia conformi FIPS 140-2-2. Le chiavi di crittografia dei dischi possono essere facoltativamente gestite da un server KMIP esterno.</block>
+  <block id="683c5d7a06c262f5e2e17cbb84869a3d" category="list-text">Veritas Enterprise Vault 11</block>
+  <block id="1f61ef960fbeb10906bd09932e1faa5e" category="list-text">Veritas Enterprise Vault 12</block>
+  <block id="aa92d10a39cb2c4707a61d62d73be93f" category="list-text">Veritas NetBackup 8.0</block>
+  <block id="dbaa460bd61bfe1c91c1c136338013e6" category="list-text">Veritas Enterprise Vault 14</block>
+  <block id="401b6d44d3c927f0424adce982cc6506" category="list-text">Veritas Enterprise Vault 14.2.2</block>
+  <block id="e3cd39cab4140108c69a9666712a418b" category="list-text">Veritas NetBackup 10.1.1 e versioni successive</block>
+  <block id="06575e9a9a342b7dae657473413f7459" category="list-text">Veritas Enterprise Vault 15,1</block>
+  <block id="2a9dd9956ef5047e090fb4fd428760da" category="summary">Soluzioni di terze parti validate per StorageGRID 11,9</block>
+  <block id="24da911d0ea6052fda1a360f3d8d20d2" category="doc">Soluzioni validate di terze parti StorageGRID 11,9</block>
+  <block id="3595748c33defe605c1fdb5ccbf36297" category="paragraph">Le seguenti soluzioni di terze parti sono state convalidate per l'utilizzo con StorageGRID 11,9. + se la soluzione che stai cercando non è presente nell'elenco, contatta il tuo rappresentante commerciale NetApp.</block>
+  <block id="99b12e8f286736e276d9ae9cf6c493e8" category="inline-link-macro">Documentazione del prodotto NetApp StorageGRID 11,9</block>
+  <block id="eeaa535340d552b22fc3654b745ad4ea" category="list-text"><block ref="eeaa535340d552b22fc3654b745ad4ea" category="inline-link-macro-rx"></block></block>
 </blocks>

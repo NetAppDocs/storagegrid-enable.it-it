@@ -1,7 +1,7 @@
 ---
 permalink: third-party/118-3rd-party-list.html 
 sidebar: sidebar 
-keywords: 11.7, third-party applications, storagegrid, ISV 
+keywords: 11.8, third-party applications, storagegrid, ISV 
 summary: Soluzioni di terze parti validate per StorageGRID 11,8 
 ---
 = Soluzioni validate di terze parti StorageGRID 11,8
@@ -73,8 +73,8 @@ Queste soluzioni sono state testate in collaborazione con i rispettivi partner.
 * Trino
 * Verniciare Enterprise 6.0.4
 * Veeeam 12
-* veritas Enterprise Vault 14
-* veritas NetBackup 8,0
+* Veritas Enterprise Vault 15,1
+* Veritas NetBackup 8.0
 * Verticale 10.x
 * Visoline
 * Virtalica StorageFabric
@@ -92,8 +92,8 @@ Queste soluzioni sono state testate in collaborazione con i rispettivi partner.
 * Documento OpenText 21.4
 * Rubrik
 * Veeeam 12
-* veritas Enterprise Vault 14.2.2
-* veritas NetBackup 10.1.1 e versioni successive
+* Veritas Enterprise Vault 15,1
+* Veritas NetBackup 10.1.1 e versioni successive
 
 
 

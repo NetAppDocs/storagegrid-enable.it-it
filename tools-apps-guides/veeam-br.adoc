@@ -186,7 +186,7 @@ image:veeam-bp/tc_2.png["Criteri di classificazione del traffico"]
 
 Per ulteriori informazioni sulle informazioni descritte in questo documento, consultare i seguenti documenti e/o siti Web:
 
-* link:https://docs.netapp.com/us-en/storagegrid-118/["Documentazione del prodotto NetApp StorageGRID 11,8"^]
+* link:https://docs.netapp.com/us-en/storagegrid-119/["Documentazione del prodotto NetApp StorageGRID 11,9"^]
 * link:https://www.veeam.com/documentation-guides-datasheets.html?productId=8&version=product%3A8%2F221["Backup e replica di Veeam"^]
 
 

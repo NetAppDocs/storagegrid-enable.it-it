@@ -1,10 +1,10 @@
 ---
-permalink: third-party/117-3rd-party-list.html 
+permalink: third-party/118-3rd-party-list.html 
 sidebar: sidebar 
-keywords: 11.7, third-party applications, storagegrid, ISV 
-summary: Soluzioni di terze parti validate per StorageGRID 11.7 
+keywords: 11.9, third-party applications, storagegrid, ISV 
+summary: Soluzioni di terze parti validate per StorageGRID 11,9 
 ---
-= Soluzioni di terze parti validate da StorageGRID 11.7
+= Soluzioni validate di terze parti StorageGRID 11,9
 :hardbreaks:
 :allow-uri-read: 
 :icons: font
@@ -12,7 +12,7 @@ summary: Soluzioni di terze parti validate per StorageGRID 11.7
 
 
 [role="lead"]
-Le seguenti soluzioni di terze parti sono state validate per l'utilizzo con StorageGRID 11.7. + se la soluzione che stai cercando non è presente nell'elenco, contatta il tuo rappresentante commerciale NetApp.
+Le seguenti soluzioni di terze parti sono state convalidate per l'utilizzo con StorageGRID 11,9. + se la soluzione che stai cercando non è presente nell'elenco, contatta il tuo rappresentante commerciale NetApp.
 
 
 
@@ -67,11 +67,12 @@ Queste soluzioni sono state testate in collaborazione con i rispettivi partner.
 * Fiocco di neve
 * Ghiacciaio on-premise di Spectra Logic
 * Smartstore Splunk
+* Starburst
 * Lo storage diventa semplice
 * Trino
 * Verniciare Enterprise 6.0.4
 * Veeeam 12
-* Veritas Enterprise Vault 14
+* Veritas Enterprise Vault 15,1
 * Veritas NetBackup 8.0
 * Verticale 10.x
 * Visoline
@@ -90,7 +91,7 @@ Queste soluzioni sono state testate in collaborazione con i rispettivi partner.
 * Documento OpenText 21.4
 * Rubrik
 * Veeeam 12
-* Veritas Enterprise Vault 14.2.2
+* Veritas Enterprise Vault 15,1
 * Veritas NetBackup 10.1.1 e versioni successive
 
 
@@ -126,6 +127,8 @@ Queste soluzioni sono state testate.
 
 Queste soluzioni sono state testate.
 
+* Controllo chiave Entrust 10,2
+* Vault Hashiorp 1.15.0
 * Thales CipherTrust Manager 2,0
 * Thales CipherTrust Manager 2,1
 * Thales CipherTrust Manager 2,2
@@ -133,4 +136,9 @@ Queste soluzioni sono state testate.
 * Thales CipherTrust Manager 2,4
 * Thales CipherTrust Manager 2,8
 * Thales CipherTrust Manager 2,9
+* Thales CipherTrust Manager 2,10
+* Thales CipherTrust Manager 2,11
+* Thales CipherTrust Manager 2,12
+* Thales CipherTrust Manager 2,13
+* Thales CipherTrust Manager 2,14
 
