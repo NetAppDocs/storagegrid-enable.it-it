@@ -30,7 +30,11 @@ Il clone del nodo può essere un metodo più rapido per sostituire i nodi applia
 
 
 * Il processo di clonazione del nodo richiede che il nodo di origine sia offline nella griglia per tutta la durata del processo di clonazione. Se un nodo aggiuntivo passa offline durante questo periodo di tempo, i servizi client potrebbero risentire.
-* Un nodo di storage può essere offline solo per 15 giorni. Se la stima del processo di cloning è prossima a 15 giorni o supera i 15 giorni, utilizzare le procedure di espansione e decommissionamento.
+* 11,8 e soffietto: Un nodo storage può essere offline solo per 15 giorni. Se la stima del processo di cloning è prossima a 15 giorni o supera i 15 giorni, utilizzare le procedure di espansione e decommissionamento.
++
+** 11,9: Il limite di 15 giorni è stato rimosso.
+
+
 * Per un SG6060 o SG6160 con shelf di espansione, è necessario aggiungere al tempo dell'appliance di base il tempo necessario per le dimensioni corrette dello shelf, per ottenere l'intera durata del clone.
 * Il numero di volumi in un dispositivo di storage di destinazione deve essere maggiore o uguale al numero di volumi nel nodo di origine. Non è possibile clonare un nodo di origine con volumi di archivi di oggetti 16 (rangedb) in un'appliance di storage di destinazione con volumi di archivi di oggetti 12, anche se l'appliance di destinazione ha una capacità maggiore rispetto al nodo di origine. La maggior parte delle appliance di storage dispone di 16 volumi di archivi di oggetti, ad eccezione dell'appliance di storage SGF6112 che ha solo 12 volumi di archivi di oggetti. Ad esempio, non è possibile clonare da SG5760 a SGF6112.
 
@@ -47,11 +51,11 @@ Le seguenti tabelle contengono stime calcolate per la durata del clone del nodo.
 
 
 
-==== SG5612 -> qualsiasi
+==== SG5612/SG5712/SG5812 -> QUALSIASI
 
-[cols="2a,1a,1a,1a,1a,1a,1a"]
+[cols="2a,1a,1a,1a,1a,1a,1a,1a"]
 |===
-| Velocità dell'interfaccia di rete | Dimensioni dell'unità 4 TB | Dimensioni disco 8 TB | Dimensioni disco 10 TB | 12 TB di capacità dell'unità | Dimensioni dell'unità 16 TB | Dimensioni dell'unità 18 TB 
+| Velocità dell'interfaccia di rete | Dimensioni dell'unità 4 TB | Dimensioni disco 8 TB | Dimensioni disco 10 TB | 12 TB di capacità dell'unità | Dimensioni dell'unità 16 TB | Dimensioni dell'unità 18 TB | Dimensioni dell'unità 22 TB 
 
 
  a| 
@@ -68,6 +72,8 @@ Le seguenti tabelle contengono stime calcolate per la durata del clone del nodo.
 4 giorni
  a| 
 4.5 giorni
+ a| 
+5.5 giorni
 
 
 
@@ -85,99 +91,63 @@ Le seguenti tabelle contengono stime calcolate per la durata del clone del nodo.
 4 giorni
  a| 
 4.5 giorni
-
-|===
-
-
-==== SG5712/SG5812 -> qualsiasi
-
-[cols="2a,1a,1a,1a,1a,1a,1a"]
-|===
-| Velocità dell'interfaccia di rete | Dimensioni dell'unità 4 TB | Dimensioni disco 8 TB | Dimensioni disco 10 TB | 12 TB di capacità dell'unità | Dimensioni dell'unità 16 TB | Dimensioni dell'unità 18 TB 
-
-
  a| 
-10 GB
- a| 
-1 giorno
- a| 
-2 giorni
- a| 
-2.5 giorni
- a| 
-3 giorni
- a| 
-4 giorni
- a| 
-4.5 giorni
-
-
-
- a| 
-25 GB
- a| 
-1 giorno
- a| 
-2 giorni
- a| 
-2.5 giorni
- a| 
-3 giorni
- a| 
-4 giorni
- a| 
-4.5 giorni
+5.5 giorni
 
 |===
 
 
 ==== SG5660 -> SG5760/SG5860
 
-[cols="2a,1a,1a,1a,1a,1a,1a"]
+[cols="2a,1a,1a,1a,1a,1a,1a,1a"]
 |===
-| Velocità dell'interfaccia di rete | Dimensioni dell'unità 4 TB | Dimensioni disco 8 TB | Dimensioni disco 10 TB | 12 TB di capacità dell'unità | Dimensioni dell'unità 16 TB | Dimensioni dell'unità 18 TB 
+| Velocità dell'interfaccia di rete | Dimensioni dell'unità 4 TB | Dimensioni disco 8 TB | Dimensioni disco 10 TB | 12 TB di capacità dell'unità | Dimensioni dell'unità 16 TB | Dimensioni dell'unità 18 TB | Dimensioni dell'unità 22 TB 
 
 
  a| 
 10 GB
  a| 
-3 giorni
- a| 
-6 giorni
+3.5 giorni
  a| 
 7 giorni
  a| 
 8.5 giorni
  a| 
-11.5 giorni
+10.5 giorni
  a| 
-*13 giorni*
+*13,5 giorni*
+ a| 
+*15,5 giorni*
+ a| 
+*18,5 giorni*
 
 
 
  a| 
 25 GB
  a| 
-3 giorni
- a| 
-6 giorni
+3.5 giorni
  a| 
 7 giorni
  a| 
 8.5 giorni
  a| 
-11.5 giorni
+10.5 giorni
  a| 
-*13 giorni*
+*13,5 giorni*
+ a| 
+*15,5 giorni*
+ a| 
+*18,5 giorni*
 
 |===
 
 
 ==== SG5660 -> SG6060/SG6160
 
-[cols="2a,1a,1a,1a,1a,1a,1a"]
+[cols="2a,1a,1a,1a,1a,1a,1a,1a"]
 |===
-| Velocità dell'interfaccia di rete | Dimensioni dell'unità 4 TB | Dimensioni disco 8 TB | Dimensioni disco 10 TB | 12 TB di capacità dell'unità | Dimensioni dell'unità 16 TB | Dimensioni dell'unità 18 TB 
+| Velocità dell'interfaccia di rete | Dimensioni dell'unità 4 TB | Dimensioni disco 8 TB | Dimensioni disco 10 TB | 12 TB di capacità dell'unità | Dimensioni dell'unità 16 TB | Dimensioni dell'unità 18 TB | Dimensioni dell'unità 22 TB 
 
 
  a| 
@@ -194,6 +164,8 @@ Le seguenti tabelle contengono stime calcolate per la durata del clone del nodo.
 9 giorni
  a| 
 10 giorni
+ a| 
+*12 giorni*
 
 
 
@@ -211,57 +183,63 @@ Le seguenti tabelle contengono stime calcolate per la durata del clone del nodo.
 8 giorni
  a| 
 9 giorni
+ a| 
+10 giorni
 
 |===
 
 
 ==== SG5760/SG5860 -> SG5760/SG5860
 
-[cols="2a,1a,1a,1a,1a,1a,1a"]
+[cols="2a,1a,1a,1a,1a,1a,1a,1a"]
 |===
-| Velocità dell'interfaccia di rete | Dimensioni dell'unità 4 TB | Dimensioni disco 8 TB | Dimensioni disco 10 TB | 12 TB di capacità dell'unità | Dimensioni dell'unità 16 TB | Dimensioni dell'unità 18 TB 
+| Velocità dell'interfaccia di rete | Dimensioni dell'unità 4 TB | Dimensioni disco 8 TB | Dimensioni disco 10 TB | 12 TB di capacità dell'unità | Dimensioni dell'unità 16 TB | Dimensioni dell'unità 18 TB | Dimensioni dell'unità 22 TB 
 
 
  a| 
 10 GB
  a| 
-3 giorni
- a| 
-6 giorni
+3.5 giorni
  a| 
 7 giorni
  a| 
 8.5 giorni
  a| 
-11.5 giorni
+10.5 giorni
  a| 
-*13 giorni*
+*13,5 giorni*
+ a| 
+*15,5 giorni*
+ a| 
+*18,5 giorni*
 
 
 
  a| 
 25 GB
  a| 
-3 giorni
- a| 
-6 giorni
+3.5 giorni
  a| 
 7 giorni
  a| 
 8.5 giorni
  a| 
-11.5 giorni
+10.5 giorni
  a| 
-*13 giorni*
+*13,5 giorni*
+ a| 
+*15,5 giorni*
+ a| 
+*18,5 giorni*
 
 |===
 
 
 ==== SG5760/SG5860 -> SG6060/SG6160
 
-[cols="2a,1a,1a,1a,1a,1a,1a"]
+[cols="2a,1a,1a,1a,1a,1a,1a,1a"]
 |===
-| Velocità dell'interfaccia di rete | Dimensioni dell'unità 4 TB | Dimensioni disco 8 TB | Dimensioni disco 10 TB | 12 TB di capacità dell'unità | Dimensioni dell'unità 16 TB | Dimensioni dell'unità 18 TB 
+| Velocità dell'interfaccia di rete | Dimensioni dell'unità 4 TB | Dimensioni disco 8 TB | Dimensioni disco 10 TB | 12 TB di capacità dell'unità | Dimensioni dell'unità 16 TB | Dimensioni dell'unità 18 TB | Dimensioni dell'unità 22 TB 
 
 
  a| 
@@ -278,32 +256,36 @@ Le seguenti tabelle contengono stime calcolate per la durata del clone del nodo.
 9 giorni
  a| 
 10 giorni
+ a| 
+*12 giorni*
 
 
 
  a| 
 25 GB
  a| 
-1.5 giorni
- a| 
-3 giorni
+2 giorni
  a| 
 3.5 giorni
  a| 
 4.5 giorni
  a| 
-6 giorni
+5.5 giorni
  a| 
-6.5 giorni
+7 giorni
+ a| 
+8 giorni
+ a| 
+9.5 giorni
 
 |===
 
 
 ==== SG6060/SG6160 -> SG6060/SG6160
 
-[cols="2a,1a,1a,1a,1a,1a,1a"]
+[cols="2a,1a,1a,1a,1a,1a,1a,1a"]
 |===
-| Velocità dell'interfaccia di rete | Dimensioni dell'unità 4 TB | Dimensioni disco 8 TB | Dimensioni disco 10 TB | 12 TB di capacità dell'unità | Dimensioni dell'unità 16 TB | Dimensioni dell'unità 18 TB 
+| Velocità dell'interfaccia di rete | Dimensioni dell'unità 4 TB | Dimensioni disco 8 TB | Dimensioni disco 10 TB | 12 TB di capacità dell'unità | Dimensioni dell'unità 16 TB | Dimensioni dell'unità 18 TB | Dimensioni dell'unità 22 TB 
 
 
  a| 
@@ -320,23 +302,27 @@ Le seguenti tabelle contengono stime calcolate per la durata del clone del nodo.
 8.5 giorni
  a| 
 9.5 giorni
+ a| 
+11.5 giorni
 
 
 
  a| 
 25 GB
  a| 
-1.5 giorni
+2 giorni
  a| 
 3 giorni
  a| 
-3.5 giorni
- a| 
 4 giorni
  a| 
-5.5 giorni
+4.5 giorni
  a| 
 6 giorni
+ a| 
+7 giorni
+ a| 
+8.5 giorni
 
 |===
 
@@ -347,9 +333,9 @@ Le seguenti tabelle contengono stime calcolate per la durata del clone del nodo.
 
 ==== SG5760/SG5860 -> SG5760/SG5860
 
-[cols="2a,1a,1a,1a,1a,1a,1a"]
+[cols="2a,1a,1a,1a,1a,1a,1a,1a"]
 |===
-| Velocità dell'interfaccia di rete | Dimensioni dell'unità 4 TB | Dimensioni disco 8 TB | Dimensioni disco 10 TB | 12 TB di capacità dell'unità | Dimensioni dell'unità 16 TB | Dimensioni dell'unità 18 TB 
+| Velocità dell'interfaccia di rete | Dimensioni dell'unità 4 TB | Dimensioni disco 8 TB | Dimensioni disco 10 TB | 12 TB di capacità dell'unità | Dimensioni dell'unità 16 TB | Dimensioni dell'unità 18 TB | Dimensioni dell'unità 22 TB 
 
 
  a| 
@@ -363,9 +349,11 @@ Le seguenti tabelle contengono stime calcolate per la durata del clone del nodo.
  a| 
 9.5 giorni
  a| 
-12.5 giorni
+*12,5 giorni*
  a| 
 *14 giorni*
+ a| 
+*17 giorni*
 
 
 
@@ -380,18 +368,20 @@ Le seguenti tabelle contengono stime calcolate per la durata del clone del nodo.
  a| 
 9.5 giorni
  a| 
-12.5 giorni
+*12,5 giorni*
  a| 
 *14 giorni*
+ a| 
+*17 giorni*
 
 |===
 
 
 ==== SG5760/SG5860 -> SG6060/SG6160
 
-[cols="2a,1a,1a,1a,1a,1a,1a"]
+[cols="2a,1a,1a,1a,1a,1a,1a,1a"]
 |===
-| Velocità dell'interfaccia di rete | Dimensioni dell'unità 4 TB | Dimensioni disco 8 TB | Dimensioni disco 10 TB | 12 TB di capacità dell'unità | Dimensioni dell'unità 16 TB | Dimensioni dell'unità 18 TB 
+| Velocità dell'interfaccia di rete | Dimensioni dell'unità 4 TB | Dimensioni disco 8 TB | Dimensioni disco 10 TB | 12 TB di capacità dell'unità | Dimensioni dell'unità 16 TB | Dimensioni dell'unità 18 TB | Dimensioni dell'unità 22 TB 
 
 
  a| 
@@ -408,6 +398,8 @@ Le seguenti tabelle contengono stime calcolate per la durata del clone del nodo.
 10 giorni
  a| 
 11 giorni
+ a| 
+*13 giorni*
 
 
 
@@ -425,21 +417,23 @@ Le seguenti tabelle contengono stime calcolate per la durata del clone del nodo.
 6.5 giorni
  a| 
 7 giorni
+ a| 
+8.5 giorni
 
 |===
 
 
 ==== SG6060/SG6160 -> SG6060/SG6160
 
-[cols="2a,1a,1a,1a,1a,1a,1a"]
+[cols="2a,1a,1a,1a,1a,1a,1a,1a"]
 |===
-| Velocità dell'interfaccia di rete | Dimensioni dell'unità 4 TB | Dimensioni disco 8 TB | Dimensioni disco 10 TB | 12 TB di capacità dell'unità | Dimensioni dell'unità 16 TB | Dimensioni dell'unità 18 TB 
+| Velocità dell'interfaccia di rete | Dimensioni dell'unità 4 TB | Dimensioni disco 8 TB | Dimensioni disco 10 TB | 12 TB di capacità dell'unità | Dimensioni dell'unità 16 TB | Dimensioni dell'unità 18 TB | Dimensioni dell'unità 22 TB 
 
 
  a| 
 10 GB
  a| 
-3.5 giorni
+3 giorni
  a| 
 5 giorni
  a| 
@@ -450,6 +444,8 @@ Le seguenti tabelle contengono stime calcolate per la durata del clone del nodo.
 9.5 giorni
  a| 
 10.5 giorni
+ a| 
+*13 giorni*
 
 
 
@@ -458,24 +454,26 @@ Le seguenti tabelle contengono stime calcolate per la durata del clone del nodo.
  a| 
 2 giorni
  a| 
-3 giorni
- a| 
-4 giorni
+3.5 giorni
  a| 
 4.5 giorni
  a| 
-6 giorni
+5 giorni
  a| 
 7 giorni
+ a| 
+7.5 giorni
+ a| 
+9 giorni
 
 |===
 
 
 ==== Shelf di espansione (aggiunta a oltre SG6060 TB/SG6160 TB per ogni shelf sull'appliance di origine)
 
-[cols="2a,1a,1a,1a,1a,1a,1a"]
+[cols="2a,1a,1a,1a,1a,1a,1a,1a"]
 |===
-| Velocità dell'interfaccia di rete | Dimensioni dell'unità 4 TB | Dimensioni disco 8 TB | Dimensioni disco 10 TB | 12 TB di capacità dell'unità | Dimensioni dell'unità 16 TB | Dimensioni dell'unità 18 TB 
+| Velocità dell'interfaccia di rete | Dimensioni dell'unità 4 TB | Dimensioni disco 8 TB | Dimensioni disco 10 TB | 12 TB di capacità dell'unità | Dimensioni dell'unità 16 TB | Dimensioni dell'unità 18 TB | Dimensioni dell'unità 22 TB 
 
 
  a| 
@@ -492,6 +490,8 @@ Le seguenti tabelle contengono stime calcolate per la durata del clone del nodo.
 9.5 giorni
  a| 
 10.5 giorni
+ a| 
+*12 giorni*
 
 
 
@@ -509,6 +509,8 @@ Le seguenti tabelle contengono stime calcolate per la durata del clone del nodo.
 6 giorni
  a| 
 7 giorni
+ a| 
+8.5 giorni
 
 |===
 _Di Aron Klein_
