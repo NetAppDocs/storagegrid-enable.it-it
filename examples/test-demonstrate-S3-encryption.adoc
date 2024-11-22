@@ -12,6 +12,8 @@ summary: 'StorageGRID e l"API S3 offrono diversi modi per crittografare i dati i
 
 
 [role="lead"]
+_Di Aron Klein_
+
 StorageGRID e l'API S3 offrono diversi modi per crittografare i dati inattivi. Per ulteriori informazioni, vedere https://docs.netapp.com/us-en/storagegrid-116/admin/reviewing-storagegrid-encryption-methods.html["Esaminare i metodi di crittografia StorageGRID"^].
 
 Questa guida illustra i metodi di crittografia dell'API S3.
@@ -186,5 +188,3 @@ aws s3api head-object --bucket <bucket> --key <file> --endpoint-url https://s3.e
 aws s3api get-object --bucket <bucket>  --key <file> <file> --endpoint-url https://s3.example.com
 ----
 
-
-_Di Aron Klein_

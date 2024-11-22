@@ -12,6 +12,8 @@ summary: 'Configurare l"origine dati Dremio con StorageGRID'
 
 
 [role="lead"]
+_Di Angela Cheng_
+
 Dremio supporta una varietà di origini dati, incluso lo storage a oggetti on-premise o basato su cloud.  È possibile configurare Dremio in modo che utilizzi StorageGRID come origine dati dello storage a oggetti.
 
 
@@ -88,5 +90,3 @@ image:dremio/dremio-add-source-advanced.png["Nuova origine - Opzioni avanzate"]
 image:dremio/dremio-source-added.png["Nuova origine dati aggiunta"]
 
 
-
-_Di Angela Cheng_

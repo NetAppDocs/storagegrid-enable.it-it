@@ -12,6 +12,8 @@ summary: 'Questo rapporto tratta l"ottimizzazione S3A per StorageGRID.'
 
 
 [role="lead"]
+_Di Angela Cheng_
+
 Il connettore Hadoop S3A facilita un'interazione perfetta tra le applicazioni basate su Hadoop e lo storage a oggetti S3. La messa a punto del connettore Hadoop S3A è essenziale per ottimizzare le performance quando si lavora con lo storage a oggetti S3. Prima di entrare nei dettagli di messa a punto, cerchiamo di comprendere di base Hadoop e i suoi componenti.
 
 

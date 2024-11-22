@@ -12,7 +12,9 @@ summary: 'Con la funzione di inoltro syslog di StorageGRID 11.6, è possibile co
 
 
 [role="lead"]
-Con la funzione di inoltro syslog di StorageGRID 11.6, è possibile configurare un server syslog esterno per la raccolta e l'analisi dei messaggi di registro di StorageGRID. ELK (Elasticsearch, Logstash, Kibana) è diventata una delle soluzioni di analisi dei log più diffuse. Osservare la https://media.netapp.com/video-detail/3d090a61-23d7-5ad7-9746-4cebbb7452fb/storagegrid-log-analysis-using-elk-stack["Analisi del log StorageGRID con video ELK"^] per visualizzare una configurazione ELK di esempio e come può essere utilizzata per identificare e risolvere i problemi relativi alle richieste S3 non riuscite. Questo articolo fornisce file di esempio di configurazione di Logstash, query Kibana, grafici e dashboard per fornire un rapido avvio per la gestione dei log e l'analisi di StorageGRID.
+_Di Angela Cheng_
+
+Con la funzione di inoltro syslog di StorageGRID, è possibile configurare un server syslog esterno per raccogliere e analizzare i messaggi di registro StorageGRID. ELK (Elasticsearch, Logstash, Kibana) è diventata una delle soluzioni di analisi dei log più diffuse. Osservare la https://media.netapp.com/video-detail/3d090a61-23d7-5ad7-9746-4cebbb7452fb/storagegrid-log-analysis-using-elk-stack["Analisi del log StorageGRID con video ELK"^] per visualizzare una configurazione ELK di esempio e come può essere utilizzata per identificare e risolvere i problemi relativi alle richieste S3 non riuscite. StorageGRID 11,9 supporta l'esportazione del log di accesso agli endpoint del bilanciamento del carico nel server syslog esterno. Guarda questo https://youtu.be/hnnT0QqLSgA?si=tDMPc4bdbqumYzFz["Video di YouTube"^] articolo per saperne di più su questa nuova funzionalità. Questo articolo fornisce file di esempio di configurazione di Logstash, query Kibana, grafici e dashboard per fornire un rapido avvio per la gestione dei log e l'analisi di StorageGRID.
 
 
 
@@ -28,6 +30,7 @@ Con la funzione di inoltro syslog di StorageGRID 11.6, è possibile configurare 
 
 * link:../media/elk-config/elk7-sample.zip["Scarica il pacchetto di file di esempio Logstash 7.x."] + *checksum md5* 148c23d0021d9a4bb4a6c0287464deab + *checksum sha256* f51ec9e2e3f842d5a7861566b167a561beb4373038b4e7bb3c8be3d522adf2d6
 * link:../media/elk-config/elk8-sample.zip["Scarica il pacchetto di file di esempio Logstash 8.x."] + *checksum md5* e11bae3a662f87c310ef363d0fe06835 + *checksum sha256* 5c670755742cfdfd5aa723a596ba087e0153a65bcaef3934afdb682f61cd278d
+* link:../media/elk-config/elk8-sample-for-sg119.zip["Scaricare il pacchetto file di esempio Logstash 8.x per StorageGRID 11,9"] + *md5 checksum* 41272857c4a54600f95995f6ed74800d + *sha256 checksum* 67048e8661052719990851e1ad960d4902fe537a6e135e8600177188da6779c9
 
 
 
@@ -108,7 +111,7 @@ Importa elk <version>-query-chart-sample.ndjson. + quando viene richiesto di ris
 image:elk-config/kibana-import-conflict.png["Conflitto di Kibana"]
 
 +
-Vengono importati i seguenti oggetti Kibana: + *Query* + * audit-msg-s3rq-orlm + * bycast log s3 messaggi correlati + * loglevel warning o superiore + * failed Security event + *Chart* + * s3 requests count based on bycast.log + * HTTP status code + * audit msg breakdown by type + * Average s3 Response Time + *Dashboard* + * S3 dashboard di richiesta utilizzando i grafici sopra riportati.
+Vengono importati i seguenti oggetti Kibana: + *Query* + * audit-msg-s3rq-orlm + * bycast log S3 messaggi correlati + * avviso livello di accesso o superiore + * evento di sicurezza non riuscito + * nginx-gw log di accesso endpoint (disponibile solo in elk8-sample-for-sg119.zip) + *grafico* + * S3 conteggio richieste basato su bycast.log + * Codice di stato HTTP + * tipo di controllo + tempo di risposta medio del dashboard * S3 msg del dashboard * dati di analisi del dashboard * dati del tipo di analisi del dashboard * S3.
 
 
 
@@ -126,5 +129,3 @@ A questo punto, è possibile eseguire l'analisi del registro StorageGRID utilizz
 * https://www.elastic.co/guide/en/kibana/master/document-explorer.html["Guida di Kibana – Esplora il documento"]
 * https://docs.netapp.com/us-en/storagegrid-116/audit/index.html["Riferimento ai messaggi del registro di controllo di StorageGRID"]
 
-
-_Di Angela Cheng_

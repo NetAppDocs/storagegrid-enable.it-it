@@ -12,6 +12,8 @@ summary: 'S3cmd è un tool e client a riga di comando gratuito per le operazioni
 
 
 [role="lead"]
+_Di Aron Klein_
+
 S3cmd è un tool e client a riga di comando gratuito per le operazioni S3. È possibile utilizzare s3cmd per testare e dimostrare l'accesso s3 su StorageGRID.
 
 
@@ -88,5 +90,3 @@ NOTE: Se si specifica host_base e host_bucket nel passaggio 4, non è necessario
 `s3cmd del s3://<bucket>/<object> --host=<endpoint>:<port> --no-check-certificate`
 
 
-
-_Di Aron Klein_

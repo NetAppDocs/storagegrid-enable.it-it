@@ -12,6 +12,8 @@ summary: Questa guida descrive la procedura per creare un database Vertica Eon M
 
 
 [role="lead"]
+_Di Angela Cheng_
+
 Questa guida descrive la procedura per creare un database Vertica Eon Mode con storage comune su NetApp StorageGRID.
 
 

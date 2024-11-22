@@ -12,6 +12,8 @@ summary: 'Hadoop consente l"elaborazione distribuita di grandi set di dati tra c
 
 
 [role="lead"]
+_Di Angela Cheng_
+
 Hadoop è da tempo la preferita dai data scientist. Hadoop consente l'elaborazione distribuita di grandi set di dati tra cluster di computer utilizzando semplici framework di programmazione. Hadoop è stato progettato per scalare da singoli server a migliaia di macchine, con ogni macchina in possesso di calcolo e storage locali.
 
 

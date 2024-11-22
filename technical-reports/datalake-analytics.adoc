@@ -11,6 +11,9 @@ summary: Questo report riguarda le analisi dei big data su StorageGRID.
 :imagesdir: ../media/
 
 
+[role="lead"]
+_Di Angela Cheng_
+
 
 
 == Casi d'utilizzo di NetApp StorageGRID
