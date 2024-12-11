@@ -1368,7 +1368,6 @@ Se la soluzione che stai cercando non è presente nell'elenco, contatta il tuo r
   <block id="4dc7ef59b422ad6beec0dcf560a3fdf9" category="paragraph">*Backup dei dati e ripristino di emergenza:* le aziende possono utilizzare StorageGRID S3 come soluzione affidabile e conveniente per il backup dei dati critici e il ripristino in caso di emergenza.</block>
   <block id="b05954e05454ab56e0d356cb4ad49d95" category="paragraph">*Archiviazione dei dati per le applicazioni:* StorageGRID S3 può essere utilizzato come backend di archiviazione per le applicazioni, consentendo agli sviluppatori di archiviare e recuperare facilmente file, immagini, video e altri tipi di dati.</block>
   <block id="5623c900b98e0e5e17c60c75ded947b1" category="paragraph">*Distribuzione dei contenuti:* StorageGRID S3 può essere utilizzato per archiviare e distribuire contenuti statici di siti web, file multimediali e download di software agli utenti di tutto il mondo, sfruttando la distribuzione geografica e lo spazio dei nomi globale di StorageGRID per una distribuzione dei contenuti rapida e affidabile.</block>
-  <block id="60b72d1ecbd87ac726a3dbb733456c59" category="paragraph">*Tiering dati:* i clienti NetApp utilizzano la funzionalità ONTAP FabricPool per spostare automaticamente i dati tra un livello locale ad alte prestazioni in StorageGRID. Il tiering libera il costoso storage flash per i dati hot, mantenendo i dati cold altamente disponibili mediante lo storage a oggetti a costo contenuto. Ciò massimizza performance e risparmi.</block>
   <block id="454845c7ca306686c28f96a59487d70c" category="paragraph">*Archivio dati:* StorageGRID offre diversi tipi di storage e supporta il tiering in opzioni di storage pubblico a lungo termine a basso costo, rendendolo una soluzione ideale per l'archiviazione e la conservazione a lungo termine dei dati che devono essere conservati per scopi di conformità o cronologici.</block>
   <block id="a324e6c3bb7d6684738c923e7b52ea98" category="paragraph">*Casi di utilizzo dello storage a oggetti*</block>
   <block id="9f79f86c9a539a911125a876ef6a3c2e" category="inline-image-macro">Schema casi di utilizzo StorageGRID, larghezza=396, altezza=394</block>
@@ -3011,7 +3010,6 @@ StorageGRID scala le performance utilizzando nodi con performance più elevate p
   <block id="077385462ac0cf8f7fe1ddb0b3983c42" category="cell">TPCDS 99 query + minuti totali (cache disattivata)</block>
   <block id="34173cb38f07f89ddbebc2ac9128303f" category="cell">30</block>
   <block id="b6d767d2f8ed5d21a44b0e5886680cb9" category="cell">22</block>
-  <block id="95df7e4eb2568a2c428c70b695f7cac2" category="cell">TPCDS 99 query + minuti totali (cache abilitata)</block>
   <block id="d81fdeb5a429e85d04118048e4b3485d" category="cell">21,5</block>
   <block id="b7ae258c3f8653133aa9c0c448f67516" category="cell">GET (OTTIENI) (cache disattivata)</block>
   <block id="3bb0dd7ec24af388f7e49723482fb553" category="cell">2.154.747</block>
@@ -3167,4 +3165,6 @@ StorageGRID scala le performance utilizzando nodi con performance più elevate p
   <block id="a3f1428e66932d96ff43f4bf4a938e38" category="inline-link-macro">Scaricare il pacchetto file di esempio Logstash 8.x per StorageGRID 11,9</block>
   <block id="92648c644fef59d092d8ebc7df369fd8" category="list-text"><block ref="69ef6b23b33f55d10cdea70d6bd19e3d" category="inline-link-macro-rx"></block> + *md5 checksum* 41272857c4a54600f95995f6ed74800d + *sha256 checksum* 67048e8661052719990851e1ad960d4902fe537a6e135e8600177188da6779c9</block>
   <block id="52f70839644ed308c4da8e45cf815a31" category="paragraph">Vengono importati i seguenti oggetti Kibana: + *Query* + * audit-msg-s3rq-orlm + * bycast log S3 messaggi correlati + * avviso livello di accesso o superiore + * evento di sicurezza non riuscito + * nginx-gw log di accesso endpoint (disponibile solo in elk8-sample-for-sg119.zip) + *grafico* + * S3 conteggio richieste basato su bycast.log + * Codice di stato HTTP + * tipo di controllo + tempo di risposta medio del dashboard * S3 msg del dashboard * dati di analisi del dashboard * dati del tipo di analisi del dashboard * S3.</block>
+  <block id="975915e0dc64af72667a293b87be5f66" category="cell">TPCDS 99 query + minuti totali ^2^ (cache abilitata)</block>
+  <block id="a447f0aa56d54d66cf89976cc810a113" category="paragraph">^2^ le prestazioni Trino/Starburst sono causate da colli di bottiglia causati dalle risorse di elaborazione; l'aggiunta di più RAM al cluster riduce il tempo totale di query.</block>
 </blocks>
