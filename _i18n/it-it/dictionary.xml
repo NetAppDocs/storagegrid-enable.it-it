@@ -1393,34 +1393,27 @@ Se la soluzione che stai cercando non è presente nell'elenco, contatta il tuo r
   <block id="35b5589d5690d7ef32acf311beb9bbea" category="cell">TPCDS 99 query +
 minuti totali</block>
   <block id="b53b3a3d6ab90ce0268229151c9bde11" category="cell">55</block>
-  <block id="67c6a1e7ce56d3d6fa748ab6d9af3fd7" category="cell">47</block>
   <block id="7528035a93ee69cedb1dbddb2f0bfcc8" category="cell">OTTIENI</block>
   <block id="8db7bb1512ff25e1db67c5b9a53f897d" category="cell">1.117.184</block>
   <block id="2569e54b8230d5c2746fa85c61dcf512" category="cell">2.074.610</block>
-  <block id="7cea2b87e7eb0c4d67994a7b9fa4f3d3" category="cell">4.414.227</block>
   <block id="6f53c4f40f0a0d7fefdb89564ac1c713" category="cell">osservazione: +
 Tutta la gamma</block>
   <block id="a9d41bf59f53e6160f0b13f571ea418a" category="cell">80% range get di 2KB a 2MB da 32MB oggetti, 50 - 100 richieste/sec</block>
   <block id="e0b8bceb4cded5e4c1e2d73d9331f0f7" category="cell">Il range del 73% è inferiore a 100KB da 32MB oggetti, 1000 - 1400 richieste/sec</block>
-  <block id="bfe0f96dc7eb9140699f8fdd7568c553" category="cell">90% 1M byte range get from 256MB objects, 2000 - 2300 requests/sec</block>
   <block id="0f220d208874b104e26e73ec94b0e690" category="cell">Elenca oggetti</block>
   <block id="bfc2dfc2cb23058c08a7d12b5c3abb19" category="cell">312.053</block>
   <block id="0e706da47bd945de88f06af5c56e1e6a" category="cell">24.158</block>
-  <block id="335f5352088d7d9bf74191e006d8e24c" category="cell">240</block>
   <block id="c03e2ac569e5aac15b52493eef30e9e7" category="cell">TESTA +
 (oggetto inesistente)</block>
   <block id="b920dc6d7f4f2319e93bdcc850be6166" category="cell">156.027</block>
   <block id="8e43c25a28a92db67de364324cbdf9dd" category="cell">12.103</block>
-  <block id="58a2fc6ed39fd083f55d4182bf88826d" category="cell">192</block>
   <block id="d241bb72f8484e8c12847a1c342893cc" category="cell">TESTA +
 (oggetto esistente)</block>
   <block id="791138a3078a87a630b0ddcc779f5365" category="cell">982.126</block>
   <block id="41157fd52202414d46b193aa0dc0e7ed" category="cell">922.732</block>
-  <block id="4a12caac680acef61b9d5542d0bdd153" category="cell">1.845</block>
   <block id="645d67b4eb5a0d06bf14fe7a682ced76" category="cell">Richieste totali</block>
   <block id="a56d0d38d9846ac044442ecabae19902" category="cell">2.567.390</block>
   <block id="6dfffbda5aeba01126df9439ffbc82a3" category="cell">3.033.603</block>
-  <block id="b0f186b9ad3639a900dc289160a9505b" category="cell">4.416.504</block>
   <block id="71860c77c6745379b0d44304d66b6a13" category="inline-link">pagina</block>
   <block id="c0c37f88f031a9b491d9a8bbea81dda7" category="paragraph">Visita i collegamenti riportati di seguito per scoprire come StorageGRID e Dremio collaborano per fornire un'infrastruttura di data Lake moderna ed efficiente e come NetApp è passata da Hive + HDFS a Dremio + StorageGRID per migliorare in modo significativo l'efficienza dell'analisi dei big data.</block>
   <block id="79304bd05c48f486a8924e2c45f39311" category="inline-link">Migliora le performance dei tuoi big data con NetApp StorageGRID</block>
@@ -1450,17 +1443,11 @@ Tutta la gamma</block>
 <block ref="a48adf12485e7e1fabf51f229ceb57fd" category="inline-link-macro-rx"></block></block>
   <block id="a27c73113b9f8b1c8936231a5c6b72db" category="list-text">Accedere al nodo di amministrazione primario, utilizzare change-ip per modificare l'IP della griglia, deve *stage* la modifica prima di arrestare il nodo per il trasferimento.</block>
   <block id="e8ebed2710314532bd7421c291775f7a" category="list-text">Selezionare 2 quindi 1 per la modifica dell'IP della griglia</block>
-  <block id="f246621acb182eca202eb998d35a0a71" category="paragraph"><block ref="f246621acb182eca202eb998d35a0a71" category="inline-image-macro-rx" type="image"></block></block>
   <block id="0fc35f100f57d71f3d04d75f8e34db7a" category="list-text">selezionare 5 per visualizzare le modifiche</block>
-  <block id="51db02a440736bec001c7d690821ec49" category="paragraph"><block ref="51db02a440736bec001c7d690821ec49" category="inline-image-macro-rx" type="image"></block></block>
   <block id="0db10ef124f48bf74646e51d511e42e7" category="list-text">selezionare 10 per convalidare e applicare la modifica.</block>
-  <block id="ecf8b3b84403afdd8f30ff4ca92df4d0" category="paragraph"><block ref="ecf8b3b84403afdd8f30ff4ca92df4d0" category="inline-image-macro-rx" type="image"></block></block>
   <block id="b535a2204d1cc298ac5c3b36cc8a9249" category="list-text">In questa fase è necessario selezionare *fase*.</block>
-  <block id="a8c78f88b73dcaf8b7082c7d8bab4356" category="paragraph"><block ref="a8c78f88b73dcaf8b7082c7d8bab4356" category="inline-image-macro-rx" type="image"></block></block>
   <block id="23e28a352f23f6051ecbe97b0516b42f" category="list-text">Se il nodo di amministrazione primario è incluso nella modifica precedente, immettere *'A' per riavviare manualmente il nodo di amministrazione primario*</block>
-  <block id="6cfd9d702fc475a31c16db4299ee31a0" category="paragraph"><block ref="6cfd9d702fc475a31c16db4299ee31a0" category="inline-image-macro-rx" type="image"></block></block>
   <block id="355ec7ab5ee5e52899a8a48528d82b93" category="list-text">Premere invio per tornare al menu precedente e uscire dall'interfaccia change-ip.</block>
-  <block id="34efad53185ba8366fcb774fe4502175" category="paragraph"><block ref="34efad53185ba8366fcb774fe4502175" category="inline-image-macro-rx" type="image"></block></block>
   <block id="6a713acf175fd861bbb563ab540a06fe" category="list-text">Da Grid Manager, scaricare il nuovo pacchetto di ripristino. *Grid manager* &gt; *Maintenance* &gt; *Recovery package*</block>
   <block id="96557217b00ac75f863bec84c65347bf" category="list-text">Se è necessario modificare la VLAN sull'appliance StorageGRID, vedere la sezione <block ref="f1c1d143229526a165bf49ac775d4ecd" category="inline-xref-macro-rx"></block>.</block>
   <block id="26afb12dd81518887c60c85ae47dab08" category="list-text">Arrestare tutti i nodi e/o le appliance in sede, etichettare/rimuovere le unità disco se necessario, disimballare, imballare e spostare.</block>
@@ -2984,11 +2971,7 @@ StorageGRID scala le performance utilizzando nodi con performance più elevate p
   <block id="7c648110d8b752889f98cd2d87517c0f" category="section-title">Benchmarking di Data warehouse e Lakehouses con storage a oggetti S3: Uno studio comparativo</block>
   <block id="3f7d606956bcb4f8b565d2799da4a4e3" category="paragraph">Questo articolo presenta un benchmark completo di vari ecosistemi di data warehouse e lakehouse che utilizzano NetApp StorageGRID. L'obiettivo è determinare il sistema che funziona meglio con lo storage a oggetti S3. Fare riferimento a questo <block ref="ca1f374596a7de7e13cf95753411f6e0" category="inline-link-rx"></block> per ulteriori informazioni sulle architetture datawarehous/lakehouse e sul formato tabella (Parquet e Iceberg).</block>
   <block id="39b5836a4532001dfbe7e05fb49461e4" category="list-text">Cluster di macchine virtuali, ciascuno con 128G GB di RAM e 24 vCPU, storage SSD per disco di sistema</block>
-  <block id="37e59045c327c8ae9b2d4f7b4f136217" category="list-text">Dremio V23 (1 cordinatore + 5 esecutori)</block>
-  <block id="1543c40ac4e68e60ea63a94bfab320ec" category="list-text">Trino v438 (1 cordinatore + 5 addetti)</block>
-  <block id="e9940dffc6cb8987f8ea2849d2c81a2c" category="list-text">Starburst v453 (1 cordinatore + 5 addetti)</block>
   <block id="e6626cf4bf50ce440a045708b2e1f1e5" category="list-text">NetApp^®^ StorageGRID^® 11,8 con bilanciamento del carico 3 x SG6060 + 1x SG1000</block>
-  <block id="20536af82697c291683798ab540160e0" category="list-text">Protezione degli oggetti - 2 copie (il risultato è simile a EC 2+1)</block>
   <block id="b9d35717430d39eef24c76f0c1796c11" category="list-text">La cache è stata disabilitata in tutti gli ecosistemi per ogni test di query utilizzando il formato Parquet. Per il formato Iceberg, abbiamo confrontato il numero di richieste GET S3 e il tempo totale di query tra scenari con cache disabilitata e scenari con cache abilitata.</block>
   <block id="cdbfde1ab888a940af383c70c682b87a" category="paragraph">TPC-DS include 99 query SQL complesse progettate per il benchmarking. Abbiamo misurato il tempo totale impiegato per eseguire tutte le 99 query e abbiamo condotto un'analisi dettagliata esaminando il tipo e il numero di richieste S3. I nostri test hanno confrontato l'efficienza di due formati di tabella popolari: Parquet e Iceberg.</block>
   <block id="96e14f82cc6500529b0c04afc6ebafa1" category="paragraph">*Risultato query TPC-DS con formato tabella parquet*</block>
@@ -3008,24 +2991,17 @@ StorageGRID scala le performance utilizzando nodi con performance più elevate p
   <block id="f1cab053650b93fe71331be2c4c9c40d" category="paragraph">^1^ Impossibile completare la query numero 72</block>
   <block id="2e09f209b7749073d8732d856a6afe12" category="paragraph">*Risultato query TPC-DS con formato tabella Iceberg*</block>
   <block id="077385462ac0cf8f7fe1ddb0b3983c42" category="cell">TPCDS 99 query + minuti totali (cache disattivata)</block>
-  <block id="34173cb38f07f89ddbebc2ac9128303f" category="cell">30</block>
   <block id="b6d767d2f8ed5d21a44b0e5886680cb9" category="cell">22</block>
   <block id="d81fdeb5a429e85d04118048e4b3485d" category="cell">21,5</block>
   <block id="b7ae258c3f8653133aa9c0c448f67516" category="cell">GET (OTTIENI) (cache disattivata)</block>
-  <block id="3bb0dd7ec24af388f7e49723482fb553" category="cell">2.154.747</block>
   <block id="817c2a89c3531f80836a2db8d06d85b3" category="cell">938.639</block>
   <block id="5f4363558dd08c8d9c04d30802266c70" category="cell">931.582</block>
   <block id="18c14d7f109f020c287a26f7a8f428d4" category="cell">GET (OTTIENI) (cache abilitata)</block>
-  <block id="e3f91fa6ba87f03f3166a20beea1c344" category="cell">5.389</block>
   <block id="6b11f97cb60ca2cd6f46178c1e7cf4f3" category="cell">30.158</block>
   <block id="bc06fdbde6a0ac6d6d654b6614f9b5d7" category="cell">3.281</block>
-  <block id="76de71b9903e9b839668c173592c80be" category="cell">Dimensioni di RICEZIONE intervallo: 67% 1MB, 15% 100KB, 10% 500KB, 3000 - 4000 richieste/sec</block>
   <block id="5819eb0ec4b00d343de26ea1746d62b0" category="cell">Dimensioni del range: 42% inferiore a 100KB, 17% circa 1MB, 33% 2MB-9MB, 3500 - 4000 richieste/sec</block>
   <block id="a6939d8de1e94d811eb67cb92270c822" category="cell">Dimensioni del range: 43% inferiore a 100KB, 17% circa 1MB, 33% 2MB-9MB, 4000 - 5000 richieste/sec</block>
-  <block id="46ba9f2a6976570b0353203ec4474217" category="cell">284</block>
-  <block id="e087b5b2372a325fbbc3eb02013bd513" category="cell">1.261</block>
   <block id="2d6a14455d72488e5e91089f0b50905c" category="cell">Richieste totali (cache disattivata)</block>
-  <block id="2096b1864713f451954f320346ec801a" category="cell">2.156.578</block>
   <block id="bfd8a8a359e411cea773da89ea7b516e" category="cell">939.148</block>
   <block id="95368980785d6fcc2e447b3569f7e08e" category="cell">932.071</block>
   <block id="e7c4b70d9a61af19b7bb26b3656a04a7" category="paragraph">Come mostrato nella prima tabella, Hive è significativamente più lento di altri moderni dati ecosistemi lakehouse. Abbiamo osservato che Hive ha inviato un gran numero di richieste list-objects S3, che in genere sono lente su tutte le piattaforme di storage a oggetti, soprattutto quando si gestiscono bucket contenenti molti oggetti. Ciò aumenta notevolmente la durata complessiva della query. Inoltre, i moderni ecosistemi lakehouse possono inviare in parallelo un elevato numero di richieste GET, che vanno da 2.000 a 5.000 richieste al secondo, rispetto alle richieste da 50 a 100 di Hive al secondo. Il file system standard mimicry di Hive e Hadoop S3A contribuisce alla lentezza di Hive nell'interazione con lo storage a oggetti S3.</block>
@@ -3167,4 +3143,33 @@ StorageGRID scala le performance utilizzando nodi con performance più elevate p
   <block id="52f70839644ed308c4da8e45cf815a31" category="paragraph">Vengono importati i seguenti oggetti Kibana: + *Query* + * audit-msg-s3rq-orlm + * bycast log S3 messaggi correlati + * avviso livello di accesso o superiore + * evento di sicurezza non riuscito + * nginx-gw log di accesso endpoint (disponibile solo in elk8-sample-for-sg119.zip) + *grafico* + * S3 conteggio richieste basato su bycast.log + * Codice di stato HTTP + * tipo di controllo + tempo di risposta medio del dashboard * S3 msg del dashboard * dati di analisi del dashboard * dati del tipo di analisi del dashboard * S3.</block>
   <block id="975915e0dc64af72667a293b87be5f66" category="cell">TPCDS 99 query + minuti totali ^2^ (cache abilitata)</block>
   <block id="a447f0aa56d54d66cf89976cc810a113" category="paragraph">^2^ le prestazioni Trino/Starburst sono causate da colli di bottiglia causati dalle risorse di elaborazione; l'aggiunta di più RAM al cluster riduce il tempo totale di query.</block>
+  <block id="bc2469224adc8a8ee41f7c9d2f89498e" category="inline-image-macro">change-ip edit (modifica-ip)</block>
+  <block id="743a7af3c67be6e10fc77339961e23fb" category="paragraph"><block ref="743a7af3c67be6e10fc77339961e23fb" category="inline-image-macro-rx" type="image"></block></block>
+  <block id="f9ab05454998236921a6b0e281fae632" category="inline-image-macro">validare</block>
+  <block id="6e6f4af6899b11671003020ac07a3a96" category="paragraph"><block ref="6e6f4af6899b11671003020ac07a3a96" category="inline-image-macro-rx" type="image"></block></block>
+  <block id="3762c8020ba0ce4a7a389025eb72cf94" category="inline-image-macro">modifiche di fase</block>
+  <block id="fbd50b0647972077b13e74d396e8896e" category="paragraph"><block ref="fbd50b0647972077b13e74d396e8896e" category="inline-image-macro-rx" type="image"></block></block>
+  <block id="a78f24ac183c3cb24df5f184a2e0b46d" category="inline-image-macro">Riavviare admin manualmente</block>
+  <block id="f8ce374542d0a27e4d8d96c0f7315dc3" category="paragraph"><block ref="f8ce374542d0a27e4d8d96c0f7315dc3" category="inline-image-macro-rx" type="image"></block></block>
+  <block id="f34e35f25d10586d1af2b8d83719ee5f" category="inline-image-macro">Menu precedente</block>
+  <block id="c38ca150b2bcf962c0873899a514800e" category="paragraph"><block ref="c38ca150b2bcf962c0873899a514800e" category="inline-image-macro-rx" type="image"></block></block>
+  <block id="a0bfb8e59e6c13fc8d990781f77694fe" category="inline-image-macro">Continua</block>
+  <block id="3211aaa59b164a687021525248c48c20" category="paragraph"><block ref="3211aaa59b164a687021525248c48c20" category="inline-image-macro-rx" type="image"></block></block>
+  <block id="122cfba1930d02037ab442d83e00ecfb" category="list-text">Dremio v25,2 (1 coordinatore + 5 esecutori)</block>
+  <block id="ed539d33b6810957992d273d5fe36c89" category="list-text">Trino v438 (1 coordinatore + 5 lavoratori)</block>
+  <block id="8b03eab5bbec674c2055b88603e6b915" category="list-text">Starburst v453 (1 coordinatore + 5 lavoratori)</block>
+  <block id="150169d4934a641a9290023e45d8827c" category="list-text">Protezione degli oggetti - 2 copie (il risultato è simile a EC 2+1)</block>
+  <block id="19ca14e7ea6328a42e0eb13d585e4c22" category="cell">36</block>
+  <block id="71958970b7dcf9b9a9a0547a08451814" category="cell">3.939.690</block>
+  <block id="21d6b11365dd533455aef1380bc83463" category="cell">90% 1M byte range get from 256MB objects, 2500 - 3000 requests/sec</block>
+  <block id="da4fb5c6e93e74d3df8527599fa62642" category="cell">120</block>
+  <block id="26657d5ff9020d2abefe558796b99584" category="cell">96</block>
+  <block id="43460f9628a66a0085c583d8246d0d66" category="cell">3.939,906</block>
+  <block id="9b7ed7cdb52b5dffcfa7c7d3a1591cce" category="cell">1.985.922</block>
+  <block id="f0da24bce2825366359f84209912aad9" category="cell">611.347</block>
+  <block id="ffbb0c48a0c397085ed7e56cf32a94ff" category="cell">Dimensioni di RICEZIONE intervallo: 67% 1MB, 15% 100KB, 10% 500KB, 3500 - 4500 richieste/sec</block>
+  <block id="372d3f309fef061977fb2f7ba36d74d2" category="cell">1465</block>
+  <block id="c913303f392ffc643f7240b180602652" category="cell">1464</block>
+  <block id="6cd2cdb0fa97e6793df3667997292b8a" category="cell">3.702</block>
+  <block id="93ee6d81759b8ae556ed02d6b52a3447" category="cell">1.992.553</block>
 </blocks>
