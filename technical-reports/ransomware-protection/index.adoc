@@ -42,6 +42,5 @@ Per ulteriori informazioni sulle informazioni descritte in questo documento, con
 
 * Centro di documentazione NetApp StorageGRID https://docs.netapp.com/us-en/storagegrid-118/[]
 * Abilitazione NetApp StorageGRID https://docs.netapp.com/us-en/storagegrid-enable/[]
-* Pagina risorse documentazione StorageGRID https://www.netapp.com/data-storage/storagegrid/documentation/[]
 * Documentazione dei prodotti NetApp https://www.netapp.com/support-and-training/documentation/[]
 
