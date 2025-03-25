@@ -74,7 +74,7 @@ Queste soluzioni sono state testate in collaborazione con i rispettivi partner.
 * Verniciare Enterprise 6.0.4
 * Veeeam 12
 * Veritas Enterprise Vault 15,1
-* Veritas NetBackup 8.0
+* Veritas NetBackup 10.1.1 e versioni successive
 * Verticale 10.x
 * Visoline
 * Virtalica StorageFabric
