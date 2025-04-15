@@ -33,7 +33,7 @@ NOTE: L'azione S3:ListBucket Allowed è necessaria per consentire agli utenti di
 
 La *risorsa* è il bucket o i bucket a cui sono stati concessi o negati i principi di eseguire le azioni su. Facoltativamente, può essere presente una condizione * per quando l'azione del criterio è valida.
 
-Il formato del poliziotto JSON sarà simile al seguente:
+Il formato del criterio JSON sarà il seguente:
 
 [source, json]
 ----
@@ -66,11 +66,11 @@ Il formato del poliziotto JSON sarà simile al seguente:
 
 AWS Policy generator è un ottimo tool per aiutare a ottenere il codice json con il formato e le informazioni corrette che stai cercando di implementare.
 
-Per generare le autorizzazioni per un criterio di gruppo StorageGRID: * Scegliere il criterio IAM per il tipo di criterio. * Selezionare il pulsante per l'effetto desiderato - Allow (Consenti) o Deny (Nega). È buona norma avviare i criteri con le autorizzazioni di negazione e quindi aggiungere le autorizzazioni di autorizzazione * nel menu a discesa azioni fare clic sulla casella accanto a tutte le S3 azioni che si desidera includere in questa autorizzazione o nella casella "tutte le azioni". * Digitare i percorsi bucket nella casella Amazon Resource Name (ARN). Includere "arn:aws:S3:::" prima del nome bucket. Es. "arn:aws:s3:::examplebucket"
+Per generare le autorizzazioni per un criterio di gruppo StorageGRID: * Scegliere il criterio IAM per il tipo di criterio. * Selezionare il pulsante per l'effetto desiderato - Allow (Consenti) o Deny (Nega). È buona norma avviare i criteri con le autorizzazioni di negazione e quindi aggiungere le autorizzazioni di autorizzazione * nel menu a discesa azioni fare clic sulla casella accanto a tutte le S3 azioni che si desidera includere in questa autorizzazione o nella casella "tutte le azioni". * Digitare i percorsi bucket nella casella Amazon Resource Name (ARN). Includere "arn:aws:S3:::" prima del nome bucket. Es. "arn:aws:s3:::example_bucket"
 
 image:policy/group-generic.png["Generare un criterio di gruppo"]
 
-Per generare le autorizzazioni per un criterio bucket: * Scegliere il criterio bucket S3 per il tipo di criterio. * Selezionare il pulsante per l'effetto desiderato - Allow (Consenti) o Deny (Nega). È buona norma avviare i criteri con le autorizzazioni di negazione e quindi aggiungere il tipo Consenti autorizzazioni * nelle informazioni relative all'utente o al gruppo per il principale. * Nell'elenco a discesa azioni, fare clic sulla casella accanto a tutte le S3 azioni che si desidera includere in questa autorizzazione o nella casella "tutte le azioni". * Digitare i percorsi bucket nella casella Amazon Resource Name (ARN). Includere "arn:aws:S3:::" prima del nome bucket. Es. "arn:aws:s3:::examplebucket"
+Per generare le autorizzazioni per un criterio bucket: * Scegliere il criterio bucket S3 per il tipo di criterio. * Selezionare il pulsante per l'effetto desiderato - Allow (Consenti) o Deny (Nega). È buona norma avviare i criteri con le autorizzazioni di negazione e quindi aggiungere il tipo Consenti autorizzazioni * nelle informazioni relative all'utente o al gruppo per il principale. * Nell'elenco a discesa azioni, fare clic sulla casella accanto a tutte le S3 azioni che si desidera includere in questa autorizzazione o nella casella "tutte le azioni". * Digitare i percorsi bucket nella casella Amazon Resource Name (ARN). Includere "arn:aws:S3:::" prima del nome bucket. Es. "arn:aws:s3:::example_bucket"
 
 image:policy/bucket-generic.png["Generare una policy bucket"]
 
@@ -80,7 +80,7 @@ Ad esempio, se si desidera generare un criterio bucket per consentire a tutti gl
 * Scegliere l'effetto Consenti
 * Inserisci le informazioni del gruppo Marketing - arn:aws:iam::95390887230002558202:Federated-group/Marketing
 * Fare clic sulla casella "tutte le azioni"
-* Inserisci le informazioni del bucket - arn:aws:S3:::examplebucket,arn:aws:S3:::examplebucket/*
+* Inserisci le informazioni del bucket - arn:aws:S3:::example_bucket,arn:aws:S3:::example_bucket/*
 
 
 image:policy/example-bucket1.png["Generare la prima autorizzazione nel criterio"]
@@ -97,7 +97,7 @@ image:policy/permission1.png["Prima autorizzazione nel criterio immesso"]
 
 image:policy/getobject.png["Selezionare GetObject"] image:policy/listbucket.png["Selezionare ListBucket"]
 
-* Inserisci le informazioni del bucket - arn:aws:S3:::examplebucket,arn:aws:S3:::examplebucket/*
+* Inserisci le informazioni del bucket - arn:aws:S3:::example_bucket,arn:aws:S3:::example_bucket/*
 
 
 image:policy/example-bucket2.png["Generare la seconda autorizzazione nel criterio"]
@@ -105,7 +105,7 @@ image:policy/example-bucket2.png["Generare la seconda autorizzazione nel criteri
 * Fare clic sul pulsante "Aggiungi dichiarazione"
 
 
-image:policy/permission3.png["Seconda autorizzazione nella politica"]
+image:policy/permission2.png["Seconda autorizzazione nella politica"]
 
 * Fare clic sul pulsante "genera criterio" per visualizzare una finestra a comparsa con la policy generata.
 
@@ -126,8 +126,8 @@ image:policy/example-output.png["L'uscita finale"]
       "Action": "s3:*",
       "Effect": "Allow",
       "Resource": [
-        "arn:aws:s3:::examplebucket",
-        "arn:aws:s3:::examplebucket/*"
+        "arn:aws:s3:::example_bucket",
+        "arn:aws:s3:::example_bucket/*"
       ],
       "Principal": {
         "AWS": [
@@ -143,8 +143,8 @@ image:policy/example-output.png["L'uscita finale"]
       ],
       "Effect": "Allow",
       "Resource": [
-        "arn:aws:s3:::examplebucket",
-        "arn:aws:s3:::examplebucket/*"
+        "arn:aws:s3:::example_bucket",
+        "arn:aws:s3:::example_bucket/*"
       ],
       "Principal": "*"
     }
@@ -164,8 +164,8 @@ Ad esempio:
       "Action": "s3:*",
       "Effect": "Allow",
       "Resource": [
-        "arn:aws:s3:::examplebucket",
-        "arn:aws:s3:::examplebucket/*"
+        "arn:aws:s3:::example_bucket",
+        "arn:aws:s3:::example_bucket/*"
       ],
       "Principal": {
         "AWS": [
@@ -181,8 +181,8 @@ Ad esempio:
       ],
       "Effect": "Allow",
       "Resource": [
-        "arn:aws:s3:::examplebucket",
-        "arn:aws:s3:::examplebucket/*"
+        "arn:aws:s3:::example_bucket",
+        "arn:aws:s3:::example_bucket/*"
       ],
       "Principal": "*"
     }
