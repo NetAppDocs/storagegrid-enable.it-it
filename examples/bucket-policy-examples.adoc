@@ -2,9 +2,9 @@
 permalink: examples/bucket-policy-examples.html 
 sidebar: sidebar 
 keywords: iam, bucket policy, group policy, policy 
-summary: Di seguito sono riportati alcuni criteri e autorizzazioni di esempio in StorageGRID S3. 
+summary: Criteri e autorizzazioni in StorageGRID . 
 ---
-= Esempio di policy di bucket e di gruppo (IAM)
+= Criteri e autorizzazioni in StorageGRID
 :hardbreaks:
 :allow-uri-read: 
 :icons: font
@@ -24,7 +24,7 @@ I criteri di gruppo sono necessari in StorageGRID. Un utente con S3 chiavi di ac
 
 I criteri bucket e gruppo condividono la maggior parte degli stessi elementi. Le policy vengono create in formato json e possono essere generate utilizzando https://awspolicygen.s3.amazonaws.com/policygen.html["Generatore di policy AWS"]
 
-Tutti i criteri definiscono l'effetto, le azioni e le risorse. Anche i criteri bucket definiranno un'entità principale.
+Tutti i criteri definiscono l'effetto, le azioni e le risorse. I criteri bucket definiranno anche un'entità.
 
 Il *effetto* sarà quello di consentire o negare la richiesta.
 
