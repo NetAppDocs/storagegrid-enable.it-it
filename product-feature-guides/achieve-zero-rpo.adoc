@@ -20,9 +20,9 @@ Questo report tecnico fornisce una guida completa all'implementazione delle stra
 
 NetApp StorageGRID è un sistema storage basato su oggetti che supporta l'API Amazon Simple Storage Service (Amazon S3) standard di settore.
 
-StorageGRID offre un namespace singolo in siti multipli con livelli di servizio variabili determinati da policy di Information Lifecycle Management (ILM). Con queste policy del ciclo di vita puoi ottimizzare la posizione dei dati durante il loro ciclo di vita.
+StorageGRID offre un namespace singolo in siti multipli con livelli di servizio variabili determinati da policy di Information Lifecycle Management (ILM). Grazie a queste policy sul ciclo di vita puoi ottimizzare la collocazione dei tuoi dati durante tutto il loro ciclo di vita.
 
-StorageGRID garantisce durata e disponibilità configurabili dei tuoi dati in soluzioni locali e geodistribuito. Sia che i dati risiedano on-premise o in un cloud pubblico, i flussi di lavoro del cloud ibrido integrato consentono alla tua azienda di sfruttare servizi cloud come Amazon Simple Notification Service (Amazon SNS), Google Cloud, Microsoft Azure Blob, Amazon S3 Glacier, Elasticsearch e altri ancora.
+StorageGRID garantisce durata e disponibilità configurabili dei tuoi dati in soluzioni locali e geodistribuito. Che i tuoi dati siano in locale o in un cloud pubblico, i flussi di lavoro cloud ibridi integrati consentono alla tua azienda di sfruttare servizi cloud come Amazon Simple Notification Service (Amazon SNS), Google Cloud, Microsoft Azure Blob, Amazon S3 Glacier, Elasticsearch e molti altri.
 
 
 
@@ -30,7 +30,14 @@ StorageGRID garantisce durata e disponibilità configurabili dei tuoi dati in so
 
 È possibile implementare StorageGRID con soli 3 nodi storage e un singolo grid può crescere fino a 200 nodi. È possibile implementare una singola griglia come singolo sito o estenderla fino a 16 siti. Un grid minimo è costituito da un nodo amministrativo e da 3 nodi storage in un singolo sito. Il nodo admin contiene l'interfaccia di gestione, un punto centrale per le metriche e il logging e mantiene la configurazione dei componenti StorageGRID. Il nodo admin contiene anche un bilanciamento del carico integrato per l'accesso API S3. StorageGRID può essere implementato come software-only, come appliance per macchine virtuali VMware o come appliance costruite ad hoc.
 
-È possibile implementare un nodo StorageGRID solo come nodo di metadati che massimizza il numero di oggetti, un nodo di storage a oggetti che massimizza lo spazio di oggetti o un nodo combinato di metadati e storage a oggetti che aggiunge sia il numero di oggetti che lo spazio degli oggetti. Ciascun nodo storage può scalare fino a raggiungere una capacità di diversi petabyte per lo storage a oggetti, permettendo di creare un namespace singolo nelle centinaia di petabyte. StorageGRID fornisce anche un bilanciatore di carico integrato per operazioni API S3 chiamate nodo di gateway.
+Un nodo StorageGRID può essere distribuito come:
+
+* Un nodo solo metadati che massimizza il conteggio degli oggetti
+* Un nodo di archiviazione di soli oggetti che massimizza lo spazio degli oggetti
+* Un nodo combinato di metadati e archiviazione di oggetti che aggiunge sia il conteggio degli oggetti che lo spazio degli oggetti
+
+
+Ciascun nodo storage può scalare fino a raggiungere una capacità di diversi petabyte per lo storage a oggetti, permettendo di creare un namespace singolo nelle centinaia di petabyte. StorageGRID fornisce anche un bilanciatore di carico integrato per operazioni API S3 chiamate nodo di gateway.
 
 image:zero-rpo/delivery-paths.png["Opzioni di implementazione di StorageGRID"]
 
@@ -64,7 +71,7 @@ StorageGRID utilizza i metadati degli oggetti per tenere traccia delle posizioni
 
 I metadati dell'oggetto includono informazioni come:
 
-* Metadati di sistema, tra cui un ID univoco per ciascun oggetto (UUID), il nome dell'oggetto, il nome del bucket S3, il nome o l'ID dell'account tenant, le dimensioni logiche dell'oggetto, la data e l'ora della prima creazione dell'oggetto e la data e l'ora dell'ultima modifica dell'oggetto.
+* Metadati di sistema, tra cui un ID univoco per ciascun oggetto, il nome dell'oggetto, il nome del bucket S3, il nome o l'ID dell'account tenant, la dimensione logica dell'oggetto, la data e l'ora in cui l'oggetto è stato creato per la prima volta e la data e l'ora dell'ultima modifica dell'oggetto.
 * Posizione dello storage corrente di ogni replica dell'oggetto o frammento sottoposto a erasure coding.
 * Qualsiasi coppia di valori chiave metadati utente personalizzata associata all'oggetto.
 * Per gli oggetti S3, qualsiasi coppia chiave-valore tag oggetto associata all'oggetto

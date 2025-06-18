@@ -8,3 +8,5 @@ entries:
   url: "/examples/test-demonstrate-S3-object-lock.html"
 - title: Esempi di bucket e Criteri di gruppo
   url: "/examples/bucket-policy-examples.html"
+- title: Esempi di policy sul ciclo di vita del bucket
+  url: "/examples/bucket-lifecycle-examples.html"
