@@ -1,0 +1,36 @@
+---
+sidebar: sidebar 
+permalink: technical-reports/bare-metal-index.html 
+keywords: install, storagegrid, deploy, bare metal 
+summary: Scopri come installare StorageGRID su una griglia bare metal. 
+---
+= Introduzione all'installazione di StorageGRID
+:hardbreaks:
+:allow-uri-read: 
+:nofooter: 
+:icons: font
+:linkattrs: 
+:imagesdir: ../media/
+
+
+[role="lead"]
+Scopri come installare StorageGRID su host bare metal.
+
+TR-4882 fornisce una pratica serie di istruzioni passo-passo che produce un'installazione funzionante di NetApp StorageGRID. L'installazione potrebbe essere su server bare metal o su macchine virtuali (VM) in esecuzione su Red Hat Enterprise Linux (RHEL). L'approccio consiste nell'eseguire un'installazione "chiavi in mano" di sei servizi racchiusi in container StorageGRID su tre macchine fisiche (o virtuali), seguendo un layout e una configurazione dello storage suggeriti. Per alcuni clienti potrebbe essere più semplice comprendere il processo di implementazione, seguire l'esempio riportato in questo report tecnico.
+
+Per una comprensione più approfondita di StorageGRID e del processo di installazione, vedere https://docs.netapp.com/us-en/storagegrid-118/landing-install-upgrade/index.html[] [Installazione, aggiornamento e aggiornamento rapido StorageGRID] nella documentazione del prodotto.
+
+Prima di iniziare l'implementazione, esaminiamo i requisiti di calcolo, storage e rete per il software NetApp StorageGRID. StorageGRID viene eseguito come servizio containerizzato all'interno di Podman o Docker. In questo modello, alcuni requisiti fanno riferimento al sistema operativo host (il sistema operativo che ospita Docker, che esegue il software StorageGRID). Inoltre, alcune risorse vengono allocate direttamente nei container Docker eseguiti all'interno di ciascun host. In questa distribuzione, al fine di ottimizzare l'utilizzo dell'hardware, vengono distribuiti due servizi per host fisico. Per ulteriori informazioni, passare alla sezione successiva, link:prerequisites-install-storagegrid.html["Prerequisiti per l'installazione di StorageGRID"].
+
+I passaggi descritti in questo TR comportano un'installazione StorageGRID funzionante su sei host bare metal. Ora si dispone di una griglia di lavoro e di una rete client, utili nella maggior parte degli scenari di test.
+
+
+
+== Dove trovare ulteriori informazioni
+
+Per ulteriori informazioni sulle informazioni descritte in questo report tecnico, consultare le seguenti risorse della documentazione:
+
+* Centro di documentazione NetApp StorageGRID https://docs.netapp.com/us-en/storagegrid-118/[]
+* Abilitazione NetApp StorageGRID https://docs.netapp.com/us-en/storagegrid-enable/[]
+* Documentazione dei prodotti NetApp https://www.netapp.com/support-and-training/documentation/[]
+

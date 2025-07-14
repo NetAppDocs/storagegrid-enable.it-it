@@ -1,0 +1,94 @@
+---
+sidebar: sidebar 
+permalink: technical-reports/data-security-administration-security.html 
+keywords: administration security, storagegrid 
+summary: 'Scoprite le funzioni di protezione dell"amministrazione in StorageGRID.' 
+---
+= Funzioni di protezione di amministrazione
+:hardbreaks:
+:allow-uri-read: 
+:nofooter: 
+:icons: font
+:linkattrs: 
+:imagesdir: ../media/
+
+
+[role="lead"]
+Scoprite le funzioni di protezione dell'amministrazione in StorageGRID.
+
+[cols="20,30a,30,20"]
+|===
+| Funzione | Funzione | Impatto | Conformità normativa 
+
+
+| Certificato server (Grid Management Interface)  a| 
+Gli amministratori di rete possono configurare Grid Management Interface in modo che utilizzi un certificato server firmato dalla CA attendibile dell'organizzazione.
+| Consente l'utilizzo di certificati digitali firmati dalla CA standard e attendibile per autenticare l'accesso all'interfaccia utente di gestione e all'API tra un client di gestione e la griglia. | -- 
+
+
+| Autenticazione utente amministrativo  a| 
+Gli utenti amministrativi vengono autenticati utilizzando il nome utente e la password. Gli utenti e i gruppi amministrativi possono essere locali o federati, importati da Active Directory o LDAP del cliente. Le password degli account locali sono memorizzate in un formato protetto da bcrypt; le password della riga di comando sono memorizzate in un formato protetto da SHA-2.
+| Autentica l'accesso amministrativo alla UI di gestione e alle API. | -- 
+
+
+| Supporto SAML  a| 
+StorageGRID supporta il single sign-on (SSO) utilizzando lo standard SAML 2,0 (Security Assertion Markup Language 2,0). Quando SSO è attivato, tutti gli utenti devono essere autenticati da un provider di identità esterno prima di poter accedere a Grid Manager, Tenant Manager, Grid Management API o Tenant Management API. Gli utenti locali non possono accedere a StorageGRID.
+| Offre livelli aggiuntivi di sicurezza per gli amministratori di tenant e grid come SSO e Multifactor Authentication (MFA). | NIST SP800-63 
+
+
+| Controllo granulare delle autorizzazioni  a| 
+Gli amministratori Grid possono assegnare autorizzazioni ai ruoli e assegnare ruoli a gruppi di utenti amministrativi, in base alle attività a cui i client amministrativi possono eseguire utilizzando sia l'interfaccia utente di gestione che le API.
+| Consente agli amministratori Grid di gestire il controllo degli accessi per gli utenti e i gruppi amministrativi. | -- 
+
+
+| Registrazione di controllo distribuita  a| 
+StorageGRID fornisce un'infrastruttura integrata di registrazione degli audit distribuita, scalabile fino a centinaia di nodi in un massimo di 16 siti. I nodi software StorageGRID generano messaggi di audit, che vengono trasmessi attraverso un sistema di inoltro di audit ridondante e infine acquisiti in uno o più repository di audit log. I messaggi di audit acquisiscono eventi a livello di granularità degli oggetti, come operazioni API S3 avviate dal client, eventi del ciclo di vita degli oggetti da ILM, controlli dello stato di salute degli oggetti in background e modifiche della configurazione effettuate dall'interfaccia utente di gestione o dalle API.
+
+È possibile esportare gli audit log dai nodi amministrativi tramite CIFS o NFS, consentendo il mining dei messaggi di audit da parte di tool come Splunk ed ELK. Esistono quattro tipi di messaggi di controllo:
+
+* Messaggi di audit del sistema
+* Messaggi di audit dello storage a oggetti
+* Messaggi di controllo del protocollo HTTP
+* Gestione dei messaggi di controllo
+
+| Fornisce agli amministratori Grid un servizio di controllo collaudato e scalabile e consente loro di estrarre i dati di controllo per vari obiettivi. Tali obiettivi includono la risoluzione dei problemi, il controllo delle prestazioni dello SLA, le operazioni API di accesso ai dati dei client e le modifiche alla configurazione di gestione. | -- 
+
+
+| Audit del sistema  a| 
+I messaggi di controllo del sistema acquisiscono gli eventi correlati al sistema, come gli stati dei nodi della griglia, il rilevamento degli oggetti corrotti, gli oggetti sottoposti a commit in tutte le posizioni specificate per la regola ILM e l'avanzamento delle attività di manutenzione a livello di sistema (attività griglia).
+| Aiuta i clienti a risolvere i problemi del sistema e fornisce la prova che gli oggetti vengono memorizzati in base al loro SLA. Gli SLA sono implementati dalle regole ILM di StorageGRID e protetti dall'integrità. | -- 
+
+
+| Verifica dello storage a oggetti  a| 
+I messaggi di audit dello storage a oggetti acquisiscono la transazione di API a oggetti e gli eventi relativi al ciclo di vita. Questi eventi includono storage e recupero di oggetti, trasferimenti da grid-node a grid-node e verifiche.
+| Aiuta i clienti a controllare lo stato di avanzamento dei dati nel sistema e se gli SLA, specificati come StorageGRID ILM, vengono erogati. | -- 
+
+
+| Controllo del protocollo HTTP  a| 
+I messaggi di controllo del protocollo HTTP acquisiscono le interazioni del protocollo HTTP correlate alle applicazioni client e ai nodi StorageGRID. Inoltre, i clienti possono acquisire intestazioni specifiche delle richieste HTTP (ad esempio, X-Forwarding-for e metadati utente [x-amz-meta-*]) nella verifica.
+| Aiuta i clienti a controllare le operazioni API di accesso ai dati tra client e StorageGRID e a tracciare un'azione per un account utente e una chiave di accesso individuali. I clienti possono anche registrare i metadati degli utenti nelle verifiche e utilizzare strumenti di log mining come Splunk o ELK, per cercare i metadati degli oggetti. | -- 
+
+
+| Audit di gestione  a| 
+I messaggi di controllo di gestione registrano le richieste degli utenti amministrativi all'interfaccia utente di gestione (Grid Management Interface) o alle API. Ogni richiesta che non è UNA richiesta GET o HEAD all'API registra una risposta con il nome utente, l'IP e il tipo di richiesta all'API.
+| Aiuta gli amministratori Grid a stabilire un record delle modifiche alla configurazione del sistema apportate dall'utente da quale IP di origine e quale IP di destinazione in quale momento. | -- 
+
+
+| Supporto TLS 1,3 per l'interfaccia utente di gestione e l'accesso API  a| 
+TLS stabilisce un protocollo handshake per la comunicazione tra un client admin e un nodo admin StorageGRID.
+| Consente a un client amministrativo e a StorageGRID di identificarsi e autenticarsi reciprocamente e comunicare con riservatezza e integrità dei dati. | -- 
+
+
+| SNMPv3 per il monitoraggio StorageGRID  a| 
+SNMPv3 garantisce la sicurezza offrendo autenticazione avanzata e crittografia dei dati per la privacy. Con v3, le unità dei dati del protocollo vengono crittografate utilizzando CBC-DES per il protocollo di crittografia.
+
+L'autenticazione dell'utente di chi ha inviato l'unità dati del protocollo è fornita dal protocollo di autenticazione HMAC-SHA o HMAC-MD5.
+
+SNMPv2 e v1 sono ancora supportati.
+| Aiuta gli amministratori di rete a monitorare il sistema StorageGRID abilitando un agente SNMP sul nodo Admin. | -- 
+
+
+| Certificati client per l'esportazione delle metriche Prometheus  a| 
+Gli amministratori di rete possono caricare o generare certificati client che possono essere utilizzati per fornire un accesso sicuro e autenticato al database StorageGRID Prometheus.
+| Gli amministratori di rete possono utilizzare i certificati client per monitorare StorageGRID esternamente utilizzando applicazioni come Grafana. | -- 
+|===

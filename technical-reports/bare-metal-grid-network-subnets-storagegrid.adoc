@@ -1,0 +1,34 @@
+---
+sidebar: sidebar 
+permalink: technical-reports/bare-metal-grid-network-subnets-storagegrid.html 
+keywords: grid network, subnets ,storagegrid 
+summary: Informazioni su come configurare le subnet di rete per StorageGRID. 
+---
+= Specificare le subnet di rete della griglia per StorageGRID
+:hardbreaks:
+:allow-uri-read: 
+:nofooter: 
+:icons: font
+:linkattrs: 
+:imagesdir: ../media/
+
+
+[role="lead"]
+Informazioni su come configurare le subnet di rete per StorageGRID.
+
+È necessario specificare le subnet utilizzate sulla rete a griglia.
+
+Le voci della subnet includono le subnet per la rete di rete per ogni sito del sistema StorageGRID, oltre alle subnet che devono essere raggiungibili attraverso la rete di rete (ad esempio, le subnet che ospitano i server NTP).
+
+Se si dispone di più sottoreti di rete, è necessario il gateway di rete. Tutte le subnet della griglia specificate devono essere raggiungibili tramite questo gateway.
+
+Per specificare le sottoreti della rete a griglia, attenersi alla seguente procedura:
+
+.Fasi
+. Nella casella di testo Subnet 1, specificare l'indirizzo di rete CIDR per almeno una rete a griglia.
+. Fare clic sul segno più accanto all'ultima voce per aggiungere una voce di rete aggiuntiva. Se è già stato distribuito almeno un nodo, fare clic su rileva subnet Grid Networks per compilare automaticamente l'elenco delle subnet della rete griglia con le subnet segnalate dai nodi della griglia registrati con Grid Manager.
++
+image:bare-metal/bare-metal-subnets-grid-network.png["bare-metal-subnet-grid-network"]
+
+. Fare clic su Avanti.
+

@@ -1,0 +1,44 @@
+---
+permalink: technical-reports/monitor-traffic-classification-policies.html 
+sidebar: sidebar 
+keywords: traffic classification policies, storagegrid 
+summary: 'Scoprite come impostare e monitorare i criteri di classificazione del traffico in StorageGRID 11,4 per una gestione efficiente del traffico e l"ottimizzazione della larghezza di banda della rete.' 
+---
+= Utilizzare i criteri di classificazione del traffico in StorageGRID
+:hardbreaks:
+:allow-uri-read: 
+:experimental: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Scoprite come impostare e configurare criteri di classificazione del traffico per gestire e ottimizzare il traffico di rete in StorageGRID.
+
+I criteri di classificazione del traffico forniscono un metodo per monitorare e/o limitare il traffico in base a specifici endpoint di tenant, bucket, subnet IP o bilanciamento del carico. La connettività di rete e la larghezza di banda sono parametri particolarmente importanti per StorageGRID.
+
+Per configurare un criterio di classificazione del traffico, attenersi alla seguente procedura:
+
+.Fasi
+. Sull'interfaccia GMI, accedere al menu:Configurazione[Impostazioni del sistema > classificazione del traffico].
+. Fare clic su Crea +
+. Immettere un nome e una descrizione per la politica.
+. Creare una regola corrispondente.
++
+image:monitor/monitor-matching-rule.png["regola-corrispondenza-monitor"]
+
+. Impostare un limite (opzionale).
++
+image:monitor/monitor-limit.png["limite monitor"]
+
+. Salvare la policy
++
+image:monitor/monitor-traffic-policy.png["policy-monitoraggio-traffico"]
+
++
+Per visualizzare le metriche associate al criterio di classificazione del traffico, selezionare il criterio e fare clic su metriche. Viene generata una dashboard Grafana che visualizza informazioni come il traffico delle richieste di bilanciamento del carico e la durata media delle richieste.
+
++
+image:monitor/monitor-dashboard-showing-metrics.png["metriche-di-visualizzazione-dashboard"]
+
+

@@ -1,0 +1,25 @@
+---
+permalink: technical-reports/monitor-alerts-monitoring.html 
+sidebar: sidebar 
+keywords: alerts, storagegrid 
+summary: 'Informazioni su come utilizzare il sistema di avvisi in StorageGRID per il monitoraggio dei problemi, la gestione degli avvisi personalizzati e l"estensione delle notifiche di avviso tramite SNMP o e-mail.' 
+---
+= Utilizzare gli avvisi per monitorare StorageGRID
+:hardbreaks:
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Informazioni su come utilizzare il sistema di avvisi in StorageGRID per monitorare i problemi, gestire avvisi personalizzati ed estendere le notifiche di avviso tramite SNMP o e-mail.
+
+Gli avvisi forniscono informazioni critiche che consentono di monitorare i vari eventi e condizioni all'interno del sistema StorageGRID.
+
+Il sistema di avvisi è progettato per essere lo strumento principale per il monitoraggio di eventuali problemi che potrebbero verificarsi nel sistema StorageGRID. Il sistema di avvisi è incentrato su problemi pratici nel sistema e offre un'interfaccia semplice da utilizzare.
+
+Forniamo una varietà di regole di avviso predefinite che mirano a monitorare e risolvere i problemi del sistema. È possibile gestire ulteriormente gli avvisi creando avvisi personalizzati, modificando o disabilitando gli avvisi predefiniti e tacitando le notifiche degli avvisi.
+
+È possibile estendere gli avvisi anche tramite notifiche SNMP o e-mail.
+
+Per ulteriori informazioni sugli avvisi, vedere la https://docs.netapp.com/us-en/storagegrid-118/monitor/managing-alerts-and-alarms.html["documentazione del prodotto"^] disponibile online e in formato PDF.

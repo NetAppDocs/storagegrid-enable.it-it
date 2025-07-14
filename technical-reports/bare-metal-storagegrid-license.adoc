@@ -1,0 +1,34 @@
+---
+sidebar: sidebar 
+permalink: technical-reports/bare-metal-storagegrid-license.html 
+keywords: license, storagegrid 
+summary: Informazioni su come caricare il file di licenza StorageGRID. 
+---
+= Aggiungere i dettagli della licenza StorageGRID
+:hardbreaks:
+:allow-uri-read: 
+:nofooter: 
+:icons: font
+:linkattrs: 
+:imagesdir: ../media/
+
+
+[role="lead"]
+Informazioni su come caricare il file di licenza StorageGRID.
+
+Specificare il nome del sistema StorageGRID e caricare il file di licenza fornito da NetApp.
+
+Per specificare le informazioni sulla licenza StorageGRID, attenersi alla seguente procedura:
+
+.Fasi
+. Nella pagina licenza, nel campo Nome griglia, immettere un nome per il sistema StorageGRID. Dopo l'installazione, il nome viene visualizzato come livello superiore nella struttura della topologia della griglia.
+. Fare clic su Sfoglia, individuare il file di licenza NetApp (`NLF-_unique-id_.txt`e fare clic su Apri. Il file di licenza viene validato e vengono visualizzati il numero di serie e la capacità dello storage concesso in licenza.
++
+
+NOTE: L'archivio di installazione di StorageGRID include una licenza gratuita che non fornisce alcun diritto di supporto per il prodotto. È possibile eseguire l'aggiornamento a una licenza che offra supporto dopo l'installazione.
+
++
+image:bare-metal/bare-metal-update-license.png["licenza-aggiornamento-bare-metal"]
+
+. Fare clic su Avanti.
+

@@ -1,0 +1,38 @@
+---
+sidebar: sidebar 
+permalink: technical-reports/bare-metal-ntp-server-storagegrid.html 
+keywords: ntp server , storagegrid 
+summary: Informazioni su come specificare le informazioni di configurazione NTP per il sistema StorageGRID in modo che le operazioni eseguite su server separati possano essere mantenute sincronizzate. 
+---
+= Specificare i dettagli del server NTP per StorageGRID
+:hardbreaks:
+:allow-uri-read: 
+:nofooter: 
+:icons: font
+:linkattrs: 
+:imagesdir: ../media/
+
+
+[role="lead"]
+Informazioni su come specificare le informazioni di configurazione NTP per il sistema StorageGRID in modo che le operazioni eseguite su server separati possano essere mantenute sincronizzate.
+
+Per evitare problemi di deriva temporale, è necessario specificare quattro riferimenti server NTP esterni dello strato 3 o superiore.
+
+
+NOTE: Quando si specifica l'origine NTP esterna per un'installazione StorageGRID a livello di produzione, non utilizzare il servizio Windows Time (W32Time) su una versione di Windows precedente a Windows Server 2016. Il servizio Time nelle versioni precedenti di Windows non è sufficientemente accurato e non è supportato da Microsoft per l'uso in ambienti complessi come StorageGRID.
+
+I server NTP esterni vengono utilizzati dai nodi ai quali sono stati precedentemente assegnati i ruoli NTP primari.
+
+
+CAUTION: La rete client non è abilitata abbastanza presto nel processo di installazione per essere l'unica fonte di server NTP. Assicurarsi che almeno un server NTP possa essere raggiunto sulla rete di rete o sulla rete amministrativa.
+
+Per specificare le informazioni sul server NTP, attenersi alla seguente procedura:
+
+.Fasi
+. Nelle caselle di testo Server 1 to Server 4 (Server 1 - Server 2), specificare gli indirizzi IP per almeno quattro server NTP.
+. Se necessario, fare clic sul segno più accanto all'ultima voce per aggiungere altre voci al server.
++
+image:bare-metal/bare-metal-add-server-entries.png["voci-server-aggiunto-bare-metal"]
+
+. Fare clic su Avanti.
+

@@ -1,0 +1,143 @@
+---
+sidebar: sidebar 
+permalink: technical-reports/data-security-data-access-security.html 
+keywords: data access security, storagegrid 
+summary: 'Scopri le funzionalità di sicurezza dell"accesso ai dati di StorageGRID.' 
+---
+= Funzioni di sicurezza per l'accesso ai dati
+:hardbreaks:
+:allow-uri-read: 
+:nofooter: 
+:icons: font
+:linkattrs: 
+:imagesdir: ../media/
+
+
+[role="lead"]
+Scopri le funzionalità di sicurezza dell'accesso ai dati di StorageGRID.
+
+[cols="20,30a,30,20"]
+|===
+| Funzione | Funzione | Impatto | Conformità normativa 
+
+
+| TLS (Transport Layer Security) configurabile  a| 
+TLS stabilisce un protocollo di handshake per la comunicazione tra un client e un nodo di gateway StorageGRID, un nodo storage o un endpoint del bilanciamento del carico.
+
+StorageGRID supporta le seguenti suite di crittografia per TLS:
+
+* TLS_AES_256_GCM_SHA384
+* TLS_AES_128_GCM_SHA256
+* ECDHE-ECDSA-AES256-GCM-SHA384
+* ECDHE-RSA-AES256-GCM-SHA384
+* ECDHE-ECDSA-AES128-GCM-SHA256
+* ECDHE-RSA-AES128-GCM-SHA256
+* TLS_AES_256_GCM_SHA384
+* DHE-RSA-AES128-GCM-SHA256
+* DHE-RSA-AES256-GCM-SHA384
+* AES256-GCM-SHA384
+* AES128-GCM-SHA256
+* TLS_CHACHA20_POLY1305_SHA256
+* ECDHE-ECDSA-CHACHA20-POLY1305
+* ECDHE-RSA-CHACHA20-POLY1305
+
+
+Supporto di TLS v1,2 e 1,3.
+
+SSLv3, TLS v1,1 e versioni precedenti non sono più supportati.
+| Consente a un client e a StorageGRID di identificarsi e autenticarsi reciprocamente e comunicare con riservatezza e integrità dei dati. Garantisce l'uso di una versione TLS recente. Le crittografie sono ora configurabili nelle impostazioni di configurazione/protezione | -- 
+
+
+| Certificato server configurabile (endpoint bilanciamento del carico)  a| 
+Gli amministratori di grid possono configurare gli endpoint di Load Balancer in modo da generare o utilizzare un certificato server.
+| Consente l'utilizzo di certificati digitali firmati dalla propria autorità di certificazione (CA) standard per autenticare le operazioni API degli oggetti tra la griglia e il client per ogni endpoint di bilanciamento del carico. | -- 
+
+
+| Certificato server configurabile (endpoint API)  a| 
+Gli amministratori della griglia possono configurare centralmente tutti gli endpoint delle API StorageGRID in modo che utilizzino un certificato server firmato dalla CA attendibile dell'organizzazione.
+| Consente l'utilizzo di certificati digitali firmati dalla CA standard e attendibile per autenticare le operazioni API degli oggetti tra un client e la griglia. | -- 
+
+
+| Multi-tenancy  a| 
+StorageGRID supporta tenant multipli per grid e ogni tenant ha il proprio namespace. Un tenant offre un protocollo S3:1; per impostazione predefinita, l'accesso a bucket/container e oggetti è limitato agli utenti all'interno dell'account. I tenant possono avere un utente (ad esempio, un'implementazione aziendale, in cui ogni utente ha un proprio account) o più utenti (ad esempio, un'implementazione di un provider di servizi, in cui ogni account è un'azienda e un cliente del provider di servizi). Gli utenti possono essere locali o federati; gli utenti federati sono definiti da Active Directory o LDAP (Lightweight Directory Access Protocol). StorageGRID fornisce una dashboard per tenant, in cui gli utenti accedono utilizzando le credenziali dell'account locale o federato. Gli utenti possono accedere ai report visualizzati sull'utilizzo del tenant rispetto alla quota assegnata dall'amministratore del grid, incluse le informazioni sull'utilizzo nei dati e negli oggetti archiviati dai bucket. Gli utenti con autorizzazioni amministrative possono eseguire attività di amministrazione del sistema a livello di tenant, come la gestione di utenti, gruppi e chiavi di accesso.
+| Consente agli amministratori di StorageGRID di ospitare i dati da più tenant isolando al contempo l'accesso al tenant e di stabilire l'identità dell'utente federando gli utenti con un provider di identità esterno, come Active Directory o LDAP. | Regola SEC 17a-4(f) CTFC 1,31(c)-(d) (FINRA) regola 4511(c) 
+
+
+| Mancata pubblicazione delle credenziali di accesso  a| 
+Ogni operazione S3 viene identificata e registrata con un account tenant, un utente e una chiave di accesso univoci.
+| Consente agli amministratori Grid di stabilire quali azioni API vengono eseguite da ciascun utente. | -- 
+
+
+| Accesso anonimo disattivato  a| 
+Per impostazione predefinita, l'accesso anonimo è disattivato per gli account S3. Un richiedente deve disporre di una credenziale di accesso valida per un utente valido nell'account tenant per accedere a bucket, contenitori o oggetti all'interno dell'account. L'accesso anonimo a bucket o oggetti S3 può essere abilitato con un criterio IAM esplicito.
+| Consente agli amministratori Grid di disabilitare o controllare l'accesso anonimo a bucket/container e oggetti. | -- 
+
+
+| WORM di conformità  a| 
+Progettato per soddisfare i requisiti della norma SEC 17a-4(f) e convalidato da Cohasset. I clienti possono garantire la conformità a livello della benna. La ritenzione può essere estesa ma mai ridotta. Le regole di Information Lifecycle management (ILM) applicano livelli minimi di protezione dei dati.
+| Consente ai tenant con requisiti di data retention normativi per consentire protezione WORM su oggetti memorizzati e metadati di oggetti. | Regola SEC 17a-4(f) CTFC 1,31(c)-(d) (FINRA) regola 4511(c) 
+
+
+| WORM  a| 
+Gli amministratori di grid possono abilitare IL WORM a livello di griglia attivando l'opzione Disattiva modifica client, che impedisce ai client di sovrascrivere o eliminare oggetti o metadati di oggetti in tutti gli account tenant.
+
+Gli amministratori dei tenant S3 possono inoltre abilitare il WORM in base al tenant, bucket o prefisso dell'oggetto specificando il criterio IAM, che include l'autorizzazione personalizzata S3: PutOverwriteObject per la sovrascrittura di oggetti e metadati.
+| Permette agli amministratori di Grid e agli amministratori dei tenant di controllare la protezione WORM su oggetti archiviati e metadati di oggetti. | Regola SEC 17a-4(f) CTFC 1,31(c)-(d) (FINRA) regola 4511(c) 
+
+
+| Gestione della chiave di crittografia del server host KMS  a| 
+Gli amministratori di grid possono configurare uno o più server KMS (External Key Management Server) in Grid Manager in modo da fornire chiavi di crittografia ai servizi StorageGRID e alle appliance di storage. Ogni server host KMS o cluster di server host KMS utilizza il Key Management Interoperability Protocol (KMIP) per fornire una chiave di crittografia ai nodi di appliance nel sito StorageGRID associato.
+| Crittografia dei dati a riposo attivata. Una volta crittografati i volumi dell'appliance, non è possibile accedere ai dati sull'appliance a meno che il nodo non sia in grado di comunicare con il server host KMS. | Regola SEC 17a-4(f) CTFC 1,31(c)-(d) (FINRA) regola 4511(c) 
+
+
+| Failover automatico  a| 
+StorageGRID offre ridondanza integrata e failover automatizzato. L'accesso ad account, bucket e oggetti tenant può continuare anche in caso di guasti multipli, da dischi o nodi a interi siti. StorageGRID è consapevole delle risorse e reindirizza automaticamente le richieste ai nodi disponibili e alle posizioni dei dati. I siti StorageGRID possono persino funzionare in modalità island; se un'interruzione della WAN disconnette un sito dal resto del sistema, le letture e le scritture possono continuare con le risorse locali e la replica riprende automaticamente quando la WAN viene ripristinata.
+| Consente agli amministratori Grid di gestire i tempi di attività, gli SLA e altri obblighi contrattuali e di implementare i piani di business continuity. | -- 
+
+
+ a| 
+*Funzionalità di protezione dell'accesso ai dati specifiche per S3*
+
+
+
+| Firma AWS versione 2 e versione 4  a| 
+La firma delle richieste API fornisce l'autenticazione per le operazioni API S3. Amazon supporta due versioni di Signature versione 2 e 4. Il processo di firma verifica l'identità del richiedente, protegge i dati in transito e protegge da potenziali attacchi di riproduzione.
+| Si allinea al suggerimento AWS per la versione Signature 4 e consente la compatibilità con le versioni precedenti delle applicazioni con la versione Signature 2. | -- 
+
+
+| Blocco oggetti S3  a| 
+La funzionalità blocco oggetti S3 in StorageGRID è una soluzione di protezione degli oggetti equivalente a blocco oggetti S3 in Amazon S3.
+| Consente ai tenant di creare bucket con blocco oggetti S3 abilitato per la conformità alle normative che richiedono la conservazione di determinati oggetti per un periodo di tempo fisso o indefinitamente. | Regola SEC 17a-4(f) CTFC 1,31(c)-(d) (FINRA) regola 4511(c) 
+
+
+| Archiviazione protetta di credenziali S3  a| 
+Le chiavi di accesso S3 sono memorizzate in un formato protetto da una funzione di hashing di password (SHA-2).
+| Consente l'archiviazione protetta delle chiavi di accesso mediante una combinazione di lunghezza della chiave (un numero generato casualmente da 10^31^) e un algoritmo di hash delle password. | -- 
+
+
+| S3 tasti di accesso con limite di tempo  a| 
+Quando si crea una chiave di accesso S3 per un utente, i clienti possono impostare una data e un'ora di scadenza sulla chiave di accesso.
+| Offre agli amministratori Grid la possibilità di fornire chiavi di accesso S3 temporanee. | -- 
+
+
+| Più chiavi di accesso per account utente  a| 
+StorageGRID consente di creare più chiavi di accesso e contemporaneamente di attivarle per un account utente. Poiché ogni azione API viene registrata con un account utente tenant e una chiave di accesso, la non ripubblicazione viene mantenuta nonostante siano attive più chiavi.
+| Consente ai client di ruotare le chiavi di accesso senza interruzioni e consente a ciascun client di disporre della propria chiave, scoraggiando la condivisione delle chiavi tra i client. | -- 
+
+
+| S3 criterio di accesso IAM  a| 
+StorageGRID supporta policy IAM S3, consentendo agli amministratori Grid di specificare un controllo granulare degli accessi per tenant, bucket o prefisso oggetto. StorageGRID supporta inoltre le variabili e le condizioni dei criteri IAM, consentendo criteri di controllo degli accessi più dinamici.
+| Consente agli amministratori di Grid di specificare il controllo dell'accesso per gruppi di utenti per l'intero tenant; inoltre, permette agli utenti tenant di specificare il controllo dell'accesso per i propri bucket e oggetti. | -- 
+
+
+| Crittografia lato server con chiavi gestite da StorageGRID (SSE)  a| 
+StorageGRID supporta SSE, consentendo una protezione multitenant dei dati a riposo con chiavi di crittografia gestite da StorageGRID.
+| Consente ai tenant di crittografare gli oggetti. La chiave di crittografia è necessaria per scrivere e recuperare questi oggetti. | Regola SEC 17a-4(f) CTFC 1,31(c)-(d) (FINRA) regola 4511(c) 
+
+
+| Crittografia lato server con chiavi di crittografia fornite dal cliente (SSE-C)  a| 
+StorageGRID supporta SSE-C, abilitando la protezione multitenant dei dati a riposo con chiavi di crittografia gestite dal client.
+
+Sebbene StorageGRID gestisca tutte le operazioni di crittografia e decrittografia degli oggetti, con SSE-C, il client deve gestire autonomamente le chiavi di crittografia.
+| Consente ai client di crittografare gli oggetti con le chiavi controllate dall'utente. La chiave di crittografia è necessaria per scrivere e recuperare questi oggetti. | Regola SEC 17a-4(f) CTFC 1,31(c)-(d) (FINRA) regola 4511(c) 
+|===
