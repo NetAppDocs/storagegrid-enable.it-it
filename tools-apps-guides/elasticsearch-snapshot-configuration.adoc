@@ -1,0 +1,121 @@
+---
+permalink: tools-apps-guides/elasticsearch-snapshot-configuration.html 
+sidebar: sidebar 
+keywords: Elastic, Elasticsearch, snapshot, repository, StorageGRID, object storage 
+summary: 'Istruzioni per la creazione di un repository snapshot Elasticsearch per utilizzare l"archiviazione di oggetti StorageGRID .' 
+---
+= Configurazione del repository snapshot Elasticsearch
+:hardbreaks:
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+_Di Angela Cheng_
+
+Elasticsearch supporta l'utilizzo di storage di oggetti compatibile con AWS S3 per i repository di snapshot.  Questo articolo fornisce istruzioni dettagliate su come creare un repository snapshot Elasticsearch S3 con StorageGRID come archivio di oggetti back-end.
+
+
+
+== Requisiti
+
+* StorageGRID 11.8 o superiore
+* Elasticsearch 8.x o superiore
+
+
+
+
+== Assunzione
+
+I lettori hanno familiarità con la terminologia e le operazioni StorageGRID ed Elasticsearch.
+
+
+
+== Istruzioni
+
+*Fasi*
+
+. Creare un bucket StorageGRID da utilizzare per il repository snapshot di Elasticsearch.  È necessario abilitare il controllo delle versioni dei bucket.  Utilizzare un bucket per repository.  Non condividere un bucket tra più repository o cluster Elasticsearch.
+. Aggiungere la chiave di accesso e la chiave segreta del tenant StorageGRID al keystore Elasticsearch.  Accedi al nodo master Elasticsearch, vai a `<elasticsearch>/bin/` directory e utilizzare `elasticsearch-keystore` per aggiungere la chiave di accesso e la chiave segreta.
++
+Esempio di comando:
+
++
+[NOTE]
+====
+ In older Elasticsearch versions, the key names are `access.key` and `secret.key` instead of using underscores.
+====
++
+[listing]
+----
+/usr/share/elasticsearch/bin/elasticsearch-keystore add s3.client.sgdemo.access_key
+Enter value for s3.client.sgdemo.access_key: <paste the access key here, it will not be displayed>
+
+/usr/share/elasticsearch/bin/elasticsearch-keystore add s3.client.sgdemo.secret_key
+Enter value for s3.client.sgdemo.secret_key: <paste the secret key here, it will not be displayed>
+----
++
+Per visualizzare le chiavi, utilizzare il comando 'elasticsearch-keystore show <nome-chiave>'.
+
+. Per i cluster Elasticsearch multi-nodo, ripetere il passaggio 2 in ogni nodo o consultare la documentazione di Elasticsearch.
+. Dall'interfaccia utente grafica web di Kibana, vai alla pagina Console degli strumenti di sviluppo e usa `POST _nodes/reload_secure_settings` API per applicare le modifiche a ciascun nodo.
++
+image:es-snapshot/es-reload-api.png["screenshot di esempio di reload_secure_settings"]
+
+. Utilizzare il `PUT _snapshot` API per creare un nuovo repository di snapshot.
++
+In questo esempio, il nome del repository è `sg_snapshot_repository` e la dimensione del buffer corrisponde alla dimensione della parte di caricamento multiparte S3.
+
++
+Il protocollo predefinito è HTTPS.  Per utilizzare HTTP con l'endpoint StorageGRID S3, aggiungere `"protocol": "http"` alle impostazioni.
+
++
+Utilizzare il nome del bucket creato nel passaggio 1 e il nome del client configurato nel passaggio 2.
+
++
+[listing]
+----
+PUT _snapshot/sg_snapshot_repository
+{
+  "type": "s3",
+  "settings": {
+    "bucket": "elk-snapshot",
+    "client": "sgdemo",
+    "path_style_access": "true",
+    "endpoint": "sgdemo.netapp.com",
+    "buffer_size": "512mb"
+  }
+}
+----
++
+image:es-snapshot/es-create-repository-api.png["Schermata di esempio dell'API Elasticsearch"]
+
+. Dall'interfaccia utente grafica web di Kibana, vai alla pagina Gestione stack > Snapshot e ripristino, seleziona la scheda Repository.
++
+Fare clic sul nome del repository per visualizzare i dettagli o modificare alcune impostazioni, ad esempio il numero massimo di byte snapshot al secondo, che per impostazione predefinita è 40 MB/s per nodo Elasticsearch.
+
++
+Per le impostazioni non visibili in questa pagina, utilizzare `PUT _snapshot` API nella console degli strumenti di sviluppo per apportare modifiche.
+
++
+image:es-snapshot/es-snapshot-repository.png["Esempio di screenshot del repository Snapshot"]
+
+. Impostare una policy sul ciclo di vita del bucket per gestire gli oggetti della versione non corrente nel bucket snapshot.  Ad esempio, rimuovere le versioni non correnti dopo 90 giorni.
+. Elastic richiede ai client di convalidare l'archiviazione non AWS S3 prima di utilizzarla per l'archiviazione degli snapshot.
++
+Seguire le istruzioni di Elastic per convalidare la configurazione:
+
++
+https://www.elastic.co/docs/api/doc/elasticsearch/operation/operation-snapshot-repository-analyze[]
+
+. Dopo la convalida, seguire la guida di Elasticsearch per creare una policy per l'archiviazione degli snapshot notturni.
+
+
+
+
+== Risorse aggiuntive
+
+* https://www.elastic.co/docs/api/doc/elasticsearch/group/endpoint-snapshot["Repository s3 di Elasticsearch"]
+* https://docs.netapp.com/us-en/storagegrid/ilm/how-objects-are-deleted.html#delete-s3-versioned-objects["Come vengono eliminati gli oggetti con versione S3"]
+
