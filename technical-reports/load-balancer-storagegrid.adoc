@@ -1,0 +1,44 @@
+---
+sidebar: sidebar 
+permalink: technical-reports/load-balancer-storagegrid.html 
+keywords: object storage, load balancer 
+summary: Scopri il ruolo dei bilanciatori del carico StorageGRID . 
+---
+= Utilizzare i bilanciatori di carico StorageGRID
+:hardbreaks:
+:allow-uri-read: 
+:nofooter: 
+:icons: font
+:linkattrs: 
+:imagesdir: ../media/
+
+
+[role="lead"]
+Scopri il ruolo di un bilanciatore del carico StorageGRID Gateway Node.
+
+Linee guida generali per l'implementazione dei nodi gateway NetApp® StorageGRID®.
+
+
+
+== Bilanciamento del carico del nodo gateway StorageGRID rispetto a quello di terze parti
+
+StorageGRID è un'esclusiva tra i vendor di storage a oggetti compatibili con S3, in quanto offre un bilanciatore del carico nativo disponibile come appliance, VM o container costruiti ad hoc. Il bilanciamento del carico fornito da StorageGRID è anche detto nodo gateway.
+
+Per i clienti che non dispongono già di un sistema di bilanciamento del carico, ad esempio F5, Citrix e così via, l'implementazione di un sistema di bilanciamento del carico di terze parti può rivelarsi molto complessa. Il bilanciamento del carico StorageGRID semplifica notevolmente le operazioni di bilanciamento del carico.
+
+Il Gateway Node è un bilanciatore del carico di livello Enterprise, altamente disponibile e dalle performance elevate. I clienti possono scegliere di implementare il nodo gateway, il sistema di bilanciamento del carico di terze parti o anche entrambi nello stesso grid. Il nodo gateway è un gestore del traffico locale rispetto a un GSLB.
+
+Il bilanciamento del carico StorageGRID offre i seguenti vantaggi:
+
+* *Semplicità*. Configurazione automatica di pool di risorse, controlli dello stato di salute, applicazione di patch e manutenzione, il tutto gestito da StorageGRID.
+* *Prestazione*.  Il bilanciatore del carico StorageGRID è dedicato a StorageGRID, può fornire caching ad alte prestazioni e non compete con altre applicazioni per la larghezza di banda.
+* *Costo*. Le versioni di macchina virtuale (VM) e container sono fornite senza costi aggiuntivi.
+* *Classificazioni del traffico*. La funzionalità Advanced Traffic Classification consente di applicare regole QoS specifiche di StorageGRID insieme all'analisi dei workload.
+* *Caratteristiche specifiche future di StorageGRID*. StorageGRID continuerà a ottimizzare e aggiungere funzioni innovative al bilanciatore di carico nelle prossime release.
+
+
+In quanto nodo integrato di StorageGRID, il gestore del traffico locale ha la possibilità di utilizzare un controllo avanzato dello stato per distribuire le richieste in base allo stato di integrità, al carico e alla disponibilità delle risorse del nodo di archiviazione.  Inoltre, ha la capacità di distribuire il carico su più siti quando i costi del collegamento StorageGRID sono impostati su "0" tra i siti.  Nel caso in cui i nodi di archiviazione non siano disponibili ma il nodo gateway sia disponibile in un sito, il carico verrà automaticamente indirizzato a un altro sito nella rete.
+
+La funzionalità di memorizzazione nella cache del bilanciatore del carico del Gateway Node è pensata per fornire un miglioramento sostanziale delle prestazioni per determinati carichi di lavoro (ad esempio la formazione dell'intelligenza artificiale) che rileggono un set di dati più volte durante l'elaborazione di tali dati.  I nodi gateway di memorizzazione nella cache possono anche essere distribuiti fisicamente distanti dal resto della griglia, consentendo prestazioni migliori e un minore utilizzo della rete WAN in alcuni carichi di lavoro.  La cache funziona in modalità di lettura in cui le scritture non vengono memorizzate nella cache e non modificano lo stato della cache.  Ogni nodo del gateway di memorizzazione nella cache funziona indipendentemente da qualsiasi altro nodo del gateway di memorizzazione nella cache.
+
+Per i dettagli sulla distribuzione del nodo gateway StorageGRID , vedere https://docs.netapp.com/us-en/storagegrid/["Documentazione StorageGRID"^] .

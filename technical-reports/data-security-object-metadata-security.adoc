@@ -36,6 +36,11 @@ Le appliance SG5812, SG5860, SG6160 e SGF6024 StorageGRID offrono l'opzione di d
 | Abilita lo storage sicuro di dati, metadati e oggetti di sistema. Fornisce inoltre una crittografia degli oggetti basata su software StorageGRID, che protegge storage e trasmissione di oggetti. | Regola SEC 17a-4(f) CTFC 1,31(c)-(d) (FINRA) regola 4511(c) 
 
 
+| Crittografia conforme allo standard federale di elaborazione delle informazioni (FIPS) 140-3 per i nodi  a| 
+Gli appliance StorageGRID SG5812, SG5860, SG6160, SGF6112, SG1100 e SG110 offrono l'opzione di crittografia dei nodi conforme allo standard FIPS 140-3.  Le chiavi di crittografia per i nodi sono gestite da un server KMIP esterno.
+| Abilita lo storage sicuro di dati, metadati e oggetti di sistema. Fornisce inoltre una crittografia degli oggetti basata su software StorageGRID, che protegge storage e trasmissione di oggetti. | Regola SEC 17a-4(f) CTFC 1,31(c)-(d) (FINRA) regola 4511(c) 
+
+
 | Scansione di integrità in background e autoriparazione  a| 
 StorageGRID utilizza un meccanismo di interblocco costituito da hash, checksum e controlli di ridondanza ciclici (CRC) a livello di oggetto e sottooggetto per proteggere da incoerenza, manomissioni o modifiche dei dati, sia quando gli oggetti sono in storage che in transito. StorageGRID rileva automaticamente gli oggetti corrotti e manomessi e li sostituisce, mettendo in quarantena i dati modificati e avvisando l'amministratore.
 | Permette agli amministratori di grid di soddisfare SLA, normative e altri obblighi in termini di conservazione dei dati. Aiuta i clienti a rilevare ransomware o virus che tentano di crittografare, manomettere o modificare i dati. | Regola SEC 17a-4(f) CTFC 1,31(c)-(d) (FINRA) regola 4511(c) 

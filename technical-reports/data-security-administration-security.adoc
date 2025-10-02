@@ -44,13 +44,15 @@ Gli amministratori Grid possono assegnare autorizzazioni ai ruoli e assegnare ru
 | Registrazione di controllo distribuita  a| 
 StorageGRID fornisce un'infrastruttura integrata di registrazione degli audit distribuita, scalabile fino a centinaia di nodi in un massimo di 16 siti. I nodi software StorageGRID generano messaggi di audit, che vengono trasmessi attraverso un sistema di inoltro di audit ridondante e infine acquisiti in uno o più repository di audit log. I messaggi di audit acquisiscono eventi a livello di granularità degli oggetti, come operazioni API S3 avviate dal client, eventi del ciclo di vita degli oggetti da ILM, controlli dello stato di salute degli oggetti in background e modifiche della configurazione effettuate dall'interfaccia utente di gestione o dalle API.
 
-È possibile esportare gli audit log dai nodi amministrativi tramite CIFS o NFS, consentendo il mining dei messaggi di audit da parte di tool come Splunk ed ELK. Esistono quattro tipi di messaggi di controllo:
+I registri di controllo possono essere esportati tramite syslog, consentendo l'analisi dei messaggi di controllo tramite strumenti quali Splunk ed ELK.  Esistono quattro tipi di messaggi di controllo:
 
 * Messaggi di audit del sistema
 * Messaggi di audit dello storage a oggetti
 * Messaggi di controllo del protocollo HTTP
 * Gestione dei messaggi di controllo
 
+
+I registri di controllo possono essere archiviati in un bucket S3 per la conservazione a lungo termine e l'accesso alle applicazioni.
 | Fornisce agli amministratori Grid un servizio di controllo collaudato e scalabile e consente loro di estrarre i dati di controllo per vari obiettivi. Tali obiettivi includono la risoluzione dei problemi, il controllo delle prestazioni dello SLA, le operazioni API di accesso ai dati dei client e le modifiche alla configurazione di gestione. | -- 
 
 

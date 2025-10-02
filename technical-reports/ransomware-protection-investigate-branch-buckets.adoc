@@ -1,0 +1,36 @@
+---
+sidebar: sidebar 
+permalink: technical-reports/ransomware-protection-investigate-branch-buckets.html 
+keywords: object lock, storagegrid 
+summary: Scopri come i branch bucket possono essere utilizzati per analizzare e porre rimedio a un attacco ransomware. 
+---
+= Indagine e bonifica del ransomware
+:hardbreaks:
+:allow-uri-read: 
+:nofooter: 
+:icons: font
+:linkattrs: 
+:imagesdir: ../media/
+
+
+[role="lead"]
+Scopri come analizzare e correggere i bucket dopo un possibile attacco ransomware con StorageGRID.
+
+In StorageGRID 12.0 è stata aggiunta la nuova funzionalità branch bucket per ampliare l'utilità del controllo delle versioni per la difesa dal ransomware.  Un bucket di diramazione fornisce l'accesso agli oggetti in un bucket così come esistevano in un determinato momento, a condizione che siano ancora presenti nel bucket.  I bucket di diramazione possono essere creati solo per i bucket di base abilitati al controllo delle versioni.
+
+Ciò significa che se sospetti che si sia verificato un attacco ransomware, puoi creare un bucket di ramificazione di lettura/scrittura o di sola lettura contenente tutti gli oggetti e le versioni esistenti prima dell'attacco iniziale.  È possibile utilizzare questo bucket di diramazione per effettuare un confronto con il contenuto del bucket di base, per scoprire quali oggetti sono cambiati e se la modifica faceva parte dell'attacco o meno.  È anche possibile utilizzare un branch bucket per continuare le operazioni del client utilizzando il branch pulito mentre si indaga sull'attacco.
+
+
+
+== Creazione di un bucket Branch
+
+* Passare alla pagina dei dettagli del bucket di base e alla scheda Branch per creare un bucket branch.
+
+
+image:ransomware/ransomware-protection-branch-create.png["creazione-ramo-di-protezione-ransomware"]
+
+* Dopo aver cliccato sul pulsante Crea bucket di diramazione, si aprirà una finestra popup con i dettagli precompilati della regione associata al bucket di base.
+* fornire il nome del bucket di diramazione, prima dell'ora, e selezionare il tipo di bucket di diramazione da creare.
+
+
+image:ransomware/ransomware-protection-branch-define.png["definizione-ramo-protezione-ransomware"]

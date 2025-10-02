@@ -2,9 +2,9 @@
 permalink: third-party/119-3rd-party-list.html 
 sidebar: sidebar 
 keywords: 11.9, third-party applications, storagegrid, ISV 
-summary: Soluzioni di terze parti validate per StorageGRID 11,9 
+summary: Soluzioni di terze parti convalidate per StorageGRID 12.0 
 ---
-= Soluzioni validate di terze parti StorageGRID 11,9
+= Soluzioni di terze parti convalidate StorageGRID 12.0
 :hardbreaks:
 :allow-uri-read: 
 :icons: font
@@ -12,7 +12,7 @@ summary: Soluzioni di terze parti validate per StorageGRID 11,9
 
 
 [role="lead"]
-Le seguenti soluzioni di terze parti sono state convalidate per l'utilizzo con StorageGRID 11,9. + se la soluzione che stai cercando non è presente nell'elenco, contatta il tuo rappresentante commerciale NetApp.
+Le seguenti soluzioni di terze parti sono state convalidate per l'uso con StorageGRID 12.0.  + Se la soluzione che stai cercando non è elencata, contatta il tuo rappresentante NetApp .
 
 
 
@@ -131,20 +131,6 @@ Queste soluzioni sono state testate.
 
 * Piattaforma di sicurezza crittografica Entrust v10.4.5
 * Controllo chiave Entrust 10,2
-* Vault Hashiorp 1.15.0
-* Thales CipherTrust Manager 2,0
-* Thales CipherTrust Manager 2,1
-* Thales CipherTrust Manager 2,2
-* Thales CipherTrust Manager 2,3
-* Thales CipherTrust Manager 2,4
-* Thales CipherTrust Manager 2,8
-* Thales CipherTrust Manager 2,9
-* Thales CipherTrust Manager 2,10
-* Thales CipherTrust Manager 2,11
-* Thales CipherTrust Manager 2,12
-* Thales CipherTrust Manager 2,13
-* Thales CipherTrust Manager 2,14
-* Thales CipherTrust Manager 2.15
-* Thales CipherTrust Manager 2.16
+* Hashicorp Vault 1.20.2
 * Thales CipherTrust Manager 2.20
 

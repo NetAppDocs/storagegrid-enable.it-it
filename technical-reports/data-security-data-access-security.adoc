@@ -44,7 +44,7 @@ StorageGRID supporta le seguenti suite di crittografia per TLS:
 
 Supporto di TLS v1,2 e 1,3.
 
-SSLv3, TLS v1,1 e versioni precedenti non sono più supportati.
+SSLv3, TLS v1.1 e versioni precedenti non sono supportati.
 | Consente a un client e a StorageGRID di identificarsi e autenticarsi reciprocamente e comunicare con riservatezza e integrità dei dati. Garantisce l'uso di una versione TLS recente. Le crittografie sono ora configurabili nelle impostazioni di configurazione/protezione | -- 
 
 
@@ -128,6 +128,27 @@ StorageGRID consente di creare più chiavi di accesso e contemporaneamente di at
 | S3 criterio di accesso IAM  a| 
 StorageGRID supporta policy IAM S3, consentendo agli amministratori Grid di specificare un controllo granulare degli accessi per tenant, bucket o prefisso oggetto. StorageGRID supporta inoltre le variabili e le condizioni dei criteri IAM, consentendo criteri di controllo degli accessi più dinamici.
 | Consente agli amministratori di Grid di specificare il controllo dell'accesso per gruppi di utenti per l'intero tenant; inoltre, permette agli utenti tenant di specificare il controllo dell'accesso per i propri bucket e oggetti. | -- 
+
+
+| API del servizio token di sicurezza S3 AssumeRole  a| 
+StorageGRID supporta l'API S3 STS AssumeRole per fornire credenziali di sicurezza temporanee (ID chiave di accesso, chiave di accesso segreta, token di sessione) con autorizzazioni ridotte e durata limitata.  Come parte dell'API AssumeRole sono supportati criteri di sessione in linea per limitare ulteriormente le autorizzazioni durante la sessione.
+| Consente agli amministratori dei tenant di fornire un accesso temporaneo sicuro ai dati degli oggetti. | -- 
+
+
+| Servizio di notifica semplice  a| 
+StorageGRID supporta l'invio di notifiche sull'accesso agli oggetti. Sono supportati i seguenti tipi di eventi:
+
+* s3:OggettoCreato:
+* s3:OggettoCreato:Metti
+* s3:OggettoCreato:Post
+* s3:OggettoCreato:Copia
+* s3:ObjectCreated:CompleteMultipartUpload
+* s3:ObjectRemoved:
+* s3:ObjectRemoved:Elimina
+* s3:ObjectRemoved:DeleteMarkerCreated
+* s3:ObjectRestore:Post
+
+| Consente agli amministratori dei tenant di monitorare l'accesso agli oggetti | -- 
 
 
 | Crittografia lato server con chiavi gestite da StorageGRID (SSE)  a| 
