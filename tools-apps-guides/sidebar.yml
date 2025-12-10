@@ -12,6 +12,8 @@ entries:
   url: "/tools-apps-guides/elk-instructions.html"
 - title: Utilizza Prometheus e Grafana per estendere la conservazione delle metriche
   url: "/tools-apps-guides/federate-prometheus.html"
+- title: Utilizzare F5 DNS per bilanciare il carico globale StorageGRID
+  url: "/tools-apps-guides/f5-dns.html"
 - title: Configurare Datadog per raccogliere le metriche e i trap snmp di StorageGRID
   url: "/tools-apps-guides/use-datadog-snmp.html"
 - title: Utilizzare rclone per migrare, INSERIRE ed ELIMINARE oggetti su StorageGRID
