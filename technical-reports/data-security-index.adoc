@@ -42,6 +42,9 @@ NetApp StorageGRID offre funzionalità di sicurezza avanzate per casi di utilizz
 Per ulteriori informazioni sulle informazioni descritte in questo documento, consultare i seguenti documenti e/o siti Web:
 
 * NetApp StorageGRID: Valutazione della conformità SEC 17a-4(f), FINRA 4511(c) e CFTC 1,31(c)-(d) https://www.netapp.com/media/9041-ar-cohasset-netapp-storagegrid-sec-assessment.pdf[]
+* Certificazione NIST FIPS 140-3 Kernel Crypto NetApp StorageGRID https://csrc.nist.gov/projects/cryptographic-module-validation-program/certificate/5097[]
+* Certificazione entropia NIST SP 800-90B NetApp StorageGRID https://csrc.nist.gov/projects/cryptographic-module-validation-program/entropy-validations/certificate/223[]
+* Certificazione Common Criteria del Centro canadese per la sicurezza informatica NetApp StorageGRID https://www.commoncriteriaportal.org/nfs/ccpfiles/files/epfiles/565-LSS%20CT%20v1.0.pdf[]
 * Pagina della documentazione StorageGRIDhttps://docs.netapp.com/us-en/storagegrid/[]
 * Documentazione dei prodotti NetApp https://www.netapp.com/support-and-training/documentation/[]
 
