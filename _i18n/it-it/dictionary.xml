@@ -3174,7 +3174,6 @@ StorageGRID scala le performance utilizzando nodi con performance più elevate p
   <block id="a4a5cea738d6da6085c0db896d047001" category="section-title">Esempi di policy del ciclo di vita per bucket con versione</block>
   <block id="5808fc2734abb0c3a63ccb7a2efcb814" category="section-title">Elimina le versioni non correnti dopo 10 giorni</block>
   <block id="87fe92caedf00fb0d3b95bb0a8947552" category="paragraph">Caso d'uso: questa policy aiuta a gestire l'archiviazione di oggetti con versioni non aggiornate, che possono accumularsi nel tempo e occupare molto spazio. Vantaggio: ottimizza l'utilizzo dello spazio di archiviazione mantenendo solo la versione più recente.</block>
-  <block id="01cd1b232ce05d49443051b40a2458d2" category="section-title">Mantieni 5 versioni non correnti</block>
   <block id="f48f877559a5ab472b0c8399aa53ae43" category="paragraph">Caso d'uso: utile quando si desidera conservare un numero limitato di versioni precedenti a fini di ripristino o controllo. Vantaggio: conservare un numero sufficiente di versioni non correnti per garantire una cronologia e punti di ripristino sufficienti.</block>
   <block id="b36f0366fc8b2a644db0d58b9aec47e6" category="section-title">Rimuovi i marcatori di eliminazione quando non esistono altre versioni</block>
   <block id="5a07e328951f2e2665da45b3c8611e70" category="paragraph">Caso d'uso: questa policy aiuta a gestire i marcatori di eliminazione rimasti dopo la rimozione di tutte le versioni non aggiornate, che possono accumularsi nel tempo. Vantaggio: riduzione di elementi superflui.</block>
@@ -3451,4 +3450,6 @@ StorageGRID scala le performance utilizzando nodi con performance più elevate p
   <block id="c3cbbc5200045db15e74e5cd91bc3f5c" category="list-text">Certificazione NIST FIPS 140-3 Kernel Crypto NetApp StorageGRID <block ref="07269b03af49e81fce537f0040aa007d" category="inline-link-rx"></block></block>
   <block id="170420c360dbd78303a11b0a7cbdbe0f" category="list-text">Certificazione entropia NIST SP 800-90B NetApp StorageGRID <block ref="459857fb7709b7e2d73edb78f17869ea" category="inline-link-rx"></block></block>
   <block id="c7a996558a05f3b352c4ed7d96e209f6" category="list-text">Certificazione Common Criteria del Centro canadese per la sicurezza informatica NetApp StorageGRID <block ref="af4723441da5d2d8888b51d6ccd71fe3" category="inline-link-rx"></block></block>
+  <block id="61826214d6f329493990f2d79416585b" category="section-title">Conserva 5 versioni non correnti ed eliminale dopo 90 giorni</block>
+  <block id="d05c8031e45ddabc741886852f07058f" category="admonition">È necessario utilizzare *NoncurrentDays* con *NewerNoncurrentVersions*.</block>
 </blocks>

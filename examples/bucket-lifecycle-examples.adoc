@@ -171,7 +171,7 @@ Caso d'uso: questa policy aiuta a gestire l'archiviazione di oggetti con version
 ----
 
 
-=== Mantieni 5 versioni non correnti
+=== Conserva 5 versioni non correnti ed eliminale dopo 90 giorni
 
 Caso d'uso: utile quando si desidera conservare un numero limitato di versioni precedenti a fini di ripristino o controllo. Vantaggio: conservare un numero sufficiente di versioni non correnti per garantire una cronologia e punti di ripristino sufficienti.
 
@@ -184,12 +184,16 @@ Caso d'uso: utile quando si desidera conservare un numero limitato di versioni p
 		"Filter": {},
 		"Status": "Enabled"，
 		"NoncurrentVersionExpiration": {
-		  	"NewerNoncurrentVersions": 5
+		  	"NewerNoncurrentVersions": 5,
+        	"NoncurrentDays": 90
 	    }
     }
 	]
 }
 ----
+
+NOTE: È necessario utilizzare *NoncurrentDays* con *NewerNoncurrentVersions*.
+
 
 
 === Rimuovi i marcatori di eliminazione quando non esistono altre versioni
