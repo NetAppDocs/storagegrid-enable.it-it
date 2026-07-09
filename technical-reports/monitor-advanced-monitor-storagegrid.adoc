@@ -17,6 +17,7 @@ Scopri come accedere ed esportare le metriche per risolvere i problemi.
 
 
 
+[[view-metrics-api-through-a-prometheus-query]]
 == Visualizzare l'API delle metriche tramite una query Prometheus
 
 Prometheus è un software open-source per la raccolta delle metriche. Per accedere al Prometheus integrato di StorageGRID tramite l'GMI, vai al menu:Support[Metrics].
@@ -47,6 +48,7 @@ NOTE: Si sconsiglia di interfacciarsi direttamente con la nostra istanza Prometh
 
 
 
+[[export-metrics-through-the-api]]
 == Esporta metriche tramite API
 
 Puoi anche accedere agli stessi dati tramite l'API di gestione StorageGRID.

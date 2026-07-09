@@ -22,6 +22,7 @@ Ciò significa che se sospetti che si sia verificato un attacco ransomware, puoi
 
 
 
+[[creating-a-branch-bucket]]
 == Creazione di un bucket Branch
 
 * Passare alla pagina dei dettagli del bucket di base e alla scheda Branch per creare un bucket branch.

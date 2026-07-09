@@ -20,24 +20,26 @@ Completare l'installazione configurando il sistema StorageGRID dall'interfaccia 
 
 
 
+[[high-level-steps]]
 == Passaggi di alto livello
 
 La configurazione della griglia e il completamento dell'installazione prevedono le seguenti operazioni:
 
 .Fasi
 . <<Accedere a Grid Manager>>
-. link:storagegrid-license.html["Specificare le informazioni sulla licenza StorageGRID"]
-. link:add-sites-storagegrid.html["Aggiungere siti a StorageGRID"]
-. link:grid-network-subnets-storagegrid.html["Specificare le subnet della rete griglia"]
-. link:approve-grid-nodes-storagegrid.html["Approvare i nodi griglia in sospeso"]
-. link:ntp-server-storagegrid.html["Specificare le informazioni sul server NTP"]
-. link:dns-server-storagegrid.html["Specificare le informazioni sul server del sistema dei nomi di dominio"]
-. link:system-passwords-storagegrid.html["Specificare le password di sistema di StorageGRID"]
-. link:review-config-complete-storagegrid-install.html["Esaminare la configurazione e completare l'installazione"]
+. link:bare-metal-storagegrid-license.html["Specificare le informazioni sulla licenza StorageGRID"]
+. link:bare-metal-add-sites-storagegrid.html["Aggiungere siti a StorageGRID"]
+. link:bare-metal-grid-network-subnets-storagegrid.html["Specificare le subnet della rete griglia"]
+. link:bare-metal-approve-grid-nodes-storagegrid.html["Approvare i nodi griglia in sospeso"]
+. link:bare-metal-ntp-server-storagegrid.html["Specificare le informazioni sul server NTP"]
+. link:bare-metal-dns-server-storagegrid.html["Specificare le informazioni sul server del sistema dei nomi di dominio"]
+. link:bare-metal-system-passwords-storagegrid.html["Specificare le password di sistema di StorageGRID"]
+. link:bare-metal-review-config-complete-storagegrid-install.html["Esaminare la configurazione e completare l'installazione"]
 
 
 
 
+[[navigate-to-grid-manager]]
 == Accedere a Grid Manager
 
 Utilizzare Gestione griglia per definire tutte le informazioni necessarie per configurare il sistema StorageGRID.

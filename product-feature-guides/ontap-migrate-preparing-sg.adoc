@@ -16,6 +16,7 @@ Offerta di S3 Enterprise mediante la migrazione perfetta dello storage basato su
 
 
 
+[[preparing-storagegrid]]
 == Preparazione di StorageGRID
 
 Continuando la configurazione per questa demo, creeremo un tenant, un utente, un gruppo di sicurezza, una policy di gruppo e un bucket.

@@ -20,6 +20,7 @@ I seguenti esempi illustrano le configurazioni implementate dai clienti StorageG
 
 
 
+[[f5-big-ip-local-traffic-manager-health-check-monitor-for-s3-bucket]]
 == F5 BIG-IP, il monitor di controllo dello stato del gestore del traffico locale per bucket S3
 
 Per configurare il monitor di controllo dello stato del gestore del traffico locale BIG-IP F5, attenersi alla seguente procedura:
@@ -48,6 +49,7 @@ image:load-balancer/load-balancer-monitor-configuration-page.png["Pagina di conf
 
 
 
+[[citrix-netscaler]]
 == Citrix NetScaler
 
 Citrix NetScaler crea un server virtuale per l'endpoint di storage e fa riferimento ai nodi storage StorageGRID come server applicazioni, che vengono quindi raggruppati in servizi.
@@ -62,18 +64,21 @@ image:load-balancer/load-balancer-configure-monitor.png["Configure-monitor.png"]
 
 
 
+[[loadbalancer-org]]
 == Loadbalancer.org
 
 Loadbalancer.org ha eseguito i propri test di integrazione con StorageGRID e dispone di una guida completa alla configurazione: https://pdfs.loadbalancer.org/NetApp_StorageGRID_Deployment_Guide.pdf[].
 
 
 
+[[kemp]]
 == Kemp
 
 Kemp ha condotto i propri test di integrazione con StorageGRID e dispone di una guida alla configurazione completa: https://kemptechnologies.com/solutions/netapp/[].
 
 
 
+[[haproxy]]
 == HAProxy
 
 Configurare HAProxy per utilizzare la richiesta di OPZIONI e controllare una risposta di stato 200 per il controllo dello stato in hproxy.cfg. È possibile modificare la porta di binding nella parte anteriore in una porta diversa, ad esempio 443.

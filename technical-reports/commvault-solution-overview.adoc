@@ -18,6 +18,7 @@ La soluzione collaudata combina le soluzioni CommVault e NetApp per realizzare u
 
 
 
+[[solution-setup]]
 == Setup della soluzione
 
 Durante la configurazione in laboratorio, l'ambiente StorageGRID era composto da quattro appliance NetApp StorageGRID SG5712, un nodo amministrativo primario virtuale e un nodo gateway virtuale. L'appliance SG5712 è l'opzione entry-level, una configurazione di base. La scelta di opzioni dalle performance più elevate come NetApp StorageGRID SG5760 o SG6060 può fornire benefici significativi in termini di performance. Per assistenza sul dimensionamento, consulta il Solution Architect NetApp StorageGRID.
@@ -48,10 +49,9 @@ Dual commit
 |===
 La regola di copia di ILM 2 è la regola predefinita. La regola Erasure Coding 2+1 è stata applicata per questo test a qualsiasi oggetto 200KB o superiore. La regola predefinita è stata applicata agli oggetti di dimensioni inferiori a 200KB. L'applicazione delle regole in questo modo è una Best practice di StorageGRID.
 
-Per informazioni tecniche su questo ambiente di test, leggere la sezione progettazione della soluzione e Best practice nella https://www.netapp.com/us/media/tr-4831.pdf["Data Protection scale-out NetApp con CommVault"] report tecnico.
 
 
-
+[[storagegrid-hardware-specifications]]
 == Specifiche dell'hardware StorageGRID
 
 La tabella seguente descrive l'hardware NetApp StorageGRID utilizzato per questo test. L'appliance StorageGRID SG5712 con connettività di rete 10Gbps è l'opzione entry-level e rappresenta una configurazione di base. In alternativa, SG5712 può essere configurato per il collegamento in rete 25Gbps.
@@ -77,6 +77,7 @@ La scelta di opzioni di appliance con performance più elevate come le appliance
 
 
 
+[[commvault-and-storagegrid-software-requirements]]
 == Requisiti software CommVault e StorageGRID
 
 Le tabelle seguenti elencano i requisiti software per il software CommVault e NetApp StorageGRID installato sul software VMware ai fini del test. Sono stati installati quattro programmi di gestione della trasmissione dati MediaAgent e un server CommServe. Nel test è stata implementata la connettività di rete 10Gbps per l'infrastruttura VMware. La tabella seguente

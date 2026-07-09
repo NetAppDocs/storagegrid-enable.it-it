@@ -16,6 +16,7 @@ Offerta di S3 Enterprise mediante la migrazione perfetta dello storage basato su
 
 
 
+[[preparing-ontap]]
 == Preparazione di ONTAP
 
 A scopo dimostrativo creeremo un server per archivio di oggetti SVM, un utente, un gruppo, una policy di gruppo e bucket.

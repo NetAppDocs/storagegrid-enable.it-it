@@ -16,6 +16,7 @@ Offerta di S3 Enterprise mediante la migrazione perfetta dello storage basato su
 
 
 
+[[migration-demo]]
 == Demo sulla migrazione
 
 Questa è una dimostrazione sulla migrazione di utenti e bucket da ONTAP S3 a StorageGRID.

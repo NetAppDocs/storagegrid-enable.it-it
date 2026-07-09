@@ -18,6 +18,7 @@ NetApp ha testato StorageGRID con GitLab. Vedere l'esempio di configurazione Git
 
 
 
+[[object-storage-connection-example]]
 == Esempio di connessione allo storage a oggetti
 
 Per le installazioni dei pacchetti Linux, questo è un esempio di `connection` impostazione nel modulo consolidato. Modifica `/etc/gitlab/gitlab.rb` e aggiungere le seguenti righe, sostituendo i valori desiderati:

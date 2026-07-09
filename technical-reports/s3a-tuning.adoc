@@ -18,6 +18,7 @@ Il connettore Hadoop S3A facilita un'interazione perfetta tra le applicazioni ba
 
 
 
+[[what-is-hadoop]]
 == Che cos'è Hadoop?
 
 *Hadoop* è un potente framework open-source progettato per gestire l'elaborazione e lo storage di dati su larga scala. Permette lo storage distribuito e l'elaborazione parallela tra cluster di computer.
@@ -31,6 +32,7 @@ I tre componenti principali di Hadoop sono:
 
 
 
+[[hadoop-hdfs-and-s3a-connector]]
 == HDFS Hadoop e connettore S3A
 
 HDFS è una componente vitale dell'ecosistema Hadoop, ricoprendo un ruolo critico nell'efficiente elaborazione dei big data. HDFS consente storage e gestione affidabili. Garantisce l'elaborazione parallela e lo storage dei dati ottimizzato, accelerando l'accesso e l'analisi dei dati.
@@ -43,6 +45,7 @@ Per affrontare queste sfide, il connettore Hadoop S3A offre i/o dalle performanc
 
 
 
+[[hadoop-s3a-connector-tuning]]
 == Tuning del connettore Hadoop S3A
 
 S3 si comporta in modo diverso da HDFS e alcuni tentativi di preservare l'aspetto di un file system sono decisamente non ottimali. È necessario un'accurata messa a punto/test/sperimentazione per utilizzare al meglio le risorse S3.

@@ -18,6 +18,7 @@ Scopri i requisiti di calcolo, storage, rete, docker e nodo per implementare Sto
 
 
 
+[[compute-requirements]]
 == Requisiti di calcolo
 
 La tabella riportata di seguito elenca i requisiti minimi delle risorse supportate per ogni tipo di nodo StorageGRID. Queste sono le risorse minime richieste per i nodi StorageGRID.
@@ -43,6 +44,7 @@ Poiché molti server moderni superano questi requisiti, combiniamo sei servizi (
 
 
 
+[[networking-requirements]]
 == Requisiti di rete
 
 I tre tipi di traffico StorageGRID includono:
@@ -60,6 +62,7 @@ Per questa valutazione, verrà eseguita la distribuzione su due reti, che conten
 
 
 
+[[note-on-docker-networking]]
 === Nota sul networking di Docker
 
 StorageGRID utilizza il networking in modo diverso da alcune implementazioni di container Docker. Non utilizza il networking fornito da Docker (o Kubernetes o Swarm). Al contrario, in realtà StorageGRID utilizza il container come --net=none, in modo che Docker non esegua alcuna operazione di rete. Dopo che il contenitore è stato generato dal servizio StorageGRID, viene creato un nuovo dispositivo macvlan dall'interfaccia definita nel file di configurazione del nodo. Tale dispositivo dispone di un nuovo indirizzo MAC e funge da dispositivo di rete separato in grado di ricevere pacchetti dall'interfaccia fisica. Il dispositivo macvlan viene quindi spostato nello spazio dei nomi dei contenitori e rinominato in uno dei eth0, eth1 o eth2 all'interno del contenitore. A questo punto, il dispositivo di rete non è più visibile nel sistema operativo host. Nel nostro esempio, il dispositivo di rete Grid è eth0 all'interno dei container Docker e la rete Client è eth2. Se avessimo una rete di amministrazione, il dispositivo sarebbe eth1 nel container.
@@ -69,12 +72,13 @@ NOTE: Il nuovo indirizzo MAC del dispositivo di rete del contenitore potrebbe ri
 
 
 
+[[storage-requirements]]
 == Requisiti di storage
 
 I nodi richiedono ciascuno dispositivi di dischi locali o basati su SAN delle dimensioni indicate nella tabella seguente.
 
 
-NOTE: I numeri contenuti nella tabella sono relativi a ciascun tipo di servizio StorageGRID, non all'intero grid o a ciascun host fisico. In base alle scelte di distribuzione, verranno calcolati i numeri per ciascun host fisico in , più avanti in link:prerequisites-install-storagegrid.html#physical-host-layout-and-requirements["Layout e requisiti dell'host fisico"]questo documento. ++ ++ i percorsi o i file system contrassegnati con un asterisco verranno creati nel contenitore StorageGRID stesso dall'installatore. L'amministratore non richiede alcuna configurazione manuale o creazione di file system, ma gli host hanno bisogno di dispositivi a blocchi per soddisfare questi requisiti. In altre parole, il dispositivo a blocchi dovrebbe apparire utilizzando il comando `lsblk` ma non essere formattato o montato all'interno del sistema operativo host. ++ ++
+NOTE: I numeri nella tabella si riferiscono a ciascun tipo di servizio StorageGRID, non all'intera grid o a ciascun host fisico. In base alle scelte di implementazione, calcoleremo i numeri per ciascun host fisico in link:bare-metal-prerequisites-install-storagegrid.html#physical-host-layout-and-requirements["Layout e requisiti dell'host fisico"], più avanti in questo documento. ++ ++ I percorsi o i file system contrassegnati da un asterisco verranno creati nel container StorageGRID stesso dal programma di installazione. Non è richiesta alcuna configurazione manuale o creazione di file system da parte dell'amministratore, ma gli host necessitano di dispositivi a blocchi per soddisfare questi requisiti. In altre parole, il dispositivo a blocchi dovrebbe apparire utilizzando il comando  `lsblk` ma non essere formattato o montato all'interno del sistema operativo host. ++ ++
 
 [cols="15,20,15,15,15,20"]
 |===
@@ -101,14 +105,16 @@ NOTE: I numeri contenuti nella tabella sono relativi a ciascun tipo di servizio 
 BLOCK_DEVICE_RANGEDB_001 = /dev/mapper/SN-Db01
 BLOCK_DEVICE_RANGEDB_002 = /dev/mapper/SN-Db02` 
 |===
-In questo esempio, le dimensioni dei dischi mostrate nella seguente tabella sono necessarie per tipo di contenitore. I requisiti per host fisico sono descritti nella , più avanti in link:prerequisites-install-storagegrid.html#physical-host-layout-and-requirements["Layout e requisiti dell'host fisico"]questo documento.
+In questo esempio, le dimensioni del disco indicate nella tabella seguente sono necessarie per ciascun tipo di container. I requisiti per host fisico sono descritti in link:bare-metal-prerequisites-install-storagegrid.html#physical-host-layout-and-requirements["Layout e requisiti dell'host fisico"], più avanti in questo documento.
 
 
 
+[[disk-sizes-per-container-type]]
 == Dimensioni dei dischi per tipo di container
 
 
 
+[[admin-container]]
 === Container di amministrazione
 
 [cols="50,50"]
@@ -129,6 +135,7 @@ In questo esempio, le dimensioni dei dischi mostrate nella seguente tabella sono
 |===
 
 
+[[storage-container]]
 === Contenitore di stoccaggio
 
 [cols="50,50"]
@@ -152,6 +159,7 @@ In questo esempio, le dimensioni dei dischi mostrate nella seguente tabella sono
 |===
 
 
+[[gateway-container]]
 === Contenitore gateway
 
 [cols="50,50"]
@@ -166,6 +174,7 @@ In questo esempio, le dimensioni dei dischi mostrate nella seguente tabella sono
 |===
 
 
+[[physical-host-layout-and-requirements]]
 == Layout e requisiti dell'host fisico
 
 Combinando i requisiti di elaborazione e di rete illustrati nella tabella precedente, è possibile ottenere un set di hardware di base necessario per questa installazione di tre server fisici (o virtuali) con 16 core, 64GB di RAM e due interfacce di rete. Se si desidera un throughput più elevato, è possibile collegare due o più interfacce sulla griglia o sulla rete client e utilizzare un'interfaccia con codifica VLAN come bond0,520 nel file di configurazione del nodo. In presenza di carichi di lavoro più intensi, è preferibile una maggiore quantità di memoria per l'host e i container.
@@ -298,6 +307,7 @@ Docker Store è stato calcolato consentendo 100GB per /var/local (per contenitor
 
 
 
+[[preparing-the-nodes]]
 == Preparazione dei nodi
 
 Per preparare l'installazione iniziale di StorageGRID, installare prima RHEL versione 9,2 e abilitare SSH. Impostare le interfacce di rete, NTP (Network Time Protocol), DNS e il nome host in base alle Best practice. È necessaria almeno un'interfaccia di rete abilitata sulla rete di rete e un'altra per la rete client. Se si utilizza un'interfaccia con codifica VLAN, configurarla come descritto negli esempi seguenti. In caso contrario, sarà sufficiente una semplice configurazione standard dell'interfaccia di rete.
@@ -326,9 +336,10 @@ Questo esempio presuppone che il dispositivo di rete fisico per la rete di rete 
 
 
 
+[[optional-storage-setup-with-iscsi]]
 == Configurazione dello storage opzionale con iSCSI
 
-Se non si utilizza storage iSCSI, è necessario assicurarsi che host1, Host2 e host3 contengano dispositivi a blocchi di dimensioni sufficienti per soddisfare i relativi requisiti. Consultare la sezione link:prerequisites-install-storagegrid.html#disk-sizes-per-container-type["Dimensioni dei dischi per tipo di container"] per i requisiti di storage di host1, Host2 e host3.
+Se non usi lo storage iSCSI, devi assicurarti che host1, host2 e host3 contengano dispositivi a blocchi di dimensioni sufficienti per soddisfare i loro requisiti. Vedi link:bare-metal-prerequisites-install-storagegrid.html#disk-sizes-per-container-type["Dimensioni dei dischi per tipo di container"] per i requisiti di storage di host1, host2 e host3.
 
 Per configurare lo storage con iSCSI, attenersi alla seguente procedura:
 
@@ -347,7 +358,7 @@ sudo yum install device-mapper-multipath
 # cat /etc/iscsi/initiatorname.iscsi
 InitiatorName=iqn.2006-04.com.example.node1
 ----
-. Utilizzando il nome dell'iniziatore del passaggio 2, mappare i LUN del dispositivo di archiviazione (del numero e delle dimensioni indicati nella tabella) a ciascun nodo di archiviazione link:prerequisites-install-storagegrid.html#storage-requirements["Requisiti di storage"] .
+. Utilizzando il nome dell'iniziatore dal passaggio 2, mappa le LUN sul tuo dispositivo di storage (del numero e delle dimensioni indicati nella link:bare-metal-prerequisites-install-storagegrid.html#storage-requirements["Requisiti di storage"] tabella) su ciascun nodo di storage.
 . Scopri i LUN appena creati `iscsiadm` ed effettua l'accesso.
 +
 [listing]
@@ -437,6 +448,7 @@ Se si utilizza un LUN con backup iSCSI, inserire nel file fstab qualcosa di simi
 ----
 
 
+[[preparing-for-docker-installation]]
 == Preparazione dell'installazione di Docker
 
 Per prepararsi all'installazione di Docker, attenersi alla seguente procedura:

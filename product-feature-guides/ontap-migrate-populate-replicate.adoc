@@ -16,6 +16,7 @@ Offerta di S3 Enterprise mediante la migrazione perfetta dello storage basato su
 
 
 
+[[populate-the-source-bucket]]
 == Compilare il bucket Source (origine)
 
 Consente di inserire alcuni oggetti nel bucket ONTAP di origine. Utilizzeremo S3Browser per questa demo, ma puoi usare qualsiasi strumento che ti trovi a tuo agio.
@@ -48,6 +49,7 @@ image:ontap-migrate/ontap-s3browser-versions.png["Visualizza versioni"]
 
 
 
+[[establish-the-replication-relationship]]
 === Stabilire la relazione di replica
 
 Consente di iniziare a inviare dati da ONTAP a StorageGRID.
@@ -93,6 +95,7 @@ image:ontap-migrate/ontap-snapmirror-status.png["Controllare la relazione SnapMi
 
 
 
+[[the-replication-details]]
 === I dettagli della replica
 
 Ora disponiamo di un bucket di replica con successo da ONTAP a StorageGRID. Ma che cosa si replica? La nostra fonte e la nostra destinazione sono entrambi bucket in versione. Anche le versioni precedenti vengono replicate nella destinazione? Se guardiamo al nostro bucket StorageGRID con S3Browser vediamo che le versioni esistenti non sono state replicate e l'oggetto eliminato non esiste, né un marcatore di eliminazione per quell'oggetto. L'oggetto duplicato ha solo la versione 1 nel bucket StorageGRID.

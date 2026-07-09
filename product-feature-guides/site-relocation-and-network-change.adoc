@@ -19,6 +19,7 @@ link:https://docs.netapp.com/us-en/storagegrid-118/maintain/changing-nodes-netwo
 
 
 
+[[considerations-before-site-relocation]]
 == Considerazioni prima del trasferimento del sito
 
 * Lo spostamento del sito deve essere completato e tutti i nodi online entro 15 giorni per evitare la ricostruzione del database Cassandra.
@@ -34,11 +35,11 @@ image:site-relocation/s3-completed-request.png["S3 Panoramica grafico Grafana ca
 
 
 
+[[procedure-to-change-grid-ip-address-before-site-relocation]]
 === Procedura di modifica dell'indirizzo IP della griglia prima del trasferimento del sito
 
 .Fasi
-. Se la nuova subnet di rete della griglia viene utilizzata nella nuova posizione,
-link:https://docs.netapp.com/us-en/storagegrid-118/expand/updating-subnets-for-grid-network.htmll["Aggiungere la subnet all'elenco delle subnet di rete della griglia"^]
+. Se nella nuova posizione verrà utilizzata una nuova sottorete di rete Grid,link:https://docs.netapp.com/us-en/storagegrid/expand/updating-subnets-for-grid-network.html["Aggiungere la subnet all'elenco delle subnet di rete della griglia"^]
 . Accedere al nodo di amministrazione primario, utilizzare change-ip per modificare l'IP della griglia, deve *stage* la modifica prima di arrestare il nodo per il trasferimento.
 +
 .. Selezionare 2 quindi 1 per la modifica dell'IP della griglia
@@ -75,6 +76,7 @@ image:site-relocation/ip-change-6.png["Continua"]
 
 
 
+[[appliance-vlan-change]]
 === Modifica VLAN dell'appliance
 
 La procedura riportata di seguito presuppone l'accesso remoto alla rete client o di amministrazione dell'appliance StorageGRID per eseguire la modifica in remoto.

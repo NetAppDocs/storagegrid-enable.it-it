@@ -18,6 +18,7 @@ Consulta i tuoi specialisti in materia di data Protection NetApp per dimensionam
 
 
 
+[[commvault-sizing-inputs]]
 == Input per il dimensionamento di CommVault
 
 È possibile utilizzare le seguenti attività per eseguire il rilevamento per il dimensionamento della soluzione per la data Protection:
@@ -34,6 +35,7 @@ Quando queste informazioni sono disponibili, è possibile eseguire il dimensiona
 
 
 
+[[storagegrid-sizing-guidance]]
 == Guida al dimensionamento di StorageGRID
 
 Prima di eseguire il dimensionamento del NetApp StorageGRID, prendi in considerazione questi aspetti del carico di lavoro:
@@ -115,6 +117,7 @@ Di solito, StorageGRID viene implementato in due o più siti con policy di data 
 
 
 
+[[scaling]]
 == Scalabilità
 
 È possibile espandere un sistema NetApp StorageGRID aggiungendo storage ai nodi storage, aggiungendo nuovi nodi grid a un sito esistente o aggiungendo un nuovo sito per il data center. È possibile eseguire espansioni senza interrompere il funzionamento del sistema corrente.

@@ -16,6 +16,7 @@ Di seguito sono riportati alcuni criteri e autorizzazioni di esempio in StorageG
 
 
 
+[[the-structure-of-a-policy]]
 == La struttura di una politica
 
 In StorageGRID, le policy di gruppo sono le stesse delle policy di servizio dell'utente AWS (IAM) S3.
@@ -116,6 +117,7 @@ Il formato del criterio JSON sarà il seguente:
 ----
 
 
+[[using-the-aws-policy-generator]]
 == Utilizzo del generatore di policy AWS
 
 AWS Policy generator è un ottimo tool per aiutare a ottenere il codice json con il formato e le informazioni corrette che stai cercando di implementare.
@@ -245,10 +247,12 @@ Ad esempio:
 ----
 
 
+[[group-policies-iam]]
 == Policy di gruppo (IAM)
 
 
 
+[[home-directory-style-bucket-access]]
 === Accesso bucket stile home directory
 
 Questo criterio di gruppo consente solo agli utenti di accedere agli oggetti nel bucket denominato username.
@@ -280,6 +284,7 @@ Questo criterio di gruppo consente solo agli utenti di accedere agli oggetti nel
 ----
 
 
+[[deny-object-lock-bucket-creation]]
 === Negare la creazione del bucket di blocco degli oggetti
 
 Questo criterio di gruppo limiterà gli utenti a creare un bucket con il blocco degli oggetti attivato nel bucket.
@@ -311,6 +316,7 @@ Questo criterio non viene applicato nell'interfaccia utente di StorageGRID, ma v
 ----
 
 
+[[object-lock-retention-limit]]
 === Limite di conservazione del blocco degli oggetti
 
 Questa policy di bucket limiterà la durata della conservazione del blocco oggetto a 10 giorni o meno
@@ -340,6 +346,7 @@ Questa policy di bucket limiterà la durata della conservazione del blocco ogget
 ----
 
 
+[[restrict-users-from-deleting-objects-by-versionid]]
 === Impedire agli utenti di eliminare gli oggetti in base all'ID versione
 
 Questo criterio di gruppo limita l'eliminazione degli oggetti con versione in base all'ID versione
@@ -365,6 +372,7 @@ Questo criterio di gruppo limita l'eliminazione degli oggetti con versione in ba
 ----
 
 
+[[restrict-a-group-to-single-subdirectory-prefix-with-read-only-access]]
 === Limitare un gruppo a una singola sottodirectory (prefisso) con accesso in sola lettura
 
 Questo criterio consente ai membri del gruppo di accedere in sola lettura a una sottodirectory (prefisso) all'interno di un bucket. Il nome del bucket è "studio" e la sottodirectory è "study01".
@@ -436,10 +444,12 @@ Questo criterio consente ai membri del gruppo di accedere in sola lettura a una 
 ----
 
 
+[[bucket-policies]]
 == Criteri benna
 
 
 
+[[restrict-bucket-to-single-user-with-read-only-access]]
 === Limitare il bucket a un singolo utente con accesso in sola lettura
 
 Questo criterio consente a un singolo utente di avere accesso in sola lettura a un bucket e nega esplicitamente l'accesso a tutti gli altri utenti. Il raggruppamento delle istruzioni Nega in cima alla policy è una buona pratica per una valutazione più rapida.
@@ -482,6 +492,7 @@ Questo criterio consente a un singolo utente di avere accesso in sola lettura a 
 ----
 
 
+[[restrict-a-bucket-to-a-few-users-with-read-only-access]]
 === limita un bucket a pochi utenti con accesso in sola lettura.
 
 [source, json]
@@ -531,6 +542,7 @@ Questo criterio consente a un singolo utente di avere accesso in sola lettura a 
 ----
 
 
+[[restrict-user-deletes-of-versioned-objects-in-a-bucket]]
 === Limita l'eliminazione degli oggetti con versione in un bucket da parte dell'utente
 
 Questo criterio bucket limiterà un utente (identificato dall'ID utente "56622399308951294926") a eliminare gli oggetti con versione in base all'ID versione

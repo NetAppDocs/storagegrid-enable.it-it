@@ -18,12 +18,14 @@ Configurare Datadog per raccogliere le metriche e i trap snmp di StorageGRID.
 
 
 
+[[configure-datadog]]
 == Configurare Datadog
 
 Datadog è una soluzione di monitoraggio che fornisce metriche, visualizzazioni e avvisi. La seguente configurazione è stata implementata con l'agente linux versione 7.43.1 su un host Ubuntu 22.04.1 distribuito localmente nel sistema StorageGRID.
 
 
 
+[[datadog-profile-and-trap-files-generated-from-storagegrid-mib-file]]
 === Profilo Datadog e file trap generati dal file MIB StorageGRID
 
 Datadog fornisce un metodo per convertire i file MIB del prodotto in file di riferimento datadog necessari per mappare i messaggi SNMP.
@@ -50,6 +52,7 @@ Questo file yaml del profilo StorageGRID per la mappatura delle metriche Datadog
 
 
 
+[[snmp-datadog-configuration-for-metrics]]
 === Configurazione Datadog SNMP per metriche
 
 La configurazione di SNMP per le metriche può essere gestita in due modi. È possibile configurare il rilevamento automatico fornendo un intervallo di indirizzi di rete contenente i sistemi StorageGRID o definendo gli IP dei singoli dispositivi. La posizione della configurazione è diversa in base alla decisione presa. Il rilevamento automatico viene definito nel file yaml dell'agente datadog. Le definizioni esplicite dei dispositivi vengono configurate nel file yaml di configurazione snmp. Di seguito sono riportati alcuni esempi di ciascuno per lo stesso sistema StorageGRID.
@@ -103,6 +106,7 @@ instances:
 ----
 
 
+[[snmp-configuration-for-traps]]
 === Configurazione SNMP per i trap
 
 La configurazione per i trap SNMP è definita nel file yaml di configurazione del datadog /etc/datadog-Agent/datadog.yaml
@@ -119,6 +123,7 @@ network_devices:
 ----
 
 
+[[example-storagegrid-snmp-configuration]]
 === Esempio di configurazione SNMP StorageGRID
 
 L'agente SNMP nel sistema StorageGRID si trova nella scheda di configurazione, colonna Monitoring (monitoraggio). Attivare SNMP e immettere le informazioni desiderate. Se si desidera configurare i trap, selezionare "Destinations trap" (Destinazioni trap) e creare una destinazione per l'host dell'agente Datadog contenente la configurazione trap.

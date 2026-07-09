@@ -20,6 +20,7 @@ Molte organizzazioni vogliono migrare lo storage nel cloud, scalare i sistemi e 
 
 
 
+[[about-commvault-and-storagegrid]]
 == Informazioni su CommVault e StorageGRID
 
 Il software CommVault complete Backup and Recovery è una soluzione di gestione integrata dei dati e delle informazioni di livello aziendale, costruita da zero su una singola piattaforma e con una base di codice unificata. Tutte le sue funzioni condividono tecnologie di back-end, apportando gli impareggiabili vantaggi e vantaggi di un approccio completamente integrato alla protezione, alla gestione e all'accesso ai dati. Il software contiene moduli per la protezione, l'archiviazione, l'analisi, la replica e la ricerca dei dati. I moduli condividono una serie comune di servizi back-end e funzionalità avanzate che interagiscono perfettamente tra loro. La soluzione affronta tutti gli aspetti della gestione dei dati nell'azienda, fornendo una scalabilità infinita e un controllo senza precedenti di dati e informazioni.
@@ -38,6 +39,7 @@ Conservare i dati di backup nello storage primario può rivelarsi costoso. Utili
 
 
 
+[[key-features]]
 == Funzionalità principali
 
 Le funzionalità principali della piattaforma software CommVault includono:
@@ -58,6 +60,7 @@ Per ulteriori informazioni sui carichi di lavoro supportati, visitare il sito We
 
 
 
+[[backup-options]]
 == Opzioni di backup
 
 Quando implementi il software di backup e recovery CommVault complete con il cloud storage, hai due opzioni di backup:
@@ -103,13 +106,13 @@ Non supportato
 |===
 
 
+[[where-to-find-additional-information]]
 == Dove trovare ulteriori informazioni
 
 Per ulteriori informazioni sulle informazioni descritte in questo documento, consultare i seguenti documenti e/o siti Web:
 
-* Centro di documentazione di StorageGRID 11,9 + https://docs.netapp.com/us-en/storagegrid-119/[]
+* Centro documentazione StorageGRID 11.9 + https://docs.netapp.com/us-en/storagegrid/[]
 * Documentazione del prodotto NetApp +
 https://docs.netapp.com[]
-* Documentazione CommVault +
-https://documentation.commvault.com/2024/essential/index.html[]
+* Documentazione Commvault + https://documentation.commvault.com/2024e/software/index.html[]
 

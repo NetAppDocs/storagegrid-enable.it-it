@@ -18,10 +18,12 @@ Dremio supporta una varietà di origini dati, incluso lo storage a oggetti on-pr
 
 
 
+[[configure-dremio-data-source]]
 == Configurare l'origine dati Dremio
 
 
 
+[[prerequisites]]
 === Prerequisiti
 
 * Un URL dell'endpoint StorageGRID S3, un ID della chiave di accesso tenant S3 e una chiave di accesso segreta.
@@ -31,12 +33,14 @@ Dremio utilizza l'intervallo di byte GET per recuperare contemporaneamente diver
 
 
 
+[[dremio-guide]]
 === Guida di Dremio
 
 https://docs.dremio.com/current/sonar/data-sources/object/s3/["Connessione ad Amazon S3 - Configurazione dell'archiviazione compatibile con S3"^].
 
 
 
+[[instruction]]
 == Istruzioni
 
 . Nella pagina Datasets di Dremio, fare clic sul segno + per aggiungere un'origine, selezionare "Amazon S3".

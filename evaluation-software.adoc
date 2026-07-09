@@ -16,6 +16,7 @@ Queste istruzioni sono destinate alla vendita di NetApp, ai partner e ai prospec
 
 
 
+[[register-for-an-account]]
 == Registrati per un account
 
 . Registrati per ottenere un account su https://mysupport.netapp.com/site/user/registration["Sito di supporto NetApp"] utilizzando il tuo indirizzo e-mail aziendale.
@@ -35,6 +36,7 @@ Queste istruzioni sono destinate alla vendita di NetApp, ai partner e ai prospec
 
 
 
+[[download-storagegrid]]
 == Scarica StorageGRID
 
 . Dopo aver esaminato e approvato il tuo caso di supporto, il supporto NetApp ti informerà via e-mail che al tuo account è stato concesso l'accesso ai prospect.

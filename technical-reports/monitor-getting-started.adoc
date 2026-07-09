@@ -20,12 +20,14 @@ image:monitor/monitor-storagegrid-gmi-dashboard.png["monitor-storagegrid-cruscot
 
 
 
+[[information-that-you-should-monitor-regularly]]
 == Informazioni che è necessario monitorare regolarmente
 
 In una versione precedente di questo report tecnico sono elencate le metriche da controllare periodicamente rispetto alle tendenze. Tali informazioni sono ora incluse nella https://docs.netapp.com/us-en/storagegrid-118/landing-monitor-troubleshoot/index.html["Guida al monitoraggio e alla risoluzione di problemi"^].
 
 
 
+[[monitor-storage]]
 == Monitoraggio dei costi
 
 Una versione precedente di questo report tecnico elenca le aree in cui monitorare metriche importanti, come Object Storage Space, Metadata Space, Network Resources e così via. Tali informazioni sono ora incluse nella https://docs.netapp.com/us-en/storagegrid-118/landing-monitor-troubleshoot/index.html["Guida al monitoraggio e alla risoluzione di problemi"^].

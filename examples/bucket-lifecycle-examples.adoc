@@ -16,6 +16,7 @@ summary: Ciclo di vita del bucket in StorageGRID.
 
 
 
+[[what-is-a-lifecycle-configuration]]
 == Che cos'è una configurazione del ciclo di vita
 
 Una configurazione del ciclo di vita è un insieme di regole applicate agli oggetti in specifici bucket S3. Ogni regola specifica quali oggetti sono interessati e quando scadranno (in una data specifica o dopo un certo numero di giorni).
@@ -41,6 +42,7 @@ StorageGRID supporta l'utilizzo delle seguenti operazioni bucket per gestire le 
 
 
 
+[[structure-of-a-lifecycle-policy]]
 == Struttura di una politica del ciclo di vita
 
 Come primo passo nella creazione di una configurazione del ciclo di vita, è possibile creare un file JSON che includa una o più regole. Ad esempio, questo file JSON include tre regole, come segue:
@@ -101,6 +103,7 @@ CAUTION: Le regole che specificano un numero di giorni sono relative al momento 
 ----
 
 
+[[apply-lifecycle-configuration-to-bucket]]
 == Applica la configurazione del ciclo di vita al bucket
 
 Dopo aver creato il file di configurazione del ciclo di vita, applicarlo a un bucket inviando una richiesta PutBucketLifecycleConfiguration.
@@ -121,10 +124,12 @@ aws s3api --endpoint-url <StorageGRID endpoint> get-bucket-lifecycle-configurati
 ----
 
 
+[[example-lifecycle-policies-for-standard-non-versioned-buckets]]
 == Esempi di policy del ciclo di vita per bucket standard (senza controllo di versione)
 
 
 
+[[delete-objects-after-90-days]]
 === Elimina gli oggetti dopo 90 giorni
 
 Caso d'uso: questa policy è ideale per la gestione di dati rilevanti solo per un periodo di tempo limitato, come file temporanei, log o dati di elaborazione intermedi. Vantaggio: riduzione dei costi di archiviazione e garanzia di un bucket ordinato.
@@ -146,10 +151,12 @@ Caso d'uso: questa policy è ideale per la gestione di dati rilevanti solo per u
 ----
 
 
+[[example-lifecycle-policies-for-versioned-buckets]]
 == Esempi di policy del ciclo di vita per bucket con versione
 
 
 
+[[delete-noncurrent-versions-after-10-days]]
 === Elimina le versioni non correnti dopo 10 giorni
 
 Caso d'uso: questa policy aiuta a gestire l'archiviazione di oggetti con versioni non aggiornate, che possono accumularsi nel tempo e occupare molto spazio. Vantaggio: ottimizza l'utilizzo dello spazio di archiviazione mantenendo solo la versione più recente.
@@ -171,6 +178,7 @@ Caso d'uso: questa policy aiuta a gestire l'archiviazione di oggetti con version
 ----
 
 
+[[keep-5-noncurrent-versions-and-delete-after-90-days]]
 === Conserva 5 versioni non correnti ed eliminale dopo 90 giorni
 
 Caso d'uso: utile quando si desidera conservare un numero limitato di versioni precedenti a fini di ripristino o controllo. Vantaggio: conservare un numero sufficiente di versioni non correnti per garantire una cronologia e punti di ripristino sufficienti.
@@ -196,6 +204,7 @@ NOTE: È necessario utilizzare *NoncurrentDays* con *NewerNoncurrentVersions*.
 
 
 
+[[remove-delete-markers-when-no-other-versions-exist]]
 === Rimuovi i marcatori di eliminazione quando non esistono altre versioni
 
 Caso d'uso: questa policy aiuta a gestire i marcatori di eliminazione rimasti dopo la rimozione di tutte le versioni non aggiornate, che possono accumularsi nel tempo. Vantaggio: riduzione di elementi superflui.
@@ -217,6 +226,7 @@ Caso d'uso: questa policy aiuta a gestire i marcatori di eliminazione rimasti do
 ----
 
 
+[[delete-current-versions-after-30-days-delete-non-current-versions-after-60-days-and-remove-the-delete-markers-created-by-the-current-version-delete-once-no-other-versions-exist]]
 === Elimina le versioni correnti dopo 30 giorni, elimina le versioni non correnti dopo 60 giorni e rimuovi i marcatori di eliminazione creati dall'eliminazione della versione corrente quando non esistono altre versioni.
 
 Caso d'uso: fornire un ciclo di vita completo per le versioni correnti e non correnti, inclusi i marcatori di eliminazione. Vantaggio: ridurre i costi di archiviazione e garantire che il bucket sia ordinato, pur mantenendo un numero sufficiente di punti di ripristino e cronologia.
@@ -254,6 +264,7 @@ Caso d'uso: fornire un ciclo di vita completo per le versioni correnti e non cor
 ----
 
 
+[[remove-delete-markers-that-have-no-other-versions-retain-4-non-current-versions-and-at-least-30-days-worth-of-history-for-objects-with-the-accounts-prefix-and-keep-2-versions-and-at-least-10-days-worth-of-history-for-all-other-object-versions]]
 === rimuovere i marcatori di eliminazione che non hanno altre versioni, conservare 4 versioni non correnti e almeno 30 giorni di cronologia per gli oggetti con il prefisso "accounts_" e conservare 2 versioni e almeno 10 giorni di cronologia per tutte le altre versioni degli oggetti.
 
 Caso d'uso: fornire regole univoche per oggetti specifici e per altri oggetti, per gestire l'intero ciclo di vita delle versioni correnti e non correnti, inclusi i marcatori di eliminazione. Vantaggio: ridurre i costi di archiviazione e garantire che il bucket sia ordinato, pur mantenendo un numero sufficiente di punti di ripristino e cronologia per soddisfare una combinazione di requisiti del cliente.
@@ -293,6 +304,7 @@ Caso d'uso: fornire regole univoche per oggetti specifici e per altri oggetti, p
 ----
 
 
+[[conclusion]]
 == Conclusione
 
 * Rivedere e aggiornare regolarmente le policy del ciclo di vita e allinearle agli obiettivi di ILM e di gestione dei dati.

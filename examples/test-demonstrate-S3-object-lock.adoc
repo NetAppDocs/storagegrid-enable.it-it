@@ -20,6 +20,7 @@ Questa guida illustra l'API S3 Object Lock.
 
 
 
+[[legal-hold]]
 == Conservazione a fini giudiziari
 
 * Object Lock legal hold è un semplice stato on/off applicato a un oggetto.
@@ -68,6 +69,7 @@ aws s3api get-object-legal-hold --bucket <bucket> --key <file> --endpoint-url ht
 
 
 
+[[compliance-mode]]
 == Modalità compliance
 
 * La conservazione degli oggetti viene eseguita con un periodo di conservazione fino a data e ora.
@@ -97,6 +99,7 @@ aws s3api get-object-retention --bucket <bucket> --key <file> --endpoint-url htt
 
 
 
+[[default-retention]]
 == Conservazione predefinita
 
 * Impostare il periodo di conservazione in giorni e anni rispetto alla data di conservazione definita con l'api per oggetto.
@@ -152,6 +155,7 @@ aws s3api get-object-retention --bucket <bucket> --key <file> --endpoint-url htt
 
 
 
+[[test-deleting-an-object-with-a-defined-retention]]
 == Verificare l'eliminazione di un oggetto con una conservazione definita
 
 Il blocco degli oggetti si basa sul controllo delle versioni. La conservazione viene definita su una versione dell'oggetto. Se si tenta di eliminare un oggetto con una conservazione definita e non viene specificata alcuna versione, viene creato un indicatore di eliminazione come versione corrente dell'oggetto.

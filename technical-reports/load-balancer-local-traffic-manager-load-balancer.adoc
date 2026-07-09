@@ -21,6 +21,7 @@ Quanto segue viene presentato come guida generale per la configurazione dei sist
 
 
 
+[[create-a-resource-group-of-storage-nodes]]
 == Creare un gruppo di risorse di nodi di archiviazione
 
 Raggruppare i nodi di storage StorageGRID in un pool di risorse o in un gruppo di servizi (la terminologia potrebbe differire con specifici bilanciatori del carico). I nodi storage StorageGRID presentano l'API S3 sulle seguenti porte:
@@ -36,6 +37,7 @@ NOTE: Ogni sito StorageGRID richiede un'impostazione predefinita di tre nodi sto
 
 
 
+[[health-check]]
 == Controllo dello stato di salute
 
 I sistemi di bilanciamento del carico di terze parti richiedono un metodo per determinare lo stato di salute di ogni nodo e la sua idoneità a ricevere il traffico. NetApp consiglia di utilizzare il metodo HTTP `OPTIONS` per eseguire il controllo dello stato di salute. Il bilanciamento del carico invia richieste HTTP `OPTIONS` a ogni singolo nodo di storage e prevede una `200` risposta di stato.
@@ -48,6 +50,7 @@ L'intervallo di polling consigliato è una volta al secondo, contrassegnando il 
 
 
 
+[[s3-health-check-example]]
 === Esempio di controllo dello stato di salute di S3
 
 Nell'esempio seguente, inviamo `OPTIONS` e controlliamo `200 OK`. Lo utilizziamo `OPTIONS` perché Amazon S3) non supporta richieste non autorizzate.
@@ -76,6 +79,7 @@ Nell'esempio seguente, inviamo `OPTIONS` e controlliamo `200 OK`. Lo utilizziamo
 ----
 
 
+[[file-or-content-based-health-checks]]
 === Controlli dello stato di salute basati su file o contenuti
 
 In generale, NetApp non consiglia controlli dello stato di salute basati su file. In genere, un file di piccole dimensioni —`healthcheck.htm`, ad esempio, viene creato in un bucket con un criterio di sola lettura. Questo file viene quindi recuperato e valutato dal bilanciamento del carico. Questo approccio presenta diversi svantaggi:
@@ -90,12 +94,14 @@ Se è necessario un controllo dello stato di salute basato sul contenuto, utiliz
 
 
 
+[[session-persistence]]
 === Persistenza della sessione
 
 La persistenza della sessione, o stickiness, si riferisce al tempo in cui una data sessione HTTP può persistere. Per impostazione predefinita, le sessioni vengono interrotte dai nodi storage dopo 10 minuti. Una persistenza più lunga può portare a performance migliori, perché le applicazioni non devono ristabilire le sessioni per ogni azione; tuttavia, mantenendo queste sessioni aperte si consumano le risorse. Se ritieni che il tuo carico di lavoro trarrà beneficio, puoi ridurre la persistenza della sessione su un bilanciamento del carico di terze parti.
 
 
 
+[[virtual-hosted-style-addressing]]
 == Indirizzamento virtuale in stile host
 
 Lo stile in hosting virtuale è ora il metodo predefinito per AWS S3 e, sebbene StorageGRID e molte applicazioni supportino ancora lo stile del percorso, è consigliabile implementare il supporto in stile in hosting virtuale. Le richieste in stile host virtuale hanno il bucket come parte del nome host.
@@ -108,6 +114,7 @@ Per supportare lo stile host virtuale, procedere come segue:
 
 
 
+[[ssl-termination]]
 == Terminazione SSL
 
 La terminazione SSL dei sistemi di bilanciamento del carico di terze parti offre vantaggi in termini di sicurezza. Se il bilanciamento del carico è compromesso, la griglia viene suddivisa in comparti.
@@ -121,12 +128,14 @@ Sono disponibili tre configurazioni supportate:
 
 
 
+[[pass-through-configuration]]
 == Configurazione pass-through
 
 Se si preferisce configurare il bilanciamento del carico per il pass-through, è necessario installare il certificato su StorageGRID. Andare al menu:Configurazione[certificati server > certificato server endpoint del servizio API di archiviazione oggetti].
 
 
 
+[[source-client-ip-visibility]]
 == Visibilità IP del client di origine
 
 StorageGRID 11,4 ha introdotto il concetto di un sistema di bilanciamento del carico di terze parti affidabile. Per inoltrare l'IP dell'applicazione client a StorageGRID, è necessario configurare questa funzione. Per ulteriori informazioni, vedere https://kb.netapp.com/Advice_and_Troubleshooting/Hybrid_Cloud_Infrastructure/StorageGRID/How_to_configure_StorageGRID_to_work_with_third-party_Layer_7_load_balancers["Come configurare StorageGRID per il funzionamento con sistemi di bilanciamento del carico Layer 7 di terze parti."^]
@@ -140,6 +149,7 @@ Per abilitare l'intestazione XFF per la visualizzazione dell'IP dell'applicazion
 
 
 
+[[load-balancing-strategies]]
 === Strategie di bilanciamento del carico
 
 La maggior parte delle soluzioni di bilanciamento del carico offre molteplici strategie per il bilanciamento del carico. Le seguenti sono strategie comuni:
@@ -152,6 +162,7 @@ La scelta dell'algoritmo diventa meno importante con un numero crescente di nodi
 
 
 
+[[data-path]]
 === Percorso dei dati
 
 Tutti i flussi di dati attraverso i bilanciatori del carico del gestore del traffico locale. StorageGRID non supporta il routing diretto del server (DSR).

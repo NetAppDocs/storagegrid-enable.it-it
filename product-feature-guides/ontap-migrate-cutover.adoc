@@ -16,6 +16,7 @@ Offerta di S3 Enterprise mediante la migrazione perfetta dello storage basato su
 
 
 
+[[migrate-s3-keys]]
 == Migrare S3 chiavi
 
 Per una migrazione, la maggior parte del tempo si desidera migrare le credenziali per gli utenti invece di generare nuove credenziali sul lato di destinazione. StorageGRID fornisce api per consentire l'importazione di S3 chiavi per un utente.
@@ -44,6 +45,7 @@ image:ontap-migrate/sg-user-keys.png["Chiavi utente"]
 
 
 
+[[the-final-cut-over]]
 === Il taglio finale
 
 Se l'intenzione è quella di avere un bucket a replica perpetua da ONTAP a StorageGRID, puoi finire qui. Se si tratta di una migrazione da ONTAP S3 a StorageGRID, allora è il momento di mettervi fine e tagliare.

@@ -24,6 +24,7 @@ L'obiettivo di questo documento è integrare la documentazione di prodotto e dis
 
 
 
+[[data-sources]]
 == Origini dei dati
 
 Per monitorare con successo NetApp StorageGRID, è importante sapere dove raccogliere dati sullo stato e sul funzionamento del sistema StorageGRID.
@@ -35,6 +36,7 @@ Per monitorare con successo NetApp StorageGRID, è importante sapere dove raccog
 
 
 
+[[where-to-find-additional-information]]
 == Dove trovare ulteriori informazioni
 
 Per ulteriori informazioni sulle informazioni descritte in questo documento, consultare i seguenti documenti e/o siti Web:

@@ -18,6 +18,7 @@ Con la funzione di inoltro syslog di StorageGRID, è possibile configurare un se
 
 
 
+[[requirements]]
 == Requisiti
 
 * StorageGRID 11.6.0.2 o superiore
@@ -26,6 +27,7 @@ Con la funzione di inoltro syslog di StorageGRID, è possibile configurare un se
 
 
 
+[[sample-files]]
 == File di esempio
 
 * link:../media/elk-config/elk7-sample.zip["Scarica il pacchetto di file di esempio Logstash 7.x."] + *checksum md5* 148c23d0021d9a4bb4a6c0287464deab + *checksum sha256* f51ec9e2e3f842d5a7861566b167a561beb4373038b4e7bb3c8be3d522adf2d6
@@ -35,12 +37,14 @@ Con la funzione di inoltro syslog di StorageGRID, è possibile configurare un se
 
 
 
+[[assumption]]
 == Assunzione
 
 I lettori conoscono la terminologia e le operazioni di StorageGRID ed ELK.
 
 
 
+[[instruction]]
 == Istruzioni
 
 Due versioni di esempio sono fornite a causa delle differenze nei nomi definiti dai modelli grok. Ad esempio, il modello SYSLOGBASE grok nel file di configurazione di Logstash definisce i nomi dei campi in modo diverso a seconda della versione di Logstash installata.
@@ -119,11 +123,12 @@ A questo punto, è possibile eseguire l'analisi del registro StorageGRID utilizz
 
 
 
+[[additional-resources]]
 == Risorse aggiuntive
 
 * https://coralogix.com/blog/syslog-101-everything-you-need-to-know-to-get-started/["syslog101"]
 * https://www.elastic.co/what-is/elk-stack["Cos'è lo stack ELK"]
-* https://github.com/hpcugent/logstash-patterns/blob/master/files/grok-patterns["Elenco dei modelli di grok"]
+* https://github.com/hpcugent/logstash-patterns/["Modelli Grok"]
 * https://logz.io/blog/logstash-grok/["Guida per principianti a Logstash: Grok"]
 * https://coralogix.com/blog/a-practical-guide-to-logstash-syslog-deep-dive/["Una guida pratica a Logstash: Approfondimento di Syslog"]
 * https://www.elastic.co/guide/en/kibana/master/document-explorer.html["Guida di Kibana – Esplora il documento"]

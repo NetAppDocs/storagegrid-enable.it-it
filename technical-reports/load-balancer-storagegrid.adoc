@@ -20,6 +20,7 @@ Linee guida generali per l'implementazione dei nodi gateway NetApp® StorageGRID
 
 
 
+[[storagegrid-gateway-node-load-balancer-versus-third-party-load-balancer]]
 == Bilanciamento del carico del nodo gateway StorageGRID rispetto a quello di terze parti
 
 StorageGRID è un'esclusiva tra i vendor di storage a oggetti compatibili con S3, in quanto offre un bilanciatore del carico nativo disponibile come appliance, VM o container costruiti ad hoc. Il bilanciamento del carico fornito da StorageGRID è anche detto nodo gateway.

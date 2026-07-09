@@ -18,18 +18,21 @@ Questo report tecnico fornisce istruzioni dettagliate per la configurazione NetA
 
 
 
+[[introduction]]
 == Introduzione
 
 La soluzione DNS F5 BIG-IP, precedentemente denominata BIG-IP GTM (Global Traffic Manager) e informalmente GSLB (Global Server Load Balancing), consente di realizzare in modo efficace un accesso senza interruzioni tra più gruppi HA attivi-attivi e soluzioni StorageGRID multi-sito attive-attive.
 
 
 
+[[f5-big-ip-multi-site-storagegrid-configuration]]
 == Configurazione StorageGRID multi-sito F5 BIG-IP
 
 Indipendentemente dal numero di siti StorageGRID da supportare, almeno due appliance BIG-IP, fisiche o virtuali, devono avere il modulo DNS BIG-IP abilitato e configurato. Maggiore è il numero di dispositivi DNS, maggiore sarà il grado di ridondanza di cui un'azienda potrà beneficiare.
 
 
 
+[[big-ip-dns-first-steps-in-initial-set-up]]
 === BIG-IP DNS - Primi passi nella configurazione iniziale
 
 Una volta che l'appliance BIG-IP ha completato almeno il provisioning iniziale, utilizzare un browser Web per accedere all'interfaccia TMUI (BIG-IP GUI) e selezionare Sistema -> Provisioning risorse. Come evidenziato, assicurati che il modulo "Traffico globale (DNS)" abbia un segno di spunta e che sia autorizzato. Si noti che, come nell'immagine, è comune che il "Traffico locale (LTM)" possa essere fornito sullo stesso dispositivo.
@@ -38,6 +41,7 @@ image:f5-dns/global-traffic.png["Servizio di traffico globale (DNS) abilitato"]
 
 
 
+[[configure-dns-protocol-foundational-elements]]
 === Configurare gli elementi fondamentali del protocollo DNS
 
 Il primo passo verso la gestione del traffico globale per i siti StorageGRID è scegliere la scheda DNS, dove verrà configurato praticamente tutto il controllo del traffico globale, e scegliere Impostazioni-> GLSB. Abilita le due opzioni di sincronizzazione e scegli un nome di gruppo DNS che verrà condiviso tra gli appliance BIG-IP partecipanti.
@@ -68,6 +72,7 @@ Questo conclude i passaggi preliminari, in genere "una tantum", di configurazion
 
 
 
+[[setting-up-data-center-sites-and-establishing-inter-big-ip-communications-in-four-steps]]
 === Configurazione dei siti dei data center e creazione delle comunicazioni inter-BIG-IP in quattro passaggi
 
 
@@ -130,6 +135,7 @@ A questo punto, è possibile eseguire qualsiasi ulteriore lavoro di configurazio
 
 
 
+[[setting-up-data-center-sites-and-establishing-inter-big-ip-communications]]
 === Configurazione dei siti dei data center e creazione delle comunicazioni inter-BIG-IP
 
 A questo punto, tutti i passaggi per creare il gruppo di appliance DNS BIG-IP sottostante e funzionante sono completati. Ora possiamo procedere con la creazione di nomi, FQDN, che puntano ai nostri servizi Web/S3 distribuiti esposti in ogni data center StorageGRID .
@@ -156,6 +162,7 @@ image:f5-dns/wip-config.png["Configurare WIP"]
 
 
 
+[[adjust-dns-to-support-global-traffic-management]]
 === Adattare il DNS per supportare la gestione del traffico globale
 
 A questo punto tutti i nostri dispositivi BIG-IP sottostanti sono pronti per eseguire il GSLB (bilanciamento del carico globale del server). Per sfruttare la soluzione, dobbiamo semplicemente modificare e assegnare i nomi utilizzati per i flussi di traffico S3. L'approccio generale è quello di delegare parte di un dominio DNS esistente di un'azienda al controllo del DNS BIG-IP. Ciò significa "ritagliare" una sezione dello spazio dei nomi, un sottodominio, e delegare il controllo di questo sottodominio agli appliance DNS BIG-IP. Tecnicamente, ciò si ottiene assicurandosi che gli appliance DNS BIG-IP dispongano di record di risorse DNS (RR) nel DNS aziendale e quindi trasformando questi nomi/indirizzi in record di risorse DNS del server dei nomi (NS) per il dominio delegato.
@@ -198,6 +205,7 @@ Infine, se i siti si estendono in tutto il mondo, potrebbe valere la pena prende
 
 
 
+[[conclusion]]
 == Conclusione
 
 L'integrazione di F5 BIG-IP con NetApp StorageGRID risolve le sfide tecniche legate alla disponibilità e alla coerenza dei dati su più siti e all'ottimizzazione del routing delle transazioni S3. L'implementazione di questa soluzione migliora la resilienza, le prestazioni e l'affidabilità dello storage, rendendola ideale per le aziende che cercano un'infrastruttura di storage solida, scalabile e flessibile.

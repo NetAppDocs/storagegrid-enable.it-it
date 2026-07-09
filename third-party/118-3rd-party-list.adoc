@@ -17,6 +17,7 @@ Se la soluzione che stai cercando non è presente nell'elenco, contatta il tuo r
 
 
 
+[[third-party-solutions-validated-on-storagegrid]]
 == Soluzioni di terze parti validate su StorageGRID
 
 Queste soluzioni sono state testate in collaborazione con i rispettivi partner.
@@ -83,6 +84,7 @@ Queste soluzioni sono state testate in collaborazione con i rispettivi partner.
 
 
 
+[[third-party-solutions-validated-on-storagegrid-with-object-lock]]
 == Soluzioni di terze parti validate su StorageGRID con blocco a oggetti
 
 Queste soluzioni sono state testate in collaborazione con i rispettivi partner.
@@ -99,6 +101,7 @@ Queste soluzioni sono state testate in collaborazione con i rispettivi partner.
 
 
 
+[[third-party-solutions-supported-on-storagegrid]]
 == Soluzioni di terze parti supportate su StorageGRID
 
 Queste soluzioni sono state testate.
@@ -125,6 +128,7 @@ Queste soluzioni sono state testate.
 
 
 
+[[key-managers-supported-on-storagegrid]]
 == Responsabili delle chiavi supportati su StorageGRID
 
 Queste soluzioni sono state testate.
