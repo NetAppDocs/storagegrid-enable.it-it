@@ -1,0 +1,140 @@
+---
+permalink: third-party/120-3rd-party-list.html 
+sidebar: sidebar 
+keywords: 12.1, third-party applications, storagegrid, ISV 
+summary: Soluzioni di terze parti validate per StorageGRID 12.1 
+---
+= Soluzioni di terze parti convalidate StorageGRID 12.0
+:hardbreaks:
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Le seguenti soluzioni di terze parti sono state validate per l'utilizzo con StorageGRID 12.1. + Se la soluzione che stai cercando non è presente nell'elenco, contatta il tuo NetApp account representative.
+
+
+
+[[third-party-solutions-validated-on-storagegrid]]
+== Soluzioni di terze parti validate su StorageGRID
+
+Queste soluzioni sono state testate in collaborazione con i rispettivi partner.
+
+* Actifio
+* Alluxio
+* Apache Kafka
+* Punto di montaggio AWS
+* Bridgestor
+* Cantemo
+* Citrix Content Collaboration
+* Collibra (qualità minima dei dati Collibra versione 2024,02)
+* CommVault 11
+* Couchbase Enterprise Analytics 2.0
+* Portale Ctera 6
+* Dal
+* Datadobi
+* Storage di Data Dynamics X
+* DefendX
+* Dati di diskover
+* Dremio
+* Snapshot Elasticsearch (incluso il Tier "frozen")
+* EMAM
+* Archivio di oggetti Fujifilm
+* Server aziendale GitHub
+* IBM Storage Deep Archive 1.3
+* IBM FileNet
+* IBM Storage Protect
+* Interica
+* Impresa
+* Cluster di big data Microsoft SQL Server
+* Model9
+* Modzy
+* Moonwalk universale
+* BELLO
+* Nasuni
+* Documento OpenText 16.4
+* Documento OpenText 21.4
+* OpenText InfoArchive 16 EP7
+* OpenText Media Management 16.5 con CyanGate Cloud
+* Panzura
+* PixitMedia ngenea
+* Point Archival Gateway 2.0
+* Point Storage Manager 6.4
+* Primestream
+* Quantum StorNext 5.4.0.1
+* Reveille v10 build 220706 o superiore
+* Rubrik CDM
+* s3a
+* Signiant
+* Fiocco di neve
+* Ghiacciaio on-premise di Spectra Logic
+* Smartstore Splunk
+* Starburst
+* Lo storage diventa semplice
+* Trino
+* Verniciare Enterprise 6.0.4
+* Veeeam 12
+* Veritas Enterprise Vault 15,1
+* Veritas NetBackup 10.1.1 e versioni successive
+* Verticale 10.x
+* Visoline
+* Virtalica StorageFabric
+* Weka v3.10 o versione successiva
+
+
+
+
+[[third-party-solutions-validated-on-storagegrid-with-object-lock]]
+== Soluzioni di terze parti validate su StorageGRID con blocco a oggetti
+
+Queste soluzioni sono state testate in collaborazione con i rispettivi partner.
+
+* CommVault 11 Feature Release 26
+* IBM FileNet
+* IBM Storage Protect
+* Documento OpenText 21.4
+* Rubrik
+* Veeeam 12
+* Veritas Enterprise Vault 15,1
+* Veritas NetBackup 10.1.1 e versioni successive
+
+
+
+
+[[third-party-solutions-supported-on-storagegrid]]
+== Soluzioni di terze parti supportate su StorageGRID
+
+Queste soluzioni sono state testate.
+
+* Archiviware
+* Comunicazioni Axis
+* Congruità360
+* DataFrameworks
+* Piattaforma EcoDigital DIVA
+* Encoding.com
+* Archivio di oggetti Fujifilm
+* Archivio GE Centricity Enterprise
+* Gitlab
+* Hyland Acuo
+* IBM Aspera
+* Sistemi Milestone
+* OnSSI
+* Motore Reach
+* SilverTrak
+* SoftNAS
+* QStar
+* Velasea
+
+
+
+
+[[key-managers-supported-on-storagegrid]]
+== Responsabili delle chiavi supportati su StorageGRID
+
+Queste soluzioni sono state testate.
+
+* Piattaforma di sicurezza crittografica Entrust v10.4.5
+* Hashicorp Vault 1.21.1
+* Thales CipherTrust Manager 2.21
+

@@ -1318,7 +1318,6 @@ Tutta la gamma</block>
 <block ref="1d36a7361466de3adde00ce864c41474" category="inline-link-macro-rx"></block>.</block>
   <block id="24377316ae141b63c8170119bbfe4239" category="list-text">Utilizzando un browser per accedere alla GUI del programma di installazione dell'appliance StorageGRID utilizzando<block ref="41c0f2506f64eaa17788753cf29de6aa" category="inline-link-rx"></block>.  Non è possibile utilizzare Grid IP come nuovo Grid IP già in uso dopo l'avvio dell'appliance in modalità di manutenzione.</block>
   <block id="fe21d31242c56f4eee91182bd1268a5a" category="list-text">Modificare la VLAN per la rete Grid.  Se si accede all'appliance tramite la rete client, non è possibile modificare la VLAN client in questo momento, è possibile modificarla dopo lo spostamento.</block>
-  <block id="293c5807e9e9ab4b268fd617e8e5a56d" category="list-text">ssh per l'appliance e spegnere il nodo utilizzando 'hutdoown -h now'</block>
   <block id="1c33a8d84128bb59ae10a50b662e3a98" category="list-text">Dopo che le appliance sono pronte presso il nuovo sito, accedere alla GUI del programma di installazione dell'appliance StorageGRID utilizzando<block ref="fba5b5bfbff166288edb187e140418b2" category="inline-link-rx"></block>.  Verificare che lo storage sia in uno stato ottimale e la connettività di rete agli altri nodi Grid utilizzando gli strumenti ping/nmap nella GUI.</block>
   <block id="786f3a0a71ff6ad9513f86143e55c1ce" category="list-text">Se si prevede di modificare l'IP della rete client, è possibile modificare la VLAN client in questa fase.  La rete client non è pronta finché non si aggiorna l'ip della rete client utilizzando lo strumento change-ip nel passaggio successivo.</block>
   <block id="fff8d22924e491405ba3026b24555fa6" category="list-text">Uscire dalla modalità di manutenzione. Dal programma di installazione dell'appliance StorageGRID, selezionare *Avanzate* &gt; *Riavvia controller*, quindi selezionare *Riavvia in StorageGRID*.</block>
@@ -3080,9 +3079,6 @@ StorageGRID scala le performance utilizzando nodi con performance più elevate p
   <block id="6286b2654fd9f607da0c9a689ef54e7c" category="list-text">Inserisci le informazioni del bucket - arn:aws:S3:::example_bucket,arn:aws:S3:::example_bucket/*</block>
   <block id="8e42358c3df8a569be04cad92e8b7479" category="paragraph"><block ref="8e42358c3df8a569be04cad92e8b7479" category="inline-image-macro-rx" type="image"></block></block>
   <block id="e73b44d49494e2ac6f4ce555878eacec" category="paragraph">Il *effetto* sarà quello di consentire o negare la richiesta.</block>
-  <block id="e3d361dfeb32442ba3887fb26cadd759" category="paragraph">Il *Principal*</block>
-  <block id="7c8bff59dd5d9771fc52f17ce6414420" category="list-text">Valido solo per le politiche bucket.</block>
-  <block id="4a47dee52461b2ce5adaefbba5fc57b0" category="list-text">L'entità è costituita dagli account/utenti ai quali vengono concesse o negate le autorizzazioni.</block>
   <block id="7b0fef71a6a5b6046a79dcb31b7991ec" category="list-text">Può essere definito come:</block>
   <block id="cdecd059c81b66125ab436ad5ba1f0db" category="list-text">Un carattere jolly "++*++"</block>
   <block id="171a87df01e0c7aab0969853c4d63f99" category="list-text">Un ID tenant per tutti gli utenti in un tenant (equivalente all'account AWS)</block>
@@ -3449,4 +3445,14 @@ StorageGRID scala le performance utilizzando nodi con performance più elevate p
   <block id="752f1428ccb77ac410289e9262b0f4bf" category="inline-link">Modelli Grok</block>
   <block id="dfa155e02e6c42536eddd788adeb1c4b" category="list-text"><block ref="dfa155e02e6c42536eddd788adeb1c4b" category="inline-link-rx"></block></block>
   <block id="84a0efed1747839817563f400c91817f" category="list-text">Controlla la <block ref="fcf7e9838328c10505637416c290aabd" category="inline-link-rx"></block> per la versione di JDK supportata.</block>
+  <block id="21dbdbd408dc522ecd721e90c94e9967" category="paragraph">Il *Principal*:</block>
+  <block id="9acd284dbac66e7a5cc77ba3fa4c2c0e" category="list-text">Si applica solo alle bucket policy</block>
+  <block id="061ca9ee2cc478226335cb4781f7e748" category="list-text">Il principal è l'account/gli account/gli utenti a cui vengono concesse o negate le autorizzazioni</block>
+  <block id="c29108426bf99e785055bc2e1d798efd" category="paragraph"><block ref="6c9750b480cd2664d899f8d80fda410e" prefix="" category="inline-code"></block>corrisponde a tutti, comprese le richieste anonime (non firmate)</block>
+  <block id="a45bf7d8bfe94f3161df646dd349474b" category="paragraph"><block ref="2397070036b52932d72a0d05561ff357" prefix="" category="inline-code"></block>corrisponde a qualsiasi identità o utente autenticato (non corrisponde alle richieste anonime)</block>
+  <block id="162795027699751a53c17a76654ff03a" category="list-text">Connettiti all'appliance tramite SSH e arresta il nodo utilizzando il comando 'shutdown -h now'.</block>
+  <block id="524b3666d2b57a265288b4605c4f63dd" category="summary">Soluzioni di terze parti validate per StorageGRID 12.1</block>
+  <block id="0abd84cfb134f23ccdf2dace5cdafdf0" category="paragraph">Le seguenti soluzioni di terze parti sono state validate per l'utilizzo con StorageGRID 12.1. + Se la soluzione che stai cercando non è presente nell'elenco, contatta il tuo NetApp account representative.</block>
+  <block id="f480816d606925917374f2fbcc635e8f" category="list-text">Hashicorp Vault 1.21.1</block>
+  <block id="8f58f72ce7022a4fdfe329ca00a2e451" category="list-text">Thales CipherTrust Manager 2.21</block>
 </blocks>

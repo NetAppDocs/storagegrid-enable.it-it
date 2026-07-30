@@ -29,23 +29,19 @@ Tutti i criteri definiscono l'effetto, le azioni e le risorse. I criteri bucket 
 
 Il *effetto* sarà quello di consentire o negare la richiesta.
 
-Il *Principal*
+Il *Principal*:
 
-* Valido solo per le politiche bucket.
-* L'entità è costituita dagli account/utenti ai quali vengono concesse o negate le autorizzazioni.
+* Si applica solo alle bucket policy
+* Il principal è l'account/gli account/gli utenti a cui vengono concesse o negate le autorizzazioni
 * Può essere definito come:
 +
 ** Un carattere jolly "++*++"
 +
-[listing]
-----
-"Principal":"*"
-----
+`"Principal": "*"`corrisponde a tutti, comprese le richieste anonime (non firmate)
+
 +
-[listing]
-----
-"Principal":{"AWS":"*"}
-----
+`"Principal": { "AWS": "*" }`corrisponde a qualsiasi identità o utente autenticato (non corrisponde alle richieste anonime)
+
 ** Un ID tenant per tutti gli utenti in un tenant (equivalente all'account AWS)
 +
 [listing]
