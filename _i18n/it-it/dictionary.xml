@@ -3455,4 +3455,5 @@ StorageGRID scala le performance utilizzando nodi con performance più elevate p
   <block id="0abd84cfb134f23ccdf2dace5cdafdf0" category="paragraph">Le seguenti soluzioni di terze parti sono state validate per l'utilizzo con StorageGRID 12.1. + Se la soluzione che stai cercando non è presente nell'elenco, contatta il tuo NetApp account representative.</block>
   <block id="f480816d606925917374f2fbcc635e8f" category="list-text">Hashicorp Vault 1.21.1</block>
   <block id="8f58f72ce7022a4fdfe329ca00a2e451" category="list-text">Thales CipherTrust Manager 2.21</block>
+  <block id="b0ff3f641f5c47519d662ddd7719ff87" category="sidebar">StorageGRID 12.1</block>
 </blocks>
