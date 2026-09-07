@@ -8,7 +8,7 @@ summary: La documentazione completa per ciascuna release di NetApp StorageGRID Ã
 :hardbreaks:
 :allow-uri-read: 
 :icons: font
-:imagesdir: ../media/
+:imagesdir: ./media/
 
 
 [role="lead"]
