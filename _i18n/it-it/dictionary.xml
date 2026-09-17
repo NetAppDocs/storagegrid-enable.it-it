@@ -3457,4 +3457,5 @@ StorageGRID scala le performance utilizzando nodi con performance più elevate p
   <block id="8f58f72ce7022a4fdfe329ca00a2e451" category="list-text">Thales CipherTrust Manager 2.21</block>
   <block id="b0ff3f641f5c47519d662ddd7719ff87" category="sidebar">StorageGRID 12.1</block>
   <block id="147e111488eb55eac75032941f65577f" category="list-text">WEKA v3.10 o versioni successive</block>
+  <block id="7408450fc527ea7cf95ee02a041a379b" category="paragraph">L'analisi dei big data è uno dei casi d'uso più comuni per i data lake basati su storage a oggetti. Quando scegli una piattaforma di analisi, capire come le tecnologie di data warehouse e lakehouse interagiscono con lo storage a oggetti S3 può aiutarti a ottimizzare prestazioni, scalabilità ed efficienza operativa. StorageGRID offre storage a oggetti compatibile S3 per carichi di lavoro analitici, incluse piattaforme come Apache Spark, Dremio, Trino e Starburst.</block>
 </blocks>

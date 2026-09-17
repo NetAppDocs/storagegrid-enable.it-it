@@ -11,6 +11,9 @@ summary: Questo report riguarda le analisi dei big data su StorageGRID.
 :imagesdir: ../media/
 
 
+[role="lead"]
+L'analisi dei big data è uno dei casi d'uso più comuni per i data lake basati su storage a oggetti. Quando scegli una piattaforma di analisi, capire come le tecnologie di data warehouse e lakehouse interagiscono con lo storage a oggetti S3 può aiutarti a ottimizzare prestazioni, scalabilità ed efficienza operativa. StorageGRID offre storage a oggetti compatibile S3 per carichi di lavoro analitici, incluse piattaforme come Apache Spark, Dremio, Trino e Starburst.
+
 
 
 [[netapp-storagegrid-use-cases]]
