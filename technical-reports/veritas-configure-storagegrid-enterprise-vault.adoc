@@ -37,8 +37,8 @@ NOTE: Per lo storage WORM (blocco degli oggetti), è richiesto Enterprise Vault 
 * Sono stati creati gruppi di archivi del vault e un archivio del vault. Per ulteriori informazioni, vedere veritas Enterprise Vault Administration Guide.
 * Sono stati creati tenant StorageGRID, chiave di accesso, chiave segreta e bucket.
 * È stato creato un endpoint di bilanciamento del carico StorageGRID (HTTP o HTTPS).
-* Se si utilizza un certificato autofirmato, aggiungere il certificato CA autofirmato StorageGRID ai server di Enterprise Vault. Per ulteriori informazioni, vedere questo https://www.veritas.com/support/en_US/article.100049744["Articolo della veritas Knowledge base"^].
-* Aggiornare e applicare il file di configurazione del vault Enterprise più recente per abilitare le soluzioni di storage supportate, come NetApp StorageGRID. Per ulteriori informazioni, vedere questo https://www.veritas.com/content/support/en_US/article.100039174["Articolo della veritas Knowledge base"^].
+* Se utilizzi un certificato autofirmato, aggiungi il certificato CA autofirmato di StorageGRID ai server Enterprise Vault. Per ulteriori informazioni, consulta questo https://supportenterprisevault.cloud.com/support-home/kbsearch/article?articleNumber=100049744["Articolo della veritas Knowledge base"^].
+* Aggiorna e applica il file di configurazione più recente di Enterprise Vault per abilitare soluzioni di storage supportate come NetApp StorageGRID. Per ulteriori informazioni, consulta questo https://supportenterprisevault.cloud.com/support-home/kbsearch/article?articleNumber=100039174["Articolo della veritas Knowledge base"^].
 
 
 
