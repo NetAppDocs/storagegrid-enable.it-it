@@ -196,14 +196,17 @@ Per creare il database Eon on on on-premise, attenersi alla seguente procedura:
 L'elenco seguente fornisce una breve spiegazione degli argomenti utilizzati in questo esempio. Consultare il documento Vertica per una spiegazione dettagliata di tutti gli argomenti richiesti e facoltativi.
 
 +
-** -x <path/filename of authorization file created in <<createauthorization,"Creazione di un file di autorizzazione per accedere all'endpoint S3">> >.
+** `-x <path/filename of authorization file>`
++
+Per i dettagli sul file di autorizzazione, consulta <<createauthorization,Creazione di un file di autorizzazione per accedere all'endpoint S3>>.
+
 +
 I dettagli dell'autorizzazione vengono memorizzati all'interno del database dopo la creazione. È possibile rimuovere questo file per evitare di esporre la chiave segreta S3.
 
-** --communal-storage-location <s3://storagegrid bucketname>
-** -S <comma-separated list of Vertica nodes to be used for this database>
-** -d <name of database to be created>
-** -p <password to be set for this new database>. Ad esempio, vedere il seguente comando di esempio:
+** `--communal-storage-location <s3://storagegrid bucketname>`
+** `-s <comma-separated list of Vertica nodes to be used for this database>`
+** `-d <name of database to be created>`
+** `-p <password to be set for this new database>` Ad esempio, consulta il seguente comando di esempio:
 +
 [listing]
 ----
